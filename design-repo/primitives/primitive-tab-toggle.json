@@ -1,0 +1,87 @@
+{
+  "id": "primitive.tab-toggle",
+  "kind": "primitive",
+  "purpose": "Segmented control with a sliding filled pill under the active/hovered tab. Real instance: the Type / Country switch of the pricing payment-method table.",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "tabs",
+      "activeIndex"
+    ],
+    "properties": {
+      "tabs": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+          "type": "string",
+          "maxWords": 1,
+          "note": "Measured labels: Type, Country (1 word each). Only 2 tabs exist in the source."
+        }
+      },
+      "activeIndex": {
+        "type": "integer",
+        "enum": [
+          0,
+          1
+        ]
+      }
+    }
+  },
+  "states": {
+    "hover": "pill slides to hovered tab (200ms); mouse-out returns to active after 200ms",
+    "active": "label colour switches to offWhite over the filled pill",
+    "narrow-viewport": "below 700px (breakpoint.js-pricing-narrow) tabs scroll horizontally with scroll-snap and the active tab is centred"
+  },
+  "tokens": [
+    "radius.md",
+    "radius.mdu",
+    "type.ui-label",
+    "color.offWhite",
+    "breakpoint.js-pricing-narrow",
+    "motion.transition.duration-200",
+    "icon-size.button-lg"
+  ],
+  "motion": {
+    "pattern": "sliding-pill",
+    "duration": "motion.transition.duration-200",
+    "easing": "motion.easing.in-out",
+    "reducedMotionFallback": "Design rule (no prefers-reduced-motion in the site): move the pill instantly (no width/translate transition)."
+  },
+  "responsive": {
+    "below700px": "container h-buttonLg, overflow-auto, snap-x mandatory, gap-5 between tabs, tabs px-4, rounded-mdu",
+    "from800px": "container md:h-7, md:w-fit, tabs md:px-3 md:rounded-md, md:gap-1"
+  },
+  "assetRoles": [],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract",
+    "copy": "none"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-tab-shell",
+      "source": "src/lib/pricing/PaymentMethodTable.jsx:90-90",
+      "quote": "'md:h-7 p-[3px] border border-current rounded-md md:w-fit'"
+    },
+    {
+      "id": "cit-p2-tab-pill",
+      "source": "src/lib/pricing/PaymentMethodTable.jsx:93-93",
+      "quote": "'absolute left-0 top-0 h-full bg-current rounded-md transition-all duration-200'"
+    },
+    {
+      "id": "cit-p2-tab-hover",
+      "source": "src/lib/pricing/PaymentMethodTable.jsx:12-12",
+      "quote": "Hover moves the pill to the hovered button; mouse-out snaps back to the active tab after 200ms."
+    },
+    {
+      "id": "cit-p2-tab-default",
+      "source": "src/lib/pricing/PaymentMethodTable.jsx:192-192",
+      "quote": "{ label: 'Type', href: '#' },"
+    },
+    {
+      "id": "cit-p2-tab-mobile",
+      "source": "src/lib/pricing/PaymentMethodTable.jsx:49-49",
+      "quote": "window.innerWidth < 700"
+    }
+  ]
+}

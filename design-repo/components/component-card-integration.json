@@ -1,0 +1,71 @@
+{
+  "id": "component.card-integration",
+  "kind": "component",
+  "purpose": "Image-topped comparison card (three integration options on /product/codapay/).",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "assetRole",
+      "assetRef",
+      "title",
+      "body"
+    ],
+    "properties": {
+      "assetRole": {
+        "type": "string",
+        "enum": [
+          "section-product-mockup"
+        ]
+      },
+      "assetRef": {
+        "type": "string",
+        "format": "local-asset-path"
+      },
+      "title": {
+        "type": "string",
+        "maxWords": 5,
+        "note": "Measured 4 words each."
+      },
+      "body": {
+        "type": "string",
+        "maxWords": 22,
+        "note": "BODY COPY, level c, measured 14-22 words."
+      }
+    }
+  },
+  "tokens": [
+    "type.header-s",
+    "body.card",
+    "layout.grid-gap.card",
+    "radius.card"
+  ],
+  "motion": {
+    "pattern": "reveal-stagger",
+    "duration": "motion.reveal.duration",
+    "easing": "motion.reveal.easing",
+    "delayStep": "motion.reveal.stagger-step",
+    "delayRule": "card i (1-based) has inline transitionDelay (i)*50ms, measured 50ms..300ms on cards",
+    "reducedMotionFallback": "Design rule (site has no prefers-reduced-motion handling): show cards at final opacity/position with no stagger delay."
+  },
+  "responsive": {
+    "grid": "1 col below 800px; md:grid-cols-3 from 800px",
+    "gap": "gap-3 below 800px, gap-2 from 800px"
+  },
+  "assetRoles": [
+    "section-product-mockup"
+  ],
+  "usedBy": [
+    "section.integration-comparison"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract",
+    "copy": "c (original copy) - only one page uses it"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-card-integ",
+      "source": "src/pages/ProductCodapayPage.jsx:9-9",
+      "quote": "integration-comparison-inner-card w-full h-full text-pretty"
+    }
+  ]
+}

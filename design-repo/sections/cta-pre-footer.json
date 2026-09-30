@@ -1,0 +1,191 @@
+{
+  "id": "cta.pre-footer",
+  "kind": "section",
+  "category": "cta",
+  "content": {
+    "type": "object",
+    "required": [
+      "heading",
+      "buttons"
+    ],
+    "properties": {
+      "heading": {
+        "type": "string",
+        "maxWords": 8,
+        "note": "Measured 4-8 words; home is two short lines (\"...?\" / \"We're ready to go\"). Level a on /, b on giftcloud/distribution/consumer/pricing (real), c elsewhere."
+      },
+      "buttons": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 2,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "label": {
+              "type": "string",
+              "maxWords": 3
+            },
+            "style": {
+              "type": "string",
+              "enum": [
+                "grey",
+                "glass-white"
+              ]
+            },
+            "href": {
+              "type": "string",
+              "format": "route-or-inert-hash"
+            }
+          },
+          "required": [
+            "label",
+            "style"
+          ]
+        },
+        "note": "Measured labels: Contact sales, Get started, Get in touch (2-3 words)."
+      }
+    },
+    "additionalProperties": false,
+    "maxWordsTotal": 14
+  },
+  "usedOn": [
+    "/",
+    "/product/codapay/",
+    "/product/coda-links/",
+    "/product/coda-webstore/",
+    "/product/distribution/",
+    "/product/coda-consumer-platforms/",
+    "/product/coda-giftcloud/",
+    "/industries/creator-economy-payments/",
+    "/industries/dating-app-payments/",
+    "/industries/digital-entertainment/",
+    "/industries/esim-digital-utility-payments/",
+    "/industries/learning-management-system-payments/",
+    "/industries/online-gaming-payments/",
+    "/use-case/merchant-of-record/",
+    "/pricing/"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); copy evidence per route below",
+    "copy": {
+      "a-exact": [
+        "/"
+      ],
+      "b-real-saved-copy": [
+        "/product/coda-links/",
+        "/product/coda-giftcloud/",
+        "/product/distribution/",
+        "/product/coda-consumer-platforms/",
+        "/pricing/"
+      ],
+      "c-original-slot-sized": [
+        "/product/codapay/",
+        "/product/coda-webstore/",
+        "/industries/creator-economy-payments/",
+        "/industries/dating-app-payments/",
+        "/industries/digital-entertainment/",
+        "/industries/esim-digital-utility-payments/",
+        "/industries/learning-management-system-payments/",
+        "/industries/online-gaming-payments/",
+        "/use-case/merchant-of-record/"
+      ]
+    }
+  },
+  "purpose": "Closing call-to-action band immediately above the footer.",
+  "variants": {
+    "two-button": {
+      "routes": [
+        "/",
+        "/industries/creator-economy-payments/",
+        "/industries/dating-app-payments/",
+        "/industries/digital-entertainment/",
+        "/industries/esim-digital-utility-payments/",
+        "/industries/learning-management-system-payments/",
+        "/industries/online-gaming-payments/",
+        "/use-case/merchant-of-record/"
+      ],
+      "buttons": "glass-white \"Contact sales\" + grey \"Get started\""
+    },
+    "one-button": {
+      "routes": [
+        "/pricing/",
+        "/product/codapay/",
+        "/product/coda-links/",
+        "/product/coda-webstore/",
+        "/product/distribution/",
+        "/product/coda-consumer-platforms/",
+        "/product/coda-giftcloud/"
+      ],
+      "buttons": "single grey button (giftcloud label: Get in touch)"
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "maxPerPage": 1,
+    "mustBeLast": true,
+    "mustPrecedeFooter": true,
+    "verification": "Checked: on all 15 routes pre-footer is the last section of the page root; the shared Footer follows it. On 13 routes it directly follows spacer; on / it follows press-carousel and on giftcloud it follows card-carousel (giftcloud has no faq/spacer)."
+  },
+  "media": {},
+  "motion": {
+    "pattern": "reveal",
+    "reveals": [
+      {
+        "element": "pre-footer root",
+        "slide": false,
+        "duration": "motion.reveal.duration"
+      }
+    ],
+    "reducedMotionFallback": "Render at final opacity, no fade.",
+    "reducedMotionFallbackKind": "design-rule (the site ships no prefers-reduced-motion handling, so this is prescribed, not mirrored)"
+  },
+  "responsive": {
+    "breakpoint": "800px",
+    "heading": "type-title-xs below 800px, type-title-l from 800px",
+    "buttons": "wrap (flex-wrap) and centre",
+    "shape": "rounded-t-md, -mb-8 overlap with footer at all widths"
+  },
+  "tokens": [
+    "component.themed-block.dark",
+    "type.title-xs",
+    "type.title-l",
+    "radius.md",
+    "component.button.glass-white.bg",
+    "component.button.grey.bg",
+    "spacing.7",
+    "spacing.10",
+    "motion.reveal.duration"
+  ],
+  "composes": [
+    "primitive.button"
+  ],
+  "bodyCopyFields": [],
+  "measuredFrom": [
+    {
+      "id": "cit-p2-pf-root",
+      "source": "src/components/PreFooter.jsx:4-4",
+      "quote": "pre-footer flex w-full gap-8 mt-9 px-6 pt-7 pb-10 bg-charcoal text-white rounded-t-md -mb-8"
+    },
+    {
+      "id": "cit-p2-pf-h2",
+      "source": "src/components/PreFooter.jsx:4-4",
+      "quote": "type-title-xs md:type-title-l text-balance text-center my-2"
+    },
+    {
+      "id": "cit-p2-pf-btn-glass",
+      "source": "src/components/PreFooter.jsx:4-4",
+      "quote": "is-style-glass-white"
+    },
+    {
+      "id": "cit-p2-pf-one",
+      "source": "src/pages/PricingPage.jsx:6-6",
+      "quote": "pre-footer flex w-full gap-8 mt-9 px-6 pt-7 pb-10 bg-charcoal text-white rounded-t-md -mb-8"
+    },
+    {
+      "id": "cit-p2-pf-last",
+      "source": "src/components/Main.jsx:20-20",
+      "quote": "<PreFooter />"
+    }
+  ]
+}

@@ -1,0 +1,281 @@
+{
+  "id": "table.payment-method",
+  "kind": "section",
+  "category": "table",
+  "content": {
+    "type": "object",
+    "required": [
+      "heading",
+      "cta",
+      "typeRows",
+      "countryRows"
+    ],
+    "properties": {
+      "heading": {
+        "type": "string",
+        "maxWords": 5,
+        "note": "Measured 4 words"
+      },
+      "cta": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "text": {
+            "type": "string",
+            "maxWords": 8
+          },
+          "button": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "label": {
+                "type": "string",
+                "maxWords": 2
+              },
+              "style": {
+                "type": "string",
+                "enum": [
+                  "black"
+                ]
+              },
+              "href": {
+                "type": "string",
+                "format": "route-or-inert-hash"
+              }
+            },
+            "required": [
+              "label",
+              "style"
+            ]
+          }
+        },
+        "required": [
+          "text",
+          "button"
+        ]
+      },
+      "tabs": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+          "type": "string",
+          "maxWords": 1
+        },
+        "note": "Type, Country"
+      },
+      "typeRows": {
+        "type": "array",
+        "minItems": 6,
+        "maxItems": 6,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "label": {
+              "type": "string",
+              "maxWords": 2
+            },
+            "logos": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 17,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "assetRole": {
+                    "type": "string",
+                    "enum": [
+                      "payment-method-logo"
+                    ]
+                  },
+                  "assetRef": {
+                    "type": "string",
+                    "format": "local-asset-path"
+                  }
+                },
+                "required": [
+                  "assetRole",
+                  "assetRef"
+                ]
+              }
+            }
+          },
+          "required": [
+            "label",
+            "logos"
+          ]
+        },
+        "note": "Exactly 6 rows (12,17,6,5,6,3 logos)"
+      },
+      "countryRows": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 49,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string",
+              "maxWords": 2
+            },
+            "flag": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "assetRole": {
+                  "type": "string",
+                  "enum": [
+                    "country-flag"
+                  ]
+                },
+                "assetRef": {
+                  "type": "string",
+                  "format": "local-asset-path"
+                }
+              },
+              "required": [
+                "assetRole",
+                "assetRef"
+              ]
+            },
+            "logos": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 11,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "assetRole": {
+                    "type": "string",
+                    "enum": [
+                      "payment-method-logo"
+                    ]
+                  },
+                  "assetRef": {
+                    "type": "string",
+                    "format": "local-asset-path"
+                  }
+                },
+                "required": [
+                  "assetRole",
+                  "assetRef"
+                ]
+              }
+            }
+          },
+          "required": [
+            "name",
+            "flag",
+            "logos"
+          ]
+        },
+        "note": "49 rows in the source snapshot; each has 1-11 logos"
+      }
+    },
+    "additionalProperties": false,
+    "maxWordsTotal": 127
+  },
+  "usedOn": [
+    "/pricing/"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); copy evidence per route below",
+    "copy": {
+      "b-real-saved-copy": [
+        "/pricing/"
+      ]
+    }
+  },
+  "purpose": "Interactive table of payment methods: Type tab (6 rows of logos) and Country tab (49 countries with flags, searchable), under a bridge with a CTA bar.",
+  "bodyCopyFields": [],
+  "variants": {},
+  "constraints": {
+    "onePerPage": true,
+    "maxPerPage": 1,
+    "verification": "Checked: exists only on /pricing/, directly after price-stack and before faq."
+  },
+  "media": {
+    "method-logo": {
+      "assetRole": [
+        "payment-method-logo"
+      ],
+      "note": "49 in the Type table, 170 references / 79 distinct files in the Country table"
+    },
+    "flag": {
+      "assetRole": [
+        "country-flag"
+      ],
+      "count": 49
+    }
+  },
+  "motion": {
+    "pattern": "sliding-pill",
+    "reveals": [
+      {
+        "element": "section-bridge and cta"
+      }
+    ],
+    "interaction": {
+      "tabPill": "200ms transition-all sliding pill",
+      "filter": "instant DOM show/hide by country text, case-insensitive"
+    },
+    "reducedMotionFallback": "Tab pill moves instantly; no reveal fade.",
+    "reducedMotionFallbackKind": "design-rule (the site ships no prefers-reduced-motion handling, so this is prescribed, not mirrored)"
+  },
+  "responsive": {
+    "breakpoint": "800px, plus a JS threshold at 700px",
+    "tabs": "below 700px: scrollable snap tabs (h-buttonLg), input 16px; from 800px: 28px tall segmented control",
+    "table": "md:-mt-[4em] pulls the table up beside the tabs on desktop; logos have mr-2 on mobile, md:ml-2 on desktop"
+  },
+  "tokens": [
+    "spacing.paymentTypeH",
+    "breakpoint.js-pricing-narrow",
+    "radius.md",
+    "type.ui-label",
+    "type.header-l",
+    "motion.transition.duration-200"
+  ],
+  "composes": [
+    "component.section-bridge",
+    "component.cta-bar",
+    "primitive.tab-toggle",
+    "primitive.text-input",
+    "primitive.logo-tile"
+  ],
+  "measuredFrom": [
+    {
+      "id": "cit-p2-pmt-root",
+      "source": "src/pages/PricingPage.jsx:6-6",
+      "quote": "payment-method-table w-full my-9 max-w-blogPostVideoW block-padding mx-auto"
+    },
+    {
+      "id": "cit-p2-pmt-json",
+      "source": "src/lib/pricing/paymentGuideCountries.json:4-4",
+      "quote": "\"name\": \"USA\""
+    },
+    {
+      "id": "cit-p2-pmt-view",
+      "source": "src/lib/pricing/PaymentMethodTable.jsx:190-190",
+      "quote": "const [view, setView] = useState(1) // 1 = Type, 2 = Country"
+    },
+    {
+      "id": "cit-p2-pmt-typeh",
+      "source": "src/pages/PricingPage.jsx:6-6",
+      "quote": "<tr><td>{\"Cards\"}</td>"
+    },
+    {
+      "id": "cit-p2-pmt-narrow",
+      "source": "src/lib/pricing/PaymentMethodTable.jsx:49-49",
+      "quote": "window.innerWidth < 700"
+    },
+    {
+      "id": "cit-p2-pmt-height",
+      "source": "src/lib/pricing/PaymentMethodTable.jsx:227-227",
+      "quote": "[&_.wp-block-table_img]:h-paymentTypeH"
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "id": "bridge.section",
+  "kind": "section",
+  "category": "bridge",
+  "content": {
+    "type": "object",
+    "required": [
+      "heading"
+    ],
+    "properties": {
+      "heading": {
+        "type": "string",
+        "maxWords": 10,
+        "note": "Measured 3-9 words"
+      },
+      "description": {
+        "type": "string",
+        "maxWords": 14,
+        "bodyCopy": true,
+        "note": "Measured 5-14; absent on links and distribution"
+      }
+    },
+    "additionalProperties": false,
+    "maxWordsTotal": 24
+  },
+  "usedOn": [
+    "/product/coda-links/",
+    "/product/distribution/",
+    "/industries/creator-economy-payments/",
+    "/industries/dating-app-payments/",
+    "/industries/digital-entertainment/",
+    "/industries/esim-digital-utility-payments/",
+    "/industries/learning-management-system-payments/",
+    "/use-case/merchant-of-record/"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); copy evidence per route below",
+    "copy": {
+      "b-real-saved-copy": [
+        "/product/coda-links/",
+        "/product/distribution/"
+      ],
+      "c-original-slot-sized": [
+        "/industries/creator-economy-payments/",
+        "/industries/dating-app-payments/",
+        "/industries/digital-entertainment/",
+        "/industries/esim-digital-utility-payments/",
+        "/industries/learning-management-system-payments/",
+        "/use-case/merchant-of-record/"
+      ]
+    }
+  },
+  "purpose": "Standalone heading (+ optional short description) that introduces the run of feature-callouts.",
+  "bodyCopyFields": [
+    "description"
+  ],
+  "variants": {
+    "heading-only": {
+      "routes": [
+        "/product/coda-links/",
+        "/product/distribution/"
+      ]
+    },
+    "heading+description": {
+      "routes": [
+        "/industries/creator-economy-payments/",
+        "/industries/dating-app-payments/",
+        "/industries/digital-entertainment/",
+        "/industries/esim-digital-utility-payments/",
+        "/industries/learning-management-system-payments/",
+        "/industries/online-gaming-payments/",
+        "/use-case/merchant-of-record/"
+      ]
+    }
+  },
+  "constraints": {
+    "maxPerPage": 1,
+    "verification": "Checked: exactly one on 8 routes (six industries minus online-gaming, MoR, links, distribution). It always sits immediately before the first feature-callout run."
+  },
+  "media": {},
+  "motion": {
+    "pattern": "reveal",
+    "reveals": [
+      {
+        "element": "section-bridge"
+      }
+    ],
+    "reducedMotionFallback": "Render at final opacity.",
+    "reducedMotionFallbackKind": "design-rule (the site ships no prefers-reduced-motion handling, so this is prescribed, not mirrored)"
+  },
+  "responsive": {
+    "breakpoint": "800px",
+    "layout": "column -> row (50/50); block-padding on mobile only"
+  },
+  "tokens": [
+    "type.header-l",
+    "layout.grid-gap.bridge",
+    "layout.content.max-width"
+  ],
+  "composes": [
+    "component.section-bridge"
+  ],
+  "measuredFrom": [
+    {
+      "id": "cit-p2-sbs-root",
+      "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9",
+      "quote": "section-bridge flex flex-col md:flex-row w-full gap-3 md:gap-8 my-9 max-w-blogPostVideoW mx-auto"
+    },
+    {
+      "id": "cit-p2-sbs-pad",
+      "source": "src/components/Main.jsx:12-12",
+      "quote": "[&amp;_&gt;_.section-bridge]:block-padding"
+    }
+  ]
+}

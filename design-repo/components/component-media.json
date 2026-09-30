@@ -1,0 +1,118 @@
+{
+  "id": "component.media",
+  "kind": "component",
+  "purpose": "Content-agnostic image/video slot: <div class=\"inline-media\"> wrapping one or two .inline-media-item (mobile/desktop) with an inline aspect ratio. Holds a real product mockup, photo, or video.",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "assetRole",
+      "assetRef",
+      "aspectRatio"
+    ],
+    "properties": {
+      "assetRole": {
+        "type": "string",
+        "enum": [
+          "hero-product-mockup",
+          "section-product-mockup",
+          "product-card-mockup",
+          "carousel-thumbnail",
+          "world-map-illustration",
+          "ui-icon-image",
+          "hero-video",
+          "promo-video"
+        ]
+      },
+      "assetRef": {
+        "type": "string",
+        "note": "Existing local path only (public/images or public/video).",
+        "format": "local-asset-path"
+      },
+      "mobileAssetRef": {
+        "type": "string",
+        "note": "Optional second asset shown below 800px (md:hidden item).",
+        "format": "local-asset-path"
+      },
+      "aspectRatio": {
+        "type": "number",
+        "note": "Measured ratios in use: 2.2222 (hero/wide 20:9), 2.5197 (section wide), 0.976 (callout portrait), 1.7822/1.9603 (isolated-callout), 1.3943 (consumer dual card), 0.8 & 0.5368 (phone shots)."
+      },
+      "alt": {
+        "type": "string",
+        "maxWords": 6
+      }
+    }
+  },
+  "variants": {
+    "single": "one item at all widths",
+    "mobile-desktop-pair": "md:hidden + hidden md:block items with distinct assets and ratios",
+    "video": "16:9 frame with primitive.video-toggle"
+  },
+  "tokens": [
+    "component.media.radius",
+    "radius.card",
+    "layout.content.media-max-width"
+  ],
+  "motion": {
+    "pattern": "reveal-slide",
+    "translate": "motion.reveal.slide-offset",
+    "duration": "motion.reveal.duration",
+    "easing": "motion.reveal.easing",
+    "reducedMotionFallback": "Design rule (site has none): show at final position and opacity without translate."
+  },
+  "responsive": {
+    "switch": "mobile/desktop item pair swaps at 800px (md)",
+    "width": "w-maxContentW mx-auto; inside features/callout grids the media sits in a grid column"
+  },
+  "assetRoles": [
+    "hero-product-mockup",
+    "section-product-mockup",
+    "product-card-mockup",
+    "carousel-thumbnail",
+    "world-map-illustration",
+    "ui-icon-image",
+    "hero-video",
+    "promo-video"
+  ],
+  "generationPolicy": "Roles hero-product-mockup, section-product-mockup, product-card-mockup, carousel-thumbnail, hero-video are must-not-fabricate (real product UI / people); promo-video must-reuse-exact; world-map-illustration and ui-icon-image may-generate-new (assets/asset-roles.json).",
+  "usedBy": [
+    "section.hero",
+    "section.feature-callout",
+    "section.highlighted-mega",
+    "section.features-stack",
+    "section.isolated-callout",
+    "section.integration-comparison",
+    "section.page-tiles",
+    "section.card-carousel"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract",
+    "copy": "none"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-media-item",
+      "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9",
+      "quote": "aspect-[--aspectRatio] inline-media-item w-full rounded-md"
+    },
+    {
+      "id": "cit-p2-media-pair",
+      "source": "src/pages/ProductCodapayPage.jsx:9-9",
+      "quote": "inline-media-item w-full rounded-md md:hidden"
+    },
+    {
+      "id": "cit-p2-media-reveal",
+      "source": "src/pages/ProductCodapayPage.jsx:9-9",
+      "quote": "translate-y-7 inline-media flex w-maxContentW mx-auto"
+    },
+    {
+      "id": "cit-p2-media-css",
+      "source": "public/styles/coda-main.css:1-1",
+      "quote": ".\\[\\&_\\.feature-callout-inner_\\.inline-media-item\\]\\:\\!aspect-auto",
+      "charRange": [
+        201652,
+        201718
+      ]
+    }
+  ]
+}

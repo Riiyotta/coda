@@ -1,0 +1,74 @@
+{
+  "id": "primitive.text-link",
+  "kind": "primitive",
+  "purpose": "Inline text link with an arrow that slides in on hover (the feature-callout \"Learn more\" pattern) - also the accent link inside body copy of benefit cards (e.g. a 3-word inline link).",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "label"
+    ],
+    "properties": {
+      "label": {
+        "type": "string",
+        "maxWords": 3,
+        "note": "Measured: \"Learn more\" (2 words); inline links in codapay benefit copy are 3 words."
+      },
+      "href": {
+        "type": "string",
+        "note": "One of the 15 route paths or \"#\".",
+        "format": "route-or-inert-hash"
+      }
+    }
+  },
+  "variants": {
+    "arrow-on-hover": "feature-callout paragraph link (CSS .feature-callout-inner .wp-block-paragraph>a)",
+    "inline": "plain anchor inside a paragraph"
+  },
+  "states": {
+    "hover": "arrow width 0 -> 1.2em, opacity 0 -> 1, 300ms; when the whole card is .group-hovered the link radius becomes lg"
+  },
+  "tokens": [
+    "radius.lg",
+    "motion.transition.duration-300",
+    "motion.easing.in-out",
+    "font.mono"
+  ],
+  "motion": {
+    "pattern": "hover-arrow-shift",
+    "duration": "motion.transition.duration-300",
+    "reducedMotionFallback": "Design rule: show the arrow statically or not at all; do not animate width."
+  },
+  "responsive": {
+    "note": "No breakpoint-specific rule found in the CSS for this link; behaviour is hover-only (no hover on touch)."
+  },
+  "assetRoles": [],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract",
+    "copy": "none"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-textlink-css",
+      "source": "public/styles/coda-main.css:1-1",
+      "quote": ".feature-callout-inner .wp-block-paragraph>a{position:relative;display:flex;width:fit-content;transition-property:all",
+      "charRange": [
+        104889,
+        105006
+      ]
+    },
+    {
+      "id": "cit-p2-textlink-hover",
+      "source": "public/styles/coda-main.css:1-1",
+      "quote": ".feature-callout-inner .wp-block-paragraph>a:hover:before{width:1.2em;content:var(--tw-content);opacity:1}",
+      "charRange": [
+        105404,
+        105510
+      ]
+    },
+    {
+      "id": "cit-p2-textlink-jsx",
+      "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9",
+      "quote": "<a href=\"/product/codapay/\" title=\"Codapay\">{\"Learn more\"}</a>"
+    }
+  ]
+}

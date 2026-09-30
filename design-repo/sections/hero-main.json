@@ -1,0 +1,410 @@
+{
+  "id": "hero.main",
+  "kind": "section",
+  "category": "hero",
+  "content": {
+    "type": "object",
+    "required": [
+      "heading",
+      "body"
+    ],
+    "properties": {
+      "icons": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "glyph": {
+            "type": "string",
+            "enum": [
+              "inline-svg-glyph"
+            ]
+          },
+          "wordmark": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "assetRole": {
+                "type": "string",
+                "enum": [
+                  "inline-svg-wordmark"
+                ]
+              },
+              "accessibleLabel": {
+                "type": "string",
+                "maxWords": 2
+              }
+            },
+            "required": [
+              "assetRole"
+            ]
+          },
+          "tint": {
+            "type": "string",
+            "enum": [
+              "blue",
+              "green",
+              "pink",
+              "yellow",
+              "purple",
+              "orange"
+            ]
+          }
+        },
+        "required": [
+          "glyph"
+        ]
+      },
+      "heading": {
+        "type": "string",
+        "maxWords": 9,
+        "note": "Measured 2-8 words (h1 desktop text). Home/webstore/MoR carry two spans (desktop and mobile line breaks) with the same words."
+      },
+      "body": {
+        "type": "string",
+        "maxWords": 26,
+        "bodyCopy": true,
+        "note": "BODY COPY (budget from level-c slot lengths, measured 5-26 words; home is two sentences)."
+      },
+      "buttons": {
+        "type": "array",
+        "minItems": 0,
+        "maxItems": 2,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "label": {
+              "type": "string",
+              "maxWords": 4
+            },
+            "style": {
+              "type": "string",
+              "enum": [
+                "grey",
+                "black",
+                "glass-white"
+              ]
+            },
+            "href": {
+              "type": "string",
+              "format": "route-or-inert-hash"
+            }
+          },
+          "required": [
+            "label",
+            "style"
+          ]
+        }
+      },
+      "trustLabel": {
+        "type": "string",
+        "maxWords": 7,
+        "note": "\"Trusted by ...\" label, measured 5 words inner / 7 words home."
+      },
+      "trustLogos": {
+        "type": "array",
+        "minItems": 0,
+        "maxItems": 6,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "assetRole": {
+              "type": "string",
+              "enum": [
+                "partner-logo"
+              ]
+            },
+            "assetRef": {
+              "type": "string",
+              "format": "local-asset-path"
+            }
+          },
+          "required": [
+            "assetRole",
+            "assetRef"
+          ]
+        }
+      },
+      "media": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "assetRole": {
+            "type": "string",
+            "enum": [
+              "hero-video",
+              "promo-video",
+              "hero-product-mockup",
+              "section-product-mockup"
+            ]
+          },
+          "assetRef": {
+            "type": "string",
+            "format": "local-asset-path"
+          },
+          "mobileAssetRef": {
+            "type": "string",
+            "format": "local-asset-path"
+          }
+        },
+        "required": [
+          "assetRole",
+          "assetRef"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "maxWordsTotal": 52
+  },
+  "usedOn": [
+    "/",
+    "/product/codapay/",
+    "/product/coda-links/",
+    "/product/coda-webstore/",
+    "/product/distribution/",
+    "/product/coda-consumer-platforms/",
+    "/product/coda-giftcloud/",
+    "/industries/creator-economy-payments/",
+    "/industries/dating-app-payments/",
+    "/industries/digital-entertainment/",
+    "/industries/esim-digital-utility-payments/",
+    "/industries/learning-management-system-payments/",
+    "/industries/online-gaming-payments/",
+    "/use-case/merchant-of-record/",
+    "/pricing/"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); copy evidence per route below",
+    "copy": {
+      "a-exact": [
+        "/"
+      ],
+      "b-real-saved-copy": [
+        "/product/coda-links/",
+        "/product/coda-giftcloud/",
+        "/product/distribution/",
+        "/product/coda-consumer-platforms/",
+        "/pricing/"
+      ],
+      "c-original-slot-sized": [
+        "/product/codapay/",
+        "/product/coda-webstore/",
+        "/industries/creator-economy-payments/",
+        "/industries/dating-app-payments/",
+        "/industries/digital-entertainment/",
+        "/industries/esim-digital-utility-payments/",
+        "/industries/learning-management-system-payments/",
+        "/industries/online-gaming-payments/",
+        "/use-case/merchant-of-record/"
+      ]
+    }
+  },
+  "purpose": "Opening block of every route: optional product icon row, h1, one supporting paragraph, 0-2 buttons, an optional publisher-logo strip and one hero media (image, video or phone marquee).",
+  "bodyCopyFields": [
+    "body"
+  ],
+  "variants": {
+    "home-video": {
+      "routes": [
+        "/"
+      ],
+      "traits": "two-span h1, 2 buttons (grey+black), 6-logo marquee, InlineVideo"
+    },
+    "product-image": {
+      "routes": [
+        "/product/codapay/",
+        "/product/coda-links/",
+        "/product/distribution/"
+      ],
+      "traits": "icon+wordmark, 1-2 buttons, 5 logos, image (desktop 2.22 ratio)"
+    },
+    "industry-image": {
+      "routes": [
+        "/industries/creator-economy-payments/",
+        "/industries/dating-app-payments/",
+        "/industries/digital-entertainment/",
+        "/industries/esim-digital-utility-payments/",
+        "/industries/learning-management-system-payments/",
+        "/industries/online-gaming-payments/",
+        "/use-case/merchant-of-record/"
+      ],
+      "traits": "no icons, one black button, 5 logos, image; MoR uses the two-span hero-title"
+    },
+    "product-video": {
+      "routes": [
+        "/product/coda-webstore/"
+      ],
+      "traits": "icon+wordmark, hero-title two-span h1, 4-word button, 5 logos, promo video with toggle"
+    },
+    "product-marquee": {
+      "routes": [
+        "/product/coda-consumer-platforms/"
+      ],
+      "traits": "glyph + 2 wordmarks, one button, 5 logos, phone-shot marquee panel over desktop/mobile background"
+    },
+    "minimal-icon": {
+      "routes": [
+        "/product/coda-giftcloud/"
+      ],
+      "traits": "glyph, h1, p, wide image only (no buttons, no logos)"
+    },
+    "text-only": {
+      "routes": [
+        "/pricing/"
+      ],
+      "traits": "h1 + one line only"
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "maxPerPage": 1,
+    "mustBeFirst": true,
+    "mustFollowNav": true,
+    "noConsecutive": true,
+    "verification": "Checked against all 15 real sequences: hero is the first section on every route (src/components/Main.jsx and every src/pages/*.jsx)."
+  },
+  "media": {
+    "hero-video-slot": {
+      "assetRole": [
+        "hero-video",
+        "promo-video"
+      ],
+      "variants": [
+        "home-video",
+        "product-video"
+      ]
+    },
+    "hero-image-slot": {
+      "assetRole": [
+        "hero-product-mockup",
+        "section-product-mockup"
+      ],
+      "note": "desktop item aspect 2.2222 (20:9); some pages add a mobile item (0.976)"
+    },
+    "logo-strip": {
+      "assetRole": [
+        "partner-logo"
+      ],
+      "count": "5 (inner pages: hoyoverse, ea, riot, netease, moonton) or 6 (home: logo-slot1..6)"
+    },
+    "phone-marquee": {
+      "assetRole": [
+        "hero-product-mockup"
+      ],
+      "count": 4,
+      "aspectRatio": 0.5368
+    }
+  },
+  "motion": {
+    "pattern": "reveal-cascade",
+    "reveals": [
+      {
+        "element": "hero root",
+        "slide": false,
+        "duration": "motion.reveal.duration"
+      },
+      {
+        "element": "hero-title / block-p / inline-buttons / publisher-logos",
+        "slide": false,
+        "duration": "motion.reveal.duration"
+      },
+      {
+        "element": "inline-media",
+        "slide": true,
+        "offset": "motion.reveal.slide-offset"
+      },
+      {
+        "element": "icon slot 1 (wordmark)",
+        "delayMs": 50
+      }
+    ],
+    "revealMechanics": "src/lib/reveal.js swaps opacity-0/translate-y-7 for opacity-100/translate-y-0 at IntersectionObserver threshold 0.1, once",
+    "marquee": {
+      "speed": "motion.marquee.speed",
+      "playRule": "always on <800px or when logos>4; gradient edge only >=800px"
+    },
+    "video": "autoplay muted loop; toggle button swaps icon instantly",
+    "reducedMotionFallback": "Show all hero children at final state with no slide; freeze the logo marquee (paused) and start the hero video paused on its first frame with the toggle available.",
+    "reducedMotionFallbackKind": "design-rule (the site ships no prefers-reduced-motion handling, so this is prescribed, not mirrored)"
+  },
+  "responsive": {
+    "breakpoint": "800px (md)",
+    "h1": "type-header-3-xl below 800px -> type-header-4-xl from 800px; hero-title variants swap line breaks via hidden md:inline / md:hidden spans",
+    "trustRow": "column (label above marquee) below 800px, row from 800px (md:flex-row); marquee always plays on mobile",
+    "media": "mobile/desktop item pair on codapay-style pages (aspect 0.976 vs 2.22); consumer-platforms swaps 360/450 mobile background for 1280/576 desktop",
+    "buttons": "stay in one nowrap row at all widths"
+  },
+  "tokens": [
+    "heading.hero",
+    "type.header-3-xl",
+    "type.header-4-xl",
+    "type.body-m",
+    "type.ui-nav-s",
+    "text.subtle",
+    "component.button.black.bg",
+    "component.button.grey.bg",
+    "layout.section.margin-y",
+    "layout.content.max-width",
+    "layout.content.column-max-width",
+    "motion.reveal.duration",
+    "motion.reveal.slide-offset",
+    "motion.marquee.speed",
+    "breakpoint.md"
+  ],
+  "composes": [
+    "primitive.inline-icon",
+    "primitive.button",
+    "primitive.logo-tile",
+    "primitive.video-toggle",
+    "component.marquee",
+    "component.media"
+  ],
+  "measuredFrom": [
+    {
+      "id": "cit-p2-hero-root",
+      "source": "src/components/Hero.jsx:15-15",
+      "quote": "hero flex w-full flex-col gap-8 my-9"
+    },
+    {
+      "id": "cit-p2-hero-h1",
+      "source": "src/components/Hero.jsx:15-15",
+      "quote": "!type-header-3-xl md:!type-header-4-xl"
+    },
+    {
+      "id": "cit-p2-hero-span",
+      "source": "src/components/Hero.jsx:15-15",
+      "quote": "<span className=\"hidden md:inline\">{\"Digital commerce solutions \\nfor global growth\"}</span><span className=\"md:hidden\">"
+    },
+    {
+      "id": "cit-p2-hero-logos",
+      "source": "src/components/Hero.jsx:15-15",
+      "quote": "publisher-logos flex flex-col md:flex-row gap-5 items-center justify-center type-ui-nav-s"
+    },
+    {
+      "id": "cit-p2-hero-media",
+      "source": "src/components/Hero.jsx:15-15",
+      "quote": "translate-y-7 inline-media flex w-maxContentW mx-auto"
+    },
+    {
+      "id": "cit-p2-hero-video",
+      "source": "src/components/Hero.jsx:15-15",
+      "quote": "<InlineVideo src=\"/video/Coda-Website-Hero-Video-260826.mp4\""
+    },
+    {
+      "id": "cit-p2-hero-btns",
+      "source": "src/components/Hero.jsx:15-15",
+      "quote": "inline-buttons w-full flex gap-4 flex-nowrap items-center justify-center"
+    },
+    {
+      "id": "cit-p2-hero-mkt",
+      "source": "src/pages/ProductCodaConsumerPlatformsPage.jsx:9-9",
+      "quote": "hero-marquee flex w-maxContentW mx-auto flex-col gap-8 my-9"
+    },
+    {
+      "id": "cit-p2-hero-pricing",
+      "source": "src/pages/PricingPage.jsx:6-6",
+      "quote": "{\"Flexible pricing\"}"
+    }
+  ]
+}

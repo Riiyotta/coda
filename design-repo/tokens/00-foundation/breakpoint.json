@@ -1,0 +1,67 @@
+{
+  "$description": "Breakpoints. Names sm/md/lg/xl/2xl are this repo's labels; only md (800) and lg (1200) exist as Tailwind prefixes in the stylesheet.",
+  "tokens": {
+    "breakpoint.base": {
+      "$type": "dimension",
+      "$value": "0px",
+      "role": "mobile base",
+      "evidence": [
+        "cit-bp-mobile-menu"
+      ]
+    },
+    "breakpoint.sm": {
+      "$type": "dimension",
+      "$value": "600px",
+      "role": "token-scale step only (no utility prefix)",
+      "evidence": [
+        "cit-bp-media-600-1600-2000"
+      ]
+    },
+    "breakpoint.md": {
+      "$type": "dimension",
+      "$value": "800px",
+      "tailwindPrefix": "md:",
+      "role": "desktop layout switch and mobile-menu boundary",
+      "usage": 3824,
+      "evidence": [
+        "cit-bp-media-800",
+        "cit-bp-mobile-menu",
+        "cit-bp-marquee-narrow",
+        "cit-bp-md-usage"
+      ]
+    },
+    "breakpoint.lg": {
+      "$type": "dimension",
+      "$value": "1200px",
+      "tailwindPrefix": "lg:",
+      "role": "second fluid segment; only one lg: utility exists",
+      "evidence": [
+        "cit-bp-media-1200"
+      ]
+    },
+    "breakpoint.xl": {
+      "$type": "dimension",
+      "$value": "1600px",
+      "role": "token-scale freeze point (fixed 1.2x values)",
+      "evidence": [
+        "cit-bp-media-600-1600-2000"
+      ]
+    },
+    "breakpoint.2xl": {
+      "$type": "dimension",
+      "$value": "2000px",
+      "role": "grid container cap (--tw-grid-container: 2000px)",
+      "evidence": [
+        "cit-bp-media-600-1600-2000"
+      ]
+    },
+    "breakpoint.js-pricing-narrow": {
+      "$type": "dimension",
+      "$value": "700px",
+      "role": "JS-only threshold inside PaymentMethodTable",
+      "evidence": [
+        "cit-bp-pricing-700"
+      ]
+    }
+  }
+}

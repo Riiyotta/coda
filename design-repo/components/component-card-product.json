@@ -1,0 +1,176 @@
+{
+  "id": "component.card-product",
+  "kind": "component",
+  "purpose": "Homepage product tile: charcoal rounded panel with a background photo, corner arrow, product icon+wordmark, one short line, and a hover-driven media (marquee, replace or lift).",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "href",
+      "background",
+      "icon",
+      "description",
+      "media"
+    ],
+    "properties": {
+      "href": {
+        "type": "string",
+        "enum": [
+          "/product/coda-consumer-platforms/",
+          "/product/codapay/",
+          "/product/coda-links/",
+          "/product/coda-webstore/",
+          "/product/distribution/"
+        ]
+      },
+      "wide": {
+        "type": "boolean",
+        "note": "md:col-span-2 (3 of 5 cards on the homepage)"
+      },
+      "background": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "assetRole",
+          "assetRef"
+        ],
+        "properties": {
+          "assetRole": {
+            "type": "string",
+            "enum": [
+              "product-card-mockup"
+            ]
+          },
+          "assetRef": {
+            "type": "string",
+            "format": "local-asset-path"
+          }
+        }
+      },
+      "icon": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "glyph"
+        ],
+        "properties": {
+          "glyph": {
+            "type": "string",
+            "enum": [
+              "inline-svg-glyph"
+            ]
+          },
+          "wordmark": {
+            "type": "string",
+            "enum": [
+              "inline-svg-wordmark"
+            ]
+          }
+        }
+      },
+      "description": {
+        "type": "string",
+        "maxWords": 20,
+        "note": "BODY COPY: homepage exact (a) 12-20 words; budget 20."
+      },
+      "media": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "behaviour",
+          "assetRole"
+        ],
+        "properties": {
+          "behaviour": {
+            "type": "string",
+            "enum": [
+              "marquee",
+              "hover-up",
+              "hover-replace"
+            ]
+          },
+          "assetRole": {
+            "type": "string",
+            "enum": [
+              "product-card-mockup"
+            ]
+          },
+          "assetRefs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "local-asset-path"
+            }
+          }
+        }
+      }
+    }
+  },
+  "variants": {
+    "marquee": "consumer-platforms card (3 phone shots, two wrappers per breakpoint)",
+    "hover-up": "codapay card (image lifts 8px)",
+    "hover-replace": "links / webstore / distribution (base -> hover image crossfade, desktop only)"
+  },
+  "tokens": [
+    "radius.md",
+    "radius.xlu",
+    "color.charcoal",
+    "component.card.benefit.gap",
+    "motion.transition.duration-200",
+    "motion.transition.duration-300",
+    "icon-size.product-card-marquee-h",
+    "type.body-m",
+    "text.inverse"
+  ],
+  "motion": {
+    "pattern": "reveal-stagger",
+    "duration": "motion.reveal.duration",
+    "easing": "motion.reveal.easing",
+    "delayStep": "motion.reveal.stagger-step",
+    "reducedMotionFallback": "Design rule: drop hover crossfade/lift/radius growth; show the base state only.",
+    "hover": "radius md -> xlu; media crossfade 200ms (desktop only); arrow corner icon line fades in 300ms"
+  },
+  "responsive": {
+    "grid": "grid-cols-1 below 800px; md:grid-cols-2 from 800px with wide cards md:col-span-2",
+    "hover": "hover media effects apply only from 800px (group-hover:md:*)",
+    "marquee": "consumer card renders separate Marquee wrappers for md and mobile"
+  },
+  "assetRoles": [
+    "product-card-mockup",
+    "inline-svg-glyph",
+    "inline-svg-wordmark"
+  ],
+  "usedBy": [
+    "section.products-hightlight"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract",
+    "copy": "a-exact (homepage only; the products-hightlight section also appears on 5 inner pages)"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-pcard",
+      "source": "src/components/ProductsHighlight.jsx:10-10",
+      "quote": "products-highlight-inner-card w-full group md:col-span-2 md:w-full flex flex-col gap-4"
+    },
+    {
+      "id": "cit-p2-pcard-replace",
+      "source": "src/components/ProductsHighlight.jsx:10-10",
+      "quote": "group-hover:md:opacity-0 opacity-100 transition-opacity duration-200"
+    },
+    {
+      "id": "cit-p2-pcard-up",
+      "source": "src/components/ProductsHighlight.jsx:10-10",
+      "quote": "group-hover:-translate-y-2 transition-transform"
+    },
+    {
+      "id": "cit-p2-pcard-radius",
+      "source": "src/components/ProductsHighlight.jsx:10-10",
+      "quote": "md:group-hover:rounded-xlu"
+    },
+    {
+      "id": "cit-p2-pcard-delay",
+      "source": "src/components/ProductsHighlight.jsx:10-10",
+      "quote": "\"transitionDelay\": \"250ms\""
+    }
+  ]
+}

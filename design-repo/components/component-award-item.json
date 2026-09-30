@@ -1,0 +1,94 @@
+{
+  "id": "component.award-item",
+  "kind": "component",
+  "purpose": "Award card: award image (real third-party recognition), title, \"source, year\" line and a plain Learn more button that shifts on hover.",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "assetRole",
+      "assetRef",
+      "title",
+      "source"
+    ],
+    "properties": {
+      "assetRole": {
+        "type": "string",
+        "enum": [
+          "award-image"
+        ]
+      },
+      "assetRef": {
+        "type": "string",
+        "format": "local-asset-path"
+      },
+      "title": {
+        "type": "string",
+        "maxWords": 4,
+        "note": "Measured 3-4 words."
+      },
+      "source": {
+        "type": "string",
+        "maxWords": 4,
+        "note": "Publisher, year; measured 2-4 words."
+      },
+      "linkLabel": {
+        "type": "string",
+        "maxWords": 2
+      }
+    }
+  },
+  "tokens": [
+    "type.body-s",
+    "color.grey-2",
+    "motion.transition.duration-300"
+  ],
+  "motion": {
+    "pattern": "reveal-stagger",
+    "duration": "motion.reveal.duration",
+    "easing": "motion.reveal.easing",
+    "delayStep": "motion.reveal.stagger-step",
+    "reducedMotionFallback": "Design rule (site has no prefers-reduced-motion handling): show at final opacity/position with no stagger delay.",
+    "hover": "image translate-y one step (300ms); button translates .6em with arrow"
+  },
+  "responsive": {
+    "below800": "items wrap (flex-wrap), full width",
+    "from800": "four items in one row (md:flex-nowrap); arrow-button hover enabled"
+  },
+  "assetRoles": [
+    "award-image"
+  ],
+  "generationPolicy": "award-image is complianceCritical must-not-fabricate: existing files /images/1..4.avif only.",
+  "usedBy": [
+    "section.awards"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract",
+    "copy": "a-exact (homepage only)"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-award",
+      "source": "src/components/Awards.jsx:4-4",
+      "quote": "awards-item w-full flex flex-col gap-2"
+    },
+    {
+      "id": "cit-p2-award-h5",
+      "source": "src/components/Awards.jsx:4-4",
+      "quote": "<h5 className=\"wp-block-heading\">{\"Fintech Innovators Asia\"}</h5>"
+    },
+    {
+      "id": "cit-p2-award-arrow",
+      "source": "src/components/Awards.jsx:4-4",
+      "quote": "[&_.wp-block-button]:md:arrow-button md:arrow-button-group"
+    },
+    {
+      "id": "cit-p2-award-css",
+      "source": "public/styles/coda-main.css:1-1",
+      "quote": ".md\\:arrow-button-group:hover .wp-block-button{transform:translate(.6em)}",
+      "charRange": [
+        195017,
+        195090
+      ]
+    }
+  ]
+}

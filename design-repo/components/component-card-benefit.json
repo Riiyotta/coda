@@ -1,0 +1,107 @@
+{
+  "id": "component.card-benefit",
+  "kind": "component",
+  "purpose": "Grey panel card: icon glyph, h5 title and (usually) a short body paragraph. Used by benefits-stack (homepage and 14 inner-page instances) in 3-col or 2-col grids.",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "icon",
+      "title"
+    ],
+    "properties": {
+      "icon": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "assetRole"
+        ],
+        "properties": {
+          "assetRole": {
+            "type": "string",
+            "enum": [
+              "inline-svg-glyph"
+            ]
+          },
+          "tint": {
+            "type": "string",
+            "enum": [
+              "blue",
+              "green",
+              "pink",
+              "yellow",
+              "purple",
+              "orange",
+              "black"
+            ]
+          }
+        }
+      },
+      "title": {
+        "type": "string",
+        "maxWords": 7,
+        "note": "Measured 2-7 words."
+      },
+      "body": {
+        "type": "string",
+        "maxWords": 25,
+        "note": "BODY COPY, budget from level-c slot lengths: measured 7-25 words. Absent on the title-only variant (first benefits-stack on the six industry pages)."
+      }
+    }
+  },
+  "variants": {
+    "with-body": "icon + title + paragraph (all pages except industry first stack)",
+    "title-only": "icon + title (industry pages first stack, 3 cards)"
+  },
+  "tokens": [
+    "component.card.benefit.bg",
+    "component.card.benefit.radius",
+    "component.card.benefit.padding",
+    "component.card.benefit.gap",
+    "surface.card",
+    "radius.card",
+    "space.card-padding",
+    "space.card-gap",
+    "type.header-s",
+    "body.card",
+    "layout.grid-gap.card"
+  ],
+  "motion": {
+    "pattern": "reveal-stagger",
+    "duration": "motion.reveal.duration",
+    "easing": "motion.reveal.easing",
+    "delayStep": "motion.reveal.stagger-step",
+    "delayRule": "card i (1-based) has inline transitionDelay (i)*50ms, measured 50ms..300ms on cards",
+    "reducedMotionFallback": "Design rule (site has no prefers-reduced-motion handling): show cards at final opacity/position with no stagger delay."
+  },
+  "responsive": {
+    "grid": "grid-cols-1 below 800px; from 800px md:grid-cols-3 (or md:grid-cols-2 when the stack has 2 or 4 cards)"
+  },
+  "assetRoles": [
+    "inline-svg-glyph"
+  ],
+  "usedBy": [
+    "section.benefits-stack",
+    "section.highlighted-mega"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract",
+    "copy": "a-exact on /, b on 4 pages, c on 9 pages; budgets from measured lengths"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-card-benefit",
+      "source": "src/components/BenefitsStack.jsx:4-4",
+      "quote": "benefits-stack-inner-card w-full text-wrap rounded-md bg-grey-0 p-5 h-full"
+    },
+    {
+      "id": "cit-p2-card-benefit-delay",
+      "source": "src/components/BenefitsStack.jsx:4-4",
+      "quote": "\"transitionDelay\": \"50ms\""
+    },
+    {
+      "id": "cit-p2-card-benefit-h5",
+      "source": "src/components/BenefitsStack.jsx:4-4",
+      "quote": "<h5 className=\"wp-block-heading\">{\"Launch fast\"}</h5>"
+    }
+  ]
+}

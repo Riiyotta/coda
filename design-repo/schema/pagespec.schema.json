@@ -1,0 +1,3738 @@
+{
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "title": "Coda PageSpec",
+ "description": "A generated page: one of the closed templates, its route, and an ordered node list of section instances. There is deliberately NO per-instance token/style override field: styling is owned by section/component contracts. Non-standard keywords maxWords/maxWordsTotal are annotations enforced by schema/semantic_validate.py (word count = len(text.split())). Media use only local paths (no remote URLs) and the closed assetRole enum from assets/asset-roles.json. Generated from the section contracts by extraction/build_pagespec_schema.py.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "pageSpecVersion",
+  "template",
+  "route",
+  "nodes"
+ ],
+ "properties": {
+  "$schema": {
+   "type": "string"
+  },
+  "pageSpecVersion": {
+   "const": "1.0.0"
+  },
+  "template": {
+   "type": "string",
+   "enum": [
+    "home",
+    "pricing",
+    "product-codapay",
+    "product-links",
+    "product-webstore",
+    "product-distribution",
+    "product-consumer-platforms",
+    "product-giftcloud",
+    "solution-standard",
+    "solution-impact"
+   ]
+  },
+  "route": {
+   "type": "string",
+   "enum": [
+    "/",
+    "/industries/creator-economy-payments/",
+    "/industries/dating-app-payments/",
+    "/industries/digital-entertainment/",
+    "/industries/esim-digital-utility-payments/",
+    "/industries/learning-management-system-payments/",
+    "/industries/online-gaming-payments/",
+    "/pricing/",
+    "/product/coda-consumer-platforms/",
+    "/product/coda-giftcloud/",
+    "/product/coda-links/",
+    "/product/coda-webstore/",
+    "/product/codapay/",
+    "/product/distribution/",
+    "/use-case/merchant-of-record/"
+   ]
+  },
+  "nodes": {
+   "type": "array",
+   "minItems": 3,
+   "items": {
+    "$ref": "#/definitions/node"
+   }
+  }
+ },
+ "allOf": [
+  {
+   "if": {
+    "properties": {
+     "template": {
+      "const": "home"
+     }
+    },
+    "required": [
+     "template"
+    ]
+   },
+   "then": {
+    "properties": {
+     "route": {
+      "enum": [
+       "/"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "if": {
+    "properties": {
+     "template": {
+      "const": "pricing"
+     }
+    },
+    "required": [
+     "template"
+    ]
+   },
+   "then": {
+    "properties": {
+     "route": {
+      "enum": [
+       "/pricing/"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "if": {
+    "properties": {
+     "template": {
+      "const": "product-codapay"
+     }
+    },
+    "required": [
+     "template"
+    ]
+   },
+   "then": {
+    "properties": {
+     "route": {
+      "enum": [
+       "/product/codapay/"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "if": {
+    "properties": {
+     "template": {
+      "const": "product-links"
+     }
+    },
+    "required": [
+     "template"
+    ]
+   },
+   "then": {
+    "properties": {
+     "route": {
+      "enum": [
+       "/product/coda-links/"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "if": {
+    "properties": {
+     "template": {
+      "const": "product-webstore"
+     }
+    },
+    "required": [
+     "template"
+    ]
+   },
+   "then": {
+    "properties": {
+     "route": {
+      "enum": [
+       "/product/coda-webstore/"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "if": {
+    "properties": {
+     "template": {
+      "const": "product-distribution"
+     }
+    },
+    "required": [
+     "template"
+    ]
+   },
+   "then": {
+    "properties": {
+     "route": {
+      "enum": [
+       "/product/distribution/"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "if": {
+    "properties": {
+     "template": {
+      "const": "product-consumer-platforms"
+     }
+    },
+    "required": [
+     "template"
+    ]
+   },
+   "then": {
+    "properties": {
+     "route": {
+      "enum": [
+       "/product/coda-consumer-platforms/"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "if": {
+    "properties": {
+     "template": {
+      "const": "product-giftcloud"
+     }
+    },
+    "required": [
+     "template"
+    ]
+   },
+   "then": {
+    "properties": {
+     "route": {
+      "enum": [
+       "/product/coda-giftcloud/"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "if": {
+    "properties": {
+     "template": {
+      "const": "solution-standard"
+     }
+    },
+    "required": [
+     "template"
+    ]
+   },
+   "then": {
+    "properties": {
+     "route": {
+      "enum": [
+       "/industries/dating-app-payments/",
+       "/industries/digital-entertainment/",
+       "/industries/esim-digital-utility-payments/",
+       "/industries/learning-management-system-payments/",
+       "/use-case/merchant-of-record/"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "if": {
+    "properties": {
+     "template": {
+      "const": "solution-impact"
+     }
+    },
+    "required": [
+     "template"
+    ]
+   },
+   "then": {
+    "properties": {
+     "route": {
+      "enum": [
+       "/industries/creator-economy-payments/",
+       "/industries/online-gaming-payments/"
+      ]
+     }
+    }
+   }
+  }
+ ],
+ "definitions": {
+  "assetRole": {
+   "type": "string",
+   "enum": [
+    "hero-video",
+    "promo-video",
+    "partner-logo",
+    "press-logo",
+    "award-image",
+    "payment-method-logo",
+    "country-flag",
+    "world-map-illustration",
+    "hero-product-mockup",
+    "section-product-mockup",
+    "product-card-mockup",
+    "carousel-thumbnail",
+    "ui-icon-image",
+    "inline-svg-glyph",
+    "inline-svg-wordmark",
+    "coda-wordmark",
+    "favicon",
+    "brand-typeface-file"
+   ],
+   "description": "Closed enum from assets/asset-roles.json."
+  },
+  "motion": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "pattern",
+    "reducedMotionFallback"
+   ],
+   "description": "Closed to the fields real section contracts carry per instance: pattern (const-locked per section) and reducedMotionFallback. The contracts' reveals/interaction/marquee/video detail is owned by the section contract, not restated per instance.",
+   "properties": {
+    "pattern": {
+     "type": "string",
+     "enum": [
+      "accordion",
+      "continuous-scroll",
+      "hover-colour",
+      "lerp-carousel",
+      "none",
+      "reveal",
+      "reveal-cascade",
+      "reveal-slide",
+      "reveal-slide-stagger",
+      "reveal-stagger",
+      "scroll-hide + gsap-dropdown",
+      "sliding-pill"
+     ]
+    },
+    "reducedMotionFallback": {
+     "type": "string",
+     "minLength": 1,
+     "maxWords": 40,
+     "description": "REQUIRED. A design rule: the source site ships no prefers-reduced-motion handling, so this fallback is prescribed by the design-repo, not mirrored from Coda."
+    },
+    "reducedMotionFallbackKind": {
+     "type": "string",
+     "enum": [
+      "design-rule"
+     ]
+    }
+   }
+  },
+  "node": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "type",
+    "content",
+    "motion"
+   ],
+   "properties": {
+    "id": {
+     "type": "string",
+     "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "type": {
+     "type": "string",
+     "enum": [
+      "awards.recognition",
+      "benefits.stack",
+      "bridge.section",
+      "callout.feature",
+      "callout.isolated",
+      "carousel.cards",
+      "carousel.press",
+      "comparison.integration",
+      "cta.pre-footer",
+      "faq.accordion",
+      "features.grid",
+      "features.stack",
+      "hero.main",
+      "highlight.mega",
+      "impact.figures",
+      "metrics.band",
+      "pricing.price-stack",
+      "products.highlight",
+      "shell.footer",
+      "shell.navbar",
+      "spacer.footer-gap",
+      "table.payment-method",
+      "tiles.page"
+     ]
+    },
+    "variant": {
+     "type": "string"
+    },
+    "content": {
+     "type": "object"
+    },
+    "motion": {
+     "$ref": "#/definitions/motion"
+    }
+   },
+   "allOf": [
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "awards.recognition"
+       }
+      },
+      "required": [
+       "type"
+      ]
+     },
+     "then": {
+      "properties": {
+       "content": {
+        "type": "object",
+        "required": [
+         "heading",
+         "items"
+        ],
+        "properties": {
+         "heading": {
+          "type": "string",
+          "maxWords": 4,
+          "minLength": 1
+         },
+         "items": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+           "type": "object",
+           "additionalProperties": false,
+           "properties": {
+            "assetRole": {
+             "type": "string",
+             "allOf": [
+              {
+               "$ref": "#/definitions/assetRole"
+              },
+              {
+               "enum": [
+                "award-image"
+               ]
+              }
+             ]
+            },
+            "assetRef": {
+             "type": "string",
+             "format": "local-asset-path",
+             "pattern": "^/(?!/)(?!.*\\.\\.)[A-Za-z0-9._~@%+()/-]+$"
+            },
+            "title": {
+             "type": "string",
+             "maxWords": 4,
+             "minLength": 1
+            },
+            "source": {
+             "type": "string",
+             "maxWords": 4,
+             "minLength": 1
+            },
+            "linkLabel": {
+             "type": "string",
+             "maxWords": 2,
+             "minLength": 1
+            }
+           },
+           "required": [
+            "assetRole",
+            "assetRef",
+            "title",
+            "source"
+           ]
+          }
+         }
+        },
+        "additionalProperties": false,
+        "maxWordsTotal": 44
+       },
+       "motion": {
+        "properties": {
+         "pattern": {
+          "const": "reveal-stagger"
+         }
+        }
+       }
+      }
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "benefits.stack"
+       }
+      },
+      "required": [
+       "type"
+      ]
+     },
+     "then": {
+      "properties": {
+       "content": {
+        "type": "object",
+        "required": [
+         "heading",
+         "cards"
+        ],
+        "properties": {
+         "heading": {
+          "type": "string",
+          "maxWords": 10,
+          "minLength": 1
+         },
+         "description": {
+          "type": "string",
+          "maxWords": 13,
+          "minLength": 1
+         },
+         "cards": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 6,
+          "items": {
+           "type": "object",
+           "additionalProperties": false,
+           "properties": {
+            "icon": {
+             "type": "object",
+             "additionalProperties": false,
+             "properties": {
+              "assetRole": {
+               "type": "string",
+               "allOf": [
+                {
+                 "$ref": "#/definitions/assetRole"
+                },
+                {
+                 "enum": [
+                  "inline-svg-glyph"
+                 ]
+                }
+               ]
+              },
+              "tint": {
+               "type": "string",
+               "enum": [
+                "blue",
+                "green",
+                "pink",
+                "yellow",
+                "purple",
+                "orange",
+                "black"
+               ]
+              }
+             },
+             "required": [
+              "assetRole"
+             ]
+            },
+            "title": {
+             "type": "string",
+             "maxWords": 7,
+             "minLength": 1
+            },
+            "body": {
+             "type": "string",
+             "maxWords": 25,
+             "minLength": 1
+            }
+           },
+           "required": [
+            "icon",
+            "title"
+           ]
+          }
+         }
+        },
+        "additionalProperties": false,
+        "maxWordsTotal": 215
+       },
+       "motion": {
+        "properties": {
+         "pattern": {
+          "const": "reveal-stagger"
+         }
+        }
+       },
+       "variant": {
+        "enum": [
+         "title-only-3",
+         "cards-4-2col",
+         "cards-3",
+         "cards-6",
+         "cards-2"
+        ]
+       }
+      },
+      "required": [
+       "variant"
+      ]
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "bridge.section"
+       }
+      },
+      "required": [
+       "type"
+      ]
+     },
+     "then": {
+      "properties": {
+       "content": {
+        "type": "object",
+        "required": [
+         "heading"
+        ],
+        "properties": {
+         "heading": {
+          "type": "string",
+          "maxWords": 10,
+          "minLength": 1
+         },
+         "description": {
+          "type": "string",
+          "maxWords": 14,
+          "minLength": 1
+         }
+        },
+        "additionalProperties": false,
+        "maxWordsTotal": 24
+       },
+       "motion": {
+        "properties": {
+         "pattern": {
+          "const": "reveal"
+         }
+        }
+       },
+       "variant": {
+        "enum": [
+         "heading-only",
+         "heading+description"
+        ]
+       }
+      },
+      "required": [
+       "variant"
+      ]
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "callout.feature"
+       }
+      },
+      "required": [
+       "type"
+      ]
+     },
+     "then": {
+      "properties": {
+       "content": {
+        "oneOf": [
+         {
+          "type": "object",
+          "properties": {
+           "icon": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+             "glyph": {
+              "type": "string",
+              "enum": [
+               "inline-svg-glyph"
+              ]
+             },
+             "wordmark": {
+              "type": "string",
+              "enum": [
+               "inline-svg-wordmark"
+              ]
+             },
+             "tint": {
+              "type": "string",
+              "enum": [
+               "blue",
+               "green",
+               "pink",
+               "yellow",
+               "purple",
+               "orange"
+              ]
+             }
+            },
+            "required": [
+             "glyph"
+            ]
+           },
+           "heading": {
+            "type": "string",
+            "maxWords": 8,
+            "minLength": 1
+           },
+           "body": {
+            "type": "string",
+            "maxWords": 60,
+            "minLength": 1
+           },
+           "extraLines": {
+            "type": "array",
+            "minItems": 0,
+            "maxItems": 3,
+            "items": {
+             "type": "string",
+             "maxWords": 5,
+             "minLength": 1
+            }
+           },
+           "link": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+             "label": {
+              "type": "string",
+              "maxWords": 2,
+              "minLength": 1
+             },
+             "href": {
+              "type": "string",
+              "enum": [
+               "#",
+               "/",
+               "/industries/creator-economy-payments/",
+               "/industries/dating-app-payments/",
+               "/industries/digital-entertainment/",
+               "/industries/esim-digital-utility-payments/",
+               "/industries/learning-management-system-payments/",
+               "/industries/online-gaming-payments/",
+               "/pricing/",
+               "/product/coda-consumer-platforms/",
+               "/product/coda-giftcloud/",
+               "/product/coda-links/",
+               "/product/coda-webstore/",
+               "/product/codapay/",
+               "/product/distribution/",
+               "/use-case/merchant-of-record/"
+              ]
+             }
+            },
+            "required": [
+             "label"
+            ]
+           },
+           "media": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+             "assetRole": {
+              "type": "string",
+              "allOf": [
+               {
+                "$ref": "#/definitions/assetRole"
+               },
+               {
+                "enum": [
+                 "section-product-mockup"
+                ]
+               }
+              ]
+             },
+             "assetRef": {
+              "type": "string",
+              "format": "local-asset-path",
+              "pattern": "^/(?!/)(?!.*\\.\\.)[A-Za-z0-9._~@%+()/-]+$"
+             }
+            },
+            "required": [
+             "assetRole",
+             "assetRef"
+            ]
+           },
+           "mediaSide": {
+            "type": "string",
+            "enum": [
+             "left",
+             "right"
+            ]
+           }
+          },
+          "additionalProperties": false,
+          "maxWordsTotal": 205,
+          "required": [
+           "body",
+           "media"
+          ]
+         },
+         {
+          "type": "object",
+          "properties": {
+           "panels": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+             "type": "object",
+             "additionalProperties": false,
+             "properties": {
+              "media": {
+               "type": "object",
+               "additionalProperties": false,
+               "properties": {
+                "assetRole": {
+                 "type": "string",
+                 "allOf": [
+                  {
+                   "$ref": "#/definitions/assetRole"
+                  },
+                  {
+                   "enum": [
+                    "section-product-mockup"
+                   ]
+                  }
+                 ]
+                },
+                "assetRef": {
+                 "type": "string",
+                 "format": "local-asset-path",
+                 "pattern": "^/(?!/)(?!.*\\.\\.)[A-Za-z0-9._~@%+()/-]+$"
+                }
+               },
+               "required": [
+                "assetRole",
+                "assetRef"
+               ]
+              },
+              "wordmark": {
+               "type": "string",
+               "enum": [
+                "inline-svg-wordmark"
+               ]
+              },
+              "body": {
+               "type": "string",
+               "maxWords": 60,
+               "minLength": 1
+              }
+             },
+             "required": [
+              "media",
+              "wordmark",
+              "body"
+             ]
+            }
+           },
+           "mediaSide": {
+            "type": "string",
+            "enum": [
+             "left",
+             "right"
+            ]
+           }
+          },
+          "additionalProperties": false,
+          "maxWordsTotal": 205,
+          "required": [
+           "panels"
+          ]
+         }
+        ]
+       },
+       "motion": {
+        "properties": {
+         "pattern": {
+          "const": "reveal-slide"
+         }
+        }
+       },
+       "variant": {
+        "enum": [
+         "industry-icons-link",
+         "titled",
+         "dual-panel"
+        ]
+       }
+      },
+      "required": [
+       "variant"
+      ]
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "callout.isolated"
+       }
+      },
+      "required": [
+       "type"
+      ]
+     },
+     "then": {
+      "properties": {
+       "content": {
+        "type": "object",
+        "required": [
+         "heading",
+         "body",
+         "button",
+         "media"
+        ],
+        "properties": {
+         "heading": {
+          "type": "string",
+          "maxWords": 6,
+          "minLength": 1
+         },
+         "body": {
+          "type": "string",
+          "maxWords": 12,
+          "minLength": 1
+         },
+         "button": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+           "label": {
+            "type": "string",
+            "maxWords": 3,
+            "minLength": 1
+           },
+           "style": {
+            "type": "string",
+            "enum": [
+             "grey"
+            ]
+           },
+           "href": {
+            "type": "string",
+            "enum": [
+             "#",
+             "/",
+             "/industries/creator-economy-payments/",
+             "/industries/dating-app-payments/",
+             "/industries/digital-entertainment/",
+             "/industries/esim-digital-utility-payments/",
+             "/industries/learning-management-system-payments/",
+             "/industries/online-gaming-payments/",
+             "/pricing/",
+             "/product/coda-consumer-platforms/",
+             "/product/coda-giftcloud/",
+             "/product/coda-links/",
+             "/product/coda-webstore/",
+             "/product/codapay/",
+             "/product/distribution/",
+             "/use-case/merchant-of-record/"
+            ]
+           }
+          },
+          "required": [
+           "label",
+           "style"
+          ]
+         },
+         "media": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+           "assetRole": {
+            "type": "string",
+            "allOf": [
+             {
+              "$ref": "#/definitions/assetRole"
+             },
+             {
+              "enum": [
+               "section-product-mockup"
+              ]
+             }
+            ]
+           },
+           "assetRef": {
+            "type": "string",
+            "format": "local-asset-path",
+            "pattern": "^/(?!/)(?!.*\\.\\.)[A-Za-z0-9._~@%+()/-]+$"
+           },
+           "mobileAssetRef": {
+            "type": "string",
+            "format": "local-asset-path",
+            "pattern": "^/(?!/)(?!.*\\.\\.)[A-Za-z0-9._~@%+()/-]+$"
+           }
+          },
+          "required": [
+           "assetRole",
+           "assetRef"
+          ]
+         }
+        },
+        "additionalProperties": false,
+        "maxWordsTotal": 21
+       },
+       "motion": {
+        "properties": {
+         "pattern": {
+          "const": "reveal-slide"
+         }
+        }
+       }
+      }
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "carousel.cards"
+       }
+      },
+      "required": [
+       "type"
+      ]
+     },
+     "then": {
+      "properties": {
+       "content": {
+        "type": "object",
+        "required": [
+         "heading",
+         "cards"
+        ],
+        "properties": {
+         "heading": {
+          "type": "string",
+          "maxWords": 5,
+          "minLength": 1
+         },
+         "cards": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+           "type": "object",
+           "additionalProperties": false,
+           "properties": {
+            "thumbnail": {
+             "type": "object",
+             "additionalProperties": false,
+             "properties": {
+              "assetRole": {
+               "type": "string",
+               "allOf": [
+                {
+                 "$ref": "#/definitions/assetRole"
+                },
+                {
+                 "enum": [
+                  "carousel-thumbnail"
+                 ]
+                }
+               ]
+              },
+              "assetRef": {
+               "type": "string",
+               "format": "local-asset-path",
+               "pattern": "^/(?!/)(?!.*\\.\\.)[A-Za-z0-9._~@%+()/-]+$"
+              }
+             },
+             "required": [
+              "assetRole",
+              "assetRef"
+             ]
+            },
+            "overlayLogo": {
+             "type": "object",
+             "additionalProperties": false,
+             "properties": {
+              "assetRole": {
+               "type": "string",
+               "allOf": [
+                {
+                 "$ref": "#/definitions/assetRole"
+                },
+                {
+                 "enum": [
+                  "partner-logo"
+                 ]
+                }
+               ]
+              },
+              "assetRef": {
+               "type": "string",
+               "format": "local-asset-path",
+               "pattern": "^/(?!/)(?!.*\\.\\.)[A-Za-z0-9._~@%+()/-]+$"
+              }
+             },
+             "required": [
+              "assetRole",
+              "assetRef"
+             ]
+            },
+            "title": {
+             "type": "string",
+             "maxWords": 19,
+             "minLength": 1
+            },
+            "ctaLabel": {
+             "type": "string",
+             "maxWords": 2,
+             "minLength": 1
+            }
+           },
+           "required": [
+            "thumbnail",
+            "title"
+           ]
+          }
+         }
+        },
+        "additionalProperties": false,
+        "maxWordsTotal": 68
+       },
+       "motion": {
+        "properties": {
+         "pattern": {
+          "const": "lerp-carousel"
+         }
+        }
+       },
+       "variant": {
+        "enum": [
+         "default"
+        ]
+       }
+      }
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "carousel.press"
+       }
+      },
+      "required": [
+       "type"
+      ]
+     },
+     "then": {
+      "properties": {
+       "content": {
+        "type": "object",
+        "required": [
+         "heading",
+         "logos"
+        ],
+        "properties": {
+         "heading": {
+          "type": "string",
+          "maxWords": 3,
+          "minLength": 1
+         },
+         "logos": {
+          "type": "array",
+          "minItems": 9,
+          "maxItems": 9,
+          "items": {
+           "type": "object",
+           "additionalProperties": false,
+           "properties": {
+            "assetRole": {
+             "type": "string",
+             "allOf": [
+              {
+               "$ref": "#/definitions/assetRole"
+              },
+              {
+               "enum": [
+                "press-logo"
+               ]
+              }
+             ]
+            },
+            "assetRef": {
+             "type": "string",
+             "format": "local-asset-path",
+             "pattern": "^/(?!/)(?!.*\\.\\.)[A-Za-z0-9._~@%+()/-]+$"
+            }
+           },
+           "required": [
+            "assetRole",
+            "assetRef"
+           ]
+          }
+         }
+        },
+        "additionalProperties": false,
+        "maxWordsTotal": 3
+       },
+       "motion": {
+        "properties": {
+         "pattern": {
+          "const": "continuous-scroll"
+         }
+        }
+       }
+      }
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "comparison.integration"
+       }
+      },
+      "required": [
+       "type"
+      ]
+     },
+     "then": {
+      "properties": {
+       "content": {
+        "type": "object",
+        "required": [
+         "heading",
+         "cards"
+        ],
+        "properties": {
+         "heading": {
+          "type": "string",
+          "maxWords": 9,
+          "minLength": 1
+         },
+         "cards": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+           "type": "object",
+           "additionalProperties": false,
+           "properties": {
+            "assetRole": {
+             "type": "string",
+             "allOf": [
+              {
+               "$ref": "#/definitions/assetRole"
+              },
+              {
+               "enum": [
+                "section-product-mockup"
+               ]
+              }
+             ]
+            },
+            "assetRef": {
+             "type": "string",
+             "format": "local-asset-path",
+             "pattern": "^/(?!/)(?!.*\\.\\.)[A-Za-z0-9._~@%+()/-]+$"
+            },
+            "title": {
+             "type": "string",
+             "maxWords": 5,
+             "minLength": 1
+            },
+            "body": {
+             "type": "string",
+             "maxWords": 22,
+             "minLength": 1
+            }
+           },
+           "required": [
+            "assetRole",
+            "assetRef",
+            "title",
+            "body"
+           ]
+          }
+         },
+         "button": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+           "label": {
+            "type": "string",
+            "maxWords": 3,
+            "minLength": 1
+           },
+           "style": {
+            "type": "string",
+            "enum": [
+             "grey"
+            ]
+           },
+           "href": {
+            "type": "string",
+            "enum": [
+             "#",
+             "/",
+             "/industries/creator-economy-payments/",
+             "/industries/dating-app-payments/",
+             "/industries/digital-entertainment/",
+             "/industries/esim-digital-utility-payments/",
+             "/industries/learning-management-system-payments/",
+             "/industries/online-gaming-payments/",
+             "/pricing/",
+             "/product/coda-consumer-platforms/",
+             "/product/coda-giftcloud/",
+             "/product/coda-links/",
+             "/product/coda-webstore/",
+             "/product/codapay/",
+             "/product/distribution/",
+             "/use-case/merchant-of-record/"
+            ]
+           }
+          },
+          "required": [
+           "label",
+           "style"
+          ]
+         }
+        },
+        "additionalProperties": false,
+        "maxWordsTotal": 93
+       },
+       "motion": {
+        "properties": {
+         "pattern": {
+          "const": "reveal-slide-stagger"
+         }
+        }
+       }
+      }
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "cta.pre-footer"
+       }
+      },
+      "required": [
+       "type"
+      ]
+     },
+     "then": {
+      "properties": {
+       "content": {
+        "type": "object",
+        "required": [
+         "heading",
+         "buttons"
+        ],
+        "properties": {
+         "heading": {
+          "type": "string",
+          "maxWords": 8,
+          "minLength": 1
+         },
+         "buttons": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2,
+          "items": {
+           "type": "object",
+           "additionalProperties": false,
+           "properties": {
+            "label": {
+             "type": "string",
+             "maxWords": 3,
+             "minLength": 1
+            },
+            "style": {
+             "type": "string",
+             "enum": [
+              "grey",
+              "glass-white"
+             ]
+            },
+            "href": {
+             "type": "string",
+             "enum": [
+              "#",
+              "/",
+              "/industries/creator-economy-payments/",
+              "/industries/dating-app-payments/",
+              "/industries/digital-entertainment/",
+              "/industries/esim-digital-utility-payments/",
+              "/industries/learning-management-system-payments/",
+              "/industries/online-gaming-payments/",
+              "/pricing/",
+              "/product/coda-consumer-platforms/",
+              "/product/coda-giftcloud/",
+              "/product/coda-links/",
+              "/product/coda-webstore/",
+              "/product/codapay/",
+              "/product/distribution/",
+              "/use-case/merchant-of-record/"
+             ]
+            }
+           },
+           "required": [
+            "label",
+            "style"
+           ]
+          }
+         }
+        },
+        "additionalProperties": false,
+        "maxWordsTotal": 14
+       },
+       "motion": {
+        "properties": {
+         "pattern": {
+          "const": "reveal"
+         }
+        }
+       },
+       "variant": {
+        "enum": [
+         "two-button",
+         "one-button"
+        ]
+       }
+      },
+      "required": [
+       "variant"
+      ]
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "faq.accordion"
+       }
+      },
+      "required": [
+       "type"
+      ]
+     },
+     "then": {
+      "properties": {
+       "content": {
+        "type": "object",
+        "required": [
+         "heading",
+         "items"
+        ],
+        "properties": {
+         "heading": {
+          "type": "string",
+          "maxWords": 4,
+          "minLength": 1
+         },
+         "items": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 11,
+          "items": {
+           "type": "object",
+           "additionalProperties": false,
+           "properties": {
+            "question": {
+             "type": "string",
+             "maxWords": 22,
+             "minLength": 1
+            },
+            "answer": {
+             "type": "array",
+             "minItems": 1,
+             "maxItems": 4,
+             "items": {
+              "type": "string",
+              "maxWords": 30,
+              "minLength": 1
+             }
+            }
+           },
+           "required": [
+            "question",
+            "answer"
+           ]
+          }
+         }
+        },
+        "additionalProperties": false,
+        "maxWordsTotal": 1566
+       },
+       "motion": {
+        "properties": {
+         "pattern": {
+          "const": "accordion"
+         }
+        }
+       },
+       "variant": {
+        "enum": [
+         "default"
+        ]
+       }
+      }
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "features.grid"
+       }
+      },
+      "required": [
+       "type"
+      ]
+     },
+     "then": {
+      "properties": {
+       "content": {
+        "type": "object",
+        "required": [
+         "heading",
+         "cards"
+        ],
+        "properties": {
+         "heading": {
+          "type": "string",
+          "maxWords": 6,
+          "minLength": 1
+         },
+         "media": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+           "assetRole": {
+            "type": "string",
+            "allOf": [
+             {
+              "$ref": "#/definitions/assetRole"
+             },
+             {
+              "enum": [
+               "section-product-mockup"
+              ]
+             }
+            ]
+           },
+           "assetRef": {
+            "type": "string",
+            "format": "local-asset-path",
+            "pattern": "^/(?!/)(?!.*\\.\\.)[A-Za-z0-9._~@%+()/-]+$"
+           },
+           "mobileAssetRef": {
+            "type": "string",
+            "format": "local-asset-path",
+            "pattern": "^/(?!/)(?!.*\\.\\.)[A-Za-z0-9._~@%+()/-]+$"
+           }
+          },
+          "required": [
+           "assetRole",
+           "assetRef"
+          ]
+         },
+         "cards": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+           "type": "object",
+           "additionalProperties": false,
+           "properties": {
+            "icon": {
+             "type": "object",
+             "additionalProperties": false,
+             "properties": {
+              "assetRole": {
+               "type": "string",
+               "allOf": [
+                {
+                 "$ref": "#/definitions/assetRole"
+                },
+                {
+                 "enum": [
+                  "inline-svg-glyph"
+                 ]
+                }
+               ]
+              },
+              "tint": {
+               "type": "string",
+               "enum": [
+                "blue",
+                "green",
+                "pink",
+                "yellow",
+                "purple",
+                "orange",
+                "black"
+               ]
+              }
+             },
+             "required": [
+              "assetRole"
+             ]
+            },
+            "title": {
+             "type": "string",
+             "maxWords": 5,
+             "minLength": 1
+            },
+            "body": {
+             "type": "string",
+             "maxWords": 20,
+             "minLength": 1
+            }
+           },
+           "required": [
+            "icon",
+            "title",
+            "body"
+           ]
+          }
+         }
+        },
+        "additionalProperties": false,
+        "maxWordsTotal": 156
+       },
+       "motion": {
+        "properties": {
+         "pattern": {
+          "const": "reveal-stagger"
+         }
+        }
+       },
+       "variant": {
+        "enum": [
+         "plain",
+         "with-media"
+        ]
+       }
+      },
+      "required": [
+       "variant"
+      ]
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "features.stack"
+       }
+      },
+      "required": [
+       "type"
+      ]
+     },
+     "then": {
+      "properties": {
+       "content": {
+        "type": "object",
+        "required": [
+         "cards"
+        ],
+        "properties": {
+         "heading": {
+          "type": "string",
+          "maxWords": 8,
+          "minLength": 1
+         },
+         "description": {
+          "type": "string",
+          "maxWords": 13,
+          "minLength": 1
+         },
+         "media": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+           "assetRole": {
+            "type": "string",
+            "allOf": [
+             {
+              "$ref": "#/definitions/assetRole"
+             },
+             {
+              "enum": [
+               "section-product-mockup"
+              ]
+             }
+            ]
+           },
+           "assetRef": {
+            "type": "string",
+            "format": "local-asset-path",
+            "pattern": "^/(?!/)(?!.*\\.\\.)[A-Za-z0-9._~@%+()/-]+$"
+           }
+          },
+          "required": [
+           "assetRole",
+           "assetRef"
+          ]
+         },
+         "cards": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 6,
+          "items": {
+           "type": "object",
+           "additionalProperties": false,
+           "properties": {
+            "icon": {
+             "type": "object",
+             "additionalProperties": false,
+             "properties": {
+              "assetRole": {
+               "type": "string",
+               "allOf": [
+                {
+                 "$ref": "#/definitions/assetRole"
+                },
+                {
+                 "enum": [
+                  "inline-svg-glyph"
+                 ]
+                }
+               ]
+              },
+              "tint": {
+               "type": "string",
+               "enum": [
+                "blue",
+                "green",
+                "pink",
+                "yellow",
+                "purple",
+                "orange",
+                "black"
+               ]
+              }
+             },
+             "required": [
+              "assetRole"
+             ]
+            },
+            "title": {
+             "type": "string",
+             "maxWords": 6,
+             "minLength": 1
+            },
+            "body": {
+             "type": "string",
+             "maxWords": 20,
+             "minLength": 1
+            }
+           },
+           "required": [
+            "icon",
+            "title",
+            "body"
+           ]
+          }
+         },
+         "button": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+           "label": {
+            "type": "string",
+            "maxWords": 3,
+            "minLength": 1
+           },
+           "style": {
+            "type": "string",
+            "enum": [
+             "grey"
+            ]
+           },
+           "href": {
+            "type": "string",
+            "enum": [
+             "#",
+             "/",
+             "/industries/creator-economy-payments/",
+             "/industries/dating-app-payments/",
+             "/industries/digital-entertainment/",
+             "/industries/esim-digital-utility-payments/",
+             "/industries/learning-management-system-payments/",
+             "/industries/online-gaming-payments/",
+             "/pricing/",
+             "/product/coda-consumer-platforms/",
+             "/product/coda-giftcloud/",
+             "/product/coda-links/",
+             "/product/coda-webstore/",
+             "/product/codapay/",
+             "/product/distribution/",
+             "/use-case/merchant-of-record/"
+            ]
+           }
+          },
+          "required": [
+           "label",
+           "style"
+          ]
+         }
+        },
+        "additionalProperties": false,
+        "maxWordsTotal": 180
+       },
+       "motion": {
+        "properties": {
+         "pattern": {
+          "const": "reveal-stagger"
+         }
+        }
+       },
+       "variant": {
+        "enum": [
+         "with-bridge-media-button",
+         "bridge-only-6",
+         "cards-only-6"
+        ]
+       }
+      },
+      "required": [
+       "variant"
+      ]
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "hero.main"
+       }
+      },
+      "required": [
+       "type"
+      ]
+     },
+     "then": {
+      "properties": {
+       "content": {
+        "type": "object",
+        "required": [
+         "heading",
+         "body"
+        ],
+        "properties": {
+         "icons": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+           "glyph": {
+            "type": "string",
+            "enum": [
+             "inline-svg-glyph"
+            ]
+           },
+           "wordmark": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+             "assetRole": {
+              "type": "string",
+              "allOf": [
+               {
+                "$ref": "#/definitions/assetRole"
+               },
+               {
+                "enum": [
+                 "inline-svg-wordmark"
+                ]
+               }
+              ]
+             },
+             "accessibleLabel": {
+              "type": "string",
+              "maxWords": 2,
+              "minLength": 1
+             }
+            },
+            "required": [
+             "assetRole"
+            ]
+           },
+           "tint": {
+            "type": "string",
+            "enum": [
+             "blue",
+             "green",
+             "pink",
+             "yellow",
+             "purple",
+             "orange"
+            ]
+           }
+          },
+          "required": [
+           "glyph"
+          ]
+         },
+         "heading": {
+          "type": "string",
+          "maxWords": 9,
+          "minLength": 1
+         },
+         "body": {
+          "type": "string",
+          "maxWords": 26,
+          "minLength": 1
+         },
+         "buttons": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 2,
+          "items": {
+           "type": "object",
+           "additionalProperties": false,
+           "properties": {
+            "label": {
+             "type": "string",
+             "maxWords": 4,
+             "minLength": 1
+            },
+            "style": {
+             "type": "string",
+             "enum": [
+              "grey",
+              "black",
+              "glass-white"
+             ]
+            },
+            "href": {
+             "type": "string",
+             "enum": [
+              "#",
+              "/",
+              "/industries/creator-economy-payments/",
+              "/industries/dating-app-payments/",
+              "/industries/digital-entertainment/",
+              "/industries/esim-digital-utility-payments/",
+              "/industries/learning-management-system-payments/",
+              "/industries/online-gaming-payments/",
+              "/pricing/",
+              "/product/coda-consumer-platforms/",
+              "/product/coda-giftcloud/",
+              "/product/coda-links/",
+              "/product/coda-webstore/",
+              "/product/codapay/",
+              "/product/distribution/",
+              "/use-case/merchant-of-record/"
+             ]
+            }
+           },
+           "required": [
+            "label",
+            "style"
+           ]
+          }
+         },
+         "trustLabel": {
+          "type": "string",
+          "maxWords": 7,
+          "minLength": 1
+         },
+         "trustLogos": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 6,
+          "items": {
+           "type": "object",
+           "additionalProperties": false,
+           "properties": {
+            "assetRole": {
+             "type": "string",
+             "allOf": [
+              {
+               "$ref": "#/definitions/assetRole"
+              },
+              {
+               "enum": [
+                "partner-logo"
+               ]
+              }
+             ]
+            },
+            "assetRef": {
+             "type": "string",
+             "format": "local-asset-path",
+             "pattern": "^/(?!/)(?!.*\\.\\.)[A-Za-z0-9._~@%+()/-]+$"
+            }
+           },
+           "required": [
+            "assetRole",
+            "assetRef"
+           ]
+          }
+         },
+         "media": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+           "assetRole": {
+            "type": "string",
+            "allOf": [
+             {
+              "$ref": "#/definitions/assetRole"
+             },
+             {
+              "enum": [
+               "hero-video",
+               "promo-video",
+               "hero-product-mockup",
+               "section-product-mockup"
+              ]
+             }
+            ]
+           },
+           "assetRef": {
+            "type": "string",
+            "format": "local-asset-path",
+            "pattern": "^/(?!/)(?!.*\\.\\.)[A-Za-z0-9._~@%+()/-]+$"
+           },
+           "mobileAssetRef": {
+            "type": "string",
+            "format": "local-asset-path",
+            "pattern": "^/(?!/)(?!.*\\.\\.)[A-Za-z0-9._~@%+()/-]+$"
+           }
+          },
+          "required": [
+           "assetRole",
+           "assetRef"
+          ]
+         }
+        },
+        "additionalProperties": false,
+        "maxWordsTotal": 52
+       },
+       "motion": {
+        "properties": {
+         "pattern": {
+          "const": "reveal-cascade"
+         }
+        }
+       },
+       "variant": {
+        "enum": [
+         "home-video",
+         "product-image",
+         "industry-image",
+         "product-video",
+         "product-marquee",
+         "minimal-icon",
+         "text-only"
+        ]
+       }
+      },
+      "required": [
+       "variant"
+      ]
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "highlight.mega"
+       }
+      },
+      "required": [
+       "type"
+      ]
+     },
+     "then": {
+      "properties": {
+       "content": {
+        "type": "object",
+        "required": [
+         "heading",
+         "media"
+        ],
+        "properties": {
+         "heading": {
+          "type": "string",
+          "maxWords": 15,
+          "minLength": 1
+         },
+         "description": {
+          "type": "string",
+          "maxWords": 24,
+          "minLength": 1
+         },
+         "media": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+           "assetRole": {
+            "type": "string",
+            "allOf": [
+             {
+              "$ref": "#/definitions/assetRole"
+             },
+             {
+              "enum": [
+               "section-product-mockup"
+              ]
+             }
+            ]
+           },
+           "assetRef": {
+            "type": "string",
+            "format": "local-asset-path",
+            "pattern": "^/(?!/)(?!.*\\.\\.)[A-Za-z0-9._~@%+()/-]+$"
+           },
+           "mobileAssetRef": {
+            "type": "string",
+            "format": "local-asset-path",
+            "pattern": "^/(?!/)(?!.*\\.\\.)[A-Za-z0-9._~@%+()/-]+$"
+           }
+          },
+          "required": [
+           "assetRole",
+           "assetRef"
+          ]
+         },
+         "featureCards": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 4,
+          "items": {
+           "type": "object",
+           "additionalProperties": false,
+           "properties": {
+            "icon": {
+             "type": "object",
+             "additionalProperties": false,
+             "properties": {
+              "assetRole": {
+               "type": "string",
+               "allOf": [
+                {
+                 "$ref": "#/definitions/assetRole"
+                },
+                {
+                 "enum": [
+                  "inline-svg-glyph"
+                 ]
+                }
+               ]
+              },
+              "tint": {
+               "type": "string",
+               "enum": [
+                "blue",
+                "green",
+                "pink",
+                "yellow",
+                "purple",
+                "orange",
+                "black"
+               ]
+              }
+             },
+             "required": [
+              "assetRole"
+             ]
+            },
+            "title": {
+             "type": "string",
+             "maxWords": 5,
+             "minLength": 1
+            },
+            "body": {
+             "type": "string",
+             "maxWords": 20,
+             "minLength": 1
+            }
+           },
+           "required": [
+            "icon",
+            "title",
+            "body"
+           ]
+          }
+         },
+         "benefitCards": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 6,
+          "items": {
+           "type": "object",
+           "additionalProperties": false,
+           "properties": {
+            "icon": {
+             "type": "object",
+             "additionalProperties": false,
+             "properties": {
+              "assetRole": {
+               "type": "string",
+               "allOf": [
+                {
+                 "$ref": "#/definitions/assetRole"
+                },
+                {
+                 "enum": [
+                  "inline-svg-glyph"
+                 ]
+                }
+               ]
+              },
+              "tint": {
+               "type": "string",
+               "enum": [
+                "blue",
+                "green",
+                "pink",
+                "yellow",
+                "purple",
+                "orange",
+                "black"
+               ]
+              }
+             },
+             "required": [
+              "assetRole"
+             ]
+            },
+            "title": {
+             "type": "string",
+             "maxWords": 4,
+             "minLength": 1
+            },
+            "body": {
+             "type": "string",
+             "maxWords": 20,
+             "minLength": 1
+            }
+           },
+           "required": [
+            "icon",
+            "title",
+            "body"
+           ]
+          }
+         },
+         "comparisonTable": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+           "title": {
+            "type": "string",
+            "maxWords": 4,
+            "minLength": 1
+           },
+           "columns": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+             "type": "string",
+             "maxWords": 2,
+             "minLength": 1
+            }
+           },
+           "rows": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 12,
+            "items": {
+             "type": "object",
+             "additionalProperties": false,
+             "properties": {
+              "feature": {
+               "type": "string",
+               "maxWords": 3,
+               "minLength": 1
+              },
+              "values": {
+               "type": "array",
+               "minItems": 2,
+               "maxItems": 2,
+               "items": {
+                "type": "string",
+                "enum": [
+                 "check-green",
+                 "check-grey",
+                 "x-circle"
+                ]
+               }
+              }
+             },
+             "required": [
+              "feature",
+              "values"
+             ]
+            }
+           }
+          },
+          "required": [
+           "title",
+           "columns",
+           "rows"
+          ]
+         },
+         "button": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+           "label": {
+            "type": "string",
+            "maxWords": 3,
+            "minLength": 1
+           },
+           "style": {
+            "type": "string",
+            "enum": [
+             "grey"
+            ]
+           },
+           "href": {
+            "type": "string",
+            "enum": [
+             "#",
+             "/",
+             "/industries/creator-economy-payments/",
+             "/industries/dating-app-payments/",
+             "/industries/digital-entertainment/",
+             "/industries/esim-digital-utility-payments/",
+             "/industries/learning-management-system-payments/",
+             "/industries/online-gaming-payments/",
+             "/pricing/",
+             "/product/coda-consumer-platforms/",
+             "/product/coda-giftcloud/",
+             "/product/coda-links/",
+             "/product/coda-webstore/",
+             "/product/codapay/",
+             "/product/distribution/",
+             "/use-case/merchant-of-record/"
+            ]
+           }
+          },
+          "required": [
+           "label",
+           "style"
+          ]
+         }
+        },
+        "additionalProperties": false,
+        "maxWordsTotal": 330
+       },
+       "motion": {
+        "properties": {
+         "pattern": {
+          "const": "reveal-stagger"
+         }
+        }
+       },
+       "variant": {
+        "enum": [
+         "industry-cards",
+         "comparison-table",
+         "feature+benefit"
+        ]
+       }
+      },
+      "required": [
+       "variant"
+      ]
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "impact.figures"
+       }
+      },
+      "required": [
+       "type"
+      ]
+     },
+     "then": {
+      "properties": {
+       "content": {
+        "type": "object",
+        "required": [
+         "heading",
+         "cards",
+         "theme"
+        ],
+        "properties": {
+         "heading": {
+          "type": "string",
+          "maxWords": 6,
+          "minLength": 1
+         },
+         "theme": {
+          "type": "string",
+          "enum": [
+           "grey",
+           "blue",
+           "green",
+           "pink",
+           "orange",
+           "yellow-deep"
+          ]
+         },
+         "cards": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 3,
+          "items": {
+           "type": "object",
+           "additionalProperties": false,
+           "properties": {
+            "figure": {
+             "type": "string",
+             "maxWords": 1,
+             "minLength": 1
+            },
+            "label": {
+             "type": "string",
+             "maxWords": 6,
+             "minLength": 1
+            },
+            "description": {
+             "type": "string",
+             "maxWords": 28,
+             "minLength": 1
+            }
+           },
+           "required": [
+            "figure",
+            "label"
+           ]
+          }
+         }
+        },
+        "additionalProperties": false,
+        "maxWordsTotal": 111
+       },
+       "motion": {
+        "properties": {
+         "pattern": {
+          "const": "reveal-slide-stagger"
+         }
+        }
+       },
+       "variant": {
+        "enum": [
+         "2-cards",
+         "3-cards"
+        ]
+       }
+      },
+      "required": [
+       "variant"
+      ]
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "metrics.band"
+       }
+      },
+      "required": [
+       "type"
+      ]
+     },
+     "then": {
+      "properties": {
+       "content": {
+        "type": "object",
+        "required": [
+         "heading",
+         "items"
+        ],
+        "properties": {
+         "heading": {
+          "type": "string",
+          "maxWords": 6,
+          "minLength": 1
+         },
+         "items": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+           "type": "object",
+           "additionalProperties": false,
+           "properties": {
+            "figure": {
+             "type": "string",
+             "maxWords": 1,
+             "minLength": 1
+            },
+            "label": {
+             "type": "string",
+             "maxWords": 4,
+             "minLength": 1
+            }
+           },
+           "required": [
+            "figure",
+            "label"
+           ]
+          }
+         }
+        },
+        "additionalProperties": false,
+        "maxWordsTotal": 26
+       },
+       "motion": {
+        "properties": {
+         "pattern": {
+          "const": "reveal-stagger"
+         }
+        }
+       }
+      }
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "pricing.price-stack"
+       }
+      },
+      "required": [
+       "type"
+      ]
+     },
+     "then": {
+      "properties": {
+       "content": {
+        "type": "object",
+        "required": [
+         "standard",
+         "custom"
+        ],
+        "properties": {
+         "standard": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+           "title": {
+            "type": "string",
+            "maxWords": 2,
+            "minLength": 1
+           },
+           "columns": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 2,
+            "items": {
+             "type": "object",
+             "additionalProperties": false,
+             "properties": {
+              "leadIn": {
+               "type": "string",
+               "maxWords": 3,
+               "minLength": 1
+              },
+              "figure": {
+               "type": "string",
+               "maxWords": 1,
+               "minLength": 1
+              },
+              "unit": {
+               "type": "string",
+               "maxWords": 2,
+               "minLength": 1
+              },
+              "secondaryFigure": {
+               "type": "string",
+               "maxWords": 1,
+               "minLength": 1
+              },
+              "secondaryUnit": {
+               "type": "string",
+               "maxWords": 2,
+               "minLength": 1
+              },
+              "checklist": {
+               "type": "array",
+               "minItems": 0,
+               "maxItems": 2,
+               "items": {
+                "type": "string",
+                "maxWords": 7,
+                "minLength": 1
+               }
+              }
+             },
+             "required": [
+              "figure",
+              "unit"
+             ]
+            }
+           },
+           "checklist": {
+            "type": "array",
+            "minItems": 0,
+            "maxItems": 2,
+            "items": {
+             "type": "string",
+             "maxWords": 7,
+             "minLength": 1
+            }
+           },
+           "button": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+             "label": {
+              "type": "string",
+              "maxWords": 2,
+              "minLength": 1
+             },
+             "style": {
+              "type": "string",
+              "enum": [
+               "black"
+              ]
+             },
+             "href": {
+              "type": "string",
+              "enum": [
+               "#",
+               "/",
+               "/industries/creator-economy-payments/",
+               "/industries/dating-app-payments/",
+               "/industries/digital-entertainment/",
+               "/industries/esim-digital-utility-payments/",
+               "/industries/learning-management-system-payments/",
+               "/industries/online-gaming-payments/",
+               "/pricing/",
+               "/product/coda-consumer-platforms/",
+               "/product/coda-giftcloud/",
+               "/product/coda-links/",
+               "/product/coda-webstore/",
+               "/product/codapay/",
+               "/product/distribution/",
+               "/use-case/merchant-of-record/"
+              ]
+             }
+            },
+            "required": [
+             "label",
+             "style"
+            ]
+           }
+          },
+          "required": [
+           "title",
+           "columns",
+           "button"
+          ]
+         },
+         "custom": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+           "title": {
+            "type": "string",
+            "maxWords": 2,
+            "minLength": 1
+           },
+           "headline": {
+            "type": "string",
+            "maxWords": 6,
+            "minLength": 1
+           },
+           "body": {
+            "type": "string",
+            "maxWords": 18,
+            "minLength": 1
+           },
+           "checklist": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+             "type": "string",
+             "maxWords": 3,
+             "minLength": 1
+            }
+           },
+           "button": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+             "label": {
+              "type": "string",
+              "maxWords": 2,
+              "minLength": 1
+             },
+             "style": {
+              "type": "string",
+              "enum": [
+               "grey"
+              ]
+             },
+             "href": {
+              "type": "string",
+              "enum": [
+               "#",
+               "/",
+               "/industries/creator-economy-payments/",
+               "/industries/dating-app-payments/",
+               "/industries/digital-entertainment/",
+               "/industries/esim-digital-utility-payments/",
+               "/industries/learning-management-system-payments/",
+               "/industries/online-gaming-payments/",
+               "/pricing/",
+               "/product/coda-consumer-platforms/",
+               "/product/coda-giftcloud/",
+               "/product/coda-links/",
+               "/product/coda-webstore/",
+               "/product/codapay/",
+               "/product/distribution/",
+               "/use-case/merchant-of-record/"
+              ]
+             }
+            },
+            "required": [
+             "label",
+             "style"
+            ]
+           }
+          },
+          "required": [
+           "title",
+           "headline",
+           "body",
+           "checklist",
+           "button"
+          ]
+         }
+        },
+        "additionalProperties": false,
+        "maxWordsTotal": 101
+       },
+       "motion": {
+        "properties": {
+         "pattern": {
+          "const": "reveal-slide-stagger"
+         }
+        }
+       },
+       "variant": {
+        "enum": [
+         "full",
+         "single-rate",
+         "flat-rate"
+        ]
+       }
+      },
+      "required": [
+       "variant"
+      ]
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "products.highlight"
+       }
+      },
+      "required": [
+       "type"
+      ]
+     },
+     "then": {
+      "properties": {
+       "content": {
+        "type": "object",
+        "required": [
+         "heading",
+         "cards"
+        ],
+        "properties": {
+         "heading": {
+          "type": "string",
+          "maxWords": 4,
+          "minLength": 1
+         },
+         "description": {
+          "type": "string",
+          "maxWords": 10,
+          "minLength": 1
+         },
+         "cards": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 5,
+          "items": {
+           "type": "object",
+           "additionalProperties": false,
+           "required": [
+            "href",
+            "background",
+            "icon",
+            "description",
+            "media"
+           ],
+           "properties": {
+            "href": {
+             "type": "string",
+             "enum": [
+              "/product/coda-consumer-platforms/",
+              "/product/codapay/",
+              "/product/coda-links/",
+              "/product/coda-webstore/",
+              "/product/distribution/"
+             ]
+            },
+            "wide": {
+             "type": "boolean"
+            },
+            "background": {
+             "type": "object",
+             "additionalProperties": false,
+             "properties": {
+              "assetRole": {
+               "type": "string",
+               "allOf": [
+                {
+                 "$ref": "#/definitions/assetRole"
+                },
+                {
+                 "enum": [
+                  "product-card-mockup"
+                 ]
+                }
+               ]
+              },
+              "assetRef": {
+               "type": "string",
+               "format": "local-asset-path",
+               "pattern": "^/(?!/)(?!.*\\.\\.)[A-Za-z0-9._~@%+()/-]+$"
+              }
+             },
+             "required": [
+              "assetRole",
+              "assetRef"
+             ]
+            },
+            "icon": {
+             "type": "object",
+             "additionalProperties": false,
+             "properties": {
+              "glyph": {
+               "type": "string",
+               "enum": [
+                "inline-svg-glyph"
+               ]
+              },
+              "wordmark": {
+               "type": "string",
+               "enum": [
+                "inline-svg-wordmark"
+               ]
+              }
+             },
+             "required": [
+              "glyph"
+             ]
+            },
+            "description": {
+             "type": "string",
+             "maxWords": 20,
+             "minLength": 1
+            },
+            "media": {
+             "type": "object",
+             "additionalProperties": false,
+             "properties": {
+              "behaviour": {
+               "type": "string",
+               "enum": [
+                "marquee",
+                "hover-up",
+                "hover-replace"
+               ]
+              },
+              "assetRole": {
+               "type": "string",
+               "allOf": [
+                {
+                 "$ref": "#/definitions/assetRole"
+                },
+                {
+                 "enum": [
+                  "product-card-mockup"
+                 ]
+                }
+               ]
+              },
+              "assetRefs": {
+               "type": "array",
+               "items": {
+                "type": "string",
+                "format": "local-asset-path",
+                "pattern": "^/(?!/)(?!.*\\.\\.)[A-Za-z0-9._~@%+()/-]+$"
+               }
+              }
+             },
+             "required": [
+              "behaviour",
+              "assetRole"
+             ]
+            }
+           }
+          }
+         }
+        },
+        "additionalProperties": false,
+        "maxWordsTotal": 114
+       },
+       "motion": {
+        "properties": {
+         "pattern": {
+          "const": "reveal-slide-stagger"
+         }
+        }
+       },
+       "variant": {
+        "enum": [
+         "catalog",
+         "cross-sell"
+        ]
+       }
+      },
+      "required": [
+       "variant"
+      ]
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "shell.footer"
+       }
+      },
+      "required": [
+       "type"
+      ]
+     },
+     "then": {
+      "properties": {
+       "content": {
+        "type": "object",
+        "required": [
+         "columns",
+         "legalLinks",
+         "copyright"
+        ],
+        "properties": {
+         "columns": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+           "type": "object",
+           "additionalProperties": false,
+           "properties": {
+            "heading": {
+             "type": "string",
+             "maxWords": 1,
+             "minLength": 1
+            },
+            "links": {
+             "type": "array",
+             "minItems": 5,
+             "maxItems": 8,
+             "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+               "label": {
+                "type": "string",
+                "maxWords": 4,
+                "minLength": 1
+               },
+               "href": {
+                "type": "string",
+                "enum": [
+                 "#",
+                 "/",
+                 "/industries/creator-economy-payments/",
+                 "/industries/dating-app-payments/",
+                 "/industries/digital-entertainment/",
+                 "/industries/esim-digital-utility-payments/",
+                 "/industries/learning-management-system-payments/",
+                 "/industries/online-gaming-payments/",
+                 "/pricing/",
+                 "/product/coda-consumer-platforms/",
+                 "/product/coda-giftcloud/",
+                 "/product/coda-links/",
+                 "/product/coda-webstore/",
+                 "/product/codapay/",
+                 "/product/distribution/",
+                 "/use-case/merchant-of-record/"
+                ]
+               }
+              },
+              "required": [
+               "label",
+               "href"
+              ]
+             }
+            }
+           },
+           "required": [
+            "heading",
+            "links"
+           ]
+          }
+         },
+         "legalLinks": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+           "type": "object",
+           "additionalProperties": false,
+           "properties": {
+            "label": {
+             "type": "string",
+             "maxWords": 4,
+             "minLength": 1
+            },
+            "href": {
+             "type": "string",
+             "enum": [
+              "#",
+              "/",
+              "/industries/creator-economy-payments/",
+              "/industries/dating-app-payments/",
+              "/industries/digital-entertainment/",
+              "/industries/esim-digital-utility-payments/",
+              "/industries/learning-management-system-payments/",
+              "/industries/online-gaming-payments/",
+              "/pricing/",
+              "/product/coda-consumer-platforms/",
+              "/product/coda-giftcloud/",
+              "/product/coda-links/",
+              "/product/coda-webstore/",
+              "/product/codapay/",
+              "/product/distribution/",
+              "/use-case/merchant-of-record/"
+             ]
+            }
+           },
+           "required": [
+            "label",
+            "href"
+           ]
+          }
+         },
+         "copyright": {
+          "type": "string",
+          "maxWords": 8,
+          "minLength": 1
+         },
+         "social": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 1,
+          "items": {
+           "type": "object",
+           "additionalProperties": false,
+           "properties": {
+            "href": {
+             "type": "string",
+             "enum": [
+              "#",
+              "/",
+              "/industries/creator-economy-payments/",
+              "/industries/dating-app-payments/",
+              "/industries/digital-entertainment/",
+              "/industries/esim-digital-utility-payments/",
+              "/industries/learning-management-system-payments/",
+              "/industries/online-gaming-payments/",
+              "/pricing/",
+              "/product/coda-consumer-platforms/",
+              "/product/coda-giftcloud/",
+              "/product/coda-links/",
+              "/product/coda-webstore/",
+              "/product/codapay/",
+              "/product/distribution/",
+              "/use-case/merchant-of-record/"
+             ]
+            }
+           },
+           "required": [
+            "href"
+           ]
+          }
+         },
+         "logo": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+           "assetRole": {
+            "type": "string",
+            "allOf": [
+             {
+              "$ref": "#/definitions/assetRole"
+             },
+             {
+              "enum": [
+               "coda-wordmark"
+              ]
+             }
+            ]
+           }
+          },
+          "required": [
+           "assetRole"
+          ]
+         }
+        },
+        "additionalProperties": false,
+        "maxWordsTotal": 156
+       },
+       "motion": {
+        "properties": {
+         "pattern": {
+          "const": "hover-colour"
+         }
+        }
+       }
+      },
+      "not": {
+       "required": [
+        "variant"
+       ]
+      }
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "shell.navbar"
+       }
+      },
+      "required": [
+       "type"
+      ]
+     },
+     "then": {
+      "properties": {
+       "content": {
+        "type": "object",
+        "required": [
+         "categories",
+         "pricingLabel",
+         "loginLabel",
+         "ctaLabel",
+         "languageLabel"
+        ],
+        "properties": {
+         "categories": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+           "type": "object",
+           "additionalProperties": false,
+           "properties": {
+            "label": {
+             "type": "string",
+             "maxWords": 1,
+             "minLength": 1
+            },
+            "links": {
+             "type": "array",
+             "minItems": 4,
+             "maxItems": 8,
+             "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+               "label": {
+                "type": "string",
+                "maxWords": 4,
+                "minLength": 1
+               },
+               "href": {
+                "type": "string",
+                "enum": [
+                 "#",
+                 "/",
+                 "/industries/creator-economy-payments/",
+                 "/industries/dating-app-payments/",
+                 "/industries/digital-entertainment/",
+                 "/industries/esim-digital-utility-payments/",
+                 "/industries/learning-management-system-payments/",
+                 "/industries/online-gaming-payments/",
+                 "/pricing/",
+                 "/product/coda-consumer-platforms/",
+                 "/product/coda-giftcloud/",
+                 "/product/coda-links/",
+                 "/product/coda-webstore/",
+                 "/product/codapay/",
+                 "/product/distribution/",
+                 "/use-case/merchant-of-record/"
+                ]
+               },
+               "description": {
+                "type": "string",
+                "maxWords": 7,
+                "minLength": 1
+               }
+              },
+              "required": [
+               "label",
+               "href"
+              ]
+             }
+            },
+            "featured": {
+             "type": "object",
+             "additionalProperties": false,
+             "properties": {
+              "title": {
+               "type": "string",
+               "maxWords": 2,
+               "minLength": 1
+              },
+              "subtitle": {
+               "type": "string",
+               "maxWords": 4,
+               "minLength": 1
+              }
+             },
+             "required": [
+              "title"
+             ]
+            }
+           },
+           "required": [
+            "label",
+            "links"
+           ]
+          }
+         },
+         "pricingLabel": {
+          "type": "string",
+          "maxWords": 1,
+          "minLength": 1
+         },
+         "loginLabel": {
+          "type": "string",
+          "maxWords": 1,
+          "minLength": 1
+         },
+         "ctaLabel": {
+          "type": "string",
+          "maxWords": 2,
+          "minLength": 1
+         },
+         "languageLabel": {
+          "type": "string",
+          "maxWords": 1,
+          "minLength": 1
+         },
+         "logo": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+           "assetRole": {
+            "type": "string",
+            "allOf": [
+             {
+              "$ref": "#/definitions/assetRole"
+             },
+             {
+              "enum": [
+               "coda-wordmark"
+              ]
+             }
+            ]
+           }
+          },
+          "required": [
+           "assetRole"
+          ]
+         }
+        },
+        "additionalProperties": false,
+        "maxWordsTotal": 385
+       },
+       "motion": {
+        "properties": {
+         "pattern": {
+          "const": "scroll-hide + gsap-dropdown"
+         }
+        }
+       }
+      },
+      "not": {
+       "required": [
+        "variant"
+       ]
+      }
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "spacer.footer-gap"
+       }
+      },
+      "required": [
+       "type"
+      ]
+     },
+     "then": {
+      "properties": {
+       "content": {
+        "type": "object",
+        "required": [],
+        "properties": {},
+        "additionalProperties": false,
+        "maxWordsTotal": 0
+       },
+       "motion": {
+        "properties": {
+         "pattern": {
+          "const": "none"
+         }
+        }
+       }
+      }
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "table.payment-method"
+       }
+      },
+      "required": [
+       "type"
+      ]
+     },
+     "then": {
+      "properties": {
+       "content": {
+        "type": "object",
+        "required": [
+         "heading",
+         "cta",
+         "typeRows",
+         "countryRows"
+        ],
+        "properties": {
+         "heading": {
+          "type": "string",
+          "maxWords": 5,
+          "minLength": 1
+         },
+         "cta": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+           "text": {
+            "type": "string",
+            "maxWords": 8,
+            "minLength": 1
+           },
+           "button": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+             "label": {
+              "type": "string",
+              "maxWords": 2,
+              "minLength": 1
+             },
+             "style": {
+              "type": "string",
+              "enum": [
+               "black"
+              ]
+             },
+             "href": {
+              "type": "string",
+              "enum": [
+               "#",
+               "/",
+               "/industries/creator-economy-payments/",
+               "/industries/dating-app-payments/",
+               "/industries/digital-entertainment/",
+               "/industries/esim-digital-utility-payments/",
+               "/industries/learning-management-system-payments/",
+               "/industries/online-gaming-payments/",
+               "/pricing/",
+               "/product/coda-consumer-platforms/",
+               "/product/coda-giftcloud/",
+               "/product/coda-links/",
+               "/product/coda-webstore/",
+               "/product/codapay/",
+               "/product/distribution/",
+               "/use-case/merchant-of-record/"
+              ]
+             }
+            },
+            "required": [
+             "label",
+             "style"
+            ]
+           }
+          },
+          "required": [
+           "text",
+           "button"
+          ]
+         },
+         "tabs": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+           "type": "string",
+           "maxWords": 1,
+           "minLength": 1
+          }
+         },
+         "typeRows": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+           "type": "object",
+           "additionalProperties": false,
+           "properties": {
+            "label": {
+             "type": "string",
+             "maxWords": 2,
+             "minLength": 1
+            },
+            "logos": {
+             "type": "array",
+             "minItems": 1,
+             "maxItems": 17,
+             "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+               "assetRole": {
+                "type": "string",
+                "allOf": [
+                 {
+                  "$ref": "#/definitions/assetRole"
+                 },
+                 {
+                  "enum": [
+                   "payment-method-logo"
+                  ]
+                 }
+                ]
+               },
+               "assetRef": {
+                "type": "string",
+                "format": "local-asset-path",
+                "pattern": "^/(?!/)(?!.*\\.\\.)[A-Za-z0-9._~@%+()/-]+$"
+               }
+              },
+              "required": [
+               "assetRole",
+               "assetRef"
+              ]
+             }
+            }
+           },
+           "required": [
+            "label",
+            "logos"
+           ]
+          }
+         },
+         "countryRows": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 49,
+          "items": {
+           "type": "object",
+           "additionalProperties": false,
+           "properties": {
+            "name": {
+             "type": "string",
+             "maxWords": 2,
+             "minLength": 1
+            },
+            "flag": {
+             "type": "object",
+             "additionalProperties": false,
+             "properties": {
+              "assetRole": {
+               "type": "string",
+               "allOf": [
+                {
+                 "$ref": "#/definitions/assetRole"
+                },
+                {
+                 "enum": [
+                  "country-flag"
+                 ]
+                }
+               ]
+              },
+              "assetRef": {
+               "type": "string",
+               "format": "local-asset-path",
+               "pattern": "^/(?!/)(?!.*\\.\\.)[A-Za-z0-9._~@%+()/-]+$"
+              }
+             },
+             "required": [
+              "assetRole",
+              "assetRef"
+             ]
+            },
+            "logos": {
+             "type": "array",
+             "minItems": 1,
+             "maxItems": 11,
+             "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+               "assetRole": {
+                "type": "string",
+                "allOf": [
+                 {
+                  "$ref": "#/definitions/assetRole"
+                 },
+                 {
+                  "enum": [
+                   "payment-method-logo"
+                  ]
+                 }
+                ]
+               },
+               "assetRef": {
+                "type": "string",
+                "format": "local-asset-path",
+                "pattern": "^/(?!/)(?!.*\\.\\.)[A-Za-z0-9._~@%+()/-]+$"
+               }
+              },
+              "required": [
+               "assetRole",
+               "assetRef"
+              ]
+             }
+            }
+           },
+           "required": [
+            "name",
+            "flag",
+            "logos"
+           ]
+          }
+         }
+        },
+        "additionalProperties": false,
+        "maxWordsTotal": 127
+       },
+       "motion": {
+        "properties": {
+         "pattern": {
+          "const": "sliding-pill"
+         }
+        }
+       }
+      }
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "type": {
+        "const": "tiles.page"
+       }
+      },
+      "required": [
+       "type"
+      ]
+     },
+     "then": {
+      "properties": {
+       "content": {
+        "type": "object",
+        "required": [
+         "heading",
+         "tiles"
+        ],
+        "properties": {
+         "heading": {
+          "type": "string",
+          "maxWords": 9,
+          "minLength": 1
+         },
+         "tiles": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+           "type": "object",
+           "additionalProperties": false,
+           "properties": {
+            "backgroundAssetRole": {
+             "type": "string",
+             "allOf": [
+              {
+               "$ref": "#/definitions/assetRole"
+              },
+              {
+               "enum": [
+                "world-map-illustration"
+               ]
+              }
+             ]
+            },
+            "backgroundAssetRef": {
+             "type": "string",
+             "format": "local-asset-path",
+             "pattern": "^/(?!/)(?!.*\\.\\.)[A-Za-z0-9._~@%+()/-]+$"
+            },
+            "foregroundAssetRole": {
+             "type": "string",
+             "allOf": [
+              {
+               "$ref": "#/definitions/assetRole"
+              },
+              {
+               "enum": [
+                "payment-method-logo",
+                "country-flag",
+                "world-map-illustration"
+               ]
+              }
+             ]
+            },
+            "foregroundAssetRef": {
+             "type": "string",
+             "format": "local-asset-path",
+             "pattern": "^/(?!/)(?!.*\\.\\.)[A-Za-z0-9._~@%+()/-]+$"
+            },
+            "text": {
+             "type": "string",
+             "maxWords": 15,
+             "minLength": 1
+            },
+            "button": {
+             "type": "object",
+             "additionalProperties": false,
+             "properties": {
+              "label": {
+               "type": "string",
+               "maxWords": 3,
+               "minLength": 1
+              },
+              "style": {
+               "type": "string",
+               "enum": [
+                "black"
+               ]
+              },
+              "href": {
+               "type": "string",
+               "enum": [
+                "#",
+                "/",
+                "/industries/creator-economy-payments/",
+                "/industries/dating-app-payments/",
+                "/industries/digital-entertainment/",
+                "/industries/esim-digital-utility-payments/",
+                "/industries/learning-management-system-payments/",
+                "/industries/online-gaming-payments/",
+                "/pricing/",
+                "/product/coda-consumer-platforms/",
+                "/product/coda-giftcloud/",
+                "/product/coda-links/",
+                "/product/coda-webstore/",
+                "/product/codapay/",
+                "/product/distribution/",
+                "/use-case/merchant-of-record/"
+               ]
+              }
+             },
+             "required": [
+              "label",
+              "style"
+             ]
+            }
+           },
+           "required": [
+            "backgroundAssetRole",
+            "backgroundAssetRef",
+            "text",
+            "button"
+           ]
+          }
+         }
+        },
+        "additionalProperties": false,
+        "maxWordsTotal": 45
+       },
+       "motion": {
+        "properties": {
+         "pattern": {
+          "const": "reveal-slide-stagger"
+         }
+        }
+       }
+      }
+     }
+    }
+   ]
+  }
+ }
+}

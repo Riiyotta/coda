@@ -1,0 +1,346 @@
+{
+  "id": "callout.feature",
+  "kind": "section",
+  "category": "callout",
+  "content": {
+    "type": "object",
+    "properties": {
+      "icon": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "glyph": {
+            "type": "string",
+            "enum": [
+              "inline-svg-glyph"
+            ]
+          },
+          "wordmark": {
+            "type": "string",
+            "enum": [
+              "inline-svg-wordmark"
+            ]
+          },
+          "tint": {
+            "type": "string",
+            "enum": [
+              "blue",
+              "green",
+              "pink",
+              "yellow",
+              "purple",
+              "orange"
+            ]
+          }
+        },
+        "required": [
+          "glyph"
+        ]
+      },
+      "heading": {
+        "type": "string",
+        "maxWords": 8,
+        "note": "product-titled variant only; measured 2-8 words"
+      },
+      "body": {
+        "type": "string",
+        "maxWords": 60,
+        "bodyCopy": true,
+        "note": "BODY COPY. Measured 10-25 words (industry/product), 31-43 (giftcloud, distribution), up to 60 words per panel on consumer-platforms (b real copy). Budget 60."
+      },
+      "extraLines": {
+        "type": "array",
+        "minItems": 0,
+        "maxItems": 3,
+        "items": {
+          "type": "string",
+          "maxWords": 5
+        },
+        "note": "distribution second callout only: three short lines (5,5,3 words)"
+      },
+      "link": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxWords": 2
+          },
+          "href": {
+            "type": "string",
+            "format": "route-or-inert-hash"
+          }
+        },
+        "required": [
+          "label"
+        ],
+        "note": "\"Learn more\" text link (industry variant, measured 2 words)"
+      },
+      "media": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "assetRole": {
+            "type": "string",
+            "enum": [
+              "section-product-mockup"
+            ]
+          },
+          "assetRef": {
+            "type": "string",
+            "format": "local-asset-path"
+          }
+        },
+        "required": [
+          "assetRole",
+          "assetRef"
+        ]
+      },
+      "panels": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "media": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "assetRole": {
+                  "type": "string",
+                  "enum": [
+                    "section-product-mockup"
+                  ]
+                },
+                "assetRef": {
+                  "type": "string",
+                  "format": "local-asset-path"
+                }
+              },
+              "required": [
+                "assetRole",
+                "assetRef"
+              ]
+            },
+            "wordmark": {
+              "type": "string",
+              "enum": [
+                "inline-svg-wordmark"
+              ]
+            },
+            "body": {
+              "type": "string",
+              "maxWords": 60,
+              "bodyCopy": true
+            }
+          },
+          "required": [
+            "media",
+            "wordmark",
+            "body"
+          ]
+        },
+        "note": "dual-panel variant only (consumer-platforms)"
+      },
+      "mediaSide": {
+        "type": "string",
+        "enum": [
+          "left",
+          "right"
+        ],
+        "note": "derived from position in the run: 1st,3rd,5th = left; 2nd,4th = right (desktop only; mobile always media-first)"
+      }
+    },
+    "oneOf": [
+      {
+        "required": [
+          "body",
+          "media"
+        ]
+      },
+      {
+        "required": [
+          "panels"
+        ]
+      }
+    ],
+    "additionalProperties": false,
+    "maxWordsTotal": 205
+  },
+  "usedOn": [
+    "/product/codapay/",
+    "/product/coda-links/",
+    "/product/coda-webstore/",
+    "/product/distribution/",
+    "/product/coda-consumer-platforms/",
+    "/product/coda-giftcloud/",
+    "/industries/creator-economy-payments/",
+    "/industries/dating-app-payments/",
+    "/industries/digital-entertainment/",
+    "/industries/esim-digital-utility-payments/",
+    "/industries/learning-management-system-payments/",
+    "/industries/online-gaming-payments/",
+    "/use-case/merchant-of-record/"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); copy evidence per route below",
+    "copy": {
+      "b-real-saved-copy": [
+        "/product/coda-links/",
+        "/product/coda-giftcloud/",
+        "/product/distribution/",
+        "/product/coda-consumer-platforms/"
+      ],
+      "c-original-slot-sized": [
+        "/product/codapay/",
+        "/product/coda-webstore/",
+        "/industries/creator-economy-payments/",
+        "/industries/dating-app-payments/",
+        "/industries/digital-entertainment/",
+        "/industries/esim-digital-utility-payments/",
+        "/industries/learning-management-system-payments/",
+        "/industries/online-gaming-payments/",
+        "/use-case/merchant-of-record/"
+      ]
+    }
+  },
+  "purpose": "Two-column callout: a text block (icon row or icon + heading, a paragraph, optional link) beside one product mockup; consecutive callouts alternate the media side.",
+  "bodyCopyFields": [
+    "body",
+    "panels[].body",
+    "extraLines"
+  ],
+  "variants": {
+    "industry-icons-link": {
+      "routes": [
+        "/industries/creator-economy-payments/",
+        "/industries/dating-app-payments/",
+        "/industries/digital-entertainment/",
+        "/industries/esim-digital-utility-payments/",
+        "/industries/learning-management-system-payments/",
+        "/industries/online-gaming-payments/",
+        "/use-case/merchant-of-record/"
+      ],
+      "traits": "inline-icons row (glyph+wordmark), paragraph, \"Learn more\" link; 3-5 per page"
+    },
+    "titled": {
+      "routes": [
+        "/product/codapay/",
+        "/product/coda-links/",
+        "/product/coda-webstore/",
+        "/product/coda-giftcloud/",
+        "/product/distribution/"
+      ],
+      "traits": "single icon, h5 heading, paragraph; distribution #2 has 3 extra short lines; 2-4 per page"
+    },
+    "dual-panel": {
+      "routes": [
+        "/product/coda-consumer-platforms/"
+      ],
+      "traits": "two has-media panels per callout (image, wordmark, ~50 words); 4 callouts, all with the same class list"
+    }
+  },
+  "constraints": {
+    "maxPerPage": 5,
+    "verification": "Checked (minimum observed 2, not expressible in the constraint vocabulary; the per-route counts below are enforced by graph rule CALLOUT_COUNT_PER_ROUTE for the seven routes that share a callout-run template): counts per route are links 2, dating/digital 3, webstore/codapay/distribution/consumer/giftcloud/creator/esim/lms 4, gaming/MoR 5; 0 on / and /pricing/. Callouts of one page are always contiguous (a single run) - never interleaved with other sections; noConsecutive does NOT apply."
+  },
+  "media": {
+    "callout-media": {
+      "assetRole": [
+        "section-product-mockup"
+      ],
+      "aspectRatio": 0.976,
+      "note": "forced 488/500 by the section; dual variant uses 1.3943 per panel"
+    }
+  },
+  "motion": {
+    "pattern": "reveal-slide",
+    "reveals": [
+      {
+        "element": "section root"
+      },
+      {
+        "element": "inline-media",
+        "slide": true,
+        "offset": "motion.reveal.slide-offset"
+      },
+      {
+        "element": "wordmark icon",
+        "delayMs": 50
+      }
+    ],
+    "interaction": {
+      "linkHover": "text-link arrow grows 0 -> 1.2em over 300ms"
+    },
+    "reducedMotionFallback": "Show text and media at final state; no slide; arrow shown statically.",
+    "reducedMotionFallbackKind": "design-rule (the site ships no prefers-reduced-motion handling, so this is prescribed, not mirrored)"
+  },
+  "responsive": {
+    "breakpoint": "800px",
+    "grid": "1 col below 800px (media first, then text), 2 cols with gap-10 from 800px",
+    "alternation": "from 800px media side alternates: odd left / even right via md:order-first / md:order-last on .inline-media-item and .feature-callout-inner",
+    "mediaAspect": "forced 488/500 on both breakpoints"
+  },
+  "tokens": [
+    "layout.grid-gap.callout",
+    "layout.content.max-width",
+    "type.body-m",
+    "text.body",
+    "component.media.radius",
+    "motion.reveal.slide-offset",
+    "breakpoint.md"
+  ],
+  "composes": [
+    "primitive.inline-icon",
+    "primitive.text-link",
+    "component.media"
+  ],
+  "measuredFrom": [
+    {
+      "id": "cit-p2-fco-root",
+      "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9",
+      "quote": "feature-callout w-full my-9 max-w-blogPostVideoW block-padding mx-auto [&_.inline-media-item]:!aspect-[488/500]"
+    },
+    {
+      "id": "cit-p2-fco-grid",
+      "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9",
+      "quote": "grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10"
+    },
+    {
+      "id": "cit-p2-fco-mobile",
+      "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9",
+      "quote": "[&_.inline-media-item]:order-first [&_.feature-callout-inner]:order-last"
+    },
+    {
+      "id": "cit-p2-fco-left",
+      "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9",
+      "quote": "[&_.inline-media-item]:md:order-first [&_.feature-callout-inner]:md:order-last"
+    },
+    {
+      "id": "cit-p2-fco-right",
+      "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9",
+      "quote": "[&_.inline-media-item]:md:order-last [&_.feature-callout-inner]:md:order-first"
+    },
+    {
+      "id": "cit-p2-fco-css",
+      "source": "public/styles/coda-main.css:1-1",
+      "quote": ".\\[\\&_\\.feature-callout-inner\\]\\:md\\:order-first .feature-callout-inner{order:-9999}",
+      "charRange": [
+        201359,
+        201443
+      ]
+    },
+    {
+      "id": "cit-p2-fco-dual",
+      "source": "src/pages/ProductCodaConsumerPlatformsPage.jsx:9-9",
+      "quote": "flex flex-col gap-4 self-stretch has-media justify-start"
+    },
+    {
+      "id": "cit-p2-fco-list",
+      "source": "src/pages/ProductDistributionPage.jsx:9-9",
+      "quote": "<h5 className=\"wp-block-heading\">{\"Direct top-up (DTU)\"}</h5>"
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "id": "carousel.press",
+  "kind": "section",
+  "category": "carousel",
+  "content": {
+    "type": "object",
+    "required": [
+      "heading",
+      "logos"
+    ],
+    "properties": {
+      "heading": {
+        "type": "string",
+        "maxWords": 3,
+        "note": "Measured 2 words"
+      },
+      "logos": {
+        "type": "array",
+        "minItems": 9,
+        "maxItems": 9,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "assetRole": {
+              "type": "string",
+              "enum": [
+                "press-logo"
+              ]
+            },
+            "assetRef": {
+              "type": "string",
+              "format": "local-asset-path"
+            }
+          },
+          "required": [
+            "assetRole",
+            "assetRef"
+          ]
+        },
+        "note": "9 press logos (press-logos1..5 + Tech in Asia, IGN, GamesBeat, DealStreetAsia)"
+      }
+    },
+    "additionalProperties": false,
+    "maxWordsTotal": 3
+  },
+  "usedOn": [
+    "/"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); copy evidence per route below",
+    "copy": {
+      "a-exact": [
+        "/"
+      ]
+    }
+  },
+  "purpose": "Auto-scrolling strip of press-outlet logos.",
+  "bodyCopyFields": [],
+  "variants": {},
+  "constraints": {
+    "onePerPage": true,
+    "maxPerPage": 1,
+    "verification": "Checked: once, only on the homepage, directly before pre-footer."
+  },
+  "media": {
+    "press-logo": {
+      "assetRole": [
+        "press-logo"
+      ],
+      "count": 9
+    }
+  },
+  "motion": {
+    "pattern": "continuous-scroll",
+    "interaction": {
+      "speed": "motion.marquee.speed",
+      "direction": "left"
+    },
+    "reducedMotionFallback": "Freeze the strip (paused) and show logos statically.",
+    "reducedMotionFallbackKind": "design-rule (the site ships no prefers-reduced-motion handling, so this is prescribed, not mirrored)"
+  },
+  "responsive": {
+    "breakpoint": "800px",
+    "note": "Fixed-width tiles (w-pressLogoW); no layout change other than viewport width; marquee autoFill."
+  },
+  "tokens": [
+    "type.header-l",
+    "component.press-logo.width",
+    "icon-size.press-logo-w",
+    "motion.marquee.speed"
+  ],
+  "composes": [
+    "component.marquee",
+    "primitive.logo-tile"
+  ],
+  "measuredFrom": [
+    {
+      "id": "cit-p2-pr-root",
+      "source": "src/components/PressCarousel.jsx:7-7",
+      "quote": "press-carousel flex flex-col w-full gap-6 my-9"
+    },
+    {
+      "id": "cit-p2-pr-item",
+      "source": "src/components/PressCarousel.jsx:7-7",
+      "quote": "press-carousel-item w-pressLogoW flex flex-col gap-2 shrink-0"
+    },
+    {
+      "id": "cit-p2-pr-marquee",
+      "source": "src/components/PressCarousel.jsx:3-3",
+      "quote": "<Marquee"
+    },
+    {
+      "id": "cit-p2-pr-h2",
+      "source": "src/components/PressCarousel.jsx:7-7",
+      "quote": "<h2 className=\"type-header-l w-full text-center\">{\"Featured press\"}</h2>"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "id": "primitive.text-input",
+  "kind": "primitive",
+  "purpose": "Single-line text filter input (the only form control on the site; no submit, no endpoint). Used for the Country filter.",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "placeholder"
+    ],
+    "properties": {
+      "placeholder": {
+        "type": "string",
+        "maxWords": 1,
+        "note": "Measured: \"Country\"."
+      },
+      "name": {
+        "type": "string",
+        "enum": [
+          "country"
+        ]
+      }
+    }
+  },
+  "states": {
+    "default": "transparent, 1px currentColor border",
+    "hidden": "display none while the Type tab is active"
+  },
+  "tokens": [
+    "radius.md",
+    "type.ui-input",
+    "type.ui-label",
+    "color.grey-2",
+    "icon-size.button-lg"
+  ],
+  "motion": {
+    "pattern": "none",
+    "reducedMotionFallback": "Design rule: no motion to reduce."
+  },
+  "responsive": {
+    "mobile": "text 16px (prevents iOS zoom), height buttonLg",
+    "md": "height 28px (h-7), type-ui-label, container md:w-3/4"
+  },
+  "assetRoles": [],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract",
+    "copy": "none"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-input-cls",
+      "source": "src/lib/pricing/PaymentMethodTable.jsx:128-128",
+      "quote": "!text-[16px] md:!type-ui-label !w-full !border !border-current !bg-transparent !rounded-md !type-ui-label !h-buttonLg md:!h-7 !pl-4 !pr-2"
+    },
+    {
+      "id": "cit-p2-input-placeholder",
+      "source": "src/lib/pricing/PaymentMethodTable.jsx:223-223",
+      "quote": "placeholder=\"Country\""
+    },
+    {
+      "id": "cit-p2-input-filter",
+      "source": "src/lib/pricing/PaymentMethodTable.jsx:216-216",
+      "quote": "tr.style.display = view === 2 && !tr.children[0].textContent?.toLowerCase().includes"
+    }
+  ],
+  "notes": "No form action, no fetch: the input only filters the local table (cit-asset-no-remote in phase 1)."
+}

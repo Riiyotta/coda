@@ -1,0 +1,188 @@
+{
+  "id": "features.grid",
+  "kind": "section",
+  "category": "features",
+  "content": {
+    "type": "object",
+    "required": [
+      "heading",
+      "cards"
+    ],
+    "properties": {
+      "heading": {
+        "type": "string",
+        "maxWords": 6,
+        "note": "Measured 5 words on both pages"
+      },
+      "media": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "assetRole": {
+            "type": "string",
+            "enum": [
+              "section-product-mockup"
+            ]
+          },
+          "assetRef": {
+            "type": "string",
+            "format": "local-asset-path"
+          },
+          "mobileAssetRef": {
+            "type": "string",
+            "format": "local-asset-path"
+          }
+        },
+        "required": [
+          "assetRole",
+          "assetRef"
+        ],
+        "note": "webstore only (mobile/desktop pair)"
+      },
+      "cards": {
+        "type": "array",
+        "minItems": 6,
+        "maxItems": 6,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "icon": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "assetRole": {
+                  "type": "string",
+                  "enum": [
+                    "inline-svg-glyph"
+                  ]
+                },
+                "tint": {
+                  "type": "string",
+                  "enum": [
+                    "blue",
+                    "green",
+                    "pink",
+                    "yellow",
+                    "purple",
+                    "orange",
+                    "black"
+                  ]
+                }
+              },
+              "required": [
+                "assetRole"
+              ]
+            },
+            "title": {
+              "type": "string",
+              "maxWords": 5
+            },
+            "body": {
+              "type": "string",
+              "maxWords": 20,
+              "bodyCopy": true
+            }
+          },
+          "required": [
+            "icon",
+            "title",
+            "body"
+          ]
+        },
+        "note": "Exactly 6 cards on both pages."
+      }
+    },
+    "additionalProperties": false,
+    "maxWordsTotal": 156
+  },
+  "usedOn": [
+    "/product/coda-consumer-platforms/",
+    "/product/coda-webstore/"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); copy evidence per route below",
+    "copy": {
+      "b-real-saved-copy": [
+        "/product/coda-consumer-platforms/"
+      ],
+      "c-original-slot-sized": [
+        "/product/coda-webstore/"
+      ]
+    }
+  },
+  "purpose": "Six-cell toolkit grid (3x2) under a bridge heading; a lighter sibling of features-stack that wraps everything in a full-bleed container.",
+  "bodyCopyFields": [
+    "cards[].body"
+  ],
+  "variants": {
+    "plain": {
+      "routes": [
+        "/product/coda-consumer-platforms/"
+      ]
+    },
+    "with-media": {
+      "routes": [
+        "/product/coda-webstore/"
+      ],
+      "note": "a wide media item (image pair) sits above the grid"
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "maxPerPage": 1,
+    "verification": "Checked: once on consumer-platforms and webstore only."
+  },
+  "media": {
+    "wide-media": {
+      "assetRole": [
+        "section-product-mockup"
+      ],
+      "count": "0-1"
+    },
+    "card-icon": {
+      "assetRole": [
+        "inline-svg-glyph"
+      ]
+    }
+  },
+  "motion": {
+    "pattern": "reveal-stagger",
+    "reveals": [
+      {
+        "element": "cards",
+        "delayMs": "(i+1)*50 measured 50..300"
+      }
+    ],
+    "reducedMotionFallback": "Final state, no stagger.",
+    "reducedMotionFallbackKind": "design-rule (the site ships no prefers-reduced-motion handling, so this is prescribed, not mirrored)"
+  },
+  "responsive": {
+    "breakpoint": "800px",
+    "grid": "1 col -> 3 cols; first-two divider rules as features-stack"
+  },
+  "tokens": [
+    "border.divider",
+    "type.header-l",
+    "type.header-s",
+    "layout.grid-gap.card",
+    "motion.reveal.stagger-step"
+  ],
+  "composes": [
+    "component.section-bridge",
+    "component.card-feature",
+    "component.media"
+  ],
+  "measuredFrom": [
+    {
+      "id": "cit-p2-fg-root",
+      "source": "src/pages/ProductCodaConsumerPlatformsPage.jsx:9-9",
+      "quote": "feature-grid w-full my-9 md:px-6"
+    },
+    {
+      "id": "cit-p2-fg-inner",
+      "source": "src/pages/ProductCodaConsumerPlatformsPage.jsx:9-9",
+      "quote": "features-stack-inner w-full max-w-blogPostVideoW mx-auto grid grid-cols-1 gap-4 md:grid-cols-3"
+    }
+  ]
+}

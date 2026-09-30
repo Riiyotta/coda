@@ -1,0 +1,70 @@
+{
+  "$description": "Semantic radius and spacing roles.",
+  "tokens": {
+    "radius.card": {
+      "$ref": "radius.md",
+      "usage": 378,
+      "evidence": [
+        "cit-sem-radius-card"
+      ]
+    },
+    "radius.card-hover": {
+      "$ref": "radius.xlu",
+      "usage": 11,
+      "evidence": [
+        "cit-sem-radius-tile-hover"
+      ]
+    },
+    "radius.button": {
+      "$ref": "radius.full",
+      "note": "Rest state.",
+      "usage": 63,
+      "evidence": [
+        "cit-sem-radius-button-rest"
+      ]
+    },
+    "radius.button-hover": {
+      "$ref": "radius.lg",
+      "usage": 63,
+      "evidence": [
+        "cit-sem-radius-button-hover"
+      ]
+    },
+    "radius.panel": {
+      "$ref": "radius.lg",
+      "usage": 35,
+      "note": "rounded-lg: footer panel, larger cards.",
+      "evidence": [
+        "cit-sem-radius-card"
+      ]
+    },
+    "radius.menu-icon": {
+      "$ref": "radius.menuIcon",
+      "usage": 8,
+      "evidence": [
+        "cit-sem-radius-menu"
+      ]
+    },
+    "space.card-padding": {
+      "$ref": "spacing.5",
+      "usage": 986,
+      "evidence": [
+        "cit-sem-space-card"
+      ]
+    },
+    "space.card-gap": {
+      "$ref": "spacing.4",
+      "usage": 1007,
+      "evidence": [
+        "cit-sem-space-stack"
+      ]
+    },
+    "space.section-gap": {
+      "$ref": "spacing.9",
+      "usage": 264,
+      "evidence": [
+        "cit-layout-hero-block"
+      ]
+    }
+  }
+}

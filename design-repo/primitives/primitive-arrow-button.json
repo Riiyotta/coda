@@ -1,0 +1,82 @@
+{
+  "id": "primitive.arrow-button",
+  "kind": "primitive",
+  "purpose": "Square 40x40 rounded outline arrow control (chevron, with a line that fades in on hover). Used as carousel previous/next.",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "direction"
+    ],
+    "properties": {
+      "direction": {
+        "type": "string",
+        "enum": [
+          "next",
+          "previous"
+        ],
+        "note": "previous = rotate-180 (the `reverse` prop)"
+      },
+      "disabled": {
+        "type": "boolean"
+      }
+    }
+  },
+  "variants": {
+    "enabled": {
+      "class": "group"
+    },
+    "disabled": {
+      "class": "text-grey-2/50",
+      "note": "no hover, no click"
+    }
+  },
+  "states": {
+    "hover": "desktop only (md:group-hover): chevron translate-x from -0.15em to 0 and the horizontal line opacity 0 -> 100, both 300ms"
+  },
+  "tokens": [
+    "component.arrow.size",
+    "component.arrow.color",
+    "icon-size.control-toggle",
+    "color.charcoal",
+    "color.grey-2",
+    "motion.transition.duration-300"
+  ],
+  "motion": {
+    "pattern": "hover-arrow-shift",
+    "duration": "motion.transition.duration-300",
+    "reducedMotionFallback": "Design rule (no prefers-reduced-motion handling in the site): disable the chevron translate and line fade; keep colour change instant."
+  },
+  "responsive": {
+    "size": "w-8 h-8 below 800px, md:w-7 md:h-7 from 800px",
+    "placement": "CardCarousel shows the pair in the header row on md+ (hidden md:flex) and in a footer row on mobile (md:hidden)"
+  },
+  "assetRoles": [
+    "inline-svg-glyph"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract",
+    "copy": "none"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-arrow-def",
+      "source": "src/lib/carousel/ArrowButton.jsx:4-4",
+      "quote": "w-8 h-8 md:w-7 md:h-7 cursor-pointer text-charcoal transition-colors duration-300"
+    },
+    {
+      "id": "cit-p2-arrow-disabled",
+      "source": "src/lib/carousel/ArrowButton.jsx:4-4",
+      "quote": "disabled && 'text-grey-2/50', !disabled && 'group'"
+    },
+    {
+      "id": "cit-p2-arrow-hover",
+      "source": "src/lib/carousel/ArrowButton.jsx:10-10",
+      "quote": "transition-transform duration-300 -translate-x-[0.15em] md:group-hover:translate-x-0"
+    },
+    {
+      "id": "cit-p2-arrow-use",
+      "source": "src/components/CardCarousel.jsx:11-11",
+      "quote": "<ArrowButton"
+    }
+  ]
+}

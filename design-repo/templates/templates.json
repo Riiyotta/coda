@@ -1,0 +1,1088 @@
+{
+ "$description": "One template per distinct page shape (10 shapes cover the 15 routes 1:1). nodes are structured objects; repeatable nodes carry an evidenced count {min,max}. `variant` on a node is set only when the section contract's variant table names exactly the template's route(s) for that variant; sections with route-dependent variants inside a shared template omit it.",
+ "structureEvidenceCaveat": "Structure/layout of all 15 routes is stated in the section contracts as measured against live coda.co (~1px). CLONE_SPEC.md only documents the homepage measurements, so for the 14 inner pages this claim is carried over from the contracts/brief and is not independently re-grounded in repo files. The node SEQUENCES themselves are re-derived from the real JSX (extraction/measured-values.json cit-p3-tpl-*).",
+ "copyEvidenceLevels": {
+  "a-exact": "homepage copy exact from the user's saved page",
+  "b-real-saved-copy": "real text from the user's own saved copies (coda-links, coda-giftcloud, distribution, consumer-platforms, pricing)",
+  "c-original-slot-sized": "original newly written copy sized to the original slot lengths (codapay, webstore, six industries, merchant-of-record)"
+ },
+ "templates": [
+  {
+   "id": "home",
+   "name": "Homepage",
+   "description": "Homepage: product-highlight catalog right after the hero, one benefits stack, metrics, awards, card carousel, press strip, pre-footer.",
+   "purpose": "Single-route shape for /. Only route with awards.recognition and carousel.press and the catalog variant of products.highlight; has no faq or spacer.",
+   "routes": [
+    "/"
+   ],
+   "nodeCount": 10,
+   "nodes": [
+    {
+     "section": "shell.navbar",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "hero.main",
+     "required": true,
+     "repeatable": false,
+     "variant": "home-video"
+    },
+    {
+     "section": "products.highlight",
+     "required": true,
+     "repeatable": false,
+     "variant": "catalog"
+    },
+    {
+     "section": "benefits.stack",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "metrics.band",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "awards.recognition",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "carousel.cards",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "carousel.press",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "cta.pre-footer",
+     "required": true,
+     "repeatable": false,
+     "variant": "two-button"
+    },
+    {
+     "section": "shell.footer",
+     "required": true,
+     "repeatable": false
+    }
+   ],
+   "perRouteEvidence": {
+    "/": {
+     "copyEvidence": "a-exact",
+     "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+     "sequenceSource": "src/components/Main.jsx",
+     "observedCounts": {
+      "benefits.stack": 1,
+      "bridge.section": 0
+     }
+    }
+   },
+   "notes": "Sequence from src/components/Main.jsx (Hero, ProductsHighlight, BenefitsStack, Metrics, Awards, CardCarousel, PressCarousel, PreFooter). The section-bridge inside products-hightlight is nested, not a top-level node.",
+   "citations": [
+    "cit-p3-tpl-home",
+    "cit-p3-seq-home",
+    "cit-p3-copy-levels",
+    "cit-p3-structure-caveat",
+    "cit-p3-graph-home-no-faq"
+   ]
+  },
+  {
+   "id": "pricing",
+   "name": "Pricing",
+   "description": "Text-only hero, price stack, payment-method table (TYPE/COUNTRY tabs), faq, spacer, pre-footer.",
+   "purpose": "Single-route shape for /pricing/.",
+   "routes": [
+    "/pricing/"
+   ],
+   "nodeCount": 8,
+   "nodes": [
+    {
+     "section": "shell.navbar",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "hero.main",
+     "required": true,
+     "repeatable": false,
+     "variant": "text-only"
+    },
+    {
+     "section": "pricing.price-stack",
+     "required": true,
+     "repeatable": false,
+     "variant": "full"
+    },
+    {
+     "section": "table.payment-method",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "faq.accordion",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "spacer.footer-gap",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "cta.pre-footer",
+     "required": true,
+     "repeatable": false,
+     "variant": "one-button"
+    },
+    {
+     "section": "shell.footer",
+     "required": true,
+     "repeatable": false
+    }
+   ],
+   "perRouteEvidence": {
+    "/pricing/": {
+     "copyEvidence": "b-real-saved-copy",
+     "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+     "sequenceSource": "src/pages/PricingPage.jsx",
+     "observedCounts": {
+      "bridge.section": 0
+     }
+    }
+   },
+   "notes": "No carousel, no benefits.",
+   "citations": [
+    "cit-p3-tpl-pricing",
+    "cit-p3-seq-pricing",
+    "cit-p3-copy-levels",
+    "cit-p3-structure-caveat"
+   ]
+  },
+  {
+   "id": "product-codapay",
+   "name": "Product: codapay",
+   "description": "codapay product page: two benefits stacks around features.stack and impact.figures, page tiles and integration comparison before the carousel and pricing.",
+   "purpose": "Single-route shape for /product/codapay/ (only route with tiles.page and comparison.integration).",
+   "routes": [
+    "/product/codapay/"
+   ],
+   "nodeCount": 16,
+   "nodes": [
+    {
+     "section": "shell.navbar",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "hero.main",
+     "required": true,
+     "repeatable": false,
+     "variant": "product-image"
+    },
+    {
+     "section": "benefits.stack",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "features.stack",
+     "required": true,
+     "repeatable": false,
+     "variant": "with-bridge-media-button"
+    },
+    {
+     "section": "impact.figures",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "benefits.stack",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "callout.feature",
+     "required": true,
+     "repeatable": true,
+     "count": {
+      "min": 4,
+      "max": 4
+     },
+     "variant": "titled"
+    },
+    {
+     "section": "tiles.page",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "comparison.integration",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "carousel.cards",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "pricing.price-stack",
+     "required": true,
+     "repeatable": false,
+     "variant": "single-rate"
+    },
+    {
+     "section": "products.highlight",
+     "required": true,
+     "repeatable": false,
+     "variant": "cross-sell"
+    },
+    {
+     "section": "faq.accordion",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "spacer.footer-gap",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "cta.pre-footer",
+     "required": true,
+     "repeatable": false,
+     "variant": "one-button"
+    },
+    {
+     "section": "shell.footer",
+     "required": true,
+     "repeatable": false
+    }
+   ],
+   "perRouteEvidence": {
+    "/product/codapay/": {
+     "copyEvidence": "c-original-slot-sized",
+     "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+     "sequenceSource": "src/pages/ProductCodapayPage.jsx",
+     "observedCounts": {
+      "benefits.stack": 2,
+      "callout.feature": 4,
+      "bridge.section": 0
+     }
+    }
+   },
+   "notes": "benefits.stack appears twice as two separate non-repeatable nodes (never adjacent).",
+   "citations": [
+    "cit-p3-tpl-product-codapay",
+    "cit-p3-seq-product-codapay",
+    "cit-p3-copy-levels",
+    "cit-p3-structure-caveat"
+   ]
+  },
+  {
+   "id": "product-links",
+   "name": "Product: coda-links",
+   "description": "coda-links product page with a bridge, two titled callouts and the isolated callout.",
+   "purpose": "Single-route shape for /product/coda-links/ (only route with callout.isolated).",
+   "routes": [
+    "/product/coda-links/"
+   ],
+   "nodeCount": 15,
+   "nodes": [
+    {
+     "section": "shell.navbar",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "hero.main",
+     "required": true,
+     "repeatable": false,
+     "variant": "product-image"
+    },
+    {
+     "section": "benefits.stack",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "impact.figures",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "benefits.stack",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "bridge.section",
+     "required": true,
+     "repeatable": false,
+     "variant": "heading-only"
+    },
+    {
+     "section": "callout.feature",
+     "required": true,
+     "repeatable": true,
+     "count": {
+      "min": 2,
+      "max": 2
+     },
+     "variant": "titled"
+    },
+    {
+     "section": "callout.isolated",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "carousel.cards",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "pricing.price-stack",
+     "required": true,
+     "repeatable": false,
+     "variant": "single-rate"
+    },
+    {
+     "section": "products.highlight",
+     "required": true,
+     "repeatable": false,
+     "variant": "cross-sell"
+    },
+    {
+     "section": "faq.accordion",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "spacer.footer-gap",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "cta.pre-footer",
+     "required": true,
+     "repeatable": false,
+     "variant": "one-button"
+    },
+    {
+     "section": "shell.footer",
+     "required": true,
+     "repeatable": false
+    }
+   ],
+   "perRouteEvidence": {
+    "/product/coda-links/": {
+     "copyEvidence": "b-real-saved-copy",
+     "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+     "sequenceSource": "src/pages/ProductCodaLinksPage.jsx",
+     "observedCounts": {
+      "benefits.stack": 2,
+      "callout.feature": 2,
+      "bridge.section": 1
+     }
+    }
+   },
+   "notes": "",
+   "citations": [
+    "cit-p3-tpl-product-links",
+    "cit-p3-seq-product-coda-links",
+    "cit-p3-copy-levels",
+    "cit-p3-structure-caveat"
+   ]
+  },
+  {
+   "id": "product-webstore",
+   "name": "Product: coda-webstore",
+   "description": "coda-webstore: features.grid with media, four callouts, highlight.mega comparison table.",
+   "purpose": "Single-route shape for /product/coda-webstore/.",
+   "routes": [
+    "/product/coda-webstore/"
+   ],
+   "nodeCount": 14,
+   "nodes": [
+    {
+     "section": "shell.navbar",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "hero.main",
+     "required": true,
+     "repeatable": false,
+     "variant": "product-video"
+    },
+    {
+     "section": "benefits.stack",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "impact.figures",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "features.grid",
+     "required": true,
+     "repeatable": false,
+     "variant": "with-media"
+    },
+    {
+     "section": "callout.feature",
+     "required": true,
+     "repeatable": true,
+     "count": {
+      "min": 4,
+      "max": 4
+     },
+     "variant": "titled"
+    },
+    {
+     "section": "highlight.mega",
+     "required": true,
+     "repeatable": false,
+     "variant": "comparison-table"
+    },
+    {
+     "section": "carousel.cards",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "pricing.price-stack",
+     "required": true,
+     "repeatable": false,
+     "variant": "single-rate"
+    },
+    {
+     "section": "products.highlight",
+     "required": true,
+     "repeatable": false,
+     "variant": "cross-sell"
+    },
+    {
+     "section": "faq.accordion",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "spacer.footer-gap",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "cta.pre-footer",
+     "required": true,
+     "repeatable": false,
+     "variant": "one-button"
+    },
+    {
+     "section": "shell.footer",
+     "required": true,
+     "repeatable": false
+    }
+   ],
+   "perRouteEvidence": {
+    "/product/coda-webstore/": {
+     "copyEvidence": "c-original-slot-sized",
+     "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+     "sequenceSource": "src/pages/ProductCodaWebstorePage.jsx",
+     "observedCounts": {
+      "benefits.stack": 1,
+      "callout.feature": 4,
+      "bridge.section": 0
+     }
+    }
+   },
+   "notes": "",
+   "citations": [
+    "cit-p3-tpl-product-webstore",
+    "cit-p3-seq-product-coda-webstore",
+    "cit-p3-copy-levels",
+    "cit-p3-structure-caveat"
+   ]
+  },
+  {
+   "id": "product-distribution",
+   "name": "Product: distribution",
+   "description": "distribution: features.stack with bridge-only variant, section bridge, four callouts, highlight.mega feature+benefit, flat-rate price stack.",
+   "purpose": "Single-route shape for /product/distribution/.",
+   "routes": [
+    "/product/distribution/"
+   ],
+   "nodeCount": 15,
+   "nodes": [
+    {
+     "section": "shell.navbar",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "hero.main",
+     "required": true,
+     "repeatable": false,
+     "variant": "product-image"
+    },
+    {
+     "section": "benefits.stack",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "impact.figures",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "features.stack",
+     "required": true,
+     "repeatable": false,
+     "variant": "bridge-only-6"
+    },
+    {
+     "section": "bridge.section",
+     "required": true,
+     "repeatable": false,
+     "variant": "heading-only"
+    },
+    {
+     "section": "callout.feature",
+     "required": true,
+     "repeatable": true,
+     "count": {
+      "min": 4,
+      "max": 4
+     },
+     "variant": "titled"
+    },
+    {
+     "section": "highlight.mega",
+     "required": true,
+     "repeatable": false,
+     "variant": "feature+benefit"
+    },
+    {
+     "section": "carousel.cards",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "pricing.price-stack",
+     "required": true,
+     "repeatable": false,
+     "variant": "flat-rate"
+    },
+    {
+     "section": "products.highlight",
+     "required": true,
+     "repeatable": false,
+     "variant": "cross-sell"
+    },
+    {
+     "section": "faq.accordion",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "spacer.footer-gap",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "cta.pre-footer",
+     "required": true,
+     "repeatable": false,
+     "variant": "one-button"
+    },
+    {
+     "section": "shell.footer",
+     "required": true,
+     "repeatable": false
+    }
+   ],
+   "perRouteEvidence": {
+    "/product/distribution/": {
+     "copyEvidence": "b-real-saved-copy",
+     "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+     "sequenceSource": "src/pages/ProductDistributionPage.jsx",
+     "observedCounts": {
+      "benefits.stack": 1,
+      "callout.feature": 4,
+      "bridge.section": 1
+     }
+    }
+   },
+   "notes": "The real JSX order ends products.highlight, faq, spacer, pre-footer (the original brief text had faq last; the JSX wins).",
+   "citations": [
+    "cit-p3-tpl-product-distribution",
+    "cit-p3-seq-product-distribution",
+    "cit-p3-copy-levels",
+    "cit-p3-structure-caveat"
+   ]
+  },
+  {
+   "id": "product-consumer-platforms",
+   "name": "Product: coda-consumer-platforms",
+   "description": "consumer-platforms: features.grid plain, four dual-panel callouts, no price stack.",
+   "purpose": "Single-route shape for /product/coda-consumer-platforms/.",
+   "routes": [
+    "/product/coda-consumer-platforms/"
+   ],
+   "nodeCount": 11,
+   "nodes": [
+    {
+     "section": "shell.navbar",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "hero.main",
+     "required": true,
+     "repeatable": false,
+     "variant": "product-marquee"
+    },
+    {
+     "section": "benefits.stack",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "impact.figures",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "features.grid",
+     "required": true,
+     "repeatable": false,
+     "variant": "plain"
+    },
+    {
+     "section": "callout.feature",
+     "required": true,
+     "repeatable": true,
+     "count": {
+      "min": 4,
+      "max": 4
+     },
+     "variant": "dual-panel"
+    },
+    {
+     "section": "carousel.cards",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "faq.accordion",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "spacer.footer-gap",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "cta.pre-footer",
+     "required": true,
+     "repeatable": false,
+     "variant": "one-button"
+    },
+    {
+     "section": "shell.footer",
+     "required": true,
+     "repeatable": false
+    }
+   ],
+   "perRouteEvidence": {
+    "/product/coda-consumer-platforms/": {
+     "copyEvidence": "b-real-saved-copy",
+     "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+     "sequenceSource": "src/pages/ProductCodaConsumerPlatformsPage.jsx",
+     "observedCounts": {
+      "benefits.stack": 1,
+      "callout.feature": 4,
+      "bridge.section": 0
+     }
+    }
+   },
+   "notes": "",
+   "citations": [
+    "cit-p3-tpl-product-consumer-platforms",
+    "cit-p3-seq-product-coda-consumer-platforms",
+    "cit-p3-copy-levels",
+    "cit-p3-structure-caveat"
+   ]
+  },
+  {
+   "id": "product-giftcloud",
+   "name": "Product: coda-giftcloud",
+   "description": "giftcloud: features.stack cards-only, four callouts, carousel straight into pre-footer (no faq, no spacer).",
+   "purpose": "Single-route shape for /product/coda-giftcloud/.",
+   "routes": [
+    "/product/coda-giftcloud/"
+   ],
+   "nodeCount": 9,
+   "nodes": [
+    {
+     "section": "shell.navbar",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "hero.main",
+     "required": true,
+     "repeatable": false,
+     "variant": "minimal-icon"
+    },
+    {
+     "section": "benefits.stack",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "impact.figures",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "features.stack",
+     "required": true,
+     "repeatable": false,
+     "variant": "cards-only-6"
+    },
+    {
+     "section": "callout.feature",
+     "required": true,
+     "repeatable": true,
+     "count": {
+      "min": 4,
+      "max": 4
+     },
+     "variant": "titled"
+    },
+    {
+     "section": "carousel.cards",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "cta.pre-footer",
+     "required": true,
+     "repeatable": false,
+     "variant": "one-button"
+    },
+    {
+     "section": "shell.footer",
+     "required": true,
+     "repeatable": false
+    }
+   ],
+   "perRouteEvidence": {
+    "/product/coda-giftcloud/": {
+     "copyEvidence": "b-real-saved-copy",
+     "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+     "sequenceSource": "src/pages/ProductCodaGiftcloudPage.jsx",
+     "observedCounts": {
+      "benefits.stack": 1,
+      "callout.feature": 4,
+      "bridge.section": 0
+     }
+    }
+   },
+   "notes": "Only template without faq/spacer besides home (which has no faq/spacer either).",
+   "citations": [
+    "cit-p3-tpl-product-giftcloud",
+    "cit-p3-seq-product-coda-giftcloud",
+    "cit-p3-copy-levels",
+    "cit-p3-structure-caveat",
+    "cit-p3-graph-giftcloud-nofaq"
+   ]
+  },
+  {
+   "id": "solution-standard",
+   "name": "Solution page (standard)",
+   "description": "Industry/use-case shape: hero, benefits, highlight.mega, benefits, metrics, section bridge, run of 3-5 callouts, carousel, faq, spacer, pre-footer.",
+   "purpose": "Shared by 4 industry pages and merchant-of-record; the five real sequences are identical modulo the callout repeat count (3, 3, 4, 4, 5), all within callout.feature maxPerPage 5.",
+   "routes": [
+    "/industries/dating-app-payments/",
+    "/industries/digital-entertainment/",
+    "/industries/esim-digital-utility-payments/",
+    "/industries/learning-management-system-payments/",
+    "/use-case/merchant-of-record/"
+   ],
+   "nodeCount": 13,
+   "nodes": [
+    {
+     "section": "shell.navbar",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "hero.main",
+     "required": true,
+     "repeatable": false,
+     "variant": "industry-image"
+    },
+    {
+     "section": "benefits.stack",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "highlight.mega",
+     "required": true,
+     "repeatable": false,
+     "variant": "industry-cards"
+    },
+    {
+     "section": "benefits.stack",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "metrics.band",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "bridge.section",
+     "required": true,
+     "repeatable": false,
+     "variant": "heading+description"
+    },
+    {
+     "section": "callout.feature",
+     "required": true,
+     "repeatable": true,
+     "count": {
+      "min": 3,
+      "max": 5
+     },
+     "variant": "industry-icons-link"
+    },
+    {
+     "section": "carousel.cards",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "faq.accordion",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "spacer.footer-gap",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "cta.pre-footer",
+     "required": true,
+     "repeatable": false,
+     "variant": "two-button"
+    },
+    {
+     "section": "shell.footer",
+     "required": true,
+     "repeatable": false
+    }
+   ],
+   "perRouteEvidence": {
+    "/industries/dating-app-payments/": {
+     "copyEvidence": "c-original-slot-sized",
+     "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+     "sequenceSource": "src/pages/IndustriesDatingAppPaymentsPage.jsx",
+     "observedCounts": {
+      "benefits.stack": 2,
+      "callout.feature": 3,
+      "bridge.section": 1
+     }
+    },
+    "/industries/digital-entertainment/": {
+     "copyEvidence": "c-original-slot-sized",
+     "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+     "sequenceSource": "src/pages/IndustriesDigitalEntertainmentPage.jsx",
+     "observedCounts": {
+      "benefits.stack": 2,
+      "callout.feature": 3,
+      "bridge.section": 1
+     }
+    },
+    "/industries/esim-digital-utility-payments/": {
+     "copyEvidence": "c-original-slot-sized",
+     "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+     "sequenceSource": "src/pages/IndustriesEsimDigitalUtilityPaymentsPage.jsx",
+     "observedCounts": {
+      "benefits.stack": 2,
+      "callout.feature": 4,
+      "bridge.section": 1
+     }
+    },
+    "/industries/learning-management-system-payments/": {
+     "copyEvidence": "c-original-slot-sized",
+     "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+     "sequenceSource": "src/pages/IndustriesLearningManagementSystemPaymentsPage.jsx",
+     "observedCounts": {
+      "benefits.stack": 2,
+      "callout.feature": 4,
+      "bridge.section": 1
+     }
+    },
+    "/use-case/merchant-of-record/": {
+     "copyEvidence": "c-original-slot-sized",
+     "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+     "sequenceSource": "src/pages/UseCaseMerchantOfRecordPage.jsx",
+     "observedCounts": {
+      "benefits.stack": 2,
+      "callout.feature": 5,
+      "bridge.section": 1
+     }
+    }
+   },
+   "notes": "Callout count observed per route: dating 3, digital-entertainment 3, esim 4, lms 4, merchant-of-record 5; pinned per route by graph rule CALLOUT_COUNT_PER_ROUTE (the template range 3-5 alone would allow any count on any route).",
+   "citations": [
+    "cit-p3-tpl-solution-standard",
+    "cit-p3-seq-industries-dating-app-payments",
+    "cit-p3-seq-industries-digital-entertainment",
+    "cit-p3-seq-industries-esim-digital-utility-payments",
+    "cit-p3-seq-industries-learning-management-system-payments",
+    "cit-p3-seq-use-case-merchant-of-record",
+    "cit-p3-copy-levels",
+    "cit-p3-structure-caveat"
+   ]
+  },
+  {
+   "id": "solution-impact",
+   "name": "Solution page (with impact figures)",
+   "description": "Industry shape with impact.figures after the second benefits stack and metrics after the callouts; optional bridge.",
+   "purpose": "creator-economy and online-gaming: identical sequences except creator has a section-bridge (and 4 callouts) while gaming has none (5 callouts).",
+   "routes": [
+    "/industries/creator-economy-payments/",
+    "/industries/online-gaming-payments/"
+   ],
+   "nodeCount": 14,
+   "nodes": [
+    {
+     "section": "shell.navbar",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "hero.main",
+     "required": true,
+     "repeatable": false,
+     "variant": "industry-image"
+    },
+    {
+     "section": "benefits.stack",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "highlight.mega",
+     "required": true,
+     "repeatable": false,
+     "variant": "industry-cards"
+    },
+    {
+     "section": "benefits.stack",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "impact.figures",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "bridge.section",
+     "required": false,
+     "repeatable": false,
+     "variant": "heading+description"
+    },
+    {
+     "section": "callout.feature",
+     "required": true,
+     "repeatable": true,
+     "count": {
+      "min": 4,
+      "max": 5
+     },
+     "variant": "industry-icons-link"
+    },
+    {
+     "section": "metrics.band",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "carousel.cards",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "faq.accordion",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "spacer.footer-gap",
+     "required": true,
+     "repeatable": false
+    },
+    {
+     "section": "cta.pre-footer",
+     "required": true,
+     "repeatable": false,
+     "variant": "two-button"
+    },
+    {
+     "section": "shell.footer",
+     "required": true,
+     "repeatable": false
+    }
+   ],
+   "perRouteEvidence": {
+    "/industries/creator-economy-payments/": {
+     "copyEvidence": "c-original-slot-sized",
+     "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+     "sequenceSource": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx",
+     "observedCounts": {
+      "benefits.stack": 2,
+      "callout.feature": 4,
+      "bridge.section": 1
+     }
+    },
+    "/industries/online-gaming-payments/": {
+     "copyEvidence": "c-original-slot-sized",
+     "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+     "sequenceSource": "src/pages/IndustriesOnlineGamingPaymentsPage.jsx",
+     "observedCounts": {
+      "benefits.stack": 2,
+      "callout.feature": 5,
+      "bridge.section": 0
+     }
+    }
+   },
+   "notes": "Optional node: bridge.section (creator-economy has it, online-gaming does not). Callout count is pinned per route by graph rule CALLOUT_COUNT_PER_ROUTE: creator 4, gaming 5 (the template range 4-5 alone would allow either on either route). The bridge is optional in the template and admitted on creator-economy only; a creator spec that omits its bridge is NOT rejected (recorded limitation).",
+   "citations": [
+    "cit-p3-tpl-solution-impact",
+    "cit-p3-seq-industries-creator-economy-payments",
+    "cit-p3-seq-industries-online-gaming-payments",
+    "cit-p3-copy-levels",
+    "cit-p3-structure-caveat"
+   ]
+  }
+ ]
+}

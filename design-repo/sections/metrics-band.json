@@ -1,0 +1,123 @@
+{
+  "id": "metrics.band",
+  "kind": "section",
+  "category": "metrics",
+  "content": {
+    "type": "object",
+    "required": [
+      "heading",
+      "items"
+    ],
+    "properties": {
+      "heading": {
+        "type": "string",
+        "maxWords": 6,
+        "note": "Measured 5-6 words"
+      },
+      "items": {
+        "type": "array",
+        "minItems": 4,
+        "maxItems": 4,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "figure": {
+              "type": "string",
+              "maxWords": 1
+            },
+            "label": {
+              "type": "string",
+              "maxWords": 4
+            }
+          },
+          "required": [
+            "figure",
+            "label"
+          ]
+        },
+        "note": "Exactly 4 items on all 8 pages (the four figures are identical everywhere)"
+      }
+    },
+    "additionalProperties": false,
+    "maxWordsTotal": 26
+  },
+  "usedOn": [
+    "/",
+    "/industries/creator-economy-payments/",
+    "/industries/dating-app-payments/",
+    "/industries/digital-entertainment/",
+    "/industries/esim-digital-utility-payments/",
+    "/industries/learning-management-system-payments/",
+    "/industries/online-gaming-payments/",
+    "/use-case/merchant-of-record/"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); copy evidence per route below",
+    "copy": {
+      "a-exact": [
+        "/"
+      ],
+      "c-original-slot-sized": [
+        "/industries/creator-economy-payments/",
+        "/industries/dating-app-payments/",
+        "/industries/digital-entertainment/",
+        "/industries/esim-digital-utility-payments/",
+        "/industries/learning-management-system-payments/",
+        "/industries/online-gaming-payments/",
+        "/use-case/merchant-of-record/"
+      ]
+    }
+  },
+  "purpose": "Charcoal band of four headline company figures.",
+  "bodyCopyFields": [],
+  "variants": {},
+  "constraints": {
+    "onePerPage": true,
+    "maxPerPage": 1,
+    "verification": "Checked: once on /, six industries and MoR; absent from product pages and /pricing/."
+  },
+  "media": {},
+  "motion": {
+    "pattern": "reveal-stagger",
+    "reveals": [
+      {
+        "element": "items",
+        "delayMs": "50,100,150,200"
+      }
+    ],
+    "reducedMotionFallback": "Final state, no stagger.",
+    "reducedMotionFallbackKind": "design-rule (the site ships no prefers-reduced-motion handling, so this is prescribed, not mirrored)"
+  },
+  "responsive": {
+    "breakpoint": "800px",
+    "items": "w-1/2 (2x2, gap-y-5) below 800px; w-full flex-nowrap row from 800px"
+  },
+  "tokens": [
+    "component.themed-block.dark",
+    "radius.md",
+    "type.header-l",
+    "type.body-s",
+    "color.grey-1"
+  ],
+  "composes": [
+    "component.metric-item"
+  ],
+  "measuredFrom": [
+    {
+      "id": "cit-p2-mt-root",
+      "source": "src/components/Metrics.jsx:4-4",
+      "quote": "metrics flex flex-col w-full gap-6 my-9 max-w-blogPostVideoW mx-auto rounded-md bg-charcoal text-white py-6 px-5"
+    },
+    {
+      "id": "cit-p2-mt-row",
+      "source": "src/components/Metrics.jsx:4-4",
+      "quote": "w-full flex flex-wrap gap-y-5 md:flex-nowrap items-center justify-between"
+    },
+    {
+      "id": "cit-p2-mt-h2",
+      "source": "src/components/Metrics.jsx:4-4",
+      "quote": "<h2 className=\"type-header-l w-full text-center\">{\"Built to operate at scale\"}</h2>"
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "id": "comparison.integration",
+  "kind": "section",
+  "category": "comparison",
+  "content": {
+    "type": "object",
+    "required": [
+      "heading",
+      "cards"
+    ],
+    "properties": {
+      "heading": {
+        "type": "string",
+        "maxWords": 9,
+        "note": "Measured 8 words"
+      },
+      "cards": {
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 3,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "assetRole": {
+              "type": "string",
+              "enum": [
+                "section-product-mockup"
+              ]
+            },
+            "assetRef": {
+              "type": "string",
+              "format": "local-asset-path"
+            },
+            "title": {
+              "type": "string",
+              "maxWords": 5
+            },
+            "body": {
+              "type": "string",
+              "maxWords": 22,
+              "bodyCopy": true
+            }
+          },
+          "required": [
+            "assetRole",
+            "assetRef",
+            "title",
+            "body"
+          ]
+        }
+      },
+      "button": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxWords": 3
+          },
+          "style": {
+            "type": "string",
+            "enum": [
+              "grey"
+            ]
+          },
+          "href": {
+            "type": "string",
+            "format": "route-or-inert-hash"
+          }
+        },
+        "required": [
+          "label",
+          "style"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "maxWordsTotal": 93
+  },
+  "usedOn": [
+    "/product/codapay/"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); copy evidence per route below",
+    "copy": {
+      "c-original-slot-sized": [
+        "/product/codapay/"
+      ]
+    }
+  },
+  "purpose": "Three integration options as image cards with a closing docs button.",
+  "bodyCopyFields": [
+    "cards[].body"
+  ],
+  "variants": {},
+  "constraints": {
+    "onePerPage": true,
+    "maxPerPage": 1,
+    "verification": "Checked: once, only on /product/codapay/."
+  },
+  "media": {
+    "card-image": {
+      "assetRole": [
+        "section-product-mockup"
+      ],
+      "count": 3
+    }
+  },
+  "motion": {
+    "pattern": "reveal-slide-stagger",
+    "reveals": [
+      {
+        "element": "cards",
+        "slide": true,
+        "delayMs": "50,100,150"
+      }
+    ],
+    "reducedMotionFallback": "Final state, no slide.",
+    "reducedMotionFallbackKind": "design-rule (the site ships no prefers-reduced-motion handling, so this is prescribed, not mirrored)"
+  },
+  "responsive": {
+    "breakpoint": "800px",
+    "grid": "1 col -> 3 cols; card gap-3 -> gap-2"
+  },
+  "tokens": [
+    "type.header-l",
+    "type.header-s",
+    "layout.grid-gap.card"
+  ],
+  "composes": [
+    "component.section-bridge",
+    "component.card-integration",
+    "primitive.button"
+  ],
+  "measuredFrom": [
+    {
+      "id": "cit-p2-icmp-root",
+      "source": "src/pages/ProductCodapayPage.jsx:9-9",
+      "quote": "integration-comparison w-full my-9 max-w-blogPostVideoW block-padding mx-auto"
+    },
+    {
+      "id": "cit-p2-icmp-grid",
+      "source": "src/pages/ProductCodapayPage.jsx:9-9",
+      "quote": "integration-comparison-inner w-full max-w-blogPostVideoW mx-auto grid grid-cols-1 md:grid-cols-3 gap-4"
+    },
+    {
+      "id": "cit-p2-icmp-btn",
+      "source": "src/pages/ProductCodapayPage.jsx:9-9",
+      "quote": "[&_.inline-buttons]:mt-6"
+    }
+  ]
+}

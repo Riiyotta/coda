@@ -1,0 +1,131 @@
+{
+  "id": "awards.recognition",
+  "kind": "section",
+  "category": "awards",
+  "content": {
+    "type": "object",
+    "required": [
+      "heading",
+      "items"
+    ],
+    "properties": {
+      "heading": {
+        "type": "string",
+        "maxWords": 4,
+        "note": "Measured 3 words"
+      },
+      "items": {
+        "type": "array",
+        "minItems": 4,
+        "maxItems": 4,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "assetRole": {
+              "type": "string",
+              "enum": [
+                "award-image"
+              ]
+            },
+            "assetRef": {
+              "type": "string",
+              "format": "local-asset-path"
+            },
+            "title": {
+              "type": "string",
+              "maxWords": 4
+            },
+            "source": {
+              "type": "string",
+              "maxWords": 4
+            },
+            "linkLabel": {
+              "type": "string",
+              "maxWords": 2
+            }
+          },
+          "required": [
+            "assetRole",
+            "assetRef",
+            "title",
+            "source"
+          ]
+        }
+      }
+    },
+    "additionalProperties": false,
+    "maxWordsTotal": 44
+  },
+  "usedOn": [
+    "/"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); copy evidence per route below",
+    "copy": {
+      "a-exact": [
+        "/"
+      ]
+    }
+  },
+  "purpose": "Row of four award badges with title, source and a learn-more link.",
+  "bodyCopyFields": [],
+  "variants": {},
+  "constraints": {
+    "onePerPage": true,
+    "maxPerPage": 1,
+    "verification": "Checked: once, only on the homepage, directly after metrics."
+  },
+  "media": {
+    "award-image": {
+      "assetRole": [
+        "award-image"
+      ],
+      "count": 4
+    }
+  },
+  "motion": {
+    "pattern": "reveal-stagger",
+    "reveals": [
+      {
+        "element": "items",
+        "delayMs": "50,100,150,200"
+      }
+    ],
+    "interaction": {
+      "itemHover": "image translate-y one step (300ms); link shifts .6em with arrow"
+    },
+    "reducedMotionFallback": "Final state, no stagger; no hover translate.",
+    "reducedMotionFallbackKind": "design-rule (the site ships no prefers-reduced-motion handling, so this is prescribed, not mirrored)"
+  },
+  "responsive": {
+    "breakpoint": "800px",
+    "items": "wrap, full width each below 800px; 4 in a row from 800px; arrow-button hover only from 800px"
+  },
+  "tokens": [
+    "type.header-l",
+    "type.body-s",
+    "color.grey-2",
+    "motion.transition.duration-300"
+  ],
+  "composes": [
+    "component.award-item"
+  ],
+  "measuredFrom": [
+    {
+      "id": "cit-p2-aw-root",
+      "source": "src/components/Awards.jsx:4-4",
+      "quote": "awards flex flex-col w-maxContentW mx-auto gap-6 my-9 px-6"
+    },
+    {
+      "id": "cit-p2-aw-row",
+      "source": "src/components/Awards.jsx:4-4",
+      "quote": "w-full flex gap-6 flex-wrap md:flex-nowrap items-start justify-between"
+    },
+    {
+      "id": "cit-p2-aw-h2",
+      "source": "src/components/Awards.jsx:4-4",
+      "quote": "<h2 className=\"type-header-l w-full text-center\">{\"Awards and recognition\"}</h2>"
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "id": "tiles.page",
+  "kind": "section",
+  "category": "tiles",
+  "content": {
+    "type": "object",
+    "required": [
+      "heading",
+      "tiles"
+    ],
+    "properties": {
+      "heading": {
+        "type": "string",
+        "maxWords": 9,
+        "note": "Measured 8 words"
+      },
+      "tiles": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "backgroundAssetRole": {
+              "type": "string",
+              "enum": [
+                "world-map-illustration"
+              ]
+            },
+            "backgroundAssetRef": {
+              "type": "string",
+              "format": "local-asset-path"
+            },
+            "foregroundAssetRole": {
+              "type": "string",
+              "enum": [
+                "payment-method-logo",
+                "country-flag",
+                "world-map-illustration"
+              ]
+            },
+            "foregroundAssetRef": {
+              "type": "string",
+              "format": "local-asset-path"
+            },
+            "text": {
+              "type": "string",
+              "maxWords": 15,
+              "bodyCopy": true
+            },
+            "button": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "maxWords": 3
+                },
+                "style": {
+                  "type": "string",
+                  "enum": [
+                    "black"
+                  ]
+                },
+                "href": {
+                  "type": "string",
+                  "format": "route-or-inert-hash"
+                }
+              },
+              "required": [
+                "label",
+                "style"
+              ]
+            }
+          },
+          "required": [
+            "backgroundAssetRole",
+            "backgroundAssetRef",
+            "text",
+            "button"
+          ]
+        },
+        "note": "Exactly 2 tiles."
+      }
+    },
+    "additionalProperties": false,
+    "maxWordsTotal": 45
+  },
+  "usedOn": [
+    "/product/codapay/"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); copy evidence per route below",
+    "copy": {
+      "c-original-slot-sized": [
+        "/product/codapay/"
+      ]
+    }
+  },
+  "purpose": "Two illustrated navigation tiles (payment guides / market guides) under a heading; their targets are outside the 15 routes so buttons are inert \"#\".",
+  "bodyCopyFields": [
+    "tiles[].text"
+  ],
+  "variants": {},
+  "constraints": {
+    "onePerPage": true,
+    "maxPerPage": 1,
+    "verification": "Checked: once, only on /product/codapay/, directly before integration-comparison."
+  },
+  "media": {
+    "tile-background": {
+      "assetRole": [
+        "world-map-illustration"
+      ],
+      "count": 2
+    },
+    "tile-foreground": {
+      "assetRole": [
+        "payment-method-logo",
+        "country-flag",
+        "world-map-illustration"
+      ],
+      "count": 2
+    }
+  },
+  "motion": {
+    "pattern": "reveal-slide-stagger",
+    "reveals": [
+      {
+        "element": "tiles",
+        "slide": true,
+        "delayMs": "50, 100"
+      }
+    ],
+    "interaction": {
+      "hover": "tile radius md -> lg"
+    },
+    "reducedMotionFallback": "Final state, no slide, no radius transition.",
+    "reducedMotionFallbackKind": "design-rule (the site ships no prefers-reduced-motion handling, so this is prescribed, not mirrored)"
+  },
+  "responsive": {
+    "breakpoint": "800px",
+    "grid": "1 col -> 2 cols"
+  },
+  "tokens": [
+    "radius.md",
+    "radius.lg",
+    "color.charcoal",
+    "layout.grid-gap.card",
+    "type.header-l"
+  ],
+  "composes": [
+    "component.section-bridge",
+    "component.card-page-tile"
+  ],
+  "measuredFrom": [
+    {
+      "id": "cit-p2-pt-root",
+      "source": "src/pages/ProductCodapayPage.jsx:9-9",
+      "quote": "page-tiles w-full my-9 max-w-blogPostVideoW block-padding mx-auto"
+    },
+    {
+      "id": "cit-p2-pt-hide",
+      "source": "src/pages/ProductCodapayPage.jsx:9-9",
+      "quote": "[&_.section-bridge-description]:hidden [&_.section-bridge_h2]:md:w-full"
+    },
+    {
+      "id": "cit-p2-pt-grid",
+      "source": "src/pages/ProductCodapayPage.jsx:9-9",
+      "quote": "page-tiles-inner w-full max-w-blogPostVideoW mx-auto grid grid-cols-1 md:grid-cols-2 gap-4"
+    },
+    {
+      "id": "cit-p2-pt-map",
+      "source": "src/pages/ProductCodapayPage.jsx:9-9",
+      "quote": "src=\"/images/page-tile-02.webp\""
+    }
+  ]
+}

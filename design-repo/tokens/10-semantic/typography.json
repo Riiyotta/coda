@@ -1,0 +1,84 @@
+{
+  "$description": "Semantic type roles. h1-h6 with .wp-block-heading are styled by rules in the stylesheet (Metrics numerals use h3.wp-block-heading), which is why some page headings carry no type-* class.",
+  "tokens": {
+    "heading.hero": {
+      "$ref": "type.title-l",
+      "mobileRef": "type.title-xs",
+      "usage": 15,
+      "evidence": [
+        "cit-sem-type-hero"
+      ]
+    },
+    "heading.section": {
+      "$ref": "type.header-l",
+      "usage": 102,
+      "evidence": [
+        "cit-sem-type-section"
+      ]
+    },
+    "heading.card": {
+      "$ref": "type.header-m",
+      "usage": 56,
+      "evidence": [
+        "cit-sem-type-h5"
+      ]
+    },
+    "body.default": {
+      "$ref": "type.body-m",
+      "usage": 190,
+      "evidence": [
+        "cit-sem-type-body"
+      ]
+    },
+    "body.card": {
+      "$ref": "type.body-m-mobile",
+      "usage": 280,
+      "evidence": [
+        "cit-sem-type-body"
+      ]
+    },
+    "body.small": {
+      "$ref": "type.body-s",
+      "usage": 108,
+      "evidence": [
+        "cit-sem-type-caption"
+      ]
+    },
+    "title.faq": {
+      "$ref": "type.header-s",
+      "usage": 139,
+      "evidence": [
+        "cit-sem-type-faq"
+      ]
+    },
+    "nav.link": {
+      "$ref": "type.ui-nav-l",
+      "usage": 70,
+      "evidence": [
+        "cit-sem-type-nav"
+      ]
+    },
+    "label.mono": {
+      "$ref": "type.ui-label",
+      "usage": 21,
+      "evidence": [
+        "cit-sem-type-label"
+      ]
+    },
+    "pill.title": {
+      "$ref": "type.special-pill-title-l-mobile",
+      "usage": 6,
+      "evidence": [
+        "cit-sem-type-pill"
+      ]
+    },
+    "button.label": {
+      "$ref": "type.ui-button-s",
+      "usage": 0,
+      "note": "Buttons get this recipe from .is-style-* rules (identical values), not from the type-ui-button-s class.",
+      "evidence": [
+        "cit-sem-type-button"
+      ]
+    }
+  }
+}

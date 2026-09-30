@@ -1,0 +1,4563 @@
+{
+ "schemaNote": "Ledger of citations backing every token and asset-role decision. `source` is \"path:startLine-endLine\" relative to the source project (NOT shipped in this package; extraction/verify_all.py resolves source-tree citations only when the sibling tree is present and otherwise prints a warning). public/styles/coda-main.css is minified onto ONE line, so its citations are always 1-1 and carry a `charRange` (0-based character offsets) that locates the quoted text. Later build passes appended to `citations`; ids are unique.",
+ "sourceRootNote": "Paths are relative to the cloned project root that contains src/, public/, index.html and CLONE_SPEC.md.",
+ "evidenceLevels": {
+  "copyEvidence": {
+   "a-exact": "Homepage copy is exact, taken from the user's own saved page. Structure, layout and motion were measured against the live site (~1px).",
+   "b-real-saved-copy": "Five inner pages (coda-links, coda-giftcloud, distribution, consumer-platforms, pricing) carry real text from the user's own saved copies. Structure/layout/motion measured against live.",
+   "c-original-slot-sized": "Nine pages (codapay, coda-webstore, six industries, merchant-of-record) carry ORIGINAL newly written copy sized to the original slot lengths - NOT Coda's wording. Structure/layout/motion measured against live (~1px) but copy budgets derive from slot lengths, not measured real copy.",
+   "rule": "Record per route and per template; never flatten. Contracts/examples use only short original headings, labels and CTAs within maxWords; never paste paragraphs from pages or saved HTML."
+  },
+  "citation": {
+   "declaration": "Quoted directly from a CSS/JSX/JS declaration or attribute at the cited location.",
+   "counted": "A count derived by a histogram script over src/**/*.jsx|js (class-name tokens, regex counted); the cited line is one representative occurrence, the count is in the claim/token usage field.",
+   "spec-measured": "A value measured on the live site or read from the bundle and recorded in CLONE_SPEC.md; the cited line is that record.",
+   "inferred": "An absence claim or reading inferred from the evidence (e.g. no dark theme, no reduced-motion handling); the note says how it was verified."
+  }
+ },
+ "perRouteCopyEvidence": {
+  "_note": "Copy evidence level per route (a-exact / b-real-saved-copy / c-original-slot-sized). Level c budgets derive from slot lengths, not from measured real copy. Structure evidence for the 14 inner pages is carried over from section contracts (see cit-p3-structure-caveat).",
+  "routes": {
+   "/": {
+    "template": "home",
+    "copyEvidence": "a-exact",
+    "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+    "sequenceCitation": "cit-p3-seq-home"
+   },
+   "/industries/creator-economy-payments/": {
+    "template": "solution-impact",
+    "copyEvidence": "c-original-slot-sized",
+    "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+    "sequenceCitation": "cit-p3-seq-industries-creator-economy-payments"
+   },
+   "/industries/dating-app-payments/": {
+    "template": "solution-standard",
+    "copyEvidence": "c-original-slot-sized",
+    "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+    "sequenceCitation": "cit-p3-seq-industries-dating-app-payments"
+   },
+   "/industries/digital-entertainment/": {
+    "template": "solution-standard",
+    "copyEvidence": "c-original-slot-sized",
+    "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+    "sequenceCitation": "cit-p3-seq-industries-digital-entertainment"
+   },
+   "/industries/esim-digital-utility-payments/": {
+    "template": "solution-standard",
+    "copyEvidence": "c-original-slot-sized",
+    "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+    "sequenceCitation": "cit-p3-seq-industries-esim-digital-utility-payments"
+   },
+   "/industries/learning-management-system-payments/": {
+    "template": "solution-standard",
+    "copyEvidence": "c-original-slot-sized",
+    "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+    "sequenceCitation": "cit-p3-seq-industries-learning-management-system-payments"
+   },
+   "/industries/online-gaming-payments/": {
+    "template": "solution-impact",
+    "copyEvidence": "c-original-slot-sized",
+    "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+    "sequenceCitation": "cit-p3-seq-industries-online-gaming-payments"
+   },
+   "/pricing/": {
+    "template": "pricing",
+    "copyEvidence": "b-real-saved-copy",
+    "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+    "sequenceCitation": "cit-p3-seq-pricing"
+   },
+   "/product/coda-consumer-platforms/": {
+    "template": "product-consumer-platforms",
+    "copyEvidence": "b-real-saved-copy",
+    "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+    "sequenceCitation": "cit-p3-seq-product-coda-consumer-platforms"
+   },
+   "/product/coda-giftcloud/": {
+    "template": "product-giftcloud",
+    "copyEvidence": "b-real-saved-copy",
+    "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+    "sequenceCitation": "cit-p3-seq-product-coda-giftcloud"
+   },
+   "/product/coda-links/": {
+    "template": "product-links",
+    "copyEvidence": "b-real-saved-copy",
+    "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+    "sequenceCitation": "cit-p3-seq-product-coda-links"
+   },
+   "/product/coda-webstore/": {
+    "template": "product-webstore",
+    "copyEvidence": "c-original-slot-sized",
+    "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+    "sequenceCitation": "cit-p3-seq-product-coda-webstore"
+   },
+   "/product/codapay/": {
+    "template": "product-codapay",
+    "copyEvidence": "c-original-slot-sized",
+    "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+    "sequenceCitation": "cit-p3-seq-product-codapay"
+   },
+   "/product/distribution/": {
+    "template": "product-distribution",
+    "copyEvidence": "b-real-saved-copy",
+    "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+    "sequenceCitation": "cit-p3-seq-product-distribution"
+   },
+   "/use-case/merchant-of-record/": {
+    "template": "solution-standard",
+    "copyEvidence": "c-original-slot-sized",
+    "structureEvidence": "measured-against-live-~1px (stated in section contract evidence.structure; see structureEvidenceCaveat)",
+    "sequenceCitation": "cit-p3-seq-use-case-merchant-of-record"
+   }
+  }
+ },
+ "phase1Scope": "tokens/**, assets/asset-roles.json",
+ "citations": [
+  {
+   "id": "cit-color-literal-e2e2e2-jsx",
+   "claim": "FAQ row divider uses the arbitrary colour #e2e2e2 (border-b-[#e2e2e2]) on every FAQ trigger",
+   "source": "src/pages/PricingPage.jsx:6-6",
+   "evidenceLevel": "counted",
+   "quote": "border-b-[#e2e2e2]",
+   "note": "Occurs 91 times across the 15 routes (one per FAQ item)."
+  },
+  {
+   "id": "cit-color-literal-e2e2e2-css",
+   "claim": "Stylesheet ships the arbitrary utility that paints #e2e2e2",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    68840,
+    68900
+   ],
+   "quote": "border-b-\\[\\#e2e2e2\\]",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-white",
+   "claim": "--color-white is declared as the rgb triplet 255 255 255",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    18477,
+    18503
+   ],
+   "quote": "--color-white: 255 255 255",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-slightWhite",
+   "claim": "--color-slightWhite is declared as the rgb triplet 252 252 252",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    18504,
+    18536
+   ],
+   "quote": "--color-slightWhite: 252 252 252",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-offWhite",
+   "claim": "--color-offWhite is declared as the rgb triplet 248 249 235",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    18537,
+    18566
+   ],
+   "quote": "--color-offWhite: 248 249 235",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-charcoal",
+   "claim": "--color-charcoal is declared as the rgb triplet 32 32 32",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    18567,
+    18593
+   ],
+   "quote": "--color-charcoal: 32 32 32",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-black",
+   "claim": "--color-black is declared as the rgb triplet 0 0 0",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    18594,
+    18614
+   ],
+   "quote": "--color-black: 0 0 0",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-purple-1",
+   "claim": "--color-purple-1 is declared as the rgb triplet 211 190 255",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    18615,
+    18644
+   ],
+   "quote": "--color-purple-1: 211 190 255",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-purple-2",
+   "claim": "--color-purple-2 is declared as the rgb triplet 164 122 255",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    18645,
+    18674
+   ],
+   "quote": "--color-purple-2: 164 122 255",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-purple-3",
+   "claim": "--color-purple-3 is declared as the rgb triplet 103 31 255",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    18675,
+    18703
+   ],
+   "quote": "--color-purple-3: 103 31 255",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-purple-4",
+   "claim": "--color-purple-4 is declared as the rgb triplet 45 0 120",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    18704,
+    18730
+   ],
+   "quote": "--color-purple-4: 45 0 120",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-blue-1",
+   "claim": "--color-blue-1 is declared as the rgb triplet 176 244 255",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    18731,
+    18758
+   ],
+   "quote": "--color-blue-1: 176 244 255",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-blue-2",
+   "claim": "--color-blue-2 is declared as the rgb triplet 78 170 255",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    18759,
+    18785
+   ],
+   "quote": "--color-blue-2: 78 170 255",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-blue-3",
+   "claim": "--color-blue-3 is declared as the rgb triplet 0 46 255",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    18786,
+    18810
+   ],
+   "quote": "--color-blue-3: 0 46 255",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-blue-4",
+   "claim": "--color-blue-4 is declared as the rgb triplet 4 22 104",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    18811,
+    18835
+   ],
+   "quote": "--color-blue-4: 4 22 104",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-green-1",
+   "claim": "--color-green-1 is declared as the rgb triplet 170 253 192",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    18836,
+    18864
+   ],
+   "quote": "--color-green-1: 170 253 192",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-green-2",
+   "claim": "--color-green-2 is declared as the rgb triplet 27 201 122",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    18865,
+    18892
+   ],
+   "quote": "--color-green-2: 27 201 122",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-green-3",
+   "claim": "--color-green-3 is declared as the rgb triplet 0 124 68",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    18893,
+    18918
+   ],
+   "quote": "--color-green-3: 0 124 68",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-green-4",
+   "claim": "--color-green-4 is declared as the rgb triplet 0 61 33",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    18919,
+    18943
+   ],
+   "quote": "--color-green-4: 0 61 33",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-pink-1",
+   "claim": "--color-pink-1 is declared as the rgb triplet 255 192 230",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    18944,
+    18971
+   ],
+   "quote": "--color-pink-1: 255 192 230",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-pink-2",
+   "claim": "--color-pink-2 is declared as the rgb triplet 254 119 199",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    18972,
+    18999
+   ],
+   "quote": "--color-pink-2: 254 119 199",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-pink-3",
+   "claim": "--color-pink-3 is declared as the rgb triplet 214 44 146",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    19000,
+    19026
+   ],
+   "quote": "--color-pink-3: 214 44 146",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-pink-4",
+   "claim": "--color-pink-4 is declared as the rgb triplet 63 9 41",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    19027,
+    19050
+   ],
+   "quote": "--color-pink-4: 63 9 41",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-yellow-1",
+   "claim": "--color-yellow-1 is declared as the rgb triplet 255 242 147",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    19051,
+    19080
+   ],
+   "quote": "--color-yellow-1: 255 242 147",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-yellow-2",
+   "claim": "--color-yellow-2 is declared as the rgb triplet 246 223 90",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    19081,
+    19109
+   ],
+   "quote": "--color-yellow-2: 246 223 90",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-yellow-3",
+   "claim": "--color-yellow-3 is declared as the rgb triplet 239 206 10",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    19110,
+    19138
+   ],
+   "quote": "--color-yellow-3: 239 206 10",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-yellow-4",
+   "claim": "--color-yellow-4 is declared as the rgb triplet 148 94 12",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    19139,
+    19166
+   ],
+   "quote": "--color-yellow-4: 148 94 12",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-orange-1",
+   "claim": "--color-orange-1 is declared as the rgb triplet 255 188 173",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    19167,
+    19196
+   ],
+   "quote": "--color-orange-1: 255 188 173",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-orange-2",
+   "claim": "--color-orange-2 is declared as the rgb triplet 246 128 104",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    19197,
+    19226
+   ],
+   "quote": "--color-orange-2: 246 128 104",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-orange-3",
+   "claim": "--color-orange-3 is declared as the rgb triplet 237 69 33",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    19227,
+    19254
+   ],
+   "quote": "--color-orange-3: 237 69 33",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-orange-4",
+   "claim": "--color-orange-4 is declared as the rgb triplet 114 27 8",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    19255,
+    19281
+   ],
+   "quote": "--color-orange-4: 114 27 8",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-grey-0",
+   "claim": "--color-grey-0 is declared as the rgb triplet 237 238 225",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    19282,
+    19309
+   ],
+   "quote": "--color-grey-0: 237 238 225",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-grey-1",
+   "claim": "--color-grey-1 is declared as the rgb triplet 192 194 169",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    19310,
+    19337
+   ],
+   "quote": "--color-grey-1: 192 194 169",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-grey-2",
+   "claim": "--color-grey-2 is declared as the rgb triplet 90 90 79",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    19338,
+    19362
+   ],
+   "quote": "--color-grey-2: 90 90 79",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-grey-mid",
+   "claim": "--color-grey-mid is declared as the rgb triplet 124 125 118",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    19363,
+    19392
+   ],
+   "quote": "--color-grey-mid: 124 125 118",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-color-grey-light",
+   "claim": "--color-grey-light is declared as the rgb triplet 243 243 243",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    19393,
+    19424
+   ],
+   "quote": "--color-grey-light: 243 243 243",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-spacing-0",
+   "claim": "--spacing-0 base value 0px; steps re-declared per breakpoint (fluid calc from 800px)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    6611,
+    6627
+   ],
+   "quote": "--spacing-0: 0px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-spacing-1",
+   "claim": "--spacing-1 base value 2px; steps re-declared per breakpoint (fluid calc from 800px)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    6628,
+    6644
+   ],
+   "quote": "--spacing-1: 2px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-spacing-2",
+   "claim": "--spacing-2 base value 4px; steps re-declared per breakpoint (fluid calc from 800px)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    6645,
+    6661
+   ],
+   "quote": "--spacing-2: 4px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-spacing-3",
+   "claim": "--spacing-3 base value 8px; steps re-declared per breakpoint (fluid calc from 800px)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    6662,
+    6678
+   ],
+   "quote": "--spacing-3: 8px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-spacing-4",
+   "claim": "--spacing-4 base value 12px; steps re-declared per breakpoint (fluid calc from 800px)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    6679,
+    6696
+   ],
+   "quote": "--spacing-4: 12px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-spacing-5",
+   "claim": "--spacing-5 base value 16px; steps re-declared per breakpoint (fluid calc from 800px)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    6697,
+    6714
+   ],
+   "quote": "--spacing-5: 16px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-spacing-6",
+   "claim": "--spacing-6 base value 20px; steps re-declared per breakpoint (fluid calc from 800px)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    6715,
+    6732
+   ],
+   "quote": "--spacing-6: 20px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-spacing-7",
+   "claim": "--spacing-7 base value 24px; steps re-declared per breakpoint (fluid calc from 800px)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    6733,
+    6750
+   ],
+   "quote": "--spacing-7: 24px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-spacing-8",
+   "claim": "--spacing-8 base value 32px; steps re-declared per breakpoint (fluid calc from 800px)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    6751,
+    6768
+   ],
+   "quote": "--spacing-8: 32px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-spacing-9",
+   "claim": "--spacing-9 base value 48px; steps re-declared per breakpoint (fluid calc from 800px)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    6769,
+    6786
+   ],
+   "quote": "--spacing-9: 48px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-spacing-10",
+   "claim": "--spacing-10 base value 64px; steps re-declared per breakpoint (fluid calc from 800px)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    6787,
+    6805
+   ],
+   "quote": "--spacing-10: 64px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-spacing-11",
+   "claim": "--spacing-11 base value 80px; steps re-declared per breakpoint (fluid calc from 800px)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    6806,
+    6824
+   ],
+   "quote": "--spacing-11: 80px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-spacing-12",
+   "claim": "--spacing-12 base value 100px; steps re-declared per breakpoint (fluid calc from 800px)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    6825,
+    6844
+   ],
+   "quote": "--spacing-12: 100px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-spacing-3half",
+   "claim": "--spacing-3half base value 10px; steps re-declared per breakpoint (fluid calc from 800px)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    6845,
+    6866
+   ],
+   "quote": "--spacing-3half: 10px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-spacing-navBarHeightBase",
+   "claim": "--spacing-navBarHeightBase base value 52px; steps re-declared per breakpoint (fluid calc from 800px)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    6867,
+    6899
+   ],
+   "quote": "--spacing-navBarHeightBase: 52px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-spacing-navBarInnerTopBase",
+   "claim": "--spacing-navBarInnerTopBase base value 108px; steps re-declared per breakpoint (fluid calc from 800px)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    6900,
+    6935
+   ],
+   "quote": "--spacing-navBarInnerTopBase: 108px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-spacing-navToggleGap",
+   "claim": "--spacing-navToggleGap base value 3px; steps re-declared per breakpoint (fluid calc from 800px)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    6936,
+    6963
+   ],
+   "quote": "--spacing-navToggleGap: 3px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-spacing-navToggleAnimate",
+   "claim": "--spacing-navToggleAnimate base value 5px; steps re-declared per breakpoint (fluid calc from 800px)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    6964,
+    6995
+   ],
+   "quote": "--spacing-navToggleAnimate: 5px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-spacing-paymentTypeH",
+   "claim": "--spacing-paymentTypeH base value 28px; steps re-declared per breakpoint (fluid calc from 800px)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    6996,
+    7024
+   ],
+   "quote": "--spacing-paymentTypeH: 28px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-spacing-utility-p5",
+   "claim": "Spacing utilities are remapped onto the steps: .p-5 = var(--spacing-5), .my-9 = var(--spacing-9), .gap-10 = var(--spacing-10)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    72559,
+    72589
+   ],
+   "quote": ".p-5{padding:var(--spacing-5)}",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-spacing-fluid-800",
+   "claim": "At >=800px the steps become calc() fluid values that scale with 100vw; at >=1600px they freeze at fixed px (e.g. --spacing-7: 48px)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    7470,
+    7538
+   ],
+   "quote": "@media(min-width:800px){:root{--spacing-0: 0px;--spacing-1: calc(3px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-spacing-1600-frozen",
+   "claim": "From 1600px the steps are fixed values (spacing-7 48px, spacing-12 144px)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    9480,
+    9546
+   ],
+   "quote": "@media(min-width:1600px){:root{--spacing-0: 0px;--spacing-1: 4.8px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-spacing-navBarHeight-derived",
+   "claim": "--spacing-navBarHeight is derived: calc(var(--spacing-navBarHeightBase) + var(--nav-notification-bar-height, 0px)); declared once, outside :root",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    82165,
+    82268
+   ],
+   "quote": "--spacing-navBarHeight: calc(var(--spacing-navBarHeightBase) + var(--nav-notification-bar-height, 0px))",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-spacing-spec-44_8",
+   "claim": "CLONE_SPEC independently measured translateY(var(--spacing-7)) = 44.8px at 1440 wide, matching the resolved 44.8 in this ledger",
+   "source": "CLONE_SPEC.md:54-54",
+   "evidenceLevel": "spec-measured",
+   "quote": "(44.8px at 1440)"
+  },
+  {
+   "id": "cit-radius-sm",
+   "claim": "--border-radius-sm base value 8px, fluid from 800px, fixed from 1600px",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    10438,
+    10461
+   ],
+   "quote": "--border-radius-sm: 8px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-radius-md",
+   "claim": "--border-radius-md base value 10px, fluid from 800px, fixed from 1600px",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    10462,
+    10486
+   ],
+   "quote": "--border-radius-md: 10px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-radius-mdu",
+   "claim": "--border-radius-mdu base value 16px, fluid from 800px, fixed from 1600px",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    10487,
+    10512
+   ],
+   "quote": "--border-radius-mdu: 16px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-radius-lgu",
+   "claim": "--border-radius-lgu base value 20px, fluid from 800px, fixed from 1600px",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    10513,
+    10538
+   ],
+   "quote": "--border-radius-lgu: 20px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-radius-lg",
+   "claim": "--border-radius-lg base value 24px, fluid from 800px, fixed from 1600px",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    10539,
+    10563
+   ],
+   "quote": "--border-radius-lg: 24px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-radius-xlu",
+   "claim": "--border-radius-xlu base value 24px, fluid from 800px, fixed from 1600px",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    10564,
+    10589
+   ],
+   "quote": "--border-radius-xlu: 24px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-radius-xl",
+   "claim": "--border-radius-xl base value 40px, fluid from 800px, fixed from 1600px",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    10590,
+    10614
+   ],
+   "quote": "--border-radius-xl: 40px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-radius-xxl",
+   "claim": "--border-radius-xxl base value 40px, fluid from 800px, fixed from 1600px",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    10615,
+    10640
+   ],
+   "quote": "--border-radius-xxl: 40px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-radius-menuIcon",
+   "claim": "--border-radius-menuIcon base value 12px, fluid from 800px, fixed from 1600px",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    10641,
+    10671
+   ],
+   "quote": "--border-radius-menuIcon: 12px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-radius-full",
+   "claim": "rounded-full is a literal 9999px",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    67181,
+    67216
+   ],
+   "quote": ".rounded-full{border-radius:9999px}",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-radius-utilities",
+   "claim": "Radius utilities map to the tokens: .rounded-md = var(--border-radius-md), .rounded-lg = ..-lg, .rounded-mdu ..",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    67216,
+    67266
+   ],
+   "quote": ".rounded-lg{border-radius:var(--border-radius-lg)}",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-title-3-xl",
+   "claim": "Type step title-3-xl: family var(--font-body), weight 800, tracking -.01em, case uppercase, base 72px/64.8px; fluid at 800 and 1200, fixed at 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    21732,
+    21874
+   ],
+   "quote": ".type-title-3-xl{font-family:var(--font-body);font-size:72px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-title-l",
+   "claim": "Type step title-l: family var(--font-body), weight 800, tracking -.01em, case uppercase, base 40px/36px; fluid at 800 and 1200, fixed at 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    133332,
+    133473
+   ],
+   "quote": ".md\\:type-title-l{font-family:var(--font-body);font-size:40p",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-title-m",
+   "claim": "Type step title-m: family var(--font-body), weight 800, tracking -.01em, case uppercase, base 36px/32.4px; fluid at 800 and 1200, fixed at 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    24353,
+    24492
+   ],
+   "quote": ".type-title-m{font-family:var(--font-body);font-size:36px;li",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-title-s",
+   "claim": "Type step title-s: family var(--font-body), weight 800, tracking -.01em, case uppercase, base 24px/24px; fluid at 800 and 1200, fixed at 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    161483,
+    161634
+   ],
+   "quote": ".\\[\\&_h5\\]\\:type-title-s h5{font-family:var(--font-body);fon",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-title-xs",
+   "claim": "Type step title-xs: family var(--font-body), weight 800, tracking -.01em, case uppercase, base 24px/24px; fluid at 800 and 1200, fixed at 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    26494,
+    26632
+   ],
+   "quote": ".type-title-xs{font-family:var(--font-body);font-size:24px;l",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-title-2-xs",
+   "claim": "Type step title-2-xs: family var(--font-body), weight 800, tracking -.01em, case none, base 17px/17.34px; fluid at 800 and 1200, fixed at 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    28641,
+    28779
+   ],
+   "quote": ".type-title-2-xs{font-family:var(--font-body);font-size:17px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-header-4-xl",
+   "claim": "Type step header-4-xl: family var(--font-body), weight 800, tracking -.01em, case none, base 64px/64px; fluid at 800 and 1200, fixed at 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    135241,
+    135433
+   ],
+   "quote": ".md\\:\\!type-header-4-xl{font-family:var(--font-body)!importa",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-header-3-xl",
+   "claim": "Type step header-3-xl: family var(--font-body), weight 800, tracking -.01em, case none, base 32px/32px; fluid at 800 and 1200, fixed at 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    31097,
+    31233
+   ],
+   "quote": ".type-header-3-xl{font-family:var(--font-body);font-size:32p",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-header-2-xl",
+   "claim": "Type step header-2-xl: family var(--font-body), weight 500, tracking -.01em, case none, base 32px/32px; fluid at 800 and 1200, fixed at 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    33129,
+    33265
+   ],
+   "quote": ".type-header-2-xl{font-family:var(--font-body);font-size:32p",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-header-xl",
+   "claim": "Type step header-xl: family var(--font-body), weight 500, tracking -.01em, case none, base 28px/33.6px; fluid at 800 and 1200, fixed at 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    34192,
+    34328
+   ],
+   "quote": ".type-header-xl{font-family:var(--font-body);font-size:28px;",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-header-l",
+   "claim": "Type step header-l: family var(--font-body), weight 500, tracking -.01em, case none, base 24px/28.8px; fluid at 800 and 1200, fixed at 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    35260,
+    35395
+   ],
+   "quote": ".type-header-l{font-family:var(--font-body);font-size:24px;l",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-header-m",
+   "claim": "Type step header-m: family var(--font-body), weight 500, tracking -.01em, case none, base 20px/24px; fluid at 800 and 1200, fixed at 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    36328,
+    36461
+   ],
+   "quote": ".type-header-m{font-family:var(--font-body);font-size:20px;l",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-header-s",
+   "claim": "Type step header-s: family var(--font-body), weight 500, tracking -.01em, case none, base 16px/19.2px; fluid at 800 and 1200, fixed at 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    37391,
+    37526
+   ],
+   "quote": ".type-header-s{font-family:var(--font-body);font-size:16px;l",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-body-l",
+   "claim": "Type step body-l: family var(--font-body), weight 800, tracking -.01em, case none, base 22.5px/26.325px; fluid at 800 and 1200, fixed at 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    38469,
+    38606
+   ],
+   "quote": ".type-body-l{font-family:var(--font-body);font-size:22.5px;l",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-body-m",
+   "claim": "Type step body-m: family var(--font-body), weight 400, tracking .01em, case none, base 16px/24px; fluid at 800 and 1200, fixed at 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    39529,
+    39659
+   ],
+   "quote": ".type-body-m{font-family:var(--font-body);font-size:16px;lin",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-body-m-mobile",
+   "claim": "Type step body-m-mobile: family var(--font-body), weight 400, tracking .01em, case none, base 16px/24px; fluid at 800 and 1200, fixed at 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    40715,
+    40852
+   ],
+   "quote": ".type-body-m-mobile{font-family:var(--font-body);font-size:1",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-body-s",
+   "claim": "Type step body-s: family var(--font-body), weight 400, tracking .01em, case none, base 15px/19.95px; fluid at 800 and 1200, fixed at 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    42210,
+    42343
+   ],
+   "quote": ".type-body-s{font-family:var(--font-body);font-size:15px;lin",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-ui-nav-l",
+   "claim": "Type step ui-nav-l: family var(--font-body), weight 400, tracking normal, case none, base 14px/15.96px; fluid at 800 and 1200, fixed at 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    44512,
+    44648
+   ],
+   "quote": ".type-ui-nav-l{font-family:var(--font-body);font-size:14px;l",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-ui-nav-s",
+   "claim": "Type step ui-nav-s: family var(--font-body), weight 400, tracking normal, case none, base 12px/24px; fluid at 800 and 1200, fixed at 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    45724,
+    45857
+   ],
+   "quote": ".type-ui-nav-s{font-family:var(--font-body);font-size:12px;l",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-ui-label",
+   "claim": "Type step ui-label: family jetBrainsMono, weight 400, tracking normal, case uppercase, base 11px/9.9px; fluid at 800 and 1200, fixed at 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    47206,
+    47342
+   ],
+   "quote": ".type-ui-label{font-family:jetBrainsMono;font-size:11px;line",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-ui-button-s",
+   "claim": "Type step ui-button-s: family var(--font-body), weight 500, tracking normal, case none, base 14px/20.02px; fluid at 800 and 1200, fixed at 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    48614,
+    48753
+   ],
+   "quote": ".type-ui-button-s{font-family:var(--font-body);font-size:14p",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-ui-input",
+   "claim": "Type step ui-input: family var(--font-body), weight 400, tracking normal, case none, base 16px/24px; fluid at 800 and 1200, fixed at 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    49862,
+    49995
+   ],
+   "quote": ".type-ui-input{font-family:var(--font-body);font-size:16px;l",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-special-pill-title-l",
+   "claim": "Type step special-pill-title-l: family jetBrainsMono, weight 400, tracking normal, case uppercase, base 24px/21.6px; fluid at 800 and 1200, fixed at 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    139877,
+    140030
+   ],
+   "quote": ".md\\:type-special-pill-title-l{font-family:jetBrainsMono;fon",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-special-pill-title-l-mobile",
+   "claim": "Type step special-pill-title-l-mobile: family jetBrainsMono, weight 400, tracking normal, case uppercase, base 12px/10.8px; fluid at 800 and 1200, fixed at 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    51068,
+    51224
+   ],
+   "quote": ".type-special-pill-title-l-mobile{font-family:jetBrainsMono;",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-font-body",
+   "claim": "--font-body resolves to abcMonumentGrotesk, Helvetica, sans-serif",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    82269,
+    82323
+   ],
+   "quote": "--font-body: abcMonumentGrotesk, Helvetica, sans-serif",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-font-mono",
+   "claim": "--font-mono resolves to jetBrainsMono, monospace",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    82324,
+    82361
+   ],
+   "quote": "--font-mono: jetBrainsMono, monospace",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-fontface-monument",
+   "claim": "ABC Monument Grotesk is loaded through @font-face from local /fonts files: weights 400, 500, 800 with italics",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    158,
+    558
+   ],
+   "quote": "@font-face{font-family:abcMonumentGrotesk;src:url(/fonts/ABCMonumentGrotesk-Heavy",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-fontface-jetbrains",
+   "claim": "JetBrains Mono Regular (400) is the second family",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    0,
+    200
+   ],
+   "quote": "@font-face{font-family:jetBrainsMono;src:url(/fonts/JetBrainsMono-Regular",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-type-locale-variants",
+   "claim": "Each type utility also has [data-locale=ja]/zh/ko overrides; the clone only ever renders data-locale=\"en\"",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    22509,
+    22557
+   ],
+   "quote": "[data-locale=ja] .type-title-3-xl{font-size:72px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-locale-en-only",
+   "claim": "App root fixes data-locale=\"en\"",
+   "source": "src/App.jsx:31-31",
+   "evidenceLevel": "declaration",
+   "quote": "data-locale=\"en\""
+  },
+  {
+   "id": "cit-bp-mobile-menu",
+   "claim": "Mobile menu breakpoint is window.innerWidth < 800",
+   "source": "src/lib/header/navController.js:7-7",
+   "evidenceLevel": "declaration",
+   "quote": "const MOBILE_BP = 800"
+  },
+  {
+   "id": "cit-bp-marquee-narrow",
+   "claim": "Marquee narrow mode = width < 800",
+   "source": "src/lib/enhance/marquee.js:124-124",
+   "evidenceLevel": "declaration",
+   "quote": "const narrow = w < 800"
+  },
+  {
+   "id": "cit-bp-pricing-700",
+   "claim": "Pricing table uses a JS-only 700px threshold for narrow behaviour",
+   "source": "src/lib/pricing/PaymentMethodTable.jsx:49-49",
+   "evidenceLevel": "declaration",
+   "quote": "window.innerWidth < 700"
+  },
+  {
+   "id": "cit-bp-media-800",
+   "claim": "md: variants are wrapped in @media(min-width:800px) (e.g. .md\\:pointer-events...)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    186776,
+    186816
+   ],
+   "quote": "@media(min-width:800px){.md\\:pointer-eve",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-bp-media-1200",
+   "claim": "The only lg: utility is .lg:w-headerLogo inside @media(min-width:1200px)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    198138,
+    198211
+   ],
+   "quote": "@media(min-width:1200px){.lg\\:w-headerLogo{width:var(--size-headerLogo)}}",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-bp-media-600-1600-2000",
+   "claim": "Token scales are re-declared at min-width 600, 800, 1200, 1600 and 2000",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    9956,
+    10016
+   ],
+   "quote": "@media(min-width:2000px){:root{--spacing-0: 0px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-bp-max-800",
+   "claim": "One legacy max-width:800px query exists in the stylesheet",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    118284,
+    118308
+   ],
+   "quote": "@media(max-width:800px){",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-bp-md-usage",
+   "claim": "The md: prefix is the only responsive class prefix in real use (thousands of uses), e.g. md:type-title-l on hero titles",
+   "source": "src/components/PreFooter.jsx:4-4",
+   "evidenceLevel": "counted",
+   "quote": "md:"
+  },
+  {
+   "id": "cit-z-utilities",
+   "claim": "CSS defines .z-20/.z-40/.z-50 utilities",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    54008,
+    54068
+   ],
+   "quote": ".z-20{z-index:20}",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-z-55-header",
+   "claim": "Header wrapper is fixed with z-[55]; nav internals use z-50 (17 uses)",
+   "source": "src/components/Header.jsx:10-10",
+   "evidenceLevel": "counted",
+   "quote": "z-[55]"
+  },
+  {
+   "id": "cit-z-1000-bar",
+   "claim": "Route loading bar sits at z-[1000]",
+   "source": "src/components/Header.jsx:10-10",
+   "evidenceLevel": "declaration",
+   "quote": "z-[1000]"
+  },
+  {
+   "id": "cit-blur-20",
+   "claim": "Header dim layer uses backdrop-blur-[20px] (CLONE_SPEC 1b measured backdrop-filter: blur(20px))",
+   "source": "src/components/Header.jsx:10-10",
+   "evidenceLevel": "declaration",
+   "quote": "backdrop-blur-[20px]"
+  },
+  {
+   "id": "cit-blur-32",
+   "claim": "Footer uses backdrop-blur-[32px]",
+   "source": "src/components/Footer.jsx:4-4",
+   "evidenceLevel": "declaration",
+   "quote": "backdrop-blur-[32px]"
+  },
+  {
+   "id": "cit-blur-4-glass",
+   "claim": "glass buttons use --tw-backdrop-blur: blur(4px)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    103550,
+    103579
+   ],
+   "quote": "--tw-backdrop-blur: blur(4px)",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-shadow-defined",
+   "claim": "Only .shadow and .shadow-sm utilities exist in the stylesheet (Tailwind defaults), and JSX class lists use neither (0 uses)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    77545,
+    77597
+   ],
+   "quote": ".shadow-sm{--tw-shadow: 0 1px 2px 0 rgb(0 0 0 / .05)",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-size-button",
+   "claim": "--size-button base 32px; fluid from 800, fixed from 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    12553,
+    12572
+   ],
+   "quote": "--size-button: 32px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-size-buttonLg",
+   "claim": "--size-buttonLg base 40px; fluid from 800, fixed from 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    12573,
+    12594
+   ],
+   "quote": "--size-buttonLg: 40px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-size-headerLogo",
+   "claim": "--size-headerLogo base 88px; fluid from 800, fixed from 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    12595,
+    12618
+   ],
+   "quote": "--size-headerLogo: 88px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-size-headerRightEmptySpace",
+   "claim": "--size-headerRightEmptySpace base 88px; fluid from 800, fixed from 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    12619,
+    12653
+   ],
+   "quote": "--size-headerRightEmptySpace: 88px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-size-navIcon",
+   "claim": "--size-navIcon base 40px; fluid from 800, fixed from 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    12654,
+    12674
+   ],
+   "quote": "--size-navIcon: 40px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-size-navToggleW",
+   "claim": "--size-navToggleW base 16px; fluid from 800, fixed from 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    12675,
+    12698
+   ],
+   "quote": "--size-navToggleW: 16px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-size-navToggleH",
+   "claim": "--size-navToggleH base 12px; fluid from 800, fixed from 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    12699,
+    12722
+   ],
+   "quote": "--size-navToggleH: 12px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-size-navToggleLineH",
+   "claim": "--size-navToggleLineH base 2px; fluid from 800, fixed from 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    12723,
+    12749
+   ],
+   "quote": "--size-navToggleLineH: 2px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-size-footerLogoW",
+   "claim": "--size-footerLogoW base 88px; fluid from 800, fixed from 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    12750,
+    12774
+   ],
+   "quote": "--size-footerLogoW: 88px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-size-footerLogoH",
+   "claim": "--size-footerLogoH base 24px; fluid from 800, fixed from 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    12775,
+    12799
+   ],
+   "quote": "--size-footerLogoH: 24px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-size-chipH",
+   "claim": "--size-chipH base 28px; fluid from 800, fixed from 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    12800,
+    12818
+   ],
+   "quote": "--size-chipH: 28px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-size-pressLogoW",
+   "claim": "--size-pressLogoW base 247px; fluid from 800, fixed from 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    13010,
+    13034
+   ],
+   "quote": "--size-pressLogoW: 247px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-size-productCardMarqueeH",
+   "claim": "--size-productCardMarqueeH base 367px; fluid from 800, fixed from 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    13035,
+    13068
+   ],
+   "quote": "--size-productCardMarqueeH: 367px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-size-carouselBodyW",
+   "claim": "--size-carouselBodyW base 320px; fluid from 800, fixed from 1600",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    13174,
+    13201
+   ],
+   "quote": "--size-carouselBodyW: 320px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-icon-inline-h",
+   "claim": "Inline feature icons are h-7 md:h-5 (icon-inner-0) and h-6 md:h-4 (icon-inner-1); FAQ toggles are w-8 h-8 md:w-6 md:h-6; arrows w-5 h-5 md:w-4 md:h-4",
+   "source": "src/pages/PricingPage.jsx:6-6",
+   "evidenceLevel": "counted",
+   "quote": "inline-icon-inner w-auto h-7 md:h-5"
+  },
+  {
+   "id": "cit-motion-reveal-duration",
+   "claim": "Scroll reveal: transitionDuration 500ms (live component default duration=500)",
+   "source": "CLONE_SPEC.md:41-41",
+   "evidenceLevel": "spec-measured",
+   "quote": "duration=500",
+   "note": "Bundle-derived and confirmed by computed style per CLONE_SPEC section 0."
+  },
+  {
+   "id": "cit-motion-reveal-jsx-500",
+   "claim": "Ported markup carries style transitionDuration 500ms on reveal wrappers",
+   "source": "src/components/Hero.jsx:15-15",
+   "evidenceLevel": "counted",
+   "quote": "\"transitionDuration\": \"500ms\""
+  },
+  {
+   "id": "cit-motion-reveal-easing",
+   "claim": "Reveal timing function is cubic-bezier(0.4, 0, 0.2, 1) (Tailwind default) with transition-property all",
+   "source": "CLONE_SPEC.md:53-53",
+   "evidenceLevel": "spec-measured",
+   "quote": "timing cubic-bezier(0.4, 0, 0.2, 1)"
+  },
+  {
+   "id": "cit-motion-reveal-threshold",
+   "claim": "IntersectionObserver threshold 0.1, rootMargin 0px, fires once",
+   "source": "src/lib/reveal.js:21-21",
+   "evidenceLevel": "declaration",
+   "quote": "threshold: 0.1"
+  },
+  {
+   "id": "cit-motion-reveal-classes",
+   "claim": "Reveal swaps opacity-0/translate-y-7/scale-110 for opacity-100/translate-y-0/scale-100",
+   "source": "src/lib/reveal.js:4-4",
+   "evidenceLevel": "declaration",
+   "quote": "const BEFORE = ['opacity-0', 'translate-y-7', 'scale-110']"
+  },
+  {
+   "id": "cit-motion-translate-y-7",
+   "claim": ".translate-y-7 = translate-y of var(--spacing-7), i.e. the slide offset",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    63427,
+    63476
+   ],
+   "quote": ".translate-y-7{--tw-translate-y: var(--spacing-7)",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-motion-stagger",
+   "claim": "Reveal delays are baked into JSX as inline transitionDelay: 50ms steps up to 550ms (50ms x1 141 uses, 100ms 75, 150ms 65, ...) - reveal.js does NOT compute delays",
+   "source": "src/components/ProductsHighlight.jsx:10-10",
+   "evidenceLevel": "counted",
+   "quote": "\"transitionDelay\": \"50ms\""
+  },
+  {
+   "id": "cit-motion-stagger-spec",
+   "claim": "CLONE_SPEC delay table: product cards (index+1)*50, benefits-stack cards 50..300ms",
+   "source": "CLONE_SPEC.md:70-70",
+   "evidenceLevel": "spec-measured",
+   "quote": "(index+1)*50"
+  },
+  {
+   "id": "cit-motion-css-durations",
+   "claim": "Duration utilities defined: 100, 150, 200, 300, 500, 700 ms (JSX uses 300 x278, 200 x50, 500 x42, 700 x1)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    80679,
+    80879
+   ],
+   "quote": ".duration-100{transition-duration:.1s}",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-motion-css-ease",
+   "claim": "ease-in-out = cubic-bezier(.4,0,.2,1); ease-out = cubic-bezier(0,0,.2,1)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    80908,
+    81008
+   ],
+   "quote": ".ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-motion-keyframe-fade",
+   "claim": "@keyframes fade-in (opacity 0 -> 1, .5s ease-in-out); .fade-in class is never used in JSX (0 uses)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    123645,
+    123734
+   ],
+   "quote": "@keyframes fade-in{0%{opacity:0}to{opacity:1}}.fade-in{animation:fade-in .5s ease-in-out}",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-motion-faq",
+   "claim": "FAQ accordion: 300ms, cubic-bezier(0.25, 0.1, 0.35, 1), animates height + opacity",
+   "source": "src/lib/enhance/faq.js:8-8",
+   "evidenceLevel": "declaration",
+   "quote": "const DURATION = 300"
+  },
+  {
+   "id": "cit-motion-faq-ease",
+   "claim": "FAQ easing constant",
+   "source": "src/lib/enhance/faq.js:9-9",
+   "evidenceLevel": "declaration",
+   "quote": "const EASING = 'cubic-bezier(0.25, 0.1, 0.35, 1)'"
+  },
+  {
+   "id": "cit-motion-marquee",
+   "claim": "Marquee speed is 50 px/s; duration = width*copies/50 (autoFill) or max(width, container)/50",
+   "source": "src/lib/enhance/marquee.js:12-12",
+   "evidenceLevel": "declaration",
+   "quote": "const SPEED = 50"
+  },
+  {
+   "id": "cit-motion-marquee-react",
+   "claim": "React marquee port takes speed = 50",
+   "source": "src/lib/marquee/Marquee.jsx:12-12",
+   "evidenceLevel": "declaration",
+   "quote": "speed = 50"
+  },
+  {
+   "id": "cit-motion-carousel-lerp",
+   "claim": "Carousel item x-lerp factor 0.125 per frame",
+   "source": "src/lib/carousel/useCarousel.js:112-112",
+   "evidenceLevel": "declaration",
+   "quote": "* 0.125"
+  },
+  {
+   "id": "cit-motion-carousel-drag",
+   "claim": "Carousel drag lerp 0.2; drag commit threshold 15% of item width",
+   "source": "src/lib/enhance/carousel.js:5-5",
+   "evidenceLevel": "declaration",
+   "quote": "drag lerp 0.2"
+  },
+  {
+   "id": "cit-motion-carousel-threshold",
+   "claim": "Drag threshold 0.15 * item width",
+   "source": "src/lib/enhance/carousel.js:127-127",
+   "evidenceLevel": "declaration",
+   "quote": "* 0.15"
+  },
+  {
+   "id": "cit-motion-header-threshold",
+   "claim": "Header hides when scrolled past 20% of viewport height and scrolling down",
+   "source": "src/lib/header/navController.js:12-12",
+   "evidenceLevel": "declaration",
+   "quote": "const SCROLL_THRESHOLD_VH = 0.2"
+  },
+  {
+   "id": "cit-motion-header-default",
+   "claim": "Header non-transform tween default: 300ms cubic-bezier(0.25, 0.1, 0.35, 1)",
+   "source": "src/lib/header/navController.js:14-14",
+   "evidenceLevel": "declaration",
+   "quote": "const MOTION_DEFAULT"
+  },
+  {
+   "id": "cit-motion-header-hide-300",
+   "claim": "Header wrapper hide/show transform transition is 0.3s cubic-bezier(0.4,0,0.2,1); logic throttled to one decision per 50ms, ignore |dy|<5",
+   "source": "CLONE_SPEC.md:96-96",
+   "evidenceLevel": "spec-measured",
+   "quote": "The computed transition is `transform 0.3s cubic-bezier(0.4,0,0.2,1)`"
+  },
+  {
+   "id": "cit-motion-dim-700",
+   "claim": "Header dim layer opacity transition 700ms",
+   "source": "CLONE_SPEC.md:118-118",
+   "evidenceLevel": "spec-measured",
+   "quote": "Opacity transitions over **700ms**"
+  },
+  {
+   "id": "cit-motion-gsap-open",
+   "claim": "GSAP dropdown open: opacity 0.5s power2.out, bg y -100%->0 0.5s power2.inOut, items 0.35s power2.out stagger 0.03 delay 0.2",
+   "source": "src/lib/header/navController.js:56-56",
+   "evidenceLevel": "declaration",
+   "quote": "gsap.fromTo(q('.primary-category, .primary-inner')"
+  },
+  {
+   "id": "cit-motion-gsap-item-stagger",
+   "claim": "Dropdown item stagger",
+   "source": "src/lib/header/navController.js:58-58",
+   "evidenceLevel": "declaration",
+   "quote": "stagger: 0.03, delay: 0.2"
+  },
+  {
+   "id": "cit-motion-reduced-none",
+   "claim": "No prefers-reduced-motion handling in src/ or coda-main.css; only WordPress core rules in wp-inline.css carry the media query",
+   "source": "public/styles/wp-inline.css:14-14",
+   "evidenceLevel": "inferred",
+   "quote": "prefers-reduced-motion",
+   "note": "Absence claim: verified with grep -c over src/** and coda-main.css (0 hits) at build time. reducedMotionFallback in section contracts must therefore be a design decision (final-state static), not a mirrored behaviour."
+  },
+  {
+   "id": "cit-motion-card-hover",
+   "claim": "Card thumbnails scale 1.05 over 500ms ease-in-out on desktop hover",
+   "source": "src/components/CardCarousel.jsx:11-11",
+   "evidenceLevel": "declaration",
+   "quote": "md:group-hover:scale-[1.05] transition-transform duration-500 ease-in-out"
+  },
+  {
+   "id": "cit-layout-maxcontent",
+   "claim": ".w-maxContentW = width:min(100%,1580px)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    60446,
+    60484
+   ],
+   "quote": ".w-maxContentW{width:min(100%,1580px)}",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-layout-blockpad",
+   "claim": ".block-padding = 20px (spacing-6 at base) horizontal padding below 800; 0 from 800",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    52794,
+    52971
+   ],
+   "quote": ".block-padding{padding-left:var(--spacing-6);padding-right:var(--spacing-6)}@media(min-width:800px){.block-padding{padding-left:var(--spacin",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-layout-grid",
+   "claim": "12-column grid variables: gutter/margin 16px base, 24px at 800, 2vw at 1200, 32px at 2000; container 100vw, 2000px from 2000",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    19892,
+    19972
+   ],
+   "quote": ":root{--tw-grid-container: 100vw;--tw-grid-gutter: 16px;--tw-grid-margin: 16px;",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-layout-grid-2vw",
+   "claim": "At >=1200 gutter and margin are 2vw",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    20857,
+    20900
+   ],
+   "quote": "--tw-grid-gutter: 2vw;--tw-grid-margin: 2vw",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-layout-grid-2000",
+   "claim": "At >=2000 container caps at 2000px with 32px gutter/margin",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    21295,
+    21368
+   ],
+   "quote": "--tw-grid-container: 2000px;--tw-grid-gutter: 32px;--tw-grid-margin: 32px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-layout-maxw-video",
+   "claim": ".max-w-blogPostVideoW = var(--size-blogPostVideoW) (1000px base, 756px @800, 1008 @1200, 1209.6 @1600+)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    60827,
+    60886
+   ],
+   "quote": ".max-w-blogPostVideoW{max-width:var(--size-blogPostVideoW)}",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-size-blogPostVideoW",
+   "claim": "--size-blogPostVideoW declared 1000px at base",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    12912,
+    12941
+   ],
+   "quote": "--size-blogPostVideoW: 1000px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-size-blogPostFeaturedW",
+   "claim": "--size-blogPostFeaturedW declared 319px at base (used by max-w-blogPostFeaturedW on hero media)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    12819,
+    12850
+   ],
+   "quote": "--size-blogPostFeaturedW: 319px",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-layout-blogfeat-usage",
+   "claim": "md:max-w-blogPostFeaturedW is applied to media wrapper divs (13 uses; first occurrence is in Hero.jsx)",
+   "source": "src/components/Hero.jsx:15-15",
+   "evidenceLevel": "counted",
+   "quote": "max-w-blogPostFeaturedW"
+  },
+  {
+   "id": "cit-layout-hero-block",
+   "claim": "Hero block: flex flex-col gap-8 my-9",
+   "source": "src/components/Hero.jsx:15-15",
+   "evidenceLevel": "declaration",
+   "quote": "hero flex w-full flex-col gap-8 my-9"
+  },
+  {
+   "id": "cit-layout-hero-media",
+   "claim": "Hero media wrapper: inline-media flex w-maxContentW mx-auto",
+   "source": "src/components/Hero.jsx:15-15",
+   "evidenceLevel": "declaration",
+   "quote": "inline-media flex w-maxContentW mx-auto"
+  },
+  {
+   "id": "cit-layout-callout-grid",
+   "claim": "feature-callout: my-9, max-w-blogPostVideoW, block-padding, grid-cols-1 md:grid-cols-2, gap-5 md:gap-10",
+   "source": "src/pages/ProductCodaWebstorePage.jsx:9-9",
+   "evidenceLevel": "declaration",
+   "quote": "feature-callout w-full my-9 max-w-blogPostVideoW block-padding"
+  },
+  {
+   "id": "cit-layout-bridge",
+   "claim": "section-bridge: flex-col md:flex-row, gap-3 md:gap-8, my-9, max-w-blogPostVideoW",
+   "source": "src/components/BenefitsStack.jsx:4-4",
+   "evidenceLevel": "declaration",
+   "quote": "section-bridge flex flex-col md:flex-row w-full gap-3 md:gap-8 my-9 max-w-blogPostVideoW"
+  },
+  {
+   "id": "cit-layout-benefit-grid",
+   "claim": "Benefit cards grid uses grid-cols-1 / 2 / 3 (grid-cols-3 28 uses)",
+   "source": "src/components/BenefitsStack.jsx:4-4",
+   "evidenceLevel": "declaration",
+   "quote": "grid-cols-3"
+  },
+  {
+   "id": "cit-layout-navbar-height",
+   "claim": "Header nav bar uses h-navBarHeightBase and the wrapper is fixed top-0 w-full",
+   "source": "src/components/Header.jsx:10-10",
+   "evidenceLevel": "declaration",
+   "quote": "h-navBarHeightBase"
+  },
+  {
+   "id": "cit-layout-navbar-css",
+   "claim": ".h-navBarHeightBase = var(--spacing-navBarHeightBase)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    58520,
+    58579
+   ],
+   "quote": ".h-navBarHeightBase{height:var(--spacing-navBarHeightBase)}",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-layout-navbar-measured",
+   "claim": "Header wrapper measured 107.48px tall at 1440 (-99.80 @1280)",
+   "source": "CLONE_SPEC.md:108-108",
+   "evidenceLevel": "spec-measured",
+   "quote": "Measured hidden offset"
+  },
+  {
+   "id": "cit-layout-carousel-item",
+   "claim": "Card carousel item: md:w-blogPostVideoW, aspect 328/362 mobile and 1008/400 desktop, rounded-md, bg-white",
+   "source": "src/components/CardCarousel.jsx:11-11",
+   "evidenceLevel": "declaration",
+   "quote": "card-carousel-item carousel-snap w-full md:w-blogPostVideoW bg-white rounded-md"
+  },
+  {
+   "id": "cit-layout-prefooter",
+   "claim": "Pre-footer block: flex, gap-8",
+   "source": "src/components/PreFooter.jsx:4-4",
+   "evidenceLevel": "declaration",
+   "quote": "pre-footer flex w-full gap-8"
+  },
+  {
+   "id": "cit-sem-text-body",
+   "claim": "Body copy colour: [&_p]:text-grey-2 / [&_li]:text-grey-2 on every rich-text block (grey-2 is the most used text colour, 528 class uses)",
+   "source": "src/components/BenefitsStack.jsx:4-4",
+   "evidenceLevel": "counted",
+   "quote": "[&_p]:text-grey-2"
+  },
+  {
+   "id": "cit-sem-text-primary",
+   "claim": "Emphasis/heading colour: [&_p>strong]:text-charcoal and text-charcoal (charcoal 385 text class uses)",
+   "source": "src/components/BenefitsStack.jsx:4-4",
+   "evidenceLevel": "counted",
+   "quote": "[&_p>strong]:text-charcoal"
+  },
+  {
+   "id": "cit-sem-text-subtle",
+   "claim": "Small captions use [&_p]:text-grey-1 (grey-1 text 38 uses)",
+   "source": "src/components/Metrics.jsx:4-4",
+   "evidenceLevel": "counted",
+   "quote": "[&_p]:text-grey-1"
+  },
+  {
+   "id": "cit-sem-text-inverse",
+   "claim": "Footer text-offWhite on bg-charcoal (offWhite text 43, white text 39)",
+   "source": "src/components/Footer.jsx:4-4",
+   "evidenceLevel": "declaration",
+   "quote": "bg-charcoal text-offWhite"
+  },
+  {
+   "id": "cit-sem-text-disabled",
+   "claim": "Disabled carousel arrows use text-grey-2/50",
+   "source": "src/lib/enhance/carousel.js:9-9",
+   "evidenceLevel": "declaration",
+   "quote": "text-grey-2/50"
+  },
+  {
+   "id": "cit-sem-text-disabled-css",
+   "claim": ".text-grey-2/50 = grey-2 at 0.5 alpha",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    76544,
+    76597
+   ],
+   "quote": ".text-grey-2\\/50{color:rgb(var(--color-grey-2) / .5)}",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-sem-surface-card",
+   "claim": "Benefit cards: rounded-md bg-grey-0 p-5 (bg-grey-0 is the most used background, 140 uses)",
+   "source": "src/components/BenefitsStack.jsx:4-4",
+   "evidenceLevel": "counted",
+   "quote": "benefits-stack-inner-card w-full text-wrap rounded-md bg-grey-0 p-5"
+  },
+  {
+   "id": "cit-sem-surface-soft",
+   "claim": "Impact-figure cards: rounded-md bg-offWhite text-charcoal p-5 (bg-offWhite 23)",
+   "source": "src/pages/ProductCodaWebstorePage.jsx:9-9",
+   "evidenceLevel": "counted",
+   "quote": "impact-figures-inner-card relative w-full rounded-md bg-offWhite text-charcoal p-5"
+  },
+  {
+   "id": "cit-sem-surface-raised",
+   "claim": "Carousel item: bg-white rounded-md (bg-white 56)",
+   "source": "src/components/CardCarousel.jsx:11-11",
+   "evidenceLevel": "counted",
+   "quote": "card-carousel-item carousel-snap w-full md:w-blogPostVideoW bg-white rounded-md"
+  },
+  {
+   "id": "cit-sem-surface-inverse",
+   "claim": "Footer panel: bg-charcoal text-offWhite rounded-t-lg p-6 (bg-charcoal 44)",
+   "source": "src/components/Footer.jsx:4-4",
+   "evidenceLevel": "declaration",
+   "quote": "group relative bg-charcoal text-offWhite rounded-t-lg p-6"
+  },
+  {
+   "id": "cit-sem-surface-muted",
+   "claim": "Card media plate bg-grey-1 (42 uses)",
+   "source": "src/components/CardCarousel.jsx:11-11",
+   "evidenceLevel": "declaration",
+   "quote": "relative bg-grey-1 shrink-0 overflow-hidden"
+  },
+  {
+   "id": "cit-sem-surface-light",
+   "claim": "bg-[#f3f3f3] arbitrary background (13 uses) equals --color-grey-light 243 243 243",
+   "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9",
+   "evidenceLevel": "counted",
+   "quote": "bg-[#f3f3f3]"
+  },
+  {
+   "id": "cit-sem-border",
+   "claim": "Explicit border colours: border-grey-0 (13), grey-1 (8), grey-2 (2); the default border is currentColor",
+   "source": "src/components/Footer.jsx:4-4",
+   "evidenceLevel": "counted",
+   "quote": "border-t"
+  },
+  {
+   "id": "cit-sem-border-default-css",
+   "claim": "Preflight sets border-color: currentColor",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    4339,
+    4398
+   ],
+   "quote": "border-width:0;border-style:solid;border-color:currentColor",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-sem-accent-theme",
+   "claim": "Accent hue blocks are declared as inline --theme-color: var(--color-blue-3) (blue-3 40, green-3 26, pink-3 23, yellow-3 11, purple-3 9, orange-3 9)",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9",
+   "evidenceLevel": "counted",
+   "quote": "\"--theme-color\": \"var(--color-blue-3)\""
+  },
+  {
+   "id": "cit-sem-accent-soft",
+   "claim": "Soft accents: blue-1 x10, pink-1 x4, orange-1 x2, green-1 x2 via --theme-color",
+   "source": "src/components/ProductsHighlight.jsx:10-10",
+   "evidenceLevel": "counted",
+   "quote": "\"--theme-color\": \"var(--color-blue-1)\""
+  },
+  {
+   "id": "cit-sem-accent-deep",
+   "claim": "yellow-4 used as --theme-color (3) and --theme-bg (1) on the giftcloud page",
+   "source": "src/pages/ProductCodaGiftcloudPage.jsx:9-9",
+   "evidenceLevel": "counted",
+   "quote": "var(--color-yellow-4)"
+  },
+  {
+   "id": "cit-sem-theme-tint",
+   "claim": "The tint utility [&_.button-cta-inner]:bg-[rgb(var(--theme-color)/0.1)] paints the CTA with 10% of the block accent",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    199841,
+    199911
+   ],
+   "quote": ".button-cta-inner{background-color:rgb(var(--theme-color)/.1)",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-sem-no-page-bg",
+   "claim": "index.html sets no body background and coda-main.css declares no body/html background; the canvas is the browser default (Assumed white)",
+   "source": "index.html:16-16",
+   "evidenceLevel": "inferred",
+   "quote": "<body>",
+   "note": "Absence claim verified by regex over coda-main.css at build time: no non-utility rule sets background on body/html. Recorded as inferred, so no page-canvas semantic token is defined."
+  },
+  {
+   "id": "cit-sem-type-hero",
+   "claim": "Hero title: type-title-xs on mobile, md:type-title-l on desktop",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9",
+   "evidenceLevel": "declaration",
+   "quote": "type-title-xs md:type-title-l text-balance text-center my-2"
+  },
+  {
+   "id": "cit-sem-type-section",
+   "claim": "Section headings: h2 className type-header-l",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9",
+   "evidenceLevel": "declaration",
+   "quote": "<h2 className=\"type-header-l w-full\""
+  },
+  {
+   "id": "cit-sem-type-h5",
+   "claim": "Card/callout titles: [&_h5]:type-header-m",
+   "source": "src/pages/ProductCodaConsumerPlatformsPage.jsx:9-9",
+   "evidenceLevel": "declaration",
+   "quote": "[&_h5]:type-header-m"
+  },
+  {
+   "id": "cit-sem-type-body",
+   "claim": "Callout body: [&_p]:type-body-m; benefit cards: [&_p]:type-body-m-mobile",
+   "source": "src/pages/ProductCodaWebstorePage.jsx:9-9",
+   "evidenceLevel": "declaration",
+   "quote": "[&_p]:type-body-m"
+  },
+  {
+   "id": "cit-sem-type-caption",
+   "claim": "Small text: type-body-s (108 uses)",
+   "source": "src/components/Metrics.jsx:4-4",
+   "evidenceLevel": "declaration",
+   "quote": "type-body-s"
+  },
+  {
+   "id": "cit-sem-type-faq",
+   "claim": "FAQ trigger: type-header-s",
+   "source": "src/pages/PricingPage.jsx:6-6",
+   "evidenceLevel": "declaration",
+   "quote": "type-header-s"
+  },
+  {
+   "id": "cit-sem-type-nav",
+   "claim": "Footer/nav links: type-ui-nav-l",
+   "source": "src/components/Footer.jsx:4-4",
+   "evidenceLevel": "declaration",
+   "quote": "type-ui-nav-l"
+  },
+  {
+   "id": "cit-sem-type-label",
+   "claim": "Mono uppercase label: type-ui-label",
+   "source": "src/components/Footer.jsx:4-4",
+   "evidenceLevel": "declaration",
+   "quote": "type-ui-label"
+  },
+  {
+   "id": "cit-sem-type-pill",
+   "claim": "Pill title: type-special-pill-title-l-mobile",
+   "source": "src/lib/pricing/PaymentMethodTable.jsx:227-227",
+   "evidenceLevel": "declaration",
+   "quote": "type-special-pill-title-l-mobile"
+  },
+  {
+   "id": "cit-sem-type-button",
+   "claim": "Buttons (is-style-*) use the ui-button-s recipe: 500 weight, 14px/20.02 base",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    99003,
+    99123
+   ],
+   "quote": ".wp-element-button{font-family:var(--font-body);font-size:14px;line-height:20.02px;letter-spacing:normal;font-weight:500",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-sem-type-metric",
+   "claim": "Metrics numerals use h3.wp-block-heading (styled through the wp-block-heading rules in coda-main.css)",
+   "source": "src/components/Metrics.jsx:4-4",
+   "evidenceLevel": "declaration",
+   "quote": "<h3 className=\"wp-block-heading\""
+  },
+  {
+   "id": "cit-sem-radius-tile-hover",
+   "claim": "Tiles grow from rounded-md to md:group-hover:rounded-xlu on hover (9 uses); hovered buttons go to radius-lg",
+   "source": "src/components/ProductsHighlight.jsx:10-10",
+   "evidenceLevel": "declaration",
+   "quote": "md:group-hover:rounded-xlu"
+  },
+  {
+   "id": "cit-sem-radius-card",
+   "claim": "rounded-md is the card/media radius (378 uses)",
+   "source": "src/components/BenefitsStack.jsx:4-4",
+   "evidenceLevel": "counted",
+   "quote": "rounded-md"
+  },
+  {
+   "id": "cit-sem-radius-button-hover",
+   "claim": "Button radius on group hover becomes var(--border-radius-lg)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    98708,
+    98797
+   ],
+   "quote": ".wp-block-button{.group:hover &{.wp-element-button{border-radius:var(--border-radius-lg)}",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-sem-radius-button-rest",
+   "claim": "WordPress base button radius 9999px, padding calc(.667em+2px) calc(1.333em+2px)",
+   "source": "public/styles/wp-inline.css:10-10",
+   "evidenceLevel": "declaration",
+   "quote": "border-radius:9999px;box-shadow:none;padding:calc(.667em + 2px) calc(1.333em + 2px)"
+  },
+  {
+   "id": "cit-sem-radius-menu",
+   "claim": "Menu icon uses rounded-menuIcon (8 uses)",
+   "source": "src/components/Header.jsx:10-10",
+   "evidenceLevel": "declaration",
+   "quote": "rounded-menuIcon"
+  },
+  {
+   "id": "cit-sem-space-card",
+   "claim": "Card padding p-5 (spacing-5); big footer panel p-6",
+   "source": "src/components/BenefitsStack.jsx:4-4",
+   "evidenceLevel": "declaration",
+   "quote": "rounded-md bg-grey-0 p-5"
+  },
+  {
+   "id": "cit-sem-space-stack",
+   "claim": "Card internals use flex-col gap-4 (gap-4 584 uses)",
+   "source": "src/components/BenefitsStack.jsx:4-4",
+   "evidenceLevel": "declaration",
+   "quote": "flex flex-col gap-4"
+  },
+  {
+   "id": "cit-cmp-button-grey",
+   "claim": "is-style-grey: background grey-0, text black",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    102894,
+    103124
+   ],
+   "quote": "&.is-style-grey{.wp-element-button{--tw-bg-opacity: 1;background-color:rgb(var(--color-grey-0) / var(--tw-bg-opacity, 1))}.wp-element-button",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-cmp-button-black",
+   "claim": "is-style-black: background black, text offWhite",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    103115,
+    103345
+   ],
+   "quote": "&.is-style-black{.wp-element-button{--tw-bg-opacity: 1;background-color:rgb(var(--color-black) / var(--tw-bg-opacity, 1))}.wp-element-button",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-cmp-button-glass-white",
+   "claim": "is-style-glass-white: offWhite at .2 alpha, text offWhite, blur 4px",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    103339,
+    103449
+   ],
+   "quote": "&.is-style-glass-white{.wp-element-button{background-color:rgb(var(--color-offWhite) / .2)}",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-cmp-button-glass-black",
+   "claim": "is-style-glass-black: black at .2 alpha, text offWhite, blur 4px (defined; 0 JSX uses)",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    104115,
+    104215
+   ],
+   "quote": "&.is-style-glass-black{.wp-element-button{background-color:rgb(var(--color-black) / .2)}",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-cmp-button-usage",
+   "claim": "Buttons are wp-block-button is-style-grey (34), is-style-black (21), is-style-glass-white (8)",
+   "source": "src/components/Hero.jsx:15-15",
+   "evidenceLevel": "counted",
+   "quote": "wp-block-button is-style-grey"
+  },
+  {
+   "id": "cit-cmp-themed-dark",
+   "claim": "Dark themed block: --theme-bg charcoal + offWhite text (15)",
+   "source": "src/pages/IndustriesDatingAppPaymentsPage.jsx:9-9",
+   "evidenceLevel": "counted",
+   "quote": "\"--theme-bg\": \"var(--color-charcoal)\""
+  },
+  {
+   "id": "cit-cmp-themed-grey2",
+   "claim": "Grey themed block: bg grey-2 + offWhite text (7)",
+   "source": "src/pages/PricingPage.jsx:6-6",
+   "evidenceLevel": "counted",
+   "quote": "\"--theme-bg\": \"var(--color-grey-2)\""
+  },
+  {
+   "id": "cit-cmp-themed-white",
+   "claim": "White themed block: bg white + charcoal text (6)",
+   "source": "src/pages/PricingPage.jsx:6-6",
+   "evidenceLevel": "counted",
+   "quote": "\"--theme-bg\": \"var(--color-white)\""
+  },
+  {
+   "id": "cit-cmp-themed-grey0",
+   "claim": "Light themed block: bg grey-0 + charcoal text (5)",
+   "source": "src/pages/PricingPage.jsx:6-6",
+   "evidenceLevel": "counted",
+   "quote": "\"--theme-bg\": \"var(--color-grey-0)\""
+  },
+  {
+   "id": "cit-cmp-themed-accent",
+   "claim": "Accent themed blocks: --theme-bg blue-3 (2), green-3, pink-3, orange-3, yellow-4 (1 each) with offWhite text; cited line is the yellow-4 one",
+   "source": "src/pages/ProductCodaGiftcloudPage.jsx:9-9",
+   "evidenceLevel": "counted",
+   "quote": "\"--theme-bg\": \"var(--color-yellow-4)\""
+  },
+  {
+   "id": "cit-cmp-faq",
+   "claim": "FAQ row: py-5 gap-4 border-b divider, type-header-s, 300ms",
+   "source": "src/pages/PricingPage.jsx:6-6",
+   "evidenceLevel": "declaration",
+   "quote": "w-full flex items-center justify-between border-b text-left gap-4 cursor-pointer py-5 type-header-s border-b-[#e2e2e2]"
+  },
+  {
+   "id": "cit-cmp-arrow",
+   "claim": "Carousel arrows w-8 h-8 md:w-7 md:h-7, text-charcoal, disabled text-grey-2/50, duration-300",
+   "source": "src/lib/enhance/carousel.js:17-17",
+   "evidenceLevel": "declaration",
+   "quote": "transition-colors duration-300 text-grey-2/50"
+  },
+  {
+   "id": "cit-cmp-header-logo",
+   "claim": "Header logo width var --size-headerLogo (w-headerLogo, lg:w-headerLogo)",
+   "source": "src/components/Header.jsx:10-10",
+   "evidenceLevel": "declaration",
+   "quote": "w-headerLogo"
+  },
+  {
+   "id": "cit-cmp-marquee-logo",
+   "claim": "Press logos are w-pressLogoW",
+   "source": "src/components/PressCarousel.jsx:7-7",
+   "evidenceLevel": "declaration",
+   "quote": "w-pressLogoW"
+  },
+  {
+   "id": "cit-cmp-card-thumb",
+   "claim": "Carousel card thumbnail plate: aspect 328/202 mobile, 1008/308 desktop, bg-grey-1",
+   "source": "src/components/CardCarousel.jsx:11-11",
+   "evidenceLevel": "declaration",
+   "quote": "aspect-[328/202] md:aspect-[1008/308] relative bg-grey-1"
+  },
+  {
+   "id": "cit-cmp-media-item",
+   "claim": "Media items: aspect-[--aspectRatio] rounded-md (70 uses)",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9",
+   "evidenceLevel": "declaration",
+   "quote": "aspect-[--aspectRatio] inline-media-item w-full rounded-md"
+  },
+  {
+   "id": "cit-theme-single",
+   "claim": "No dark theme exists: coda-main.css and wp-inline.css contain 0 prefers-color-scheme rules and 0 dark: variants; the only theming mechanism is per-block --theme-color/--theme-bg inline styles",
+   "source": "src/App.jsx:31-31",
+   "evidenceLevel": "inferred",
+   "quote": "data-locale=\"en\"",
+   "note": "Absence claim verified at build time by grep -c \"prefers-color-scheme\" over both stylesheets (0 hits) and a regex for .dark\\: (0 hits)."
+  },
+  {
+   "id": "cit-asset-hero-video",
+   "claim": "Hero renders the local hero mp4 through InlineVideo",
+   "source": "src/components/Hero.jsx:15-15",
+   "evidenceLevel": "declaration",
+   "quote": "InlineVideo src=\"/video/Coda-Website-Hero-Video-260826.mp4\""
+  },
+  {
+   "id": "cit-asset-video-tag",
+   "claim": "InlineVideo renders <video autoPlay loop muted playsInline> with a local <source>",
+   "source": "src/lib/hero/InlineVideo.jsx:36-36",
+   "evidenceLevel": "declaration",
+   "quote": "<video ref={ref}"
+  },
+  {
+   "id": "cit-asset-promo-video",
+   "claim": "Webstore page embeds the local B2B_CODA-WEBSTORE mp4 in a <video autoPlay loop muted playsInline>",
+   "source": "src/pages/ProductCodaWebstorePage.jsx:9-9",
+   "evidenceLevel": "declaration",
+   "quote": "/video/B2B_CODA-WEBSTORE_FINAL_50MB.mp4"
+  },
+  {
+   "id": "cit-asset-logo-slot",
+   "claim": "Hero publisher row loads logo-slot1..6.avif",
+   "source": "src/components/Hero.jsx:15-15",
+   "evidenceLevel": "declaration",
+   "quote": "/images/logo-slot1.avif"
+  },
+  {
+   "id": "cit-asset-logo-ea",
+   "claim": "Industry pages show the publisher marquee: ea.avif",
+   "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9",
+   "evidenceLevel": "declaration",
+   "quote": "/images/ea.avif"
+  },
+  {
+   "id": "cit-asset-logo-hoyo",
+   "claim": "Publisher marquee also includes hoyoverse/moonton/netease/riot",
+   "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9",
+   "evidenceLevel": "declaration",
+   "quote": "/images/hoyoverse.avif"
+  },
+  {
+   "id": "cit-asset-logo-marquee-js",
+   "claim": "Marquee behaviour for publisher-logos (narrow = width < 800)",
+   "source": "src/lib/enhance/marquee.js:3-3",
+   "evidenceLevel": "declaration",
+   "quote": "publisher-logos"
+  },
+  {
+   "id": "cit-asset-logo-tinder",
+   "claim": "tinder-reverse.avif (Tinder logo) is used in the card carousel",
+   "source": "src/components/CardCarousel.jsx:11-11",
+   "evidenceLevel": "declaration",
+   "quote": "/images/tinder-reverse.avif"
+  },
+  {
+   "id": "cit-asset-press-logos",
+   "claim": "PressCarousel loads press-logos1.avif ... press-logos5.avif",
+   "source": "src/components/PressCarousel.jsx:7-7",
+   "evidenceLevel": "declaration",
+   "quote": "/images/press-logos1.avif"
+  },
+  {
+   "id": "cit-asset-press-outlets",
+   "claim": "PressCarousel also loads named outlet logos (IGN etc.)",
+   "source": "src/components/PressCarousel.jsx:7-7",
+   "evidenceLevel": "declaration",
+   "quote": "IGN-logo-494x160-1.webp"
+  },
+  {
+   "id": "cit-asset-awards",
+   "claim": "Awards section loads /images/1.avif ... 4.avif",
+   "source": "src/components/Awards.jsx:4-4",
+   "evidenceLevel": "declaration",
+   "quote": "/images/1.avif"
+  },
+  {
+   "id": "cit-asset-pay-json",
+   "claim": "paymentGuideCountries.json embeds <img> logos per country (first entry: Mastercard)",
+   "source": "src/lib/pricing/paymentGuideCountries.json:6-6",
+   "evidenceLevel": "declaration",
+   "quote": "/images/2026-07/mastercard.webp"
+  },
+  {
+   "id": "cit-asset-pay-render",
+   "claim": "PaymentMethodTable injects the logo markup via dangerouslySetInnerHTML",
+   "source": "src/lib/pricing/PaymentMethodTable.jsx:176-176",
+   "evidenceLevel": "declaration",
+   "quote": "dangerouslySetInnerHTML"
+  },
+  {
+   "id": "cit-asset-pay-pricing",
+   "claim": "PricingPage static payment logos: visa.webp",
+   "source": "src/pages/PricingPage.jsx:6-6",
+   "evidenceLevel": "declaration",
+   "quote": "/images/visa.webp"
+  },
+  {
+   "id": "cit-asset-pay-logocard",
+   "claim": "Codapay page shows the payment-logo composite logo-card-01.webp (Dana, Mastercard, Visa, GCash, Touch n Go, Alipay)",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9",
+   "evidenceLevel": "declaration",
+   "quote": "/images/logo-card-01.webp"
+  },
+  {
+   "id": "cit-asset-flag-json",
+   "claim": "Each country entry has a flag path (Flag-7.svg = USA)",
+   "source": "src/lib/pricing/paymentGuideCountries.json:5-5",
+   "evidenceLevel": "declaration",
+   "quote": "\"flag\": \"/images/2026-07/Flag-7.svg\""
+  },
+  {
+   "id": "cit-asset-flag-render",
+   "claim": "PaymentMethodTable renders flags through a Flag component",
+   "source": "src/lib/pricing/PaymentMethodTable.jsx:137-137",
+   "evidenceLevel": "declaration",
+   "quote": "function Flag"
+  },
+  {
+   "id": "cit-asset-flag-card",
+   "claim": "Codapay page uses country-card-02-1.webp",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9",
+   "evidenceLevel": "declaration",
+   "quote": "/images/country-card-02-1.webp"
+  },
+  {
+   "id": "cit-asset-page-tile",
+   "claim": "Codapay page-tiles section loads page-tile-01.webp and page-tile-02.webp",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9",
+   "evidenceLevel": "declaration",
+   "quote": "/images/page-tile-01.webp"
+  },
+  {
+   "id": "cit-asset-mock-hero-codapay",
+   "claim": "Codapay hero mockup",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9",
+   "evidenceLevel": "declaration",
+   "quote": "/images/codapay-header-image-asset-image-1-2",
+   "note": "Needle is the file stem: the JSX references WordPress srcset size variants (-1024x461 etc.) of this file."
+  },
+  {
+   "id": "cit-asset-mock-hero-links",
+   "claim": "Coda Links hero mockup (+ mobile variant)",
+   "source": "src/pages/ProductCodaLinksPage.jsx:9-9",
+   "evidenceLevel": "declaration",
+   "quote": "/images/codalinks-header-image-asset-image-1",
+   "note": "Needle is the file stem: the JSX references WordPress srcset size variants (-1024x461 etc.) of this file."
+  },
+  {
+   "id": "cit-asset-mock-hero-industry",
+   "claim": "Creator-economy hero mockup",
+   "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9",
+   "evidenceLevel": "declaration",
+   "quote": "/images/coda-creator-economy-asset-header-homepage",
+   "note": "Needle is the file stem: the JSX references WordPress srcset size variants (-1024x461 etc.) of this file."
+  },
+  {
+   "id": "cit-asset-mock-section-webstore",
+   "claim": "Webstore toolkit mockups",
+   "source": "src/pages/ProductCodaWebstorePage.jsx:9-9",
+   "evidenceLevel": "declaration",
+   "quote": "/images/webstore-asset-toolkit-asset-image-1.webp"
+  },
+  {
+   "id": "cit-asset-mock-section-slot",
+   "claim": "Distribution page hero-asset-slot mockup",
+   "source": "src/pages/ProductDistributionPage.jsx:9-9",
+   "evidenceLevel": "declaration",
+   "quote": "/images/hero-asset-slot-1.avif"
+  },
+  {
+   "id": "cit-asset-mock-section-giftcloud",
+   "claim": "Giftcloud toolkit mockup",
+   "source": "src/pages/ProductCodaGiftcloudPage.jsx:9-9",
+   "evidenceLevel": "declaration",
+   "quote": "/images/giftcloud-asset-toolkit-1.webp"
+  },
+  {
+   "id": "cit-asset-mock-section-industry",
+   "claim": "Industry highlighted-section mockup",
+   "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9",
+   "evidenceLevel": "declaration",
+   "quote": "/images/coda-creator-economy-asset-highlighted-section",
+   "note": "Needle is the file stem: the JSX references WordPress srcset size variants (-1024x461 etc.) of this file."
+  },
+  {
+   "id": "cit-asset-card-base",
+   "claim": "ProductsHighlight cards use asset_base.avif with asset_hover.avif",
+   "source": "src/components/ProductsHighlight.jsx:10-10",
+   "evidenceLevel": "declaration",
+   "quote": "/images/asset_base.avif"
+  },
+  {
+   "id": "cit-asset-card-home",
+   "claim": "ProductsHighlight cards also use homepage-codapay-2560x1802-1.webp",
+   "source": "src/components/ProductsHighlight.jsx:10-10",
+   "evidenceLevel": "declaration",
+   "quote": "/images/homepage-codapay-2560x1802-1.webp"
+  },
+  {
+   "id": "cit-asset-thumb-wp",
+   "claim": "CardCarousel thumbnail: white-paper banner",
+   "source": "src/components/CardCarousel.jsx:11-11",
+   "evidenceLevel": "declaration",
+   "quote": "/images/coda-white-paper-banner-featured-post.webp"
+  },
+  {
+   "id": "cit-asset-thumb-unity",
+   "claim": "CardCarousel thumbnail: Coda x Unity partnership",
+   "source": "src/components/CardCarousel.jsx:11-11",
+   "evidenceLevel": "declaration",
+   "quote": "Coda-x-Unity-Partnership-Coda-Press-Page.webp"
+  },
+  {
+   "id": "cit-asset-thumb-tinder",
+   "claim": "CardCarousel thumbnail: Tinder case study",
+   "source": "src/components/CardCarousel.jsx:11-11",
+   "evidenceLevel": "declaration",
+   "quote": "B2B-Blog-"
+  },
+  {
+   "id": "cit-asset-uiicon",
+   "claim": "Webstore page shows check-circle-green.svg (17) / check-circle-grey.svg (5) / x-circle.svg (2)",
+   "source": "src/pages/ProductCodaWebstorePage.jsx:9-9",
+   "evidenceLevel": "declaration",
+   "quote": "/images/check-circle-green.svg"
+  },
+  {
+   "id": "cit-asset-glyph-benefit",
+   "claim": "Benefit-list feature glyph: svg viewBox 0 0 25 28",
+   "source": "src/components/BenefitsStack.jsx:4-4",
+   "evidenceLevel": "declaration",
+   "quote": "<svg viewBox=\"0 0 25 28\""
+  },
+  {
+   "id": "cit-asset-glyph-arrow",
+   "claim": "Carousel/arrow glyph component",
+   "source": "src/lib/carousel/ArrowButton.jsx:8-8",
+   "evidenceLevel": "declaration",
+   "quote": "<svg"
+  },
+  {
+   "id": "cit-asset-wordmark-gift",
+   "claim": "Giftcloud page inline wordmark svg viewBox 0 0 145 28 (fills #1F2226/#FFD600/#FF9A02)",
+   "source": "src/pages/ProductCodaGiftcloudPage.jsx:9-9",
+   "evidenceLevel": "declaration",
+   "quote": "viewBox=\"0 0 145 28\""
+  },
+  {
+   "id": "cit-asset-wordmark-consumer",
+   "claim": "Consumer-platforms page inline wordmark svg viewBox 0 0 127 16 (fills incl. #0066FF)",
+   "source": "src/pages/ProductCodaConsumerPlatformsPage.jsx:9-9",
+   "evidenceLevel": "declaration",
+   "quote": "viewBox=\"0 0 127 16\""
+  },
+  {
+   "id": "cit-asset-wordmark-home",
+   "claim": "Homepage product-highlights wide wordmark svg viewBox 0 0 1086 80",
+   "source": "src/components/ProductsHighlight.jsx:10-10",
+   "evidenceLevel": "declaration",
+   "quote": "viewBox=\"0 0 1086 80\""
+  },
+  {
+   "id": "cit-asset-logo-header",
+   "claim": "Header logo svg viewBox 0 0 89 24, aria-label=\"Coda\"",
+   "source": "src/components/Header.jsx:10-10",
+   "evidenceLevel": "declaration",
+   "quote": "aria-label=\"Coda\""
+  },
+  {
+   "id": "cit-asset-logo-footer",
+   "claim": "Footer logo svg, aria-label=\"Back to the homepage\"",
+   "source": "src/components/Footer.jsx:4-4",
+   "evidenceLevel": "declaration",
+   "quote": "aria-label=\"Back to the homepage\""
+  },
+  {
+   "id": "cit-asset-favicon-svg",
+   "claim": "index.html links /favicon.svg",
+   "source": "index.html:8-8",
+   "evidenceLevel": "declaration",
+   "quote": "href=\"/favicon.svg\""
+  },
+  {
+   "id": "cit-asset-favicon-webp",
+   "claim": "index.html links the 300x300 MasterIcon webp",
+   "source": "index.html:10-10",
+   "evidenceLevel": "declaration",
+   "quote": "Coda-cropped-MasterIcon-1-300x300.webp"
+  },
+  {
+   "id": "cit-asset-font-preload",
+   "claim": "index.html preloads the Regular and Medium woff2",
+   "source": "index.html:11-11",
+   "evidenceLevel": "declaration",
+   "quote": "ABCMonumentGrotesk-Regular-CCsuHl-t.woff2"
+  },
+  {
+   "id": "cit-asset-fontface-role",
+   "claim": "@font-face rules load only /fonts/... local files",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    158,
+    278
+   ],
+   "quote": "@font-face{font-family:abcMonumentGrotesk;src:url(/fonts/ABCMonumentGrotesk-Heavy",
+   "evidenceLevel": "declaration",
+   "note": "Stylesheet is minified onto one line, so the line range is always 1-1; charRange (0-based offsets) locates the quoted declaration."
+  },
+  {
+   "id": "cit-asset-no-remote",
+   "claim": "The only URL literal in src/** is the SVG xmlns namespace; there is no fetch/XMLHttpRequest/form in src/",
+   "source": "src/components/Header.jsx:10-10",
+   "evidenceLevel": "inferred",
+   "quote": "xmlns=\"http://www.w3.org/2000/svg\"",
+   "note": "Absence claim verified by grep at build time: 0 fetch(, 0 XMLHttpRequest, 0 <form, and 600 hits of http://www.w3.org/2000/svg being the only remote-looking URL."
+  },
+  {
+   "id": "cit-asset-linkguard",
+   "claim": "Links to pages outside the 15 routes are rewritten to href=\"#\" and their clicks are swallowed",
+   "source": "src/lib/linkGuard.js:5-5",
+   "evidenceLevel": "declaration",
+   "quote": "closest('a[href=\"#\"]')"
+  },
+  {
+   "id": "cit-doc-brief-mismatch-delays",
+   "claim": "reveal.js implements only the class swap and observer; the (i+1)*50ms delays live in JSX inline styles",
+   "source": "src/lib/reveal.js:7-7",
+   "evidenceLevel": "declaration",
+   "quote": "export function initReveal"
+  },
+  {
+   "id": "cit-p2-button-black-jsx",
+   "claim": "Primary CTA button uses wp-block-button + is-style-black",
+   "evidenceLevel": "counted",
+   "quote": "wp-block-button is-style-black",
+   "source": "src/components/Hero.jsx:15-15",
+   "note": "Style variant class is on the wrapper div; the <a> carries wp-block-button__link wp-element-button."
+  },
+  {
+   "id": "cit-p2-button-grey-jsx",
+   "claim": "Secondary CTA button uses is-style-grey",
+   "evidenceLevel": "counted",
+   "quote": "wp-block-button is-style-grey",
+   "source": "src/components/Hero.jsx:15-15"
+  },
+  {
+   "id": "cit-p2-button-glass-jsx",
+   "claim": "Glass-white button appears on charcoal pre-footer",
+   "evidenceLevel": "counted",
+   "quote": "wp-block-button is-style-glass-white",
+   "source": "src/components/PreFooter.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-button-plain-jsx",
+   "claim": "Unstyled wp-block-button (no is-style-*) used for the Awards item \"Learn more\" link",
+   "evidenceLevel": "counted",
+   "quote": "<div className=\"wp-block-button\"><a className=\"wp-block-button__link wp-element-button\"",
+   "source": "src/components/Awards.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-button-css-variants",
+   "claim": "Stylesheet defines exactly four is-style-* button variants (glass-black is never used in JSX)",
+   "evidenceLevel": "declaration",
+   "quote": "&.is-style-grey,&.is-style-black,&.is-style-glass-white,&.is-style-glass-black",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    98924,
+    99002
+   ]
+  },
+  {
+   "id": "cit-p2-button-css-hover",
+   "claim": "Button radius grows md->lg on hover",
+   "evidenceLevel": "declaration",
+   "quote": ".wp-element-button:hover{border-radius:var(--border-radius-lg)}",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    102470,
+    102533
+   ]
+  },
+  {
+   "id": "cit-p2-button-css-arrow",
+   "claim": "Hover reveals a \"\u2192\" pseudo-element (width 0 -> 1.2em, opacity 0 -> 1) over .3s",
+   "evidenceLevel": "declaration",
+   "quote": "--tw-content: \"\u2192\";content:var(--tw-content)}.wp-element-button:hover",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    102426,
+    102494
+   ]
+  },
+  {
+   "id": "cit-p2-button-css-height",
+   "claim": "Button height token size-buttonLg",
+   "evidenceLevel": "declaration",
+   "quote": ".wp-element-button{height:var(--size-buttonLg)}",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    100332,
+    100379
+   ]
+  },
+  {
+   "id": "cit-p2-arrow-def",
+   "claim": "ArrowButton svg sizing: 32px mobile / 28px md+, charcoal, 300ms colour transition",
+   "evidenceLevel": "declaration",
+   "quote": "w-8 h-8 md:w-7 md:h-7 cursor-pointer text-charcoal transition-colors duration-300",
+   "source": "src/lib/carousel/ArrowButton.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-arrow-disabled",
+   "claim": "Disabled arrow uses text-grey-2/50 and drops the group class (no hover motion)",
+   "evidenceLevel": "declaration",
+   "quote": "disabled && 'text-grey-2/50', !disabled && 'group'",
+   "source": "src/lib/carousel/ArrowButton.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-arrow-hover",
+   "claim": "Chevron shifts 0.15em on desktop hover",
+   "evidenceLevel": "declaration",
+   "quote": "transition-transform duration-300 -translate-x-[0.15em] md:group-hover:translate-x-0",
+   "source": "src/lib/carousel/ArrowButton.jsx:10-10"
+  },
+  {
+   "id": "cit-p2-arrow-use",
+   "claim": "ArrowButton is used for the carousel prev/next controls (desktop header + mobile footer), plus the ProductsHighlight card corner arrow is an inline svg of the same shape",
+   "evidenceLevel": "counted",
+   "quote": "<ArrowButton",
+   "source": "src/components/CardCarousel.jsx:11-11"
+  },
+  {
+   "id": "cit-p2-icon-row",
+   "claim": "Icon tile: wrapper .inline-icon.inline-icon-0 holds an inline svg glyph",
+   "evidenceLevel": "counted",
+   "quote": "inline-icon flex inline-icon-0",
+   "source": "src/components/BenefitsStack.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-icon-wordmark",
+   "claim": "Second icon slot (inline-icon-1) is a product wordmark svg, 24px mobile / 16px md+",
+   "evidenceLevel": "counted",
+   "quote": "[&_svg]:w-auto inline-icon-inner-1 h-6 md:h-4",
+   "source": "src/components/ProductsHighlight.jsx:10-10"
+  },
+  {
+   "id": "cit-p2-icon-glyph",
+   "claim": "First icon slot (inline-icon-0) is a glyph svg, 28px mobile / 20px md+",
+   "evidenceLevel": "counted",
+   "quote": "inline-icon-inner w-auto h-7 md:h-5 [&_svg]:h-full [&_svg]:w-auto inline-icon-inner-0",
+   "source": "src/components/ProductsHighlight.jsx:10-10"
+  },
+  {
+   "id": "cit-p2-icon-theme",
+   "claim": "Icon colour comes from an inline --theme-color custom property naming a colour ramp step",
+   "evidenceLevel": "counted",
+   "quote": "--theme-color\": \"var(--color-orange-1)\"",
+   "source": "src/components/ProductsHighlight.jsx:10-10"
+  },
+  {
+   "id": "cit-p2-icon-delay",
+   "claim": "Second icon slot reveals with a 50ms transition delay",
+   "evidenceLevel": "counted",
+   "quote": "opacity-0 inline-icon flex inline-icon-1\" style={{\"transitionDelay\": \"50ms\"",
+   "source": "src/components/ProductsHighlight.jsx:10-10"
+  },
+  {
+   "id": "cit-p2-textlink-css",
+   "claim": "Text link inside feature-callout is a flex link with an animated leading arrow",
+   "evidenceLevel": "declaration",
+   "quote": ".feature-callout-inner .wp-block-paragraph>a{position:relative;display:flex;width:fit-content;transition-property:all",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    104889,
+    105006
+   ]
+  },
+  {
+   "id": "cit-p2-textlink-hover",
+   "claim": "On hover the arrow grows 0 -> 1.2em and fades in",
+   "evidenceLevel": "declaration",
+   "quote": ".feature-callout-inner .wp-block-paragraph>a:hover:before{width:1.2em;content:var(--tw-content);opacity:1}",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    105404,
+    105510
+   ]
+  },
+  {
+   "id": "cit-p2-textlink-jsx",
+   "claim": "Learn-more text link in a feature-callout points to an internal route",
+   "evidenceLevel": "counted",
+   "quote": "<a href=\"/product/codapay/\" title=\"Codapay\">{\"Learn more\"}</a>",
+   "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-check-item",
+   "claim": "Checklist row: check svg + text, gap-3 mobile / gap-2 md",
+   "evidenceLevel": "counted",
+   "quote": "checklist-item w-full flex gap-3 md:gap-2 items-start type-body-s",
+   "source": "src/pages/PricingPage.jsx:6-6"
+  },
+  {
+   "id": "cit-p2-check-icon",
+   "claim": "Check svg 16px mobile / 12px md+",
+   "evidenceLevel": "counted",
+   "quote": "w-4 h-4 md:w-3 md:h-3 shrink-0 checklist-item-check",
+   "source": "src/pages/PricingPage.jsx:6-6"
+  },
+  {
+   "id": "cit-p2-check-fill",
+   "claim": "Check glyph is filled #007C44 (a literal not in the colour ramp; some price-stack overrides use fill-current)",
+   "evidenceLevel": "counted",
+   "quote": "fill=\"#007C44\"",
+   "source": "src/pages/PricingPage.jsx:6-6",
+   "note": "Literal colour, not tokenised; documented rather than normalised."
+  },
+  {
+   "id": "cit-p2-tab-shell",
+   "claim": "TabBar container: 3px padding, 1px current-colour border, rounded-md; 28px tall on md+",
+   "evidenceLevel": "declaration",
+   "quote": "'md:h-7 p-[3px] border border-current rounded-md md:w-fit'",
+   "source": "src/lib/pricing/PaymentMethodTable.jsx:90-90"
+  },
+  {
+   "id": "cit-p2-tab-pill",
+   "claim": "Sliding active pill: bg-current, 200ms transition",
+   "evidenceLevel": "declaration",
+   "quote": "'absolute left-0 top-0 h-full bg-current rounded-md transition-all duration-200'",
+   "source": "src/lib/pricing/PaymentMethodTable.jsx:93-93"
+  },
+  {
+   "id": "cit-p2-tab-hover",
+   "claim": "Hover moves the pill; mouse-out returns after 200ms (code comment describing ported live behaviour)",
+   "evidenceLevel": "spec-measured",
+   "quote": "Hover moves the pill to the hovered button; mouse-out snaps back to the active tab after 200ms.",
+   "source": "src/lib/pricing/PaymentMethodTable.jsx:12-12"
+  },
+  {
+   "id": "cit-p2-tab-default",
+   "claim": "Two tabs exist: Type and Country",
+   "evidenceLevel": "declaration",
+   "quote": "{ label: 'Type', href: '#' },",
+   "source": "src/lib/pricing/PaymentMethodTable.jsx:192-192"
+  },
+  {
+   "id": "cit-p2-tab-mobile",
+   "claim": "Below 700px the active tab is scrolled into view and re-measured even while hovering (breakpoint.js-pricing-narrow)",
+   "evidenceLevel": "declaration",
+   "quote": "window.innerWidth < 700",
+   "source": "src/lib/pricing/PaymentMethodTable.jsx:49-49"
+  },
+  {
+   "id": "cit-p2-input-cls",
+   "claim": "Country filter input: transparent bg, 1px current border, rounded-md, buttonLg tall (28px on md+), 16px text on mobile",
+   "evidenceLevel": "declaration",
+   "quote": "!text-[16px] md:!type-ui-label !w-full !border !border-current !bg-transparent !rounded-md !type-ui-label !h-buttonLg md:!h-7 !pl-4 !pr-2",
+   "source": "src/lib/pricing/PaymentMethodTable.jsx:128-128"
+  },
+  {
+   "id": "cit-p2-input-placeholder",
+   "claim": "Single input, placeholder \"Country\"",
+   "evidenceLevel": "declaration",
+   "quote": "placeholder=\"Country\"",
+   "source": "src/lib/pricing/PaymentMethodTable.jsx:223-223"
+  },
+  {
+   "id": "cit-p2-input-filter",
+   "claim": "Typing filters rows by country text, case-insensitive; shown only in Country view",
+   "evidenceLevel": "declaration",
+   "quote": "tr.style.display = view === 2 && !tr.children[0].textContent?.toLowerCase().includes",
+   "source": "src/lib/pricing/PaymentMethodTable.jsx:216-216"
+  },
+  {
+   "id": "cit-p2-logo-hero",
+   "claim": "Hero partner logo tiles: 8.57em wide, aspect 120/32",
+   "evidenceLevel": "declaration",
+   "quote": "[&_.wp-block-image]:w-[8.57em] [&_.wp-block-image]:aspect-[120/32] [&_.wp-block-image]:shrink-0",
+   "source": "src/components/Hero.jsx:15-15"
+  },
+  {
+   "id": "cit-p2-logo-press",
+   "claim": "Press logo tile width token w-pressLogoW",
+   "evidenceLevel": "counted",
+   "quote": "press-carousel-item w-pressLogoW flex flex-col gap-2 shrink-0",
+   "source": "src/components/PressCarousel.jsx:7-7"
+  },
+  {
+   "id": "cit-p2-logo-award",
+   "claim": "Award image is a 560x176 figure.wp-block-image",
+   "evidenceLevel": "declaration",
+   "quote": "width=\"560\" height=\"176\" src=\"/images/1.avif\"",
+   "source": "src/components/Awards.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-logo-awardhover",
+   "claim": "Award image lifts 1 spacing step (translate-y) on item hover over 300ms",
+   "evidenceLevel": "declaration",
+   "quote": "[&:hover_.wp-block-image]:-translate-y-1 [&_.wp-block-image]:transition-transform [&_.wp-block-image]:duration-300",
+   "source": "src/components/Awards.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-video-btn",
+   "claim": "Play/pause overlay button: bottom-right, 16px inset, charcoal/20 backdrop",
+   "evidenceLevel": "declaration",
+   "quote": "className=\"p-3 rounded-md text-sm whitespace-nowrap bg-charcoal/20 text-offWhite absolute right-4 bottom-4\"",
+   "source": "src/lib/hero/InlineVideo.jsx:41-41"
+  },
+  {
+   "id": "cit-p2-video-attrs",
+   "claim": "Video autoplays, loops, muted, playsInline",
+   "evidenceLevel": "declaration",
+   "quote": "autoPlay={playing} loop muted playsInline",
+   "source": "src/lib/hero/InlineVideo.jsx:36-36"
+  },
+  {
+   "id": "cit-p2-video-toggle",
+   "claim": "Button toggles playing; icon swaps pause/play with no transition",
+   "evidenceLevel": "declaration",
+   "quote": "onClick={() => setPlaying((p) => !p)}",
+   "source": "src/lib/hero/InlineVideo.jsx:42-42"
+  },
+  {
+   "id": "cit-p2-theme-dark",
+   "claim": "Whole-section colouring is done with an inline --theme-color/--theme-bg pair plus resolved colour/backgroundColor (dark = offWhite on charcoal)",
+   "evidenceLevel": "counted",
+   "quote": "\"--theme-color\": \"var(--color-offWhite)\", \"--theme-bg\": \"var(--color-charcoal)\", \"color\": \"rgb(var(--color-offWhite))\", \"backgroundColor\": \"rgb(var(--color-charcoal))\"",
+   "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-theme-impact-grey",
+   "claim": "impact-figures on industry pages uses grey-2 as its theme background",
+   "evidenceLevel": "counted",
+   "quote": "\"--theme-bg\": \"var(--color-grey-2)\"",
+   "source": "src/pages/IndustriesOnlineGamingPaymentsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-theme-impact-orange",
+   "claim": "impact-figures on consumer-platforms uses orange-3",
+   "evidenceLevel": "counted",
+   "quote": "\"--theme-bg\": \"var(--color-orange-3)\"",
+   "source": "src/pages/ProductCodaConsumerPlatformsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-theme-impact-yellow",
+   "claim": "impact-figures on giftcloud uses yellow-4",
+   "evidenceLevel": "counted",
+   "quote": "\"--theme-bg\": \"var(--color-yellow-4)\"",
+   "source": "src/pages/ProductCodaGiftcloudPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-theme-impact-pink",
+   "claim": "impact-figures on distribution uses pink-3",
+   "evidenceLevel": "counted",
+   "quote": "\"--theme-bg\": \"var(--color-pink-3)\"",
+   "source": "src/pages/ProductDistributionPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-media-item",
+   "claim": "Media item: aspect-ratio driven by inline --aspectRatio, rounded-md",
+   "evidenceLevel": "counted",
+   "quote": "aspect-[--aspectRatio] inline-media-item w-full rounded-md",
+   "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-media-pair",
+   "claim": "Some media come as a mobile item (md:hidden) plus a desktop item (hidden md:block) with different images/ratios",
+   "evidenceLevel": "counted",
+   "quote": "inline-media-item w-full rounded-md md:hidden",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-media-reveal",
+   "claim": "Media wrapper reveals with a slide (translate-y-7 -> 0)",
+   "evidenceLevel": "counted",
+   "quote": "translate-y-7 inline-media flex w-maxContentW mx-auto",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-media-css",
+   "claim": "feature-callout drops the fixed aspect for its inner media (aspect-auto)",
+   "evidenceLevel": "declaration",
+   "quote": ".\\[\\&_\\.feature-callout-inner_\\.inline-media-item\\]\\:\\!aspect-auto",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    201652,
+    201718
+   ]
+  },
+  {
+   "id": "cit-p2-bridge",
+   "claim": "Bridge = h2 + optional description; column on mobile, row (50/50) from 800px",
+   "evidenceLevel": "counted",
+   "quote": "section-bridge flex flex-col md:flex-row w-full gap-3 md:gap-8 my-9 max-w-blogPostVideoW mx-auto",
+   "source": "src/components/ProductsHighlight.jsx:10-10"
+  },
+  {
+   "id": "cit-p2-bridge-desc",
+   "claim": "Description column is md:w-1/2 and grey-2 text",
+   "evidenceLevel": "counted",
+   "quote": "section-bridge-description [&_p]:type-body-m w-full md:w-1/2 text-grey-2",
+   "source": "src/components/ProductsHighlight.jsx:10-10"
+  },
+  {
+   "id": "cit-p2-bridge-pad",
+   "claim": "Page root gives direct-child section-bridges block-padding",
+   "evidenceLevel": "declaration",
+   "quote": "[&amp;_&gt;_.section-bridge]:block-padding",
+   "source": "src/components/Main.jsx:12-12"
+  },
+  {
+   "id": "cit-p2-bridge-h2",
+   "claim": "Bridge heading is an h2 type-header-l (full width when there is no description)",
+   "evidenceLevel": "counted",
+   "quote": "<h2 className=\"type-header-l w-full\">",
+   "source": "src/components/BenefitsStack.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-marquee-speed",
+   "claim": "Marquee default speed 50 px/s",
+   "evidenceLevel": "declaration",
+   "quote": "speed = 50,",
+   "source": "src/lib/marquee/Marquee.jsx:12-12"
+  },
+  {
+   "id": "cit-p2-marquee-dur",
+   "claim": "Duration = width*copies/speed when autoFill",
+   "evidenceLevel": "declaration",
+   "quote": "if (autoFill) return (marqueeWidth * multiplier) / speed",
+   "source": "src/lib/marquee/Marquee.jsx:46-46"
+  },
+  {
+   "id": "cit-p2-marquee-hero",
+   "claim": "Hero logos: play = width<800 || logo count > 4",
+   "evidenceLevel": "declaration",
+   "quote": "const logosPlay = isMobile || LOGO_COUNT > 4",
+   "source": "src/components/Hero.jsx:12-12"
+  },
+  {
+   "id": "cit-p2-marquee-grad",
+   "claim": "Gradient edge only from 800px, colour #fcfcfc",
+   "evidenceLevel": "declaration",
+   "quote": "gradient={!isMobile && logosPlay} gradientColor=\"#fcfcfc\"",
+   "source": "src/components/Hero.jsx:15-15"
+  },
+  {
+   "id": "cit-p2-marquee-enh",
+   "claim": "Inner-page media marquees render two wrappers per breakpoint",
+   "evidenceLevel": "spec-measured",
+   "quote": "content/marquee (marquee-aVY9p8pW.js): two wrappers (\"hidden md:block\" and \"md:hidden\")",
+   "source": "src/lib/enhance/marquee.js:5-5"
+  },
+  {
+   "id": "cit-p2-card-benefit",
+   "claim": "Benefit card: grey-0 panel, rounded-md, p-5, h-full (flex column gap-4 follows in the same class list)",
+   "evidenceLevel": "counted",
+   "quote": "benefits-stack-inner-card w-full text-wrap rounded-md bg-grey-0 p-5 h-full",
+   "source": "src/components/BenefitsStack.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-card-benefit-delay",
+   "claim": "First card reveals with 50ms delay (i*50 pattern)",
+   "evidenceLevel": "counted",
+   "quote": "\"transitionDelay\": \"50ms\"",
+   "source": "src/components/BenefitsStack.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-card-benefit-h5",
+   "claim": "Benefit title is an h5 wp-block-heading (2-7 words measured)",
+   "evidenceLevel": "counted",
+   "quote": "<h5 className=\"wp-block-heading\">{\"Launch fast\"}</h5>",
+   "source": "src/components/BenefitsStack.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-card-feature",
+   "claim": "Feature card: no fill; md:px-5 py-5; text-pretty",
+   "evidenceLevel": "counted",
+   "quote": "features-stack-inner-card w-full md:px-5 py-5 h-full text-pretty",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-card-feature-borders",
+   "claim": "first-two / first marker classes drive divider borders (bottom border below 800px, right border from 800px)",
+   "evidenceLevel": "counted",
+   "quote": "first-two",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-card-feature-css",
+   "claim": "Stylesheet: .first-two gets border-r from 800px",
+   "evidenceLevel": "declaration",
+   "quote": ".\\[\\&_\\.first-two\\]\\:md\\:border-r .first-two{border-right-width:1px}",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    202919,
+    202987
+   ]
+  },
+  {
+   "id": "cit-p2-card-impact",
+   "claim": "Impact card: offWhite panel on a coloured block, rounded-md, p-5",
+   "evidenceLevel": "counted",
+   "quote": "impact-figures-inner-card relative w-full rounded-md bg-offWhite text-charcoal p-5 h-full",
+   "source": "src/pages/IndustriesOnlineGamingPaymentsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-card-impact-index",
+   "claim": "Card corner carries a zero-padded index (01, 02, ...) in the mono face",
+   "evidenceLevel": "counted",
+   "quote": "font-mono font-bold text-[0.8em]",
+   "source": "src/pages/IndustriesOnlineGamingPaymentsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-card-integ",
+   "claim": "Integration card: image figure, h5 title, paragraph; gap-3 / md:gap-2",
+   "evidenceLevel": "counted",
+   "quote": "integration-comparison-inner-card w-full h-full text-pretty",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-card-tile",
+   "claim": "Page tile: charcoal panel, p-5; the same element also carries rounded-md and hover:rounded-lg",
+   "evidenceLevel": "counted",
+   "quote": "page-tiles-inner-card group w-full p-5 h-full bg-charcoal text-white text-pretty",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-card-tile-bg",
+   "claim": "Tile background is a full-bleed illustration (world-map tile) behind the content",
+   "evidenceLevel": "counted",
+   "quote": "src=\"/images/page-tile-01.webp\"",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-pcard",
+   "claim": "Product card is an <a> (group) linking to a product route; wide cards span both columns",
+   "evidenceLevel": "counted",
+   "quote": "products-highlight-inner-card w-full group md:col-span-2 md:w-full flex flex-col gap-4",
+   "source": "src/components/ProductsHighlight.jsx:10-10"
+  },
+  {
+   "id": "cit-p2-pcard-replace",
+   "claim": "media-hover-replace: base image fades out on desktop hover while a hover image fades in (200ms)",
+   "evidenceLevel": "counted",
+   "quote": "group-hover:md:opacity-0 opacity-100 transition-opacity duration-200",
+   "source": "src/components/ProductsHighlight.jsx:10-10"
+  },
+  {
+   "id": "cit-p2-pcard-up",
+   "claim": "media-hover-up: image shifts up one 8px step on hover",
+   "evidenceLevel": "counted",
+   "quote": "group-hover:-translate-y-2 transition-transform",
+   "source": "src/components/ProductsHighlight.jsx:10-10"
+  },
+  {
+   "id": "cit-p2-pcard-radius",
+   "claim": "Panel radius grows to xlu on desktop hover",
+   "evidenceLevel": "counted",
+   "quote": "md:group-hover:rounded-xlu",
+   "source": "src/components/ProductsHighlight.jsx:10-10"
+  },
+  {
+   "id": "cit-p2-pcard-delay",
+   "claim": "Fifth card carries 250ms delay (50ms steps, 50..250)",
+   "evidenceLevel": "counted",
+   "quote": "\"transitionDelay\": \"250ms\"",
+   "source": "src/components/ProductsHighlight.jsx:10-10"
+  },
+  {
+   "id": "cit-p2-price-card",
+   "claim": "Price card: rounded-md panel, hover:rounded-lg, themed via inline theme colours",
+   "evidenceLevel": "counted",
+   "quote": "price-stack-inner-card group w-full h-full rounded-md",
+   "source": "src/pages/PricingPage.jsx:6-6"
+  },
+  {
+   "id": "cit-p2-price-grid",
+   "claim": "Price grid is 8 columns from 800px; standard card md:col-span-5, custom card md:col-span-3",
+   "evidenceLevel": "counted",
+   "quote": "price-stack-inner w-full max-w-blogPostVideoW mx-auto grid grid-cols-1 md:grid-cols-8 gap-4",
+   "source": "src/pages/PricingPage.jsx:6-6"
+  },
+  {
+   "id": "cit-p2-price-span",
+   "claim": "Standard pricing card spans 5 of 8 columns",
+   "evidenceLevel": "counted",
+   "quote": "md:col-span-5",
+   "source": "src/pages/PricingPage.jsx:6-6"
+  },
+  {
+   "id": "cit-p2-price-dashed",
+   "claim": "Column bottom part is separated by a dashed current-colour top border",
+   "evidenceLevel": "counted",
+   "quote": "price-stack-inner-card-column-bottom group w-full border-t border-dashed border-current pt-3 px-4",
+   "source": "src/pages/PricingPage.jsx:6-6"
+  },
+  {
+   "id": "cit-p2-metric",
+   "claim": "Metric item: half width (2x2) below 800px, equal share in a row from 800px",
+   "evidenceLevel": "counted",
+   "quote": "metrics-item w-1/2 md:w-full flex flex-col gap-2",
+   "source": "src/components/Metrics.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-metric-h3",
+   "claim": "Figure is an h3 (1 word); label is a paragraph 2-4 words",
+   "evidenceLevel": "counted",
+   "quote": "<h3 className=\"wp-block-heading\">{\"2B+\"}</h3>",
+   "source": "src/components/Metrics.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-metric-delay",
+   "claim": "Fourth metric item delay 200ms (50ms steps from 50ms)",
+   "evidenceLevel": "counted",
+   "quote": "\"transitionDelay\": \"200ms\"",
+   "source": "src/components/Metrics.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-award",
+   "claim": "Award item: award image, h5 title, source-year line, Learn more link",
+   "evidenceLevel": "counted",
+   "quote": "awards-item w-full flex flex-col gap-2",
+   "source": "src/components/Awards.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-award-h5",
+   "claim": "Award title is an h5 (3-4 words)",
+   "evidenceLevel": "counted",
+   "quote": "<h5 className=\"wp-block-heading\">{\"Fintech Innovators Asia\"}</h5>",
+   "source": "src/components/Awards.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-award-arrow",
+   "claim": "Award link uses the md arrow-button-group hover (button shifts .6em, arrow appears)",
+   "evidenceLevel": "counted",
+   "quote": "[&_.wp-block-button]:md:arrow-button md:arrow-button-group",
+   "source": "src/components/Awards.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-award-css",
+   "claim": "CSS: arrow-button-group hover shifts the button by .6em",
+   "evidenceLevel": "declaration",
+   "quote": ".md\\:arrow-button-group:hover .wp-block-button{transform:translate(.6em)}",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    195017,
+    195090
+   ]
+  },
+  {
+   "id": "cit-p2-faq-item",
+   "claim": "FAQ row wrapper",
+   "evidenceLevel": "counted",
+   "quote": "faq-item w-full text-pretty",
+   "source": "src/pages/PricingPage.jsx:6-6"
+  },
+  {
+   "id": "cit-p2-faq-btn",
+   "claim": "Question button: full-width, bottom border #e2e2e2, py-5, type-header-s",
+   "evidenceLevel": "counted",
+   "quote": "border-b text-left gap-4 cursor-pointer py-5 type-header-s border-b-[#e2e2e2]",
+   "source": "src/pages/PricingPage.jsx:6-6"
+  },
+  {
+   "id": "cit-p2-faq-dur",
+   "claim": "Answer height/opacity tween 300ms",
+   "evidenceLevel": "spec-measured",
+   "quote": "const DURATION = 300",
+   "source": "src/lib/enhance/faq.js:8-8"
+  },
+  {
+   "id": "cit-p2-faq-ease",
+   "claim": "Answer tween easing cubic-bezier(.25,.1,.35,1)",
+   "evidenceLevel": "spec-measured",
+   "quote": "const EASING = 'cubic-bezier(0.25, 0.1, 0.35, 1)'",
+   "source": "src/lib/enhance/faq.js:9-9"
+  },
+  {
+   "id": "cit-p2-faq-collapsed",
+   "claim": "All items start collapsed; plus icon swaps instantly to minus",
+   "evidenceLevel": "spec-measured",
+   "quote": "Every item starts collapsed",
+   "source": "src/lib/enhance/faq.js:1-1"
+  },
+  {
+   "id": "cit-p2-faq-answer",
+   "claim": "Answer body padding pt-4 pb-0, md:pr-8",
+   "evidenceLevel": "counted",
+   "quote": "pt-4 pb-0 [&_p]:!mb-4 md:pr-8",
+   "source": "src/pages/PricingPage.jsx:6-6"
+  },
+  {
+   "id": "cit-p2-cc-item",
+   "claim": "Carousel card: white, rounded-md; aspect 328/362 mobile, 1008/400 from 800px",
+   "evidenceLevel": "counted",
+   "quote": "card-carousel-item carousel-snap w-full md:w-blogPostVideoW bg-white rounded-md flex flex-col aspect-[328/362] md:aspect-[1008/400]",
+   "source": "src/components/CardCarousel.jsx:11-11"
+  },
+  {
+   "id": "cit-p2-cc-thumb",
+   "claim": "Thumbnail plate 328/202 mobile, 1008/308 desktop, grey-1 fallback",
+   "evidenceLevel": "counted",
+   "quote": "w-full aspect-[328/202] md:aspect-[1008/308] relative bg-grey-1 shrink-0 overflow-hidden",
+   "source": "src/components/CardCarousel.jsx:11-11"
+  },
+  {
+   "id": "cit-p2-cc-title",
+   "claim": "Card title: type-header-s, clamps at 4 lines, colour grey-2 -> charcoal on desktop hover",
+   "evidenceLevel": "counted",
+   "quote": "type-header-s text-balance mt-5 md:mt-0 md:text-grey-2 md:group-hover:text-charcoal transition-colors duration-300 line-clamp-4",
+   "source": "src/components/CardCarousel.jsx:11-11"
+  },
+  {
+   "id": "cit-p2-cc-scale",
+   "claim": "Desktop hover scales the thumbnail 1.05",
+   "evidenceLevel": "counted",
+   "quote": "md:group-hover:scale-[1.05]",
+   "source": "src/components/CardCarousel.jsx:11-11"
+  },
+  {
+   "id": "cit-p2-cc-logo",
+   "claim": "First card overlays a partner logo (bottom gradient) on the thumbnail",
+   "evidenceLevel": "counted",
+   "quote": "src=\"/images/tinder-reverse.avif\"",
+   "source": "src/components/CardCarousel.jsx:11-11"
+  },
+  {
+   "id": "cit-p2-cta-bar",
+   "claim": "CTA bar: offWhite pill-row with a short sentence and a black button",
+   "evidenceLevel": "counted",
+   "quote": "button-cta-inner flex gap-4 rounded-md md:rounded-lg pl-4 pr-3 py-3 items-center justify-center bg-offWhite text-charcoal",
+   "source": "src/pages/PricingPage.jsx:6-6"
+  },
+  {
+   "id": "cit-p2-cta-text",
+   "claim": "CTA bar sentence (6 words)",
+   "evidenceLevel": "counted",
+   "quote": "!type-body-s\">{\"See the complete list in Coda Portal\"}",
+   "source": "src/pages/PricingPage.jsx:6-6",
+   "note": "Quoted only as location evidence; contracts do not reproduce the copy."
+  },
+  {
+   "id": "cit-p2-cmp-table",
+   "claim": "Feature comparison uses figure.wp-block-table.is-style-regular",
+   "evidenceLevel": "counted",
+   "quote": "wp-block-table is-style-regular",
+   "source": "src/pages/ProductCodaWebstorePage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-cmp-check",
+   "claim": "Check cells use local svg icons (check-circle-green / check-circle-grey / x-circle)",
+   "evidenceLevel": "counted",
+   "quote": "src=\"/images/check-circle-green.svg\"",
+   "source": "src/pages/ProductCodaWebstorePage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-cmp-x",
+   "claim": "Unsupported cells use x-circle.svg",
+   "evidenceLevel": "counted",
+   "quote": "src=\"/images/x-circle.svg\"",
+   "source": "src/pages/ProductCodaWebstorePage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-hero-root",
+   "claim": "Hero root: flex column gap-8, my-9",
+   "evidenceLevel": "counted",
+   "quote": "hero flex w-full flex-col gap-8 my-9",
+   "source": "src/components/Hero.jsx:15-15"
+  },
+  {
+   "id": "cit-p2-hero-h1",
+   "claim": "Hero h1 uses type-header-3-xl on mobile and 4-xl from 800px",
+   "evidenceLevel": "counted",
+   "quote": "!type-header-3-xl md:!type-header-4-xl",
+   "source": "src/components/Hero.jsx:15-15"
+  },
+  {
+   "id": "cit-p2-hero-span",
+   "claim": "Home hero renders two h1 spans with different line breaks for md and mobile",
+   "evidenceLevel": "counted",
+   "quote": "<span className=\"hidden md:inline\">{\"Digital commerce solutions \\nfor global growth\"}</span><span className=\"md:hidden\">",
+   "source": "src/components/Hero.jsx:15-15"
+  },
+  {
+   "id": "cit-p2-hero-logos",
+   "claim": "Trust row: label + logo marquee; column below 800px, row from 800px",
+   "evidenceLevel": "counted",
+   "quote": "publisher-logos flex flex-col md:flex-row gap-5 items-center justify-center type-ui-nav-s",
+   "source": "src/components/Hero.jsx:15-15"
+  },
+  {
+   "id": "cit-p2-hero-media",
+   "claim": "Hero media reveals with slide (translate-y-7)",
+   "evidenceLevel": "counted",
+   "quote": "translate-y-7 inline-media flex w-maxContentW mx-auto",
+   "source": "src/components/Hero.jsx:15-15"
+  },
+  {
+   "id": "cit-p2-hero-video",
+   "claim": "Home hero shows the local hero video via InlineVideo",
+   "evidenceLevel": "counted",
+   "quote": "<InlineVideo src=\"/video/Coda-Website-Hero-Video-260826.mp4\"",
+   "source": "src/components/Hero.jsx:15-15"
+  },
+  {
+   "id": "cit-p2-hero-btns",
+   "claim": "Hero button row: nowrap, centred, gap-4",
+   "evidenceLevel": "counted",
+   "quote": "inline-buttons w-full flex gap-4 flex-nowrap items-center justify-center",
+   "source": "src/components/Hero.jsx:15-15"
+  },
+  {
+   "id": "cit-p2-hero-mkt",
+   "claim": "Consumer-platforms hero has a phone-shot marquee panel instead of inline-media",
+   "evidenceLevel": "counted",
+   "quote": "hero-marquee flex w-maxContentW mx-auto flex-col gap-8 my-9",
+   "source": "src/pages/ProductCodaConsumerPlatformsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-hero-pricing",
+   "claim": "Pricing hero is heading + one line only (location evidence; copy is not reproduced)",
+   "evidenceLevel": "counted",
+   "quote": "{\"Flexible pricing\"}",
+   "source": "src/pages/PricingPage.jsx:6-6"
+  },
+  {
+   "id": "cit-p2-pf-root",
+   "claim": "Pre-footer: charcoal band, rounded top, negative bottom margin that tucks under the footer",
+   "evidenceLevel": "counted",
+   "quote": "pre-footer flex w-full gap-8 mt-9 px-6 pt-7 pb-10 bg-charcoal text-white rounded-t-md -mb-8",
+   "source": "src/components/PreFooter.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-pf-h2",
+   "claim": "Pre-footer heading type-title-xs mobile / type-title-l from 800px",
+   "evidenceLevel": "counted",
+   "quote": "type-title-xs md:type-title-l text-balance text-center my-2",
+   "source": "src/components/PreFooter.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-pf-btn-glass",
+   "claim": "Home/industry/MoR pre-footer has a glass-white + grey pair",
+   "evidenceLevel": "counted",
+   "quote": "is-style-glass-white",
+   "source": "src/components/PreFooter.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-pf-one",
+   "claim": "Pricing/product pages carry a single grey button",
+   "evidenceLevel": "counted",
+   "quote": "pre-footer flex w-full gap-8 mt-9 px-6 pt-7 pb-10 bg-charcoal text-white rounded-t-md -mb-8",
+   "source": "src/pages/PricingPage.jsx:6-6"
+  },
+  {
+   "id": "cit-p2-pf-last",
+   "claim": "On the homepage PreFooter is the last section before the Footer (Footer is rendered by App)",
+   "evidenceLevel": "counted",
+   "quote": "<PreFooter />",
+   "source": "src/components/Main.jsx:20-20"
+  },
+  {
+   "id": "cit-p2-spacer",
+   "claim": "Spacer: zero-height element with -mb-9 -mt-10 to pull the pre-footer up against the previous section",
+   "evidenceLevel": "counted",
+   "quote": "spacer w-full h-0 relative overflow-hidden -mb-9 -mt-10",
+   "source": "src/pages/PricingPage.jsx:6-6"
+  },
+  {
+   "id": "cit-p2-faq-root",
+   "claim": "FAQ root wrapper",
+   "evidenceLevel": "counted",
+   "quote": "faq w-full my-9 md:px-6",
+   "source": "src/pages/PricingPage.jsx:6-6"
+  },
+  {
+   "id": "cit-p2-faq-panel",
+   "claim": "FAQ panel: literal #f3f3f3 background, rounded-lg, pt-10 pb-8",
+   "evidenceLevel": "counted",
+   "quote": "w-full bg-[#f3f3f3] pt-10 pb-8 rounded-lg",
+   "source": "src/pages/PricingPage.jsx:6-6",
+   "note": "#f3f3f3 is a literal not present in the colour ramp."
+  },
+  {
+   "id": "cit-p2-faq-h2",
+   "claim": "FAQ heading h2 type-header-l text-charcoal",
+   "evidenceLevel": "counted",
+   "quote": "<h2 className=\"type-header-l text-charcoal\">{\"Frequently Asked Questions\"}</h2>",
+   "source": "src/pages/PricingPage.jsx:6-6"
+  },
+  {
+   "id": "cit-p2-faq-enh",
+   "claim": "Accordion behaviour is attached by src/lib/enhance/faq.js to every .faq-item",
+   "evidenceLevel": "spec-measured",
+   "quote": "export const selector = '.faq-item'",
+   "source": "src/lib/enhance/faq.js:15-15"
+  },
+  {
+   "id": "cit-p2-cc-root",
+   "claim": "Carousel root",
+   "evidenceLevel": "counted",
+   "quote": "card-carousel flex flex-col w-full gap-6 my-9 md:px-6",
+   "source": "src/components/CardCarousel.jsx:11-11"
+  },
+  {
+   "id": "cit-p2-cc-panel",
+   "claim": "Carousel sits on a grey-0 rounded panel that clips overflow",
+   "evidenceLevel": "counted",
+   "quote": "w-full bg-grey-0 rounded-md py-6 overflow-hidden",
+   "source": "src/components/CardCarousel.jsx:11-11"
+  },
+  {
+   "id": "cit-p2-cc-track",
+   "claim": "Track: 85% width & 328/362 aspect below 800px, full width & 1008/400 from 800px",
+   "evidenceLevel": "counted",
+   "quote": "carousel w-[85%] md:w-full relative aspect-[328/362] md:aspect-[1008/400] flex flex-nowrap items-start",
+   "source": "src/components/CardCarousel.jsx:11-11"
+  },
+  {
+   "id": "cit-p2-cc-lerp",
+   "claim": "Per-frame x lerp 0.125 towards the current item",
+   "evidenceLevel": "spec-measured",
+   "quote": "s.xLerp += (s.x - target + drag.current.xLerp - s.xLerp) * 0.125",
+   "source": "src/lib/enhance/carousel.js:99-99"
+  },
+  {
+   "id": "cit-p2-cc-drag",
+   "claim": "Swipe past 15% of the first item width commits next/prev",
+   "evidenceLevel": "spec-measured",
+   "quote": "if (Math.abs(drag.delta.x) > (items[0]?.offsetWidth || window.innerWidth) * 0.15) {",
+   "source": "src/lib/enhance/carousel.js:127-127"
+  },
+  {
+   "id": "cit-p2-cc-disabled",
+   "claim": "Arrow buttons disable at the ends (no wrap on click)",
+   "evidenceLevel": "spec-measured",
+   "quote": "const disabled = reverse ? current === 0 : current === count - 1",
+   "source": "src/lib/enhance/carousel.js:38-38"
+  },
+  {
+   "id": "cit-p2-cc-h2",
+   "claim": "Carousel heading is 4 words, identical on every route that has the section",
+   "evidenceLevel": "counted",
+   "quote": "<h2 className=\"type-header-l\">{\"Explore more from Coda\"}</h2>",
+   "source": "src/components/CardCarousel.jsx:11-11"
+  },
+  {
+   "id": "cit-p2-bs-root",
+   "claim": "Benefits-stack root",
+   "evidenceLevel": "counted",
+   "quote": "benefits-stack w-full my-9 max-w-blogPostVideoW block-padding mx-auto",
+   "source": "src/components/BenefitsStack.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-bs-grid",
+   "claim": "Homepage: 6 cards in 3 columns from 800px",
+   "evidenceLevel": "counted",
+   "quote": "benefits-stack-inner w-full max-w-blogPostVideoW mx-auto grid grid-cols-1 gap-4 md:grid-cols-3",
+   "source": "src/components/BenefitsStack.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-bs-grid2",
+   "claim": "Four-card stacks use 2 columns from 800px",
+   "evidenceLevel": "counted",
+   "quote": "benefits-stack-inner w-full max-w-blogPostVideoW mx-auto grid grid-cols-1 gap-4 md:grid-cols-2",
+   "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-bs-titleonly",
+   "claim": "Title-only benefit cards on the first industry stack (location evidence; copy not reproduced)",
+   "evidenceLevel": "counted",
+   "quote": "{\"Support how fans actually pay\"}",
+   "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-bs-home",
+   "claim": "Homepage renders one benefits-stack",
+   "evidenceLevel": "counted",
+   "quote": "<BenefitsStack />",
+   "source": "src/components/Main.jsx:15-15"
+  },
+  {
+   "id": "cit-p2-fs-root",
+   "claim": "Features-stack root",
+   "evidenceLevel": "counted",
+   "quote": "features-stack w-full my-9 max-w-blogPostVideoW block-padding mx-auto",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-fs-inner",
+   "claim": "3 columns from 800px",
+   "evidenceLevel": "counted",
+   "quote": "features-stack-inner w-full max-w-blogPostVideoW mx-auto grid grid-cols-1 gap-4 md:grid-cols-3",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-fs-btn",
+   "claim": "Codapay features-stack button links to the MoR route",
+   "evidenceLevel": "counted",
+   "quote": "href=\"/use-case/merchant-of-record/\"",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-fg-root",
+   "claim": "Feature-grid root: full-bleed wrapper with md:px-6",
+   "evidenceLevel": "counted",
+   "quote": "feature-grid w-full my-9 md:px-6",
+   "source": "src/pages/ProductCodaConsumerPlatformsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-fg-inner",
+   "claim": "Feature-grid reuses the features-stack inner grid: 3 columns from 800px",
+   "evidenceLevel": "counted",
+   "quote": "features-stack-inner w-full max-w-blogPostVideoW mx-auto grid grid-cols-1 gap-4 md:grid-cols-3",
+   "source": "src/pages/ProductCodaConsumerPlatformsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-if-root",
+   "claim": "Impact-figures root reveals with slide",
+   "evidenceLevel": "counted",
+   "quote": "translate-y-7 impact-figures w-full my-9 md:px-6",
+   "source": "src/pages/IndustriesOnlineGamingPaymentsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-if-grid",
+   "claim": "3 cards -> 3 columns from 800px (2 cards -> md:grid-cols-2)",
+   "evidenceLevel": "counted",
+   "quote": "impact-figures-inner w-full max-w-blogPostVideoW mx-auto grid grid-cols-1 gap-4 md:grid-cols-3",
+   "source": "src/pages/IndustriesOnlineGamingPaymentsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-if-panel",
+   "claim": "Coloured panel py-7 rounded-md wraps bridge + cards",
+   "evidenceLevel": "counted",
+   "quote": "py-7 rounded-md",
+   "source": "src/pages/IndustriesOnlineGamingPaymentsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-if-mob",
+   "claim": "Page root references a .figures-stack marker for block-padding (no element with that class exists in the JSX; impact-figures is the equivalent section)",
+   "evidenceLevel": "declaration",
+   "quote": "[&amp;_&gt;_.figures-stack]:block-padding",
+   "source": "src/components/Main.jsx:12-12",
+   "note": ".figures-stack is a dead selector in this clone: not present in any of the 15 pages."
+  },
+  {
+   "id": "cit-p2-hm-root",
+   "claim": "Highlighted-mega root",
+   "evidenceLevel": "counted",
+   "quote": "highlighted-mega w-maxContentW mx-auto my-9 md:px-6",
+   "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-hm-panel",
+   "claim": "Dark panel with pt-9 pb-6 rounded-lg",
+   "evidenceLevel": "counted",
+   "quote": "w-full pt-9 pb-6 rounded-lg",
+   "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-hm-grid",
+   "claim": "Industry variant: 4 feature cards in 2 columns",
+   "evidenceLevel": "counted",
+   "quote": "features-stack-inner w-full max-w-blogPostVideoW mx-auto grid grid-cols-1 gap-4 md:grid-cols-2",
+   "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-hm-distr",
+   "claim": "Distribution variant adds a 3-col benefit-card grid under the 2-col feature grid",
+   "evidenceLevel": "counted",
+   "quote": "benefits-stack-inner w-full max-w-blogPostVideoW mx-auto grid grid-cols-1 gap-4 md:grid-cols-3 mt-4",
+   "source": "src/pages/ProductDistributionPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-hm-table",
+   "claim": "Webstore variant holds a comparison table",
+   "evidenceLevel": "counted",
+   "quote": "wp-block-table is-style-regular",
+   "source": "src/pages/ProductCodaWebstorePage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-fco-root",
+   "claim": "Feature-callout root: 2-col grid, media forced to 488/500 (=0.976)",
+   "evidenceLevel": "counted",
+   "quote": "feature-callout w-full my-9 max-w-blogPostVideoW block-padding mx-auto [&_.inline-media-item]:!aspect-[488/500]",
+   "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-fco-grid",
+   "claim": "1 col below 800px; 2 cols with gap-10 from 800px",
+   "evidenceLevel": "counted",
+   "quote": "grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10",
+   "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-fco-mobile",
+   "claim": "Below 800px media is always first (order-first), text second",
+   "evidenceLevel": "counted",
+   "quote": "[&_.inline-media-item]:order-first [&_.feature-callout-inner]:order-last",
+   "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-fco-left",
+   "claim": "ODD callouts in a run (1st,3rd,5th): media on the LEFT from 800px",
+   "evidenceLevel": "counted",
+   "quote": "[&_.inline-media-item]:md:order-first [&_.feature-callout-inner]:md:order-last",
+   "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-fco-right",
+   "claim": "EVEN callouts (2nd,4th): media on the RIGHT from 800px",
+   "evidenceLevel": "counted",
+   "quote": "[&_.inline-media-item]:md:order-last [&_.feature-callout-inner]:md:order-first",
+   "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-fco-css",
+   "claim": "Stylesheet implements the md order swap with order:-9999",
+   "evidenceLevel": "declaration",
+   "quote": ".\\[\\&_\\.feature-callout-inner\\]\\:md\\:order-first .feature-callout-inner{order:-9999}",
+   "source": "public/styles/coda-main.css:1-1",
+   "charRange": [
+    201359,
+    201443
+   ]
+  },
+  {
+   "id": "cit-p2-fco-dual",
+   "claim": "Consumer-platforms callouts are two has-media panels (image + wordmark + paragraph) per row",
+   "evidenceLevel": "counted",
+   "quote": "flex flex-col gap-4 self-stretch has-media justify-start",
+   "source": "src/pages/ProductCodaConsumerPlatformsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-fco-list",
+   "claim": "Distribution callout with heading and extra short paragraph lines (location evidence)",
+   "evidenceLevel": "counted",
+   "quote": "<h5 className=\"wp-block-heading\">{\"Direct top-up (DTU)\"}</h5>",
+   "source": "src/pages/ProductDistributionPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-sbs-root",
+   "claim": "Standalone section-bridge as a direct child of the page root",
+   "evidenceLevel": "counted",
+   "quote": "section-bridge flex flex-col md:flex-row w-full gap-3 md:gap-8 my-9 max-w-blogPostVideoW mx-auto",
+   "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-sbs-pad",
+   "claim": "Page root pads direct-child section-bridges",
+   "evidenceLevel": "declaration",
+   "quote": "[&amp;_&gt;_.section-bridge]:block-padding",
+   "source": "src/components/Main.jsx:12-12"
+  },
+  {
+   "id": "cit-p2-ic-root",
+   "claim": "Isolated-callout root",
+   "evidenceLevel": "counted",
+   "quote": "isolated-callout w-maxContentW mx-auto my-9 md:px-6",
+   "source": "src/pages/ProductCodaLinksPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-ic-panel",
+   "claim": "Dark rounded panel",
+   "evidenceLevel": "counted",
+   "quote": "w-full md:py-9 pb-6 rounded-lg relative overflow-hidden",
+   "source": "src/pages/ProductCodaLinksPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-ic-spacer",
+   "claim": "A 60vw-tall empty block on mobile reserves space (media is placed over it)",
+   "evidenceLevel": "counted",
+   "quote": "md:hidden w-full h-[60vw]",
+   "source": "src/pages/ProductCodaLinksPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-ic-media-m",
+   "claim": "Mobile media asset",
+   "evidenceLevel": "counted",
+   "quote": "src=\"/images/asset-slot-2.avif\"",
+   "source": "src/pages/ProductCodaLinksPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-ic-media-d",
+   "claim": "Desktop media asset",
+   "evidenceLevel": "counted",
+   "quote": "src=\"/images/isolated-callout-asset-slot.avif\"",
+   "source": "src/pages/ProductCodaLinksPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-pt-root",
+   "claim": "Page-tiles root",
+   "evidenceLevel": "counted",
+   "quote": "page-tiles w-full my-9 max-w-blogPostVideoW block-padding mx-auto",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-pt-hide",
+   "claim": "Bridge description is hidden by CSS; heading takes full width",
+   "evidenceLevel": "counted",
+   "quote": "[&_.section-bridge-description]:hidden [&_.section-bridge_h2]:md:w-full",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-pt-grid",
+   "claim": "2 tiles, 2 columns from 800px",
+   "evidenceLevel": "counted",
+   "quote": "page-tiles-inner w-full max-w-blogPostVideoW mx-auto grid grid-cols-1 md:grid-cols-2 gap-4",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-pt-map",
+   "claim": "Second tile background art",
+   "evidenceLevel": "counted",
+   "quote": "src=\"/images/page-tile-02.webp\"",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-icmp-root",
+   "claim": "Integration-comparison root",
+   "evidenceLevel": "counted",
+   "quote": "integration-comparison w-full my-9 max-w-blogPostVideoW block-padding mx-auto",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-icmp-grid",
+   "claim": "3 cards in 3 columns from 800px",
+   "evidenceLevel": "counted",
+   "quote": "integration-comparison-inner w-full max-w-blogPostVideoW mx-auto grid grid-cols-1 md:grid-cols-3 gap-4",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-icmp-btn",
+   "claim": "Closing button row has mt-6",
+   "evidenceLevel": "counted",
+   "quote": "[&_.inline-buttons]:mt-6",
+   "source": "src/pages/ProductCodapayPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-mt-root",
+   "claim": "Metrics band: charcoal, rounded-md, py-6 px-5",
+   "evidenceLevel": "counted",
+   "quote": "metrics flex flex-col w-full gap-6 my-9 max-w-blogPostVideoW mx-auto rounded-md bg-charcoal text-white py-6 px-5",
+   "source": "src/components/Metrics.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-mt-row",
+   "claim": "Items wrap 2x2 below 800px; single row from 800px",
+   "evidenceLevel": "counted",
+   "quote": "w-full flex flex-wrap gap-y-5 md:flex-nowrap items-center justify-between",
+   "source": "src/components/Metrics.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-mt-h2",
+   "claim": "Band heading (5-6 words)",
+   "evidenceLevel": "counted",
+   "quote": "<h2 className=\"type-header-l w-full text-center\">{\"Built to operate at scale\"}</h2>",
+   "source": "src/components/Metrics.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-aw-root",
+   "claim": "Awards root",
+   "evidenceLevel": "counted",
+   "quote": "awards flex flex-col w-maxContentW mx-auto gap-6 my-9 px-6",
+   "source": "src/components/Awards.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-aw-row",
+   "claim": "Items wrap below 800px; one row from 800px",
+   "evidenceLevel": "counted",
+   "quote": "w-full flex gap-6 flex-wrap md:flex-nowrap items-start justify-between",
+   "source": "src/components/Awards.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-aw-h2",
+   "claim": "Heading 3 words",
+   "evidenceLevel": "counted",
+   "quote": "<h2 className=\"type-header-l w-full text-center\">{\"Awards and recognition\"}</h2>",
+   "source": "src/components/Awards.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-pr-root",
+   "claim": "Press-carousel root",
+   "evidenceLevel": "counted",
+   "quote": "press-carousel flex flex-col w-full gap-6 my-9",
+   "source": "src/components/PressCarousel.jsx:7-7"
+  },
+  {
+   "id": "cit-p2-pr-item",
+   "claim": "Fixed-width logo tiles",
+   "evidenceLevel": "counted",
+   "quote": "press-carousel-item w-pressLogoW flex flex-col gap-2 shrink-0",
+   "source": "src/components/PressCarousel.jsx:7-7"
+  },
+  {
+   "id": "cit-p2-pr-marquee",
+   "claim": "Logos scroll in a Marquee",
+   "evidenceLevel": "counted",
+   "quote": "<Marquee",
+   "source": "src/components/PressCarousel.jsx:3-3"
+  },
+  {
+   "id": "cit-p2-pr-h2",
+   "claim": "Heading 2 words",
+   "evidenceLevel": "counted",
+   "quote": "<h2 className=\"type-header-l w-full text-center\">{\"Featured press\"}</h2>",
+   "source": "src/components/PressCarousel.jsx:7-7"
+  },
+  {
+   "id": "cit-p2-ph-root",
+   "claim": "Products-hightlight root (marker class is spelled hightlight in the source)",
+   "evidenceLevel": "counted",
+   "quote": "products-hightlight w-full my-9 max-w-blogPostVideoW block-padding mx-auto",
+   "source": "src/components/ProductsHighlight.jsx:10-10"
+  },
+  {
+   "id": "cit-p2-ph-grid",
+   "claim": "Card grid: 1 col below 800px, 2 cols from 800px",
+   "evidenceLevel": "counted",
+   "quote": "products-highlight-inner w-full max-w-blogPostVideoW mx-auto grid grid-cols-1 md:grid-cols-2 gap-4",
+   "source": "src/components/ProductsHighlight.jsx:10-10"
+  },
+  {
+   "id": "cit-p2-ph-home",
+   "claim": "Homepage renders the full 5-card variant right after Hero",
+   "evidenceLevel": "counted",
+   "quote": "<ProductsHighlight />",
+   "source": "src/components/Main.jsx:14-14"
+  },
+  {
+   "id": "cit-p2-ph-inner",
+   "claim": "Inner pages render one cross-sell card to a related product",
+   "evidenceLevel": "counted",
+   "quote": "href=\"/product/codapay/\"",
+   "source": "src/pages/ProductCodaLinksPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p2-ps-root",
+   "claim": "Price-stack root",
+   "evidenceLevel": "counted",
+   "quote": "price-stack w-full my-9 max-w-blogPostVideoW block-padding mx-auto",
+   "source": "src/pages/PricingPage.jsx:6-6"
+  },
+  {
+   "id": "cit-p2-ps-grid",
+   "claim": "8-col grid from 800px",
+   "evidenceLevel": "counted",
+   "quote": "price-stack-inner w-full max-w-blogPostVideoW mx-auto grid grid-cols-1 md:grid-cols-8 gap-4",
+   "source": "src/pages/PricingPage.jsx:6-6"
+  },
+  {
+   "id": "cit-p2-ps-custom",
+   "claim": "Custom card spans 3 of 8 columns",
+   "evidenceLevel": "counted",
+   "quote": "md:col-span-3",
+   "source": "src/pages/PricingPage.jsx:6-6"
+  },
+  {
+   "id": "cit-p2-ps-desc",
+   "claim": "Bridge description hidden by CSS in price-stack (no bridge element is rendered)",
+   "evidenceLevel": "counted",
+   "quote": "[&_.section-bridge-description]:hidden",
+   "source": "src/pages/PricingPage.jsx:6-6"
+  },
+  {
+   "id": "cit-p2-ps-order",
+   "claim": "Standard tier title (location evidence)",
+   "evidenceLevel": "counted",
+   "quote": "{\"Standard pricing\"}",
+   "source": "src/pages/PricingPage.jsx:6-6"
+  },
+  {
+   "id": "cit-p2-pmt-root",
+   "claim": "Payment-method-table root",
+   "evidenceLevel": "counted",
+   "quote": "payment-method-table w-full my-9 max-w-blogPostVideoW block-padding mx-auto",
+   "source": "src/pages/PricingPage.jsx:6-6"
+  },
+  {
+   "id": "cit-p2-pmt-json",
+   "claim": "Country rows come from a local JSON snapshot (49 countries, 170 logos, 79 distinct files)",
+   "evidenceLevel": "declaration",
+   "quote": "\"name\": \"USA\"",
+   "source": "src/lib/pricing/paymentGuideCountries.json:4-4"
+  },
+  {
+   "id": "cit-p2-pmt-view",
+   "claim": "Type view is the default",
+   "evidenceLevel": "declaration",
+   "quote": "const [view, setView] = useState(1) // 1 = Type, 2 = Country",
+   "source": "src/lib/pricing/PaymentMethodTable.jsx:190-190"
+  },
+  {
+   "id": "cit-p2-pmt-typeh",
+   "claim": "Six type rows (Cards, E-wallets, Bank Transfers, Carrier Billings, Convenience Stores, Vouchers) with 49 logos in total",
+   "evidenceLevel": "counted",
+   "quote": "<tr><td>{\"Cards\"}</td>",
+   "source": "src/pages/PricingPage.jsx:6-6"
+  },
+  {
+   "id": "cit-p2-pmt-narrow",
+   "claim": "Below 700px the tab bar scrolls and re-centres the active tab",
+   "evidenceLevel": "declaration",
+   "quote": "window.innerWidth < 700",
+   "source": "src/lib/pricing/PaymentMethodTable.jsx:49-49"
+  },
+  {
+   "id": "cit-p2-pmt-height",
+   "claim": "Payment logos are height paymentTypeH (spacing.paymentTypeH)",
+   "evidenceLevel": "declaration",
+   "quote": "[&_.wp-block-table_img]:h-paymentTypeH",
+   "source": "src/lib/pricing/PaymentMethodTable.jsx:227-227"
+  },
+  {
+   "id": "cit-p2-nav-fixed",
+   "claim": "Header is fixed at z-[55] and slides with a 300ms transform",
+   "evidenceLevel": "declaration",
+   "quote": "fixed top-0 left-0 w-full z-[55] pointer-events-none transition-transform duration-300",
+   "source": "src/components/Header.jsx:10-10"
+  },
+  {
+   "id": "cit-p2-nav-shell",
+   "claim": "Mobile shell is full-height (100dvh) when open; navBarHeightBase from 800px",
+   "evidenceLevel": "declaration",
+   "quote": "min-h-navBarHeightBase h-[100dvh] md:h-navBarHeightBase",
+   "source": "src/components/Header.jsx:10-10"
+  },
+  {
+   "id": "cit-p2-nav-cat",
+   "claim": "Four dropdown categories (Products, Solutions, Resources, Company) plus a plain Pricing link share the .nav-header-category wrapper",
+   "evidenceLevel": "counted",
+   "quote": "nav-header-category nav-header-category-Products",
+   "source": "src/components/Header.jsx:10-10"
+  },
+  {
+   "id": "cit-p2-nav-pricing",
+   "claim": "Pricing is a direct link, not a dropdown",
+   "evidenceLevel": "counted",
+   "quote": "href=\"/pricing/\"",
+   "source": "src/components/Header.jsx:10-10"
+  },
+  {
+   "id": "cit-p2-nav-featured",
+   "claim": "Resources and Company dropdowns have a featured tile",
+   "evidenceLevel": "counted",
+   "quote": "primary-category-featured",
+   "source": "src/components/Header.jsx:10-10"
+  },
+  {
+   "id": "cit-p2-nav-mobile-bp",
+   "claim": "Mobile menu breakpoint is 800px",
+   "evidenceLevel": "spec-measured",
+   "quote": "const MOBILE_BP = 800",
+   "source": "src/lib/header/navController.js:7-7"
+  },
+  {
+   "id": "cit-p2-nav-hide",
+   "claim": "Header hides when scrolled past 20vh and moving down",
+   "evidenceLevel": "spec-measured",
+   "quote": "const hidden = y > threshold && y > lastY",
+   "source": "src/lib/header/navController.js:211-211"
+  },
+  {
+   "id": "cit-p2-nav-threshold",
+   "claim": "Hide threshold 0.2 of viewport height",
+   "evidenceLevel": "spec-measured",
+   "quote": "const SCROLL_THRESHOLD_VH = 0.2",
+   "source": "src/lib/header/navController.js:12-12"
+  },
+  {
+   "id": "cit-p2-nav-gsap-open",
+   "claim": "Dropdown panel slides down over 0.5s power2.inOut",
+   "evidenceLevel": "spec-measured",
+   "quote": "gsap.fromTo(q('.primary-category-bg-inner'), { y: '-100%' }, { y: 0, duration: 0.5, ease: 'power2.inOut' })",
+   "source": "src/lib/header/navController.js:57-57"
+  },
+  {
+   "id": "cit-p2-nav-gsap-items",
+   "claim": "Dropdown items fade/slide in with 30ms stagger after 0.2s",
+   "evidenceLevel": "spec-measured",
+   "quote": "stagger: 0.03, delay: 0.2",
+   "source": "src/lib/header/navController.js:58-58"
+  },
+  {
+   "id": "cit-p2-nav-hover",
+   "claim": "Hover dropdowns close 300ms after pointer leaves",
+   "evidenceLevel": "spec-measured",
+   "quote": "const HOVER_CLOSE_MS = 300",
+   "source": "src/lib/header/navController.js:8-8"
+  },
+  {
+   "id": "cit-p2-nav-reset",
+   "claim": "Header resets (menu closed, visible) on client-side navigation",
+   "evidenceLevel": "spec-measured",
+   "quote": "on(window, 'coda:navigate', reset)",
+   "source": "src/lib/header/navController.js:194-194"
+  },
+  {
+   "id": "cit-p2-nav-burger",
+   "claim": "Hamburger animates to a cross through the .open class",
+   "evidenceLevel": "counted",
+   "quote": "group-[.open]:rotate-45",
+   "source": "src/components/Header.jsx:10-10"
+  },
+  {
+   "id": "cit-p2-nav-app",
+   "claim": "App renders Header before every page and Footer after it (all 15 routes)",
+   "evidenceLevel": "counted",
+   "quote": "<Header />",
+   "source": "src/App.jsx:32-32"
+  },
+  {
+   "id": "cit-p2-nav-dim",
+   "claim": "Full-screen dim/blur backdrop fades over 700ms while a menu is open",
+   "evidenceLevel": "declaration",
+   "quote": "backdrop-blur-[20px] opacity-0 transition-opacity duration-700",
+   "source": "src/components/Header.jsx:10-10"
+  },
+  {
+   "id": "cit-p2-ft-root",
+   "claim": "Footer panel: charcoal, rounded-t-lg, p-6",
+   "evidenceLevel": "counted",
+   "quote": "group relative bg-charcoal text-offWhite rounded-t-lg p-6",
+   "source": "src/components/Footer.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-ft-cols",
+   "claim": "Four link columns (Products, Solutions, Resources, Company)",
+   "evidenceLevel": "counted",
+   "quote": "flex flex-col gap-4 w-full",
+   "source": "src/components/Footer.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-ft-copy",
+   "claim": "Copyright line (location evidence; not reproduced)",
+   "evidenceLevel": "counted",
+   "quote": "\u00a9 2026 Coda Payments Pte. Ltd",
+   "source": "src/components/Footer.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-ft-legal",
+   "claim": "Legal row has four links (last: cookie settings)",
+   "evidenceLevel": "counted",
+   "quote": "{\"Cookie Settings\"}",
+   "source": "src/components/Footer.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-ft-credits",
+   "claim": "Site-credits tooltip appears on hover",
+   "evidenceLevel": "counted",
+   "quote": "group-hover/credits",
+   "source": "src/components/Footer.jsx:4-4"
+  },
+  {
+   "id": "cit-p2-ft-app",
+   "claim": "Footer is rendered once by App after the page",
+   "evidenceLevel": "counted",
+   "quote": "<Footer />",
+   "source": "src/App.jsx:40-40"
+  },
+  {
+   "id": "cit-p2-ft-fitem",
+   "claim": "Footer links use a group/fitem hover marker",
+   "evidenceLevel": "counted",
+   "quote": "group/fitem",
+   "source": "src/components/Footer.jsx:4-4"
+  },
+  {
+   "id": "cit-p3-seq-home",
+   "claim": "Homepage section sequence: Hero, ProductsHighlight, BenefitsStack, Metrics, Awards, CardCarousel, PressCarousel, PreFooter inside the shared Header/Footer shell",
+   "evidenceLevel": "counted",
+   "quote": "<Hero />",
+   "source": "src/components/Main.jsx:13-20"
+  },
+  {
+   "id": "cit-p3-seq-pricing",
+   "claim": "Route /pricing/ top-level section sequence was derived by a JSX marker-class parser (tokenizer over the page root's depth-1 children) and equals its template's node sequence (shell.navbar first, shell.footer last, both rendered by the app shell)",
+   "evidenceLevel": "counted",
+   "quote": "min-h-11 mt-navBarInnerTopBase",
+   "source": "src/pages/PricingPage.jsx:5-6",
+   "note": "Page JSX keeps all sections on one very long line right after the root div line; the quote locates the page root div."
+  },
+  {
+   "id": "cit-p3-seq-product-codapay",
+   "claim": "Route /product/codapay/ top-level section sequence was derived by a JSX marker-class parser (tokenizer over the page root's depth-1 children) and equals its template's node sequence (shell.navbar first, shell.footer last, both rendered by the app shell)",
+   "evidenceLevel": "counted",
+   "quote": "min-h-11 mt-navBarInnerTopBase",
+   "source": "src/pages/ProductCodapayPage.jsx:8-9",
+   "note": "Page JSX keeps all sections on one very long line right after the root div line; the quote locates the page root div."
+  },
+  {
+   "id": "cit-p3-seq-product-coda-links",
+   "claim": "Route /product/coda-links/ top-level section sequence was derived by a JSX marker-class parser (tokenizer over the page root's depth-1 children) and equals its template's node sequence (shell.navbar first, shell.footer last, both rendered by the app shell)",
+   "evidenceLevel": "counted",
+   "quote": "min-h-11 mt-navBarInnerTopBase",
+   "source": "src/pages/ProductCodaLinksPage.jsx:8-9",
+   "note": "Page JSX keeps all sections on one very long line right after the root div line; the quote locates the page root div."
+  },
+  {
+   "id": "cit-p3-seq-product-coda-webstore",
+   "claim": "Route /product/coda-webstore/ top-level section sequence was derived by a JSX marker-class parser (tokenizer over the page root's depth-1 children) and equals its template's node sequence (shell.navbar first, shell.footer last, both rendered by the app shell)",
+   "evidenceLevel": "counted",
+   "quote": "min-h-11 mt-navBarInnerTopBase",
+   "source": "src/pages/ProductCodaWebstorePage.jsx:8-9",
+   "note": "Page JSX keeps all sections on one very long line right after the root div line; the quote locates the page root div."
+  },
+  {
+   "id": "cit-p3-seq-product-distribution",
+   "claim": "Route /product/distribution/ top-level section sequence was derived by a JSX marker-class parser (tokenizer over the page root's depth-1 children) and equals its template's node sequence (shell.navbar first, shell.footer last, both rendered by the app shell)",
+   "evidenceLevel": "counted",
+   "quote": "min-h-11 mt-navBarInnerTopBase",
+   "source": "src/pages/ProductDistributionPage.jsx:8-9",
+   "note": "Page JSX keeps all sections on one very long line right after the root div line; the quote locates the page root div."
+  },
+  {
+   "id": "cit-p3-seq-product-coda-consumer-platforms",
+   "claim": "Route /product/coda-consumer-platforms/ top-level section sequence was derived by a JSX marker-class parser (tokenizer over the page root's depth-1 children) and equals its template's node sequence (shell.navbar first, shell.footer last, both rendered by the app shell)",
+   "evidenceLevel": "counted",
+   "quote": "min-h-11 mt-navBarInnerTopBase",
+   "source": "src/pages/ProductCodaConsumerPlatformsPage.jsx:8-9",
+   "note": "Page JSX keeps all sections on one very long line right after the root div line; the quote locates the page root div."
+  },
+  {
+   "id": "cit-p3-seq-product-coda-giftcloud",
+   "claim": "Route /product/coda-giftcloud/ top-level section sequence was derived by a JSX marker-class parser (tokenizer over the page root's depth-1 children) and equals its template's node sequence (shell.navbar first, shell.footer last, both rendered by the app shell)",
+   "evidenceLevel": "counted",
+   "quote": "min-h-11 mt-navBarInnerTopBase",
+   "source": "src/pages/ProductCodaGiftcloudPage.jsx:8-9",
+   "note": "Page JSX keeps all sections on one very long line right after the root div line; the quote locates the page root div."
+  },
+  {
+   "id": "cit-p3-seq-industries-dating-app-payments",
+   "claim": "Route /industries/dating-app-payments/ top-level section sequence was derived by a JSX marker-class parser (tokenizer over the page root's depth-1 children) and equals its template's node sequence (shell.navbar first, shell.footer last, both rendered by the app shell)",
+   "evidenceLevel": "counted",
+   "quote": "min-h-11 mt-navBarInnerTopBase",
+   "source": "src/pages/IndustriesDatingAppPaymentsPage.jsx:8-9",
+   "note": "Page JSX keeps all sections on one very long line right after the root div line; the quote locates the page root div."
+  },
+  {
+   "id": "cit-p3-seq-industries-digital-entertainment",
+   "claim": "Route /industries/digital-entertainment/ top-level section sequence was derived by a JSX marker-class parser (tokenizer over the page root's depth-1 children) and equals its template's node sequence (shell.navbar first, shell.footer last, both rendered by the app shell)",
+   "evidenceLevel": "counted",
+   "quote": "min-h-11 mt-navBarInnerTopBase",
+   "source": "src/pages/IndustriesDigitalEntertainmentPage.jsx:8-9",
+   "note": "Page JSX keeps all sections on one very long line right after the root div line; the quote locates the page root div."
+  },
+  {
+   "id": "cit-p3-seq-industries-esim-digital-utility-payments",
+   "claim": "Route /industries/esim-digital-utility-payments/ top-level section sequence was derived by a JSX marker-class parser (tokenizer over the page root's depth-1 children) and equals its template's node sequence (shell.navbar first, shell.footer last, both rendered by the app shell)",
+   "evidenceLevel": "counted",
+   "quote": "min-h-11 mt-navBarInnerTopBase",
+   "source": "src/pages/IndustriesEsimDigitalUtilityPaymentsPage.jsx:8-9",
+   "note": "Page JSX keeps all sections on one very long line right after the root div line; the quote locates the page root div."
+  },
+  {
+   "id": "cit-p3-seq-industries-learning-management-system-payments",
+   "claim": "Route /industries/learning-management-system-payments/ top-level section sequence was derived by a JSX marker-class parser (tokenizer over the page root's depth-1 children) and equals its template's node sequence (shell.navbar first, shell.footer last, both rendered by the app shell)",
+   "evidenceLevel": "counted",
+   "quote": "min-h-11 mt-navBarInnerTopBase",
+   "source": "src/pages/IndustriesLearningManagementSystemPaymentsPage.jsx:8-9",
+   "note": "Page JSX keeps all sections on one very long line right after the root div line; the quote locates the page root div."
+  },
+  {
+   "id": "cit-p3-seq-use-case-merchant-of-record",
+   "claim": "Route /use-case/merchant-of-record/ top-level section sequence was derived by a JSX marker-class parser (tokenizer over the page root's depth-1 children) and equals its template's node sequence (shell.navbar first, shell.footer last, both rendered by the app shell)",
+   "evidenceLevel": "counted",
+   "quote": "min-h-11 mt-navBarInnerTopBase",
+   "source": "src/pages/UseCaseMerchantOfRecordPage.jsx:8-9",
+   "note": "Page JSX keeps all sections on one very long line right after the root div line; the quote locates the page root div."
+  },
+  {
+   "id": "cit-p3-seq-industries-creator-economy-payments",
+   "claim": "Route /industries/creator-economy-payments/ top-level section sequence was derived by a JSX marker-class parser (tokenizer over the page root's depth-1 children) and equals its template's node sequence (shell.navbar first, shell.footer last, both rendered by the app shell)",
+   "evidenceLevel": "counted",
+   "quote": "min-h-11 mt-navBarInnerTopBase",
+   "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:8-9",
+   "note": "Page JSX keeps all sections on one very long line right after the root div line; the quote locates the page root div."
+  },
+  {
+   "id": "cit-p3-seq-industries-online-gaming-payments",
+   "claim": "Route /industries/online-gaming-payments/ top-level section sequence was derived by a JSX marker-class parser (tokenizer over the page root's depth-1 children) and equals its template's node sequence (shell.navbar first, shell.footer last, both rendered by the app shell)",
+   "evidenceLevel": "counted",
+   "quote": "min-h-11 mt-navBarInnerTopBase",
+   "source": "src/pages/IndustriesOnlineGamingPaymentsPage.jsx:8-9",
+   "note": "Page JSX keeps all sections on one very long line right after the root div line; the quote locates the page root div."
+  },
+  {
+   "id": "cit-p3-tpl-home",
+   "claim": "Template home (10 nodes) serves /; its node list was diffed against the real JSX sequence of every served route (empty diff)",
+   "evidenceLevel": "counted",
+   "quote": "<Hero />",
+   "source": "src/components/Main.jsx:13-20",
+   "note": "Template-level citation points at the first served route; per-route cit-p3-seq-* entries cover the others."
+  },
+  {
+   "id": "cit-p3-tpl-pricing",
+   "claim": "Template pricing (8 nodes) serves /pricing/; its node list was diffed against the real JSX sequence of every served route (empty diff)",
+   "evidenceLevel": "counted",
+   "quote": "min-h-11 mt-navBarInnerTopBase",
+   "source": "src/pages/PricingPage.jsx:5-6",
+   "note": "Template-level citation points at the first served route; per-route cit-p3-seq-* entries cover the others."
+  },
+  {
+   "id": "cit-p3-tpl-product-codapay",
+   "claim": "Template product-codapay (16 nodes) serves /product/codapay/; its node list was diffed against the real JSX sequence of every served route (empty diff)",
+   "evidenceLevel": "counted",
+   "quote": "min-h-11 mt-navBarInnerTopBase",
+   "source": "src/pages/ProductCodapayPage.jsx:8-9",
+   "note": "Template-level citation points at the first served route; per-route cit-p3-seq-* entries cover the others."
+  },
+  {
+   "id": "cit-p3-tpl-product-links",
+   "claim": "Template product-links (15 nodes) serves /product/coda-links/; its node list was diffed against the real JSX sequence of every served route (empty diff)",
+   "evidenceLevel": "counted",
+   "quote": "min-h-11 mt-navBarInnerTopBase",
+   "source": "src/pages/ProductCodaLinksPage.jsx:8-9",
+   "note": "Template-level citation points at the first served route; per-route cit-p3-seq-* entries cover the others."
+  },
+  {
+   "id": "cit-p3-tpl-product-webstore",
+   "claim": "Template product-webstore (14 nodes) serves /product/coda-webstore/; its node list was diffed against the real JSX sequence of every served route (empty diff)",
+   "evidenceLevel": "counted",
+   "quote": "min-h-11 mt-navBarInnerTopBase",
+   "source": "src/pages/ProductCodaWebstorePage.jsx:8-9",
+   "note": "Template-level citation points at the first served route; per-route cit-p3-seq-* entries cover the others."
+  },
+  {
+   "id": "cit-p3-tpl-product-distribution",
+   "claim": "Template product-distribution (15 nodes) serves /product/distribution/; its node list was diffed against the real JSX sequence of every served route (empty diff)",
+   "evidenceLevel": "counted",
+   "quote": "min-h-11 mt-navBarInnerTopBase",
+   "source": "src/pages/ProductDistributionPage.jsx:8-9",
+   "note": "Template-level citation points at the first served route; per-route cit-p3-seq-* entries cover the others."
+  },
+  {
+   "id": "cit-p3-tpl-product-consumer-platforms",
+   "claim": "Template product-consumer-platforms (11 nodes) serves /product/coda-consumer-platforms/; its node list was diffed against the real JSX sequence of every served route (empty diff)",
+   "evidenceLevel": "counted",
+   "quote": "min-h-11 mt-navBarInnerTopBase",
+   "source": "src/pages/ProductCodaConsumerPlatformsPage.jsx:8-9",
+   "note": "Template-level citation points at the first served route; per-route cit-p3-seq-* entries cover the others."
+  },
+  {
+   "id": "cit-p3-tpl-product-giftcloud",
+   "claim": "Template product-giftcloud (9 nodes) serves /product/coda-giftcloud/; its node list was diffed against the real JSX sequence of every served route (empty diff)",
+   "evidenceLevel": "counted",
+   "quote": "min-h-11 mt-navBarInnerTopBase",
+   "source": "src/pages/ProductCodaGiftcloudPage.jsx:8-9",
+   "note": "Template-level citation points at the first served route; per-route cit-p3-seq-* entries cover the others."
+  },
+  {
+   "id": "cit-p3-tpl-solution-standard",
+   "claim": "Template solution-standard (13 nodes) serves /industries/dating-app-payments/, /industries/digital-entertainment/, /industries/esim-digital-utility-payments/, /industries/learning-management-system-payments/, /use-case/merchant-of-record/; its node list was diffed against the real JSX sequence of every served route (empty diff)",
+   "evidenceLevel": "counted",
+   "quote": "min-h-11 mt-navBarInnerTopBase",
+   "source": "src/pages/IndustriesDatingAppPaymentsPage.jsx:8-9",
+   "note": "Template-level citation points at the first served route; per-route cit-p3-seq-* entries cover the others."
+  },
+  {
+   "id": "cit-p3-tpl-solution-impact",
+   "claim": "Template solution-impact (14 nodes) serves /industries/creator-economy-payments/, /industries/online-gaming-payments/; its node list was diffed against the real JSX sequence of every served route (empty diff)",
+   "evidenceLevel": "counted",
+   "quote": "min-h-11 mt-navBarInnerTopBase",
+   "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:8-9",
+   "note": "Template-level citation points at the first served route; per-route cit-p3-seq-* entries cover the others."
+  },
+  {
+   "id": "cit-p3-copy-levels",
+   "claim": "Per-route copy evidence levels: a-exact for /, b-real-saved-copy for coda-links/giftcloud/distribution/consumer-platforms/pricing, c-original-slot-sized for codapay/webstore/six industries/merchant-of-record",
+   "evidenceLevel": "inferred",
+   "quote": "c-original-slot-sized",
+   "source": "design-repo/sections/hero-main.json:190-190",
+   "note": "Design-repo-internal path (the section contract's evidence.copy table, which restates the brief); no source-tree file records the copy provenance."
+  },
+  {
+   "id": "cit-p3-graph-faq-spacer",
+   "claim": "faq is directly followed by spacer then pre-footer on distribution (JSX order products-hightlight, faq, spacer, pre-footer)",
+   "evidenceLevel": "counted",
+   "quote": "transition-all opacity-0 faq w-full",
+   "source": "src/pages/ProductDistributionPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p3-graph-giftcloud-nofaq",
+   "claim": "giftcloud has no faq/spacer: carousel goes straight into pre-footer (exception to FAQ_PRESENT_ON_CONTENT_PAGES)",
+   "evidenceLevel": "counted",
+   "quote": "pre-footer flex w-full gap-8 mt-9",
+   "source": "src/pages/ProductCodaGiftcloudPage.jsx:9-9"
+  },
+  {
+   "id": "cit-p3-graph-home-no-faq",
+   "claim": "Homepage has no faq or spacer and puts products.highlight second, right after Hero (exceptions to FAQ_PRESENT_ON_CONTENT_PAGES and PRICE_STACK_BEFORE_PRODUCTS_HIGHLIGHT)",
+   "evidenceLevel": "counted",
+   "quote": "<ProductsHighlight />",
+   "source": "src/components/Main.jsx:14-14"
+  },
+  {
+   "id": "cit-p3-graph-pre-footer-last",
+   "claim": "pre-footer is the last section of the page root on every route (PRE_FOOTER_LAST_BEFORE_FOOTER); on home it follows PressCarousel",
+   "evidenceLevel": "counted",
+   "quote": "<PreFooter />",
+   "source": "src/components/Main.jsx:20-20"
+  },
+  {
+   "id": "cit-p3-graph-callout-run",
+   "claim": "feature-callout run, section-bridge immediately before it and isolated-callout right after the run (coda-links: bridge, callout x2, isolated-callout)",
+   "evidenceLevel": "counted",
+   "quote": "min-h-11 mt-navBarInnerTopBase",
+   "source": "src/pages/ProductCodaLinksPage.jsx:8-9"
+  },
+  {
+   "id": "cit-p3-graph-no-motion-budget",
+   "claim": "No evidence of a motion budget or scroll-stage sections exists (reveal is a per-element IntersectionObserver class swap), so no such graph rule was written",
+   "evidenceLevel": "inferred",
+   "quote": "threshold",
+   "source": "src/lib/reveal.js:1-43",
+   "note": "Absence claim; the quote only anchors the reveal mechanism."
+  },
+  {
+   "id": "cit-p3-structure-caveat",
+   "claim": "CLONE_SPEC.md documents live measurements for the homepage only; the ~1px structure-measured-against-live claim for the 14 inner pages is carried over from the section contracts/brief and not independently re-grounded",
+   "evidenceLevel": "inferred",
+   "quote": "Coda homepage: motion and interaction spec",
+   "source": "CLONE_SPEC.md:3-3"
+  }
+ ],
+ "phase2Scope": "primitives/**, components/**, sections/**, tokens/llm/component-allowlist.json (components array). 213 citations with id prefix cit-p2- appended; JSX/JS citations are line ranges (page JSX files are one very long line, so the quote locates the code), CSS citations are 1-1 + charRange.",
+ "phase3Scope": "templates/templates.json, compatibility/graph.json, schema/*, extraction/build_pagespec_schema.py. 33 citations with id prefix cit-p3- appended."
+}

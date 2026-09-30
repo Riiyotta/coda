@@ -1,0 +1,239 @@
+{
+  "id": "features.stack",
+  "kind": "section",
+  "category": "features",
+  "content": {
+    "type": "object",
+    "required": [
+      "cards"
+    ],
+    "properties": {
+      "heading": {
+        "type": "string",
+        "maxWords": 8,
+        "note": "section-bridge heading"
+      },
+      "description": {
+        "type": "string",
+        "maxWords": 13,
+        "bodyCopy": true,
+        "note": "section-bridge description; optional"
+      },
+      "media": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "assetRole": {
+            "type": "string",
+            "enum": [
+              "section-product-mockup"
+            ]
+          },
+          "assetRef": {
+            "type": "string",
+            "format": "local-asset-path"
+          }
+        },
+        "required": [
+          "assetRole",
+          "assetRef"
+        ]
+      },
+      "cards": {
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 6,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "icon": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "assetRole": {
+                  "type": "string",
+                  "enum": [
+                    "inline-svg-glyph"
+                  ]
+                },
+                "tint": {
+                  "type": "string",
+                  "enum": [
+                    "blue",
+                    "green",
+                    "pink",
+                    "yellow",
+                    "purple",
+                    "orange",
+                    "black"
+                  ]
+                }
+              },
+              "required": [
+                "assetRole"
+              ]
+            },
+            "title": {
+              "type": "string",
+              "maxWords": 6
+            },
+            "body": {
+              "type": "string",
+              "maxWords": 20,
+              "bodyCopy": true
+            }
+          },
+          "required": [
+            "icon",
+            "title",
+            "body"
+          ]
+        },
+        "note": "Measured 3 (codapay) or 6 (giftcloud, distribution)."
+      },
+      "button": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxWords": 3
+          },
+          "style": {
+            "type": "string",
+            "enum": [
+              "grey"
+            ]
+          },
+          "href": {
+            "type": "string",
+            "format": "route-or-inert-hash"
+          }
+        },
+        "required": [
+          "label",
+          "style"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "maxWordsTotal": 180
+  },
+  "usedOn": [
+    "/product/codapay/",
+    "/product/coda-giftcloud/",
+    "/product/distribution/"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); copy evidence per route below",
+    "copy": {
+      "b-real-saved-copy": [
+        "/product/coda-giftcloud/",
+        "/product/distribution/"
+      ],
+      "c-original-slot-sized": [
+        "/product/codapay/"
+      ]
+    }
+  },
+  "purpose": "Unfilled feature cells separated by hairlines, optionally with bridge, a wide media band and a closing button.",
+  "bodyCopyFields": [
+    "description",
+    "cards[].body"
+  ],
+  "variants": {
+    "with-bridge-media-button": {
+      "routes": [
+        "/product/codapay/"
+      ],
+      "note": "bridge heading+description, 2.52-ratio media, 3 cards, grey button"
+    },
+    "bridge-only-6": {
+      "routes": [
+        "/product/distribution/"
+      ],
+      "note": "bridge heading (no description) + 6 cards"
+    },
+    "cards-only-6": {
+      "routes": [
+        "/product/coda-giftcloud/"
+      ],
+      "note": "no bridge (0 section-bridge measured), 6 cards"
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "maxPerPage": 1,
+    "verification": "Checked: exactly once on codapay, giftcloud, distribution; never elsewhere."
+  },
+  "media": {
+    "wide-media": {
+      "assetRole": [
+        "section-product-mockup"
+      ],
+      "aspectRatio": 2.5197,
+      "count": "0-1"
+    },
+    "card-icon": {
+      "assetRole": [
+        "inline-svg-glyph"
+      ]
+    }
+  },
+  "motion": {
+    "pattern": "reveal-stagger",
+    "reveals": [
+      {
+        "element": "section"
+      },
+      {
+        "element": "media",
+        "slide": true
+      },
+      {
+        "element": "cards",
+        "delayMs": "(i+1)*50"
+      }
+    ],
+    "reducedMotionFallback": "Show at final state, no slide or stagger.",
+    "reducedMotionFallbackKind": "design-rule (the site ships no prefers-reduced-motion handling, so this is prescribed, not mirrored)"
+  },
+  "responsive": {
+    "breakpoint": "800px",
+    "grid": "1 col -> md:grid-cols-3",
+    "dividers": ".first-two cells: bottom hairline below 800px; right hairline from 800px",
+    "bridge": "column -> row"
+  },
+  "tokens": [
+    "component.card.benefit.gap",
+    "border.divider",
+    "type.header-s",
+    "layout.grid-gap.card",
+    "layout.content.max-width",
+    "motion.reveal.stagger-step"
+  ],
+  "composes": [
+    "component.section-bridge",
+    "component.card-feature",
+    "component.media",
+    "primitive.button"
+  ],
+  "measuredFrom": [
+    {
+      "id": "cit-p2-fs-root",
+      "source": "src/pages/ProductCodapayPage.jsx:9-9",
+      "quote": "features-stack w-full my-9 max-w-blogPostVideoW block-padding mx-auto"
+    },
+    {
+      "id": "cit-p2-fs-inner",
+      "source": "src/pages/ProductCodapayPage.jsx:9-9",
+      "quote": "features-stack-inner w-full max-w-blogPostVideoW mx-auto grid grid-cols-1 gap-4 md:grid-cols-3"
+    },
+    {
+      "id": "cit-p2-fs-btn",
+      "source": "src/pages/ProductCodapayPage.jsx:9-9",
+      "quote": "href=\"/use-case/merchant-of-record/\""
+    }
+  ]
+}

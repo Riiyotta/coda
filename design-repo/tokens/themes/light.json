@@ -1,0 +1,242 @@
+{
+  "$description": "Light theme: resolves every semantic token to a foundation value. This is the ONLY theme.",
+  "themeId": "light",
+  "isDefault": true,
+  "themes": {
+    "light": "this file"
+  },
+  "darkTheme": "absent",
+  "darkThemeNote": "The site has one theme and no dark mode: no prefers-color-scheme rule, no dark: utilities, no theme toggle. Do not generate a dark variant. Per-block colouring is done with component.themed-block.* pairs, not with a theme switch.",
+  "evidence": [
+    "cit-theme-single",
+    "cit-sem-no-page-bg"
+  ],
+  "resolutions": {
+    "text.primary": {
+      "resolvesTo": "color.charcoal",
+      "value": "rgb(32 32 32)"
+    },
+    "text.body": {
+      "resolvesTo": "color.grey-2",
+      "value": "rgb(90 90 79)"
+    },
+    "text.subtle": {
+      "resolvesTo": "color.grey-1",
+      "value": "rgb(192 194 169)"
+    },
+    "text.inverse": {
+      "resolvesTo": "color.offWhite",
+      "value": "rgb(248 249 235)"
+    },
+    "text.inverse-strong": {
+      "resolvesTo": "color.white",
+      "value": "rgb(255 255 255)"
+    },
+    "text.disabled": {
+      "resolvesTo": "color.grey-2",
+      "value": "rgb(90 90 79)",
+      "alpha": 0.5
+    },
+    "surface.card": {
+      "resolvesTo": "color.grey-0",
+      "value": "rgb(237 238 225)"
+    },
+    "surface.raised": {
+      "resolvesTo": "color.white",
+      "value": "rgb(255 255 255)"
+    },
+    "surface.soft": {
+      "resolvesTo": "color.offWhite",
+      "value": "rgb(248 249 235)"
+    },
+    "surface.inverse": {
+      "resolvesTo": "color.charcoal",
+      "value": "rgb(32 32 32)"
+    },
+    "surface.muted": {
+      "resolvesTo": "color.grey-1",
+      "value": "rgb(192 194 169)"
+    },
+    "surface.light": {
+      "resolvesTo": "color.grey-light",
+      "value": "rgb(243 243 243)"
+    },
+    "border.default": {
+      "resolvesTo": "color.grey-0",
+      "value": "rgb(237 238 225)"
+    },
+    "border.strong": {
+      "resolvesTo": "color.grey-1",
+      "value": "rgb(192 194 169)"
+    },
+    "border.deep": {
+      "resolvesTo": "color.grey-2",
+      "value": "rgb(90 90 79)"
+    },
+    "border.divider": {
+      "resolvesTo": "color.divider-e2e2e2",
+      "value": "#e2e2e2"
+    },
+    "accent.blue": {
+      "resolvesTo": "color.blue-3",
+      "value": "rgb(0 46 255)"
+    },
+    "accent.green": {
+      "resolvesTo": "color.green-3",
+      "value": "rgb(0 124 68)"
+    },
+    "accent.pink": {
+      "resolvesTo": "color.pink-3",
+      "value": "rgb(214 44 146)"
+    },
+    "accent.yellow": {
+      "resolvesTo": "color.yellow-3",
+      "value": "rgb(239 206 10)"
+    },
+    "accent.purple": {
+      "resolvesTo": "color.purple-3",
+      "value": "rgb(103 31 255)"
+    },
+    "accent.orange": {
+      "resolvesTo": "color.orange-3",
+      "value": "rgb(237 69 33)"
+    },
+    "accent.blue-soft": {
+      "resolvesTo": "color.blue-1",
+      "value": "rgb(176 244 255)"
+    },
+    "accent.pink-soft": {
+      "resolvesTo": "color.pink-1",
+      "value": "rgb(255 192 230)"
+    },
+    "accent.orange-soft": {
+      "resolvesTo": "color.orange-1",
+      "value": "rgb(255 188 173)"
+    },
+    "accent.green-soft": {
+      "resolvesTo": "color.green-1",
+      "value": "rgb(170 253 192)"
+    },
+    "accent.yellow-deep": {
+      "resolvesTo": "color.yellow-4",
+      "value": "rgb(148 94 12)"
+    },
+    "text.on-black-button": {
+      "resolvesTo": "color.offWhite",
+      "value": "rgb(248 249 235)"
+    },
+    "heading.hero": {
+      "resolvesTo": "type.title-l",
+      "value": {
+        "fontSizeBase": "40px",
+        "weight": 800
+      }
+    },
+    "heading.section": {
+      "resolvesTo": "type.header-l",
+      "value": {
+        "fontSizeBase": "24px",
+        "weight": 500
+      }
+    },
+    "heading.card": {
+      "resolvesTo": "type.header-m",
+      "value": {
+        "fontSizeBase": "20px",
+        "weight": 500
+      }
+    },
+    "body.default": {
+      "resolvesTo": "type.body-m",
+      "value": {
+        "fontSizeBase": "16px",
+        "weight": 400
+      }
+    },
+    "body.card": {
+      "resolvesTo": "type.body-m-mobile",
+      "value": {
+        "fontSizeBase": "16px",
+        "weight": 400
+      }
+    },
+    "body.small": {
+      "resolvesTo": "type.body-s",
+      "value": {
+        "fontSizeBase": "15px",
+        "weight": 400
+      }
+    },
+    "title.faq": {
+      "resolvesTo": "type.header-s",
+      "value": {
+        "fontSizeBase": "16px",
+        "weight": 500
+      }
+    },
+    "nav.link": {
+      "resolvesTo": "type.ui-nav-l",
+      "value": {
+        "fontSizeBase": "14px",
+        "weight": 400
+      }
+    },
+    "label.mono": {
+      "resolvesTo": "type.ui-label",
+      "value": {
+        "fontSizeBase": "11px",
+        "weight": 400
+      }
+    },
+    "pill.title": {
+      "resolvesTo": "type.special-pill-title-l-mobile",
+      "value": {
+        "fontSizeBase": "12px",
+        "weight": 400
+      }
+    },
+    "button.label": {
+      "resolvesTo": "type.ui-button-s",
+      "value": {
+        "fontSizeBase": "14px",
+        "weight": 500
+      }
+    },
+    "radius.card": {
+      "resolvesTo": "radius.md",
+      "value": "10px"
+    },
+    "radius.card-hover": {
+      "resolvesTo": "radius.xlu",
+      "value": "24px"
+    },
+    "radius.button": {
+      "resolvesTo": "radius.full",
+      "value": "9999px"
+    },
+    "radius.button-hover": {
+      "resolvesTo": "radius.lg",
+      "value": "24px"
+    },
+    "radius.panel": {
+      "resolvesTo": "radius.lg",
+      "value": "24px"
+    },
+    "radius.menu-icon": {
+      "resolvesTo": "radius.menuIcon",
+      "value": "12px"
+    },
+    "space.card-padding": {
+      "resolvesTo": "spacing.5",
+      "value": "16px"
+    },
+    "space.card-gap": {
+      "resolvesTo": "spacing.4",
+      "value": "12px"
+    },
+    "space.section-gap": {
+      "resolvesTo": "spacing.9",
+      "value": "48px"
+    }
+  }
+}

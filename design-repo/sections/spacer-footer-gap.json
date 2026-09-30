@@ -1,0 +1,79 @@
+{
+  "id": "spacer.footer-gap",
+  "kind": "section",
+  "category": "spacer",
+  "content": {
+    "type": "object",
+    "required": [],
+    "properties": {},
+    "additionalProperties": false,
+    "maxWordsTotal": 0
+  },
+  "usedOn": [
+    "/product/codapay/",
+    "/product/coda-links/",
+    "/product/coda-webstore/",
+    "/product/distribution/",
+    "/product/coda-consumer-platforms/",
+    "/industries/creator-economy-payments/",
+    "/industries/dating-app-payments/",
+    "/industries/digital-entertainment/",
+    "/industries/esim-digital-utility-payments/",
+    "/industries/learning-management-system-payments/",
+    "/industries/online-gaming-payments/",
+    "/use-case/merchant-of-record/",
+    "/pricing/"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); copy evidence per route below",
+    "copy": {
+      "b-real-saved-copy": [
+        "/product/coda-links/",
+        "/product/distribution/",
+        "/product/coda-consumer-platforms/",
+        "/pricing/"
+      ],
+      "c-original-slot-sized": [
+        "/product/codapay/",
+        "/product/coda-webstore/",
+        "/industries/creator-economy-payments/",
+        "/industries/dating-app-payments/",
+        "/industries/digital-entertainment/",
+        "/industries/esim-digital-utility-payments/",
+        "/industries/learning-management-system-payments/",
+        "/industries/online-gaming-payments/",
+        "/use-case/merchant-of-record/"
+      ]
+    }
+  },
+  "purpose": "Zero-height layout spacer (`.spacer`, h-0, -mt-10/-mb-9) that sits between the last content section and pre-footer to collapse the vertical rhythm. No content.",
+  "variants": {},
+  "constraints": {
+    "onePerPage": true,
+    "maxPerPage": 1,
+    "noConsecutive": true,
+    "verification": "Present on 13 of 15 routes (absent on / and /product/coda-coda-giftcloud/ i.e. giftcloud); when present it is directly before pre-footer on all 13."
+  },
+  "media": {},
+  "motion": {
+    "pattern": "none",
+    "reducedMotionFallback": "Not applicable (no motion).",
+    "reducedMotionFallbackKind": "design-rule (the site ships no prefers-reduced-motion handling, so this is prescribed, not mirrored)"
+  },
+  "responsive": {
+    "note": "Identical at all widths (no breakpoint classes on the element)."
+  },
+  "tokens": [
+    "spacing.9",
+    "spacing.10"
+  ],
+  "composes": [],
+  "bodyCopyFields": [],
+  "measuredFrom": [
+    {
+      "id": "cit-p2-spacer",
+      "source": "src/pages/PricingPage.jsx:6-6",
+      "quote": "spacer w-full h-0 relative overflow-hidden -mb-9 -mt-10"
+    }
+  ]
+}

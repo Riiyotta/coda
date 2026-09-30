@@ -1,0 +1,256 @@
+{
+  "id": "shell.footer",
+  "kind": "section",
+  "category": "shell",
+  "content": {
+    "type": "object",
+    "required": [
+      "columns",
+      "legalLinks",
+      "copyright"
+    ],
+    "properties": {
+      "columns": {
+        "type": "array",
+        "minItems": 4,
+        "maxItems": 4,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "heading": {
+              "type": "string",
+              "maxWords": 1
+            },
+            "links": {
+              "type": "array",
+              "minItems": 5,
+              "maxItems": 8,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "maxWords": 4
+                  },
+                  "href": {
+                    "type": "string",
+                    "note": "one of the 15 routes or \"#\" (inert)",
+                    "format": "route-or-inert-hash"
+                  }
+                },
+                "required": [
+                  "label",
+                  "href"
+                ]
+              }
+            }
+          },
+          "required": [
+            "heading",
+            "links"
+          ]
+        },
+        "note": "Products 6, Solutions 8, Resources 6, Company 8 links (Company includes Pricing -> /pricing/)"
+      },
+      "legalLinks": {
+        "type": "array",
+        "minItems": 4,
+        "maxItems": 4,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "label": {
+              "type": "string",
+              "maxWords": 4
+            },
+            "href": {
+              "type": "string",
+              "note": "one of the 15 routes or \"#\" (inert)",
+              "format": "route-or-inert-hash"
+            }
+          },
+          "required": [
+            "label",
+            "href"
+          ]
+        },
+        "note": "Measured labels 2-4 words"
+      },
+      "copyright": {
+        "type": "string",
+        "maxWords": 8,
+        "note": "Measured 6 words"
+      },
+      "social": {
+        "type": "array",
+        "minItems": 0,
+        "maxItems": 1,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "href": {
+              "type": "string",
+              "format": "route-or-inert-hash"
+            }
+          },
+          "required": [
+            "href"
+          ]
+        },
+        "note": "1 icon link (inert \"#\")"
+      },
+      "logo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "assetRole": {
+            "type": "string",
+            "enum": [
+              "coda-wordmark"
+            ]
+          }
+        },
+        "required": [
+          "assetRole"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "maxWordsTotal": 156
+  },
+  "usedOn": [
+    "/",
+    "/product/codapay/",
+    "/product/coda-links/",
+    "/product/coda-webstore/",
+    "/product/distribution/",
+    "/product/coda-consumer-platforms/",
+    "/product/coda-giftcloud/",
+    "/industries/creator-economy-payments/",
+    "/industries/dating-app-payments/",
+    "/industries/digital-entertainment/",
+    "/industries/esim-digital-utility-payments/",
+    "/industries/learning-management-system-payments/",
+    "/industries/online-gaming-payments/",
+    "/use-case/merchant-of-record/",
+    "/pricing/"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); copy evidence per route below",
+    "copy": {
+      "a-exact": [
+        "/"
+      ],
+      "b-real-saved-copy": [
+        "/product/coda-links/",
+        "/product/coda-giftcloud/",
+        "/product/distribution/",
+        "/product/coda-consumer-platforms/",
+        "/pricing/"
+      ],
+      "c-original-slot-sized": [
+        "/product/codapay/",
+        "/product/coda-webstore/",
+        "/industries/creator-economy-payments/",
+        "/industries/dating-app-payments/",
+        "/industries/digital-entertainment/",
+        "/industries/esim-digital-utility-payments/",
+        "/industries/learning-management-system-payments/",
+        "/industries/online-gaming-payments/",
+        "/use-case/merchant-of-record/"
+      ]
+    }
+  },
+  "purpose": "Site footer: wordmark and social icon row, four link columns, legal links, copyright and a site-credits hover note. Shared chrome after the page root on every route.",
+  "bodyCopyFields": [],
+  "variants": {},
+  "constraints": {
+    "onePerPage": true,
+    "maxPerPage": 1,
+    "mustBeLast": true,
+    "verification": "Rendered once by the app shell after every route; pre-footer (mustPrecedeFooter) sits immediately above it and overlaps by -mb-8."
+  },
+  "media": {
+    "wordmark": {
+      "assetRole": [
+        "coda-wordmark"
+      ],
+      "policy": "must-reuse-exact"
+    },
+    "social-icon": {
+      "assetRole": [
+        "inline-svg-glyph"
+      ]
+    }
+  },
+  "motion": {
+    "pattern": "hover-colour",
+    "interaction": {
+      "linkHover": "text-grey-1 -> grey-0 over 300ms (md:hover)",
+      "credits": "tooltip fades/translates in (300ms)"
+    },
+    "reducedMotionFallback": "Show the credits note statically hidden; colour changes instant.",
+    "reducedMotionFallbackKind": "design-rule (the site ships no prefers-reduced-motion handling, so this is prescribed, not mirrored)"
+  },
+  "responsive": {
+    "breakpoint": "800px",
+    "columns": "stacked (gap-y-6) below 800px; four columns in a row from 800px (md:flex-row)",
+    "legal": "legal links stack below 800px, one row from 800px; copyright row switches to md:flex-row",
+    "padding": "p-6 at all widths"
+  },
+  "tokens": [
+    "component.themed-block.dark",
+    "icon-size.footer-logo-w",
+    "icon-size.footer-logo-h",
+    "elevation.blur-footer",
+    "type.ui-nav-l",
+    "type.ui-nav-s",
+    "type.ui-label",
+    "color.grey-1",
+    "color.grey-0",
+    "radius.lg",
+    "motion.transition.duration-300"
+  ],
+  "composes": [],
+  "measuredFrom": [
+    {
+      "id": "cit-p2-ft-root",
+      "source": "src/components/Footer.jsx:4-4",
+      "quote": "group relative bg-charcoal text-offWhite rounded-t-lg p-6"
+    },
+    {
+      "id": "cit-p2-ft-cols",
+      "source": "src/components/Footer.jsx:4-4",
+      "quote": "flex flex-col gap-4 w-full"
+    },
+    {
+      "id": "cit-p2-ft-copy",
+      "source": "src/components/Footer.jsx:4-4",
+      "quote": "© 2026 Coda Payments Pte. Ltd"
+    },
+    {
+      "id": "cit-p2-ft-legal",
+      "source": "src/components/Footer.jsx:4-4",
+      "quote": "{\"Cookie Settings\"}"
+    },
+    {
+      "id": "cit-p2-ft-credits",
+      "source": "src/components/Footer.jsx:4-4",
+      "quote": "group-hover/credits"
+    },
+    {
+      "id": "cit-p2-ft-app",
+      "source": "src/App.jsx:40-40",
+      "quote": "<Footer />"
+    },
+    {
+      "id": "cit-p2-ft-fitem",
+      "source": "src/components/Footer.jsx:4-4",
+      "quote": "group/fitem"
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "id": "primitive.inline-icon",
+  "kind": "primitive",
+  "purpose": "Product/feature identity row: a glyph tile (slot 0) optionally followed by a product wordmark (slot 1). Rendered as inline SVG inside .inline-icons > .inline-icon > .inline-icon-inner; tinted through an inline --theme-color.",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "glyph"
+    ],
+    "properties": {
+      "glyph": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "assetRole",
+          "tint"
+        ],
+        "properties": {
+          "assetRole": {
+            "type": "string",
+            "enum": [
+              "inline-svg-glyph"
+            ]
+          },
+          "tint": {
+            "type": "string",
+            "enum": [
+              "blue",
+              "green",
+              "pink",
+              "yellow",
+              "purple",
+              "orange",
+              "black"
+            ],
+            "note": "Ramp used in --theme-color; steps observed: blue-3, pink-3, green-3, yellow-3, orange-3 (page heroes/callouts), *-1 (homepage product cards), color-black (homepage benefits)."
+          }
+        }
+      },
+      "wordmark": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "assetRole"
+        ],
+        "properties": {
+          "assetRole": {
+            "type": "string",
+            "enum": [
+              "inline-svg-wordmark"
+            ]
+          },
+          "accessibleLabel": {
+            "type": "string",
+            "maxWords": 2,
+            "note": "svg <title>, e.g. CODAPAY (1 word), CODA WEBSTORE (2 words)."
+          }
+        }
+      }
+    }
+  },
+  "variants": {
+    "glyph-only": "benefits/features/callout cards",
+    "glyph+wordmark": "page heroes, product cards, price-stack columns",
+    "dual-size": "price-stack duplicates each icon (md:hidden and hidden md:block) to override height per breakpoint"
+  },
+  "tokens": [
+    "color.blue-3",
+    "color.green-3",
+    "color.pink-3",
+    "color.yellow-3",
+    "color.orange-3",
+    "color.blue-1",
+    "color.orange-1",
+    "color.green-1",
+    "color.pink-1",
+    "color.black",
+    "spacing.5",
+    "spacing.4",
+    "spacing.3",
+    "icon-size.inline-lead",
+    "icon-size.inline-secondary"
+  ],
+  "motion": {
+    "pattern": "reveal-stagger",
+    "delay": "wordmark slot carries transitionDelay 50ms",
+    "reducedMotionFallback": "Design rule (no prefers-reduced-motion in the site): render at final opacity with no delay."
+  },
+  "responsive": {
+    "glyphHeight": "h-7 (28px) below 800px, md:h-5 (20px) from 800px",
+    "wordmarkHeight": "h-6 (24px) below 800px, md:h-4 (16px) from 800px",
+    "override": "consumer-platforms/price-stack use inline style height var(--spacing-5|4|3) !important"
+  },
+  "assetRoles": [
+    "inline-svg-glyph",
+    "inline-svg-wordmark"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract",
+    "copy": "none"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-icon-row",
+      "source": "src/components/BenefitsStack.jsx:4-4",
+      "quote": "inline-icon flex inline-icon-0"
+    },
+    {
+      "id": "cit-p2-icon-wordmark",
+      "source": "src/components/ProductsHighlight.jsx:10-10",
+      "quote": "[&_svg]:w-auto inline-icon-inner-1 h-6 md:h-4"
+    },
+    {
+      "id": "cit-p2-icon-glyph",
+      "source": "src/components/ProductsHighlight.jsx:10-10",
+      "quote": "inline-icon-inner w-auto h-7 md:h-5 [&_svg]:h-full [&_svg]:w-auto inline-icon-inner-0"
+    },
+    {
+      "id": "cit-p2-icon-theme",
+      "source": "src/components/ProductsHighlight.jsx:10-10",
+      "quote": "--theme-color\": \"var(--color-orange-1)\""
+    },
+    {
+      "id": "cit-p2-icon-delay",
+      "source": "src/components/ProductsHighlight.jsx:10-10",
+      "quote": "opacity-0 inline-icon flex inline-icon-1\" style={{\"transitionDelay\": \"50ms\""
+    }
+  ]
+}

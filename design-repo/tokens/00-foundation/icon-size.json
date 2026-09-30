@@ -1,0 +1,426 @@
+{
+  "$description": "Control/icon/logo sizes from the --size-* variables plus the spacing-step icon heights used by inline icons. --size-blogPost*/event*/insight*/author* variables are WordPress-era leftovers: only blogPostVideoW and blogPostFeaturedW are referenced (they are layout tokens, see 30-layout).",
+  "omittedSizeVars": {
+    "reason": "declared in the stylesheet, zero JSX usage, not a control/icon size",
+    "names": [
+      "--size-blogPostLargeTextW",
+      "--size-blogPostTextW",
+      "--size-blogPostGalleryMain",
+      "--size-blogPostGallerySide",
+      "--size-eventHeaderImageW",
+      "--size-insightHeaderImageW",
+      "--size-featuredPostInsightTextW",
+      "--size-authorPageFeaturedImage"
+    ]
+  },
+  "tokens": {
+    "icon-size.button": {
+      "$type": "dimension",
+      "$value": "32px",
+      "cssVar": "--size-button",
+      "perBreakpoint": {
+        "0": "32px",
+        "600": "32px",
+        "800": "calc(36px + (100vw - 800px)*.03)",
+        "1200": "calc(48px + (100vw - 1200px)*.024)",
+        "1600": "57.6px",
+        "2000": "57.6px"
+      },
+      "resolvedPx": {
+        "390": 32,
+        "800": 36.0,
+        "1200": 48.0,
+        "1440": 53.76,
+        "1600": 57.6,
+        "2000": 57.6
+      },
+      "usage": 0,
+      "status": "defined-unused-in-jsx",
+      "evidence": [
+        "cit-size-button"
+      ]
+    },
+    "icon-size.button-lg": {
+      "$type": "dimension",
+      "$value": "40px",
+      "cssVar": "--size-buttonLg",
+      "perBreakpoint": {
+        "0": "40px",
+        "600": "40px",
+        "800": "calc(36px + (100vw - 800px)*.03)",
+        "1200": "calc(48px + (100vw - 1200px)*.024)",
+        "1600": "57.6px",
+        "2000": "57.6px"
+      },
+      "resolvedPx": {
+        "390": 40,
+        "800": 36.0,
+        "1200": 48.0,
+        "1440": 53.76,
+        "1600": 57.6,
+        "2000": 57.6
+      },
+      "usage": 2,
+      "status": "used",
+      "evidence": [
+        "cit-size-buttonLg"
+      ]
+    },
+    "icon-size.header-logo": {
+      "$type": "dimension",
+      "$value": "88px",
+      "cssVar": "--size-headerLogo",
+      "perBreakpoint": {
+        "0": "88px",
+        "600": "88px",
+        "800": "calc(66px + (100vw - 800px)*.055)",
+        "1200": "calc(88px + (100vw - 1200px) / 400 * 17.6)",
+        "1600": "105.6px",
+        "2000": "105.6px"
+      },
+      "resolvedPx": {
+        "390": 88,
+        "800": 66.0,
+        "1200": 88.0,
+        "1440": 98.56,
+        "1600": 105.6,
+        "2000": 105.6
+      },
+      "usage": 4,
+      "status": "used",
+      "evidence": [
+        "cit-size-headerLogo"
+      ]
+    },
+    "icon-size.header-right-empty-space": {
+      "$type": "dimension",
+      "$value": "88px",
+      "cssVar": "--size-headerRightEmptySpace",
+      "perBreakpoint": {
+        "0": "88px",
+        "600": "88px",
+        "800": "calc(187.5px + (100vw - 800px)/6.4)",
+        "1200": "calc(250px + (100vw - 1200px)/8)",
+        "1600": "300px",
+        "2000": "300px"
+      },
+      "resolvedPx": {
+        "390": 88,
+        "800": 187.5,
+        "1200": 250.0,
+        "1440": 280.0,
+        "1600": 300,
+        "2000": 300
+      },
+      "usage": 1,
+      "status": "used",
+      "evidence": [
+        "cit-size-headerRightEmptySpace"
+      ]
+    },
+    "icon-size.nav-icon": {
+      "$type": "dimension",
+      "$value": "40px",
+      "cssVar": "--size-navIcon",
+      "perBreakpoint": {
+        "0": "40px",
+        "600": "40px",
+        "800": "calc(21px + (100vw - 800px)*.0175)",
+        "1200": "calc(28px + (100vw - 1200px) / 400 * 5.6)",
+        "1600": "33.6px",
+        "2000": "33.6px"
+      },
+      "resolvedPx": {
+        "390": 40,
+        "800": 21.0,
+        "1200": 28.0,
+        "1440": 31.36,
+        "1600": 33.6,
+        "2000": 33.6
+      },
+      "usage": 16,
+      "status": "used",
+      "evidence": [
+        "cit-size-navIcon"
+      ]
+    },
+    "icon-size.nav-toggle-w": {
+      "$type": "dimension",
+      "$value": "16px",
+      "cssVar": "--size-navToggleW",
+      "perBreakpoint": {
+        "0": "16px",
+        "600": "16px",
+        "800": "calc(12px + (100vw - 800px)*.01)",
+        "1200": "calc(16px + (100vw - 1200px)/125)",
+        "1600": "19.2px",
+        "2000": "19.2px"
+      },
+      "resolvedPx": {
+        "390": 16,
+        "800": 12.0,
+        "1200": 16.0,
+        "1440": 17.92,
+        "1600": 19.2,
+        "2000": 19.2
+      },
+      "usage": 4,
+      "status": "used",
+      "evidence": [
+        "cit-size-navToggleW"
+      ]
+    },
+    "icon-size.nav-toggle-h": {
+      "$type": "dimension",
+      "$value": "12px",
+      "cssVar": "--size-navToggleH",
+      "perBreakpoint": {
+        "0": "12px",
+        "600": "12px",
+        "800": "calc(9px + (100vw - 800px)*.0075)",
+        "1200": "calc(12px + (100vw - 1200px)*.006)",
+        "1600": "14.4px",
+        "2000": "14.4px"
+      },
+      "resolvedPx": {
+        "390": 12,
+        "800": 9.0,
+        "1200": 12.0,
+        "1440": 13.44,
+        "1600": 14.4,
+        "2000": 14.4
+      },
+      "usage": 1,
+      "status": "used",
+      "evidence": [
+        "cit-size-navToggleH"
+      ]
+    },
+    "icon-size.nav-toggle-line-h": {
+      "$type": "dimension",
+      "$value": "2px",
+      "cssVar": "--size-navToggleLineH",
+      "perBreakpoint": {
+        "0": "2px",
+        "600": "2px",
+        "800": "calc(1.5px + (100vw - 800px)/800)",
+        "1200": "calc(2px + (100vw - 1200px)*.001)",
+        "1600": "2.4px",
+        "2000": "2.4px"
+      },
+      "resolvedPx": {
+        "390": 2,
+        "800": 1.5,
+        "1200": 2.0,
+        "1440": 2.24,
+        "1600": 2.4,
+        "2000": 2.4
+      },
+      "usage": 3,
+      "status": "used",
+      "evidence": [
+        "cit-size-navToggleLineH"
+      ]
+    },
+    "icon-size.footer-logo-w": {
+      "$type": "dimension",
+      "$value": "88px",
+      "cssVar": "--size-footerLogoW",
+      "perBreakpoint": {
+        "0": "88px",
+        "600": "88px",
+        "800": "calc(87.75px + (100vw - 800px) / 400 * 29.25)",
+        "1200": "calc(117px + (100vw - 1200px) / 400 * 23.4)",
+        "1600": "140.4px",
+        "2000": "140.4px"
+      },
+      "resolvedPx": {
+        "390": 88,
+        "800": 87.75,
+        "1200": 117.0,
+        "1440": 131.04,
+        "1600": 140.4,
+        "2000": 140.4
+      },
+      "usage": 1,
+      "status": "used",
+      "evidence": [
+        "cit-size-footerLogoW"
+      ]
+    },
+    "icon-size.footer-logo-h": {
+      "$type": "dimension",
+      "$value": "24px",
+      "cssVar": "--size-footerLogoH",
+      "perBreakpoint": {
+        "0": "24px",
+        "600": "24px",
+        "800": "calc(24px + (100vw - 800px)/50)",
+        "1200": "calc(32px + (100vw - 1200px)*.016)",
+        "1600": "38.4px",
+        "2000": "38.4px"
+      },
+      "resolvedPx": {
+        "390": 24,
+        "800": 24.0,
+        "1200": 32.0,
+        "1440": 35.84,
+        "1600": 38.4,
+        "2000": 38.4
+      },
+      "usage": 1,
+      "status": "used",
+      "evidence": [
+        "cit-size-footerLogoH"
+      ]
+    },
+    "icon-size.chip-h": {
+      "$type": "dimension",
+      "$value": "28px",
+      "cssVar": "--size-chipH",
+      "perBreakpoint": {
+        "0": "28px",
+        "600": "28px",
+        "800": "calc(21px + (100vw - 800px)*.0175)",
+        "1200": "calc(28px + (100vw - 1200px) / 400 * 5.6)",
+        "1600": "33.6px",
+        "2000": "33.6px"
+      },
+      "resolvedPx": {
+        "390": 28,
+        "800": 21.0,
+        "1200": 28.0,
+        "1440": 31.36,
+        "1600": 33.6,
+        "2000": 33.6
+      },
+      "usage": 2,
+      "status": "used",
+      "evidence": [
+        "cit-size-chipH"
+      ]
+    },
+    "icon-size.press-logo-w": {
+      "$type": "dimension",
+      "$value": "247px",
+      "cssVar": "--size-pressLogoW",
+      "perBreakpoint": {
+        "0": "247px",
+        "600": "247px",
+        "800": "calc(185.25px + (100vw - 800px) / 400 * 61.75)",
+        "1200": "calc(247px + (100vw - 1200px)*.1235)",
+        "1600": "296.4px",
+        "2000": "296.4px"
+      },
+      "resolvedPx": {
+        "390": 247,
+        "800": 185.25,
+        "1200": 247.0,
+        "1440": 276.64,
+        "1600": 296.4,
+        "2000": 296.4
+      },
+      "usage": 9,
+      "status": "used",
+      "evidence": [
+        "cit-size-pressLogoW"
+      ]
+    },
+    "icon-size.product-card-marquee-h": {
+      "$type": "dimension",
+      "$value": "367px",
+      "cssVar": "--size-productCardMarqueeH",
+      "perBreakpoint": {
+        "0": "367px",
+        "600": "367px",
+        "800": "calc(275.25px + (100vw - 800px) / 400 * 91.75)",
+        "1200": "calc(367px + (100vw - 1200px) / 400 * 73.4)",
+        "1600": "440.4px",
+        "2000": "440.4px"
+      },
+      "resolvedPx": {
+        "390": 367,
+        "800": 275.25,
+        "1200": 367.0,
+        "1440": 411.04,
+        "1600": 440.4,
+        "2000": 440.4
+      },
+      "usage": 9,
+      "status": "used",
+      "evidence": [
+        "cit-size-productCardMarqueeH"
+      ]
+    },
+    "icon-size.carousel-body-w": {
+      "$type": "dimension",
+      "$value": "320px",
+      "cssVar": "--size-carouselBodyW",
+      "perBreakpoint": {
+        "0": "320px",
+        "600": "320px",
+        "800": "calc(288px + (100vw - 800px)*.24)",
+        "1200": "calc(384px + (100vw - 1200px)*.192)",
+        "1600": "460.8px",
+        "2000": "460.8px"
+      },
+      "resolvedPx": {
+        "390": 320,
+        "800": 288.0,
+        "1200": 384.0,
+        "1440": 430.08,
+        "1600": 460.8,
+        "2000": 460.8
+      },
+      "usage": 0,
+      "status": "defined-unused-in-jsx",
+      "evidence": [
+        "cit-size-carouselBodyW"
+      ]
+    },
+    "icon-size.inline-lead": {
+      "$type": "dimension",
+      "$value": {
+        "$ref": "spacing.7"
+      },
+      "mdValue": {
+        "$ref": "spacing.5"
+      },
+      "usage": 232,
+      "status": "used",
+      "note": "h-7 -> md:h-5 (tailwind heights are the spacing steps).",
+      "evidence": [
+        "cit-icon-inline-h"
+      ]
+    },
+    "icon-size.inline-secondary": {
+      "$type": "dimension",
+      "$value": {
+        "$ref": "spacing.6"
+      },
+      "mdValue": {
+        "$ref": "spacing.4"
+      },
+      "usage": 74,
+      "status": "used",
+      "evidence": [
+        "cit-icon-inline-h"
+      ]
+    },
+    "icon-size.control-toggle": {
+      "$type": "dimension",
+      "$value": {
+        "$ref": "spacing.8"
+      },
+      "mdValue": {
+        "$ref": "spacing.7"
+      },
+      "usage": 91,
+      "status": "used",
+      "note": "FAQ +/- toggle (w-8 h-8 md:w-6 md:h-6) and carousel arrows (w-8 h-8 md:w-7 md:h-7) - two sibling sizes; recorded here as the FAQ one. Tailwind sizes resolve to spacing steps.",
+      "evidence": [
+        "cit-icon-inline-h"
+      ]
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "repositoryId": "coda-clone-design-repo",
+  "name": "Coda clone design repository",
+  "status": "design-review-pending",
+  "productionApproved": false,
+  "repositoryVersion": "1.0.0",
+  "pageSpecVersion": "1.0.0",
+  "allowlistVersion": "1.0.0",
+  "versionFieldNote": "allowlistVersion is machine-checked: extraction/verify_all.py fails if it differs between tokens/llm/component-allowlist.json and this manifest. repositoryVersion and pageSpecVersion are documentation-only, hand-maintained markers: nothing checks them automatically, so they imply no enforcement guarantee.",
+  "defaultTheme": "light",
+  "schemaValidatedThemes": ["light"],
+  "themeNote": "The source site has exactly one theme. It has no dark theme, no shadows and no prefers-reduced-motion handling; do not generate dark variants.",
+  "sourceProject": {
+    "description": "Vite + React clone of coda.co, 15 routes",
+    "frameworks": {
+      "react": "^18.3.1",
+      "react-dom": "^18.3.1",
+      "vite": "^5.4.8",
+      "@vitejs/plugin-react": "^4.3.1",
+      "gsap": "^3.15.0"
+    },
+    "frameworkVersionsReadFrom": "the source project's package.json, re-read when this repository was finalised (installed: react 18.3.1, vite 5.4.21)",
+    "styling": "precompiled Tailwind-style stylesheet (public/styles/coda-main.css, minified on one line) served as-is; page JSX keeps the site's own class names",
+    "snapshotWarning": "This repository is a snapshot of the source project at build time. If the source project changes (dependency bump, new route, copy or layout change), re-diff its counts, versions and citations before trusting this repository; extraction/verify_all.py re-checks citations only while the source tree sits beside this folder."
+  },
+  "counts": {
+    "tokens": {
+      "foundation": 150,
+      "semantic": 48,
+      "component": 42,
+      "layout": 18,
+      "total": 258
+    },
+    "catalogEntries": 258,
+    "primitives": 9,
+    "components": 17,
+    "sections": 23,
+    "templates": 10,
+    "routes": 15,
+    "graphRules": 20,
+    "assetRoles": 18,
+    "citations": 522
+  },
+  "countsNote": "Recomputed from disk by extraction/verify_all.py (check [f]); a wrong number here fails the run.",
+  "routeTemplateMap": {
+    "/": "home",
+    "/pricing/": "pricing",
+    "/product/codapay/": "product-codapay",
+    "/product/coda-links/": "product-links",
+    "/product/coda-webstore/": "product-webstore",
+    "/product/distribution/": "product-distribution",
+    "/product/coda-consumer-platforms/": "product-consumer-platforms",
+    "/product/coda-giftcloud/": "product-giftcloud",
+    "/industries/creator-economy-payments/": "solution-impact",
+    "/industries/online-gaming-payments/": "solution-impact",
+    "/industries/dating-app-payments/": "solution-standard",
+    "/industries/digital-entertainment/": "solution-standard",
+    "/industries/esim-digital-utility-payments/": "solution-standard",
+    "/industries/learning-management-system-payments/": "solution-standard",
+    "/use-case/merchant-of-record/": "solution-standard"
+  },
+  "scope": {
+    "deliberateScopeReduction": "Only these 15 routes exist. Every link to any other coda.co page (blog, careers, press, legal, guides, events, contact, security, about, portal, docs, jobs, social) is intentionally inert href=\"#\". No templates or routes exist for them and none may be added.",
+    "copyEvidenceLevels": {
+      "a-exact": "Homepage copy is exact, from the user's own saved page.",
+      "b-real-saved-copy": "Five inner pages (coda-links, coda-giftcloud, distribution, consumer-platforms, pricing) carry real text from the user's own saved copies.",
+      "c-original-slot-sized": "Nine pages (codapay, coda-webstore, six industries, merchant-of-record) carry original AI-written copy sized to the original slot lengths, not Coda's wording."
+    },
+    "structureEvidence": "Structure, layout and motion of the homepage were measured against live coda.co (about 1px) and documented in the source project's CLONE_SPEC.md. For the 14 inner pages the same claim is carried over from earlier build-agent reports and is not independently recorded in a project file."
+  },
+  "constraints": {
+    "noExternalRequests": "All images, fonts and video are local. Generated pages must not reference remote URLs.",
+    "realCompany": "The source is a real, live, commercial company: real third-party logos, real payment-brand marks, real product UI screenshots, a real-people hero video and real partner names appear. Generators must never reproduce, redraw, approximate or fabricate them (see assets/asset-roles.json generationPolicy).",
+    "licensing": "Do not publish or make this repository public without the owner's licence review. ABC Monument Grotesk is a commercial licensed typeface and is not redistributable; this repository documents where it is used and grants no rights to it.",
+    "noDarkThemeNoShadowsNoReducedMotion": "The source has no dark theme, no box-shadows and no prefers-reduced-motion handling; reducedMotionFallback in section contracts is a design rule, not mirrored behaviour.",
+    "noPerInstanceTokenOverride": "PageSpecs have no per-instance token/style override field; styling belongs to the contracts."
+  },
+  "entryPoints": {
+    "docs": ["README.md", "CHANGELOG.md", "registry.manifest.json"],
+    "tokens": ["tokens/00-foundation", "tokens/10-semantic", "tokens/20-component", "tokens/30-layout", "tokens/themes", "tokens/llm"],
+    "assets": ["assets/asset-roles.json"],
+    "contracts": ["primitives", "components", "sections"],
+    "templates": ["templates/templates.json"],
+    "compatibility": ["compatibility/graph.json"],
+    "schema": [
+      "schema/pagespec.schema.json",
+      "schema/example.pagespec.json",
+      "schema/semantic_validate.py",
+      "schema/tests/adversarial_test.py"
+    ],
+    "extraction": [
+      "extraction/measured-values.json",
+      "extraction/verify_all.py",
+      "extraction/build_pagespec_schema.py",
+      "extraction/prove_drift.py"
+    ]
+  }
+}

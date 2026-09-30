@@ -1,0 +1,536 @@
+{
+ "$schema": "pagespec.schema.json",
+ "pageSpecVersion": "1.0.0",
+ "template": "solution-standard",
+ "route": "/industries/dating-app-payments/",
+ "nodes": [
+  {
+   "type": "shell.navbar",
+   "content": {
+    "categories": [
+     {
+      "label": "Products",
+      "links": [
+       {
+        "label": "Payments",
+        "href": "/product/codapay/"
+       },
+       {
+        "label": "Links",
+        "href": "/product/coda-links/"
+       },
+       {
+        "label": "Webstore",
+        "href": "/product/coda-webstore/"
+       },
+       {
+        "label": "Distribution",
+        "href": "/product/distribution/"
+       }
+      ]
+     },
+     {
+      "label": "Solutions",
+      "links": [
+       {
+        "label": "Dating apps",
+        "href": "/industries/dating-app-payments/"
+       },
+       {
+        "label": "Gaming",
+        "href": "/industries/online-gaming-payments/"
+       },
+       {
+        "label": "Media",
+        "href": "/industries/digital-entertainment/"
+       },
+       {
+        "label": "Learning",
+        "href": "/industries/learning-management-system-payments/"
+       }
+      ]
+     },
+     {
+      "label": "Resources",
+      "links": [
+       {
+        "label": "Guides",
+        "href": "#"
+       },
+       {
+        "label": "Events",
+        "href": "#"
+       },
+       {
+        "label": "Blog",
+        "href": "#"
+       },
+       {
+        "label": "Support",
+        "href": "#"
+       }
+      ]
+     },
+     {
+      "label": "Company",
+      "links": [
+       {
+        "label": "About",
+        "href": "#"
+       },
+       {
+        "label": "Careers",
+        "href": "#"
+       },
+       {
+        "label": "Press",
+        "href": "#"
+       },
+       {
+        "label": "Contact",
+        "href": "#"
+       }
+      ]
+     }
+    ],
+    "pricingLabel": "Pricing",
+    "loginLabel": "Login",
+    "ctaLabel": "Get started",
+    "languageLabel": "EN"
+   },
+   "motion": {
+    "pattern": "scroll-hide + gsap-dropdown",
+    "reducedMotionFallback": "Render the final state with no animation."
+   }
+  },
+  {
+   "type": "hero.main",
+   "variant": "industry-image",
+   "content": {
+    "heading": "Grow every subscription",
+    "body": "Take local payments in each market and keep members coming back.",
+    "buttons": [
+     {
+      "label": "Talk to us",
+      "style": "black",
+      "href": "#"
+     }
+    ]
+   },
+   "motion": {
+    "pattern": "reveal-cascade",
+    "reducedMotionFallback": "Render the final state with no animation."
+   }
+  },
+  {
+   "type": "benefits.stack",
+   "variant": "title-only-3",
+   "content": {
+    "heading": "Built for members",
+    "cards": [
+     {
+      "icon": {
+       "assetRole": "inline-svg-glyph"
+      },
+      "title": "Local methods"
+     },
+     {
+      "icon": {
+       "assetRole": "inline-svg-glyph"
+      },
+      "title": "Fast payouts"
+     },
+     {
+      "icon": {
+       "assetRole": "inline-svg-glyph"
+      },
+      "title": "Simple upgrades"
+     }
+    ]
+   },
+   "motion": {
+    "pattern": "reveal-stagger",
+    "reducedMotionFallback": "Render the final state with no animation."
+   }
+  },
+  {
+   "type": "highlight.mega",
+   "variant": "industry-cards",
+   "content": {
+    "heading": "One integration, many markets",
+    "media": {
+     "assetRole": "section-product-mockup",
+     "assetRef": "/images/webstore-asset-toolkit-asset-image-1.webp"
+    }
+   },
+   "motion": {
+    "pattern": "reveal-stagger",
+    "reducedMotionFallback": "Render the final state with no animation."
+   }
+  },
+  {
+   "type": "benefits.stack",
+   "variant": "title-only-3",
+   "content": {
+    "heading": "Less friction",
+    "cards": [
+     {
+      "icon": {
+       "assetRole": "inline-svg-glyph"
+      },
+      "title": "Fewer drop-offs"
+     },
+     {
+      "icon": {
+       "assetRole": "inline-svg-glyph"
+      },
+      "title": "Clear pricing"
+     },
+     {
+      "icon": {
+       "assetRole": "inline-svg-glyph"
+      },
+      "title": "Fair billing"
+     }
+    ]
+   },
+   "motion": {
+    "pattern": "reveal-stagger",
+    "reducedMotionFallback": "Render the final state with no animation."
+   }
+  },
+  {
+   "type": "metrics.band",
+   "content": {
+    "heading": "Results at a glance",
+    "items": [
+     {
+      "figure": "10x",
+      "label": "Faster launches"
+     },
+     {
+      "figure": "50+",
+      "label": "Markets"
+     },
+     {
+      "figure": "24/7",
+      "label": "Support"
+     },
+     {
+      "figure": "99%",
+      "label": "Uptime"
+     }
+    ]
+   },
+   "motion": {
+    "pattern": "reveal-stagger",
+    "reducedMotionFallback": "Render the final state with no animation."
+   }
+  },
+  {
+   "type": "bridge.section",
+   "variant": "heading+description",
+   "content": {
+    "heading": "How teams use it",
+    "description": "Three ways to add revenue."
+   },
+   "motion": {
+    "pattern": "reveal",
+    "reducedMotionFallback": "Render the final state with no animation."
+   }
+  },
+  {
+   "type": "callout.feature",
+   "variant": "industry-icons-link",
+   "content": {
+    "body": "Add boosts and tiers that suit local habits.",
+    "media": {
+     "assetRole": "section-product-mockup",
+     "assetRef": "/images/webstore-asset-toolkit-asset-image-1.webp"
+    },
+    "link": {
+     "label": "Learn more",
+     "href": "#"
+    }
+   },
+   "motion": {
+    "pattern": "reveal-slide",
+    "reducedMotionFallback": "Render the final state with no animation."
+   }
+  },
+  {
+   "type": "callout.feature",
+   "variant": "industry-icons-link",
+   "content": {
+    "body": "Let members pay with the wallet they already use.",
+    "media": {
+     "assetRole": "section-product-mockup",
+     "assetRef": "/images/webstore-asset-toolkit-asset-image-1.webp"
+    },
+    "link": {
+     "label": "Learn more",
+     "href": "#"
+    }
+   },
+   "motion": {
+    "pattern": "reveal-slide",
+    "reducedMotionFallback": "Render the final state with no animation."
+   }
+  },
+  {
+   "type": "callout.feature",
+   "variant": "industry-icons-link",
+   "content": {
+    "body": "Offer trials and renewals without extra steps.",
+    "media": {
+     "assetRole": "section-product-mockup",
+     "assetRef": "/images/webstore-asset-toolkit-asset-image-1.webp"
+    },
+    "link": {
+     "label": "Learn more",
+     "href": "#"
+    }
+   },
+   "motion": {
+    "pattern": "reveal-slide",
+    "reducedMotionFallback": "Render the final state with no animation."
+   }
+  },
+  {
+   "type": "carousel.cards",
+   "content": {
+    "heading": "Stories and news",
+    "cards": [
+     {
+      "thumbnail": {
+       "assetRole": "carousel-thumbnail",
+       "assetRef": "/images/coda-white-paper-banner-featured-post.webp"
+      },
+      "title": "Launch checklist"
+     },
+     {
+      "thumbnail": {
+       "assetRole": "carousel-thumbnail",
+       "assetRef": "/images/coda-white-paper-banner-featured-post.webp"
+      },
+      "title": "Market report"
+     },
+     {
+      "thumbnail": {
+       "assetRole": "carousel-thumbnail",
+       "assetRef": "/images/coda-white-paper-banner-featured-post.webp"
+      },
+      "title": "Product update"
+     }
+    ]
+   },
+   "motion": {
+    "pattern": "lerp-carousel",
+    "reducedMotionFallback": "Render the final state with no animation."
+   }
+  },
+  {
+   "type": "faq.accordion",
+   "content": {
+    "heading": "Questions",
+    "items": [
+     {
+      "question": "How do I start?",
+      "answer": [
+       "Contact us and we set up a test account."
+      ]
+     },
+     {
+      "question": "Which markets work?",
+      "answer": [
+       "Most large mobile markets are supported."
+      ]
+     },
+     {
+      "question": "Is there a fee?",
+      "answer": [
+       "Pricing depends on volume."
+      ]
+     },
+     {
+      "question": "Can I switch later?",
+      "answer": [
+       "Yes, plans can change at any time."
+      ]
+     },
+     {
+      "question": "Who helps me?",
+      "answer": [
+       "A named specialist guides your launch."
+      ]
+     }
+    ]
+   },
+   "motion": {
+    "pattern": "accordion",
+    "reducedMotionFallback": "Render the final state with no animation."
+   }
+  },
+  {
+   "type": "spacer.footer-gap",
+   "content": {},
+   "motion": {
+    "pattern": "none",
+    "reducedMotionFallback": "Render the final state with no animation."
+   }
+  },
+  {
+   "type": "cta.pre-footer",
+   "variant": "two-button",
+   "content": {
+    "heading": "Ready to grow?",
+    "buttons": [
+     {
+      "label": "Get started",
+      "style": "glass-white",
+      "href": "#"
+     },
+     {
+      "label": "Talk to us",
+      "style": "grey",
+      "href": "#"
+     }
+    ]
+   },
+   "motion": {
+    "pattern": "reveal",
+    "reducedMotionFallback": "Render the final state with no animation."
+   }
+  },
+  {
+   "type": "shell.footer",
+   "content": {
+    "columns": [
+     {
+      "heading": "Products",
+      "links": [
+       {
+        "label": "Payments",
+        "href": "#"
+       },
+       {
+        "label": "Links",
+        "href": "#"
+       },
+       {
+        "label": "Webstore",
+        "href": "#"
+       },
+       {
+        "label": "Distribution",
+        "href": "#"
+       },
+       {
+        "label": "Gifts",
+        "href": "#"
+       }
+      ]
+     },
+     {
+      "heading": "Solutions",
+      "links": [
+       {
+        "label": "Dating",
+        "href": "#"
+       },
+       {
+        "label": "Gaming",
+        "href": "#"
+       },
+       {
+        "label": "Media",
+        "href": "#"
+       },
+       {
+        "label": "Learning",
+        "href": "#"
+       },
+       {
+        "label": "eSIM",
+        "href": "#"
+       }
+      ]
+     },
+     {
+      "heading": "Resources",
+      "links": [
+       {
+        "label": "Guides",
+        "href": "#"
+       },
+       {
+        "label": "Events",
+        "href": "#"
+       },
+       {
+        "label": "Blog",
+        "href": "#"
+       },
+       {
+        "label": "Support",
+        "href": "#"
+       },
+       {
+        "label": "Docs",
+        "href": "#"
+       }
+      ]
+     },
+     {
+      "heading": "Company",
+      "links": [
+       {
+        "label": "About",
+        "href": "#"
+       },
+       {
+        "label": "Careers",
+        "href": "#"
+       },
+       {
+        "label": "Press",
+        "href": "#"
+       },
+       {
+        "label": "Contact",
+        "href": "#"
+       },
+       {
+        "label": "Security",
+        "href": "#"
+       }
+      ]
+     }
+    ],
+    "legalLinks": [
+     {
+      "label": "Terms",
+      "href": "#"
+     },
+     {
+      "label": "Privacy",
+      "href": "#"
+     },
+     {
+      "label": "Cookies",
+      "href": "#"
+     },
+     {
+      "label": "Imprint",
+      "href": "#"
+     }
+    ],
+    "copyright": "Example page, all rights reserved."
+   },
+   "motion": {
+    "pattern": "hover-colour",
+    "reducedMotionFallback": "Render the final state with no animation."
+   }
+  }
+ ]
+}

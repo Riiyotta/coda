@@ -1,0 +1,162 @@
+{
+  "id": "callout.isolated",
+  "kind": "section",
+  "category": "callout",
+  "content": {
+    "type": "object",
+    "required": [
+      "heading",
+      "body",
+      "button",
+      "media"
+    ],
+    "properties": {
+      "heading": {
+        "type": "string",
+        "maxWords": 6,
+        "note": "Measured 5 words"
+      },
+      "body": {
+        "type": "string",
+        "maxWords": 12,
+        "bodyCopy": true,
+        "note": "Measured 11 words (b copy)"
+      },
+      "button": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxWords": 3
+          },
+          "style": {
+            "type": "string",
+            "enum": [
+              "grey"
+            ]
+          },
+          "href": {
+            "type": "string",
+            "format": "route-or-inert-hash"
+          }
+        },
+        "required": [
+          "label",
+          "style"
+        ]
+      },
+      "media": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "assetRole": {
+            "type": "string",
+            "enum": [
+              "section-product-mockup"
+            ]
+          },
+          "assetRef": {
+            "type": "string",
+            "format": "local-asset-path"
+          },
+          "mobileAssetRef": {
+            "type": "string",
+            "format": "local-asset-path"
+          }
+        },
+        "required": [
+          "assetRole",
+          "assetRef"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "maxWordsTotal": 21
+  },
+  "usedOn": [
+    "/product/coda-links/"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); copy evidence per route below",
+    "copy": {
+      "b-real-saved-copy": [
+        "/product/coda-links/"
+      ]
+    }
+  },
+  "purpose": "Single dark rounded call-out panel with a heading, a one-line body, a docs button and a wide screenshot.",
+  "bodyCopyFields": [
+    "body"
+  ],
+  "variants": {},
+  "constraints": {
+    "onePerPage": true,
+    "maxPerPage": 1,
+    "verification": "Checked: appears once, only on /product/coda-links/, directly after the last feature-callout."
+  },
+  "media": {
+    "panel-media": {
+      "assetRole": [
+        "section-product-mockup"
+      ],
+      "aspectRatio": "1.7822 mobile / 1.9603 desktop"
+    }
+  },
+  "motion": {
+    "pattern": "reveal-slide",
+    "reveals": [
+      {
+        "element": "root"
+      },
+      {
+        "element": "inline-media",
+        "slide": true
+      }
+    ],
+    "reducedMotionFallback": "Final state, no slide.",
+    "reducedMotionFallbackKind": "design-rule (the site ships no prefers-reduced-motion handling, so this is prescribed, not mirrored)"
+  },
+  "responsive": {
+    "breakpoint": "800px",
+    "panel": "md:py-9 vs pb-6 mobile; mobile shows a 60vw spacer and the 1.78 image; desktop the 1.96 image; inner media md:w-auto"
+  },
+  "tokens": [
+    "component.themed-block.dark",
+    "radius.lg",
+    "type.header-m",
+    "layout.content.max-width"
+  ],
+  "composes": [
+    "component.themed-block",
+    "component.media",
+    "primitive.button"
+  ],
+  "measuredFrom": [
+    {
+      "id": "cit-p2-ic-root",
+      "source": "src/pages/ProductCodaLinksPage.jsx:9-9",
+      "quote": "isolated-callout w-maxContentW mx-auto my-9 md:px-6"
+    },
+    {
+      "id": "cit-p2-ic-panel",
+      "source": "src/pages/ProductCodaLinksPage.jsx:9-9",
+      "quote": "w-full md:py-9 pb-6 rounded-lg relative overflow-hidden"
+    },
+    {
+      "id": "cit-p2-ic-spacer",
+      "source": "src/pages/ProductCodaLinksPage.jsx:9-9",
+      "quote": "md:hidden w-full h-[60vw]"
+    },
+    {
+      "id": "cit-p2-ic-media-m",
+      "source": "src/pages/ProductCodaLinksPage.jsx:9-9",
+      "quote": "src=\"/images/asset-slot-2.avif\""
+    },
+    {
+      "id": "cit-p2-ic-media-d",
+      "source": "src/pages/ProductCodaLinksPage.jsx:9-9",
+      "quote": "src=\"/images/isolated-callout-asset-slot.avif\""
+    }
+  ]
+}

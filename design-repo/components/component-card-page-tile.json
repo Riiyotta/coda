@@ -1,0 +1,106 @@
+{
+  "id": "component.card-page-tile",
+  "kind": "component",
+  "purpose": "Full-bleed illustrated tile with a short line, a logo/badge figure and a black button. Two tiles on /product/codapay/ (payment guides, market guides).",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "backgroundAssetRole",
+      "backgroundAssetRef",
+      "text",
+      "button"
+    ],
+    "properties": {
+      "backgroundAssetRole": {
+        "type": "string",
+        "enum": [
+          "world-map-illustration"
+        ]
+      },
+      "backgroundAssetRef": {
+        "type": "string",
+        "format": "local-asset-path"
+      },
+      "foregroundAssetRole": {
+        "type": "string",
+        "enum": [
+          "payment-method-logo",
+          "world-map-illustration",
+          "country-flag"
+        ]
+      },
+      "foregroundAssetRef": {
+        "type": "string",
+        "format": "local-asset-path"
+      },
+      "text": {
+        "type": "string",
+        "maxWords": 15,
+        "note": "BODY COPY, level c; measured 11-15 words; rendered in black text over the map art."
+      },
+      "button": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "label"
+        ],
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxWords": 3
+          },
+          "style": {
+            "type": "string",
+            "enum": [
+              "black"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "tokens": [
+    "color.charcoal",
+    "color.white",
+    "radius.md",
+    "radius.lg",
+    "component.button.black.bg",
+    "layout.grid-gap.card"
+  ],
+  "motion": {
+    "pattern": "reveal-stagger",
+    "duration": "motion.reveal.duration",
+    "easing": "motion.reveal.easing",
+    "delayStep": "motion.reveal.stagger-step",
+    "delayRule": "card i (1-based) has inline transitionDelay (i)*50ms, measured 50ms..300ms on cards",
+    "reducedMotionFallback": "Design rule: no stagger; keep the radius change instant.",
+    "hover": "radius md -> lg (rounded-md hover:rounded-lg)"
+  },
+  "responsive": {
+    "grid": "1 col below 800px; md:grid-cols-2 from 800px"
+  },
+  "assetRoles": [
+    "world-map-illustration",
+    "payment-method-logo",
+    "country-flag"
+  ],
+  "usedBy": [
+    "section.page-tiles"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract",
+    "copy": "c"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-card-tile",
+      "source": "src/pages/ProductCodapayPage.jsx:9-9",
+      "quote": "page-tiles-inner-card group w-full p-5 h-full bg-charcoal text-white text-pretty"
+    },
+    {
+      "id": "cit-p2-card-tile-bg",
+      "source": "src/pages/ProductCodapayPage.jsx:9-9",
+      "quote": "src=\"/images/page-tile-01.webp\""
+    }
+  ]
+}

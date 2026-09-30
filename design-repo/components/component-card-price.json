@@ -1,0 +1,175 @@
+{
+  "id": "component.card-price",
+  "kind": "component",
+  "purpose": "Two-tier pricing panel: a themed card with a title, one or two rate columns (icon row, lead-in text, big % figure, unit line), a dashed-divider lower area (rate or checklist) and a button.",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "tier",
+      "title"
+    ],
+    "properties": {
+      "tier": {
+        "type": "string",
+        "enum": [
+          "standard",
+          "custom"
+        ]
+      },
+      "title": {
+        "type": "string",
+        "maxWords": 2,
+        "note": "Measured: \"Standard pricing\", \"Custom pricing\"."
+      },
+      "columns": {
+        "type": "array",
+        "maxItems": 2,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "figure",
+            "unit"
+          ],
+          "properties": {
+            "leadIn": {
+              "type": "string",
+              "maxWords": 3,
+              "note": "\"starts from\", \"flat rate of\"."
+            },
+            "figure": {
+              "type": "string",
+              "maxWords": 1,
+              "note": "\"1%\", \"5%\", \"15%\"."
+            },
+            "unit": {
+              "type": "string",
+              "maxWords": 2,
+              "note": "\"per transaction\"."
+            },
+            "secondaryFigure": {
+              "type": "string",
+              "maxWords": 1,
+              "note": "lower (dashed) area second rate, /pricing/ column 1"
+            },
+            "secondaryUnit": {
+              "type": "string",
+              "maxWords": 2
+            },
+            "checklist": {
+              "type": "array",
+              "maxItems": 2,
+              "items": {
+                "type": "string",
+                "maxWords": 7
+              }
+            }
+          }
+        }
+      },
+      "headline": {
+        "type": "string",
+        "maxWords": 6,
+        "note": "Custom tier heading, measured 6 words."
+      },
+      "body": {
+        "type": "string",
+        "maxWords": 18,
+        "note": "BODY COPY b (real saved copy on /pricing/, /product/coda-links/, /product/distribution/); level c on webstore/codapay. Budget from measured 12-18."
+      },
+      "checklist": {
+        "type": "array",
+        "maxItems": 3,
+        "items": {
+          "type": "string",
+          "maxWords": 3,
+          "note": "Measured 2-3 word items in the custom tier."
+        }
+      },
+      "button": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "label",
+          "style"
+        ],
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxWords": 2
+          },
+          "style": {
+            "type": "string",
+            "enum": [
+              "black",
+              "grey"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "variants": {
+    "standard-full": "/pricing/: two rate columns + checklist",
+    "standard-single": "links/codapay/webstore: one rate column (1%)",
+    "standard-flat": "distribution: flat 15% + checklist",
+    "custom": "always: heading, body, three 2-3 word checklist items, contact button"
+  },
+  "tokens": [
+    "component.themed-block.dark",
+    "component.themed-block.white",
+    "component.themed-block.light",
+    "radius.md",
+    "radius.lg",
+    "type.header-s",
+    "type.title-m",
+    "spacing.4",
+    "layout.grid-gap.card"
+  ],
+  "motion": {
+    "pattern": "reveal-stagger",
+    "duration": "motion.reveal.duration",
+    "easing": "motion.reveal.easing",
+    "delayStep": "motion.reveal.stagger-step",
+    "reducedMotionFallback": "Design rule (site has no prefers-reduced-motion handling): show at final opacity/position with no stagger delay.",
+    "delay": "cards 50ms and 100ms; inline icons +50ms",
+    "hover": "radius md -> lg"
+  },
+  "responsive": {
+    "below800": "single column; card columns stack (flex-col gap-4); dual-size icons switch via md:hidden / hidden md:block",
+    "from800": "8-col grid; standard card md:col-span-5, custom md:col-span-3; columns flex-row gap-2"
+  },
+  "assetRoles": [
+    "inline-svg-glyph",
+    "inline-svg-wordmark"
+  ],
+  "usedBy": [
+    "section.price-stack"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract",
+    "copy": "b on /pricing/, /product/coda-links/, /product/distribution/; c on /product/codapay/, /product/coda-webstore/"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-price-card",
+      "source": "src/pages/PricingPage.jsx:6-6",
+      "quote": "price-stack-inner-card group w-full h-full rounded-md"
+    },
+    {
+      "id": "cit-p2-price-grid",
+      "source": "src/pages/PricingPage.jsx:6-6",
+      "quote": "price-stack-inner w-full max-w-blogPostVideoW mx-auto grid grid-cols-1 md:grid-cols-8 gap-4"
+    },
+    {
+      "id": "cit-p2-price-span",
+      "source": "src/pages/PricingPage.jsx:6-6",
+      "quote": "md:col-span-5"
+    },
+    {
+      "id": "cit-p2-price-dashed",
+      "source": "src/pages/PricingPage.jsx:6-6",
+      "quote": "price-stack-inner-card-column-bottom group w-full border-t border-dashed border-current pt-3 px-4"
+    }
+  ]
+}

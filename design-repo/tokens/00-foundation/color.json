@@ -1,0 +1,663 @@
+{
+  "$description": "Foundation colour palette: the 34 --color-* variables of the compiled stylesheet (space-separated rgb triplets used as rgb(var(--color-x) / alpha)) plus one literal. There is no other colour source.",
+  "idConvention": "Token ids are dotted, lower-case-first, tier-prefix-free: foundation ids are <category>.<name> (color.charcoal, spacing.7, type.header-s, radius.md, breakpoint.md, elevation.z-50, icon-size.nav-icon, motion.reveal.duration). Semantic ids are <role>.<variant> (text.primary, surface.card, border.divider, accent.blue). Component ids start with component.<name>.<slot>, layout ids with layout.<name>. A \"$ref\" is always another token id.",
+  "literalAliases": {
+    "#f3f3f3 (bg-[#f3f3f3], 13 uses)": "color.grey-light",
+    "#000000 (bg-[#000000], 1 use, route loading bar)": "color.black"
+  },
+  "tokens": {
+    "color.white": {
+      "$type": "color",
+      "$value": "rgb(255 255 255)",
+      "rgb": [
+        255,
+        255,
+        255
+      ],
+      "cssVar": "--color-white",
+      "tailwindName": "white",
+      "usage": {
+        "class.bg": 56,
+        "class.text": 39,
+        "inlineStyleVarRefs": 12
+      },
+      "usageTotal": 107,
+      "status": "used",
+      "evidence": [
+        "cit-color-white"
+      ]
+    },
+    "color.slightWhite": {
+      "$type": "color",
+      "$value": "rgb(252 252 252)",
+      "rgb": [
+        252,
+        252,
+        252
+      ],
+      "cssVar": "--color-slightWhite",
+      "tailwindName": "slightWhite",
+      "usage": {},
+      "usageTotal": 0,
+      "status": "defined-unused-in-jsx",
+      "evidence": [
+        "cit-color-slightWhite"
+      ]
+    },
+    "color.offWhite": {
+      "$type": "color",
+      "$value": "rgb(248 249 235)",
+      "rgb": [
+        248,
+        249,
+        235
+      ],
+      "cssVar": "--color-offWhite",
+      "tailwindName": "offWhite",
+      "usage": {
+        "class.bg": 23,
+        "class.text": 43,
+        "inlineStyleVarRefs": 58
+      },
+      "usageTotal": 124,
+      "status": "used",
+      "evidence": [
+        "cit-color-offWhite"
+      ]
+    },
+    "color.charcoal": {
+      "$type": "color",
+      "$value": "rgb(32 32 32)",
+      "rgb": [
+        32,
+        32,
+        32
+      ],
+      "cssVar": "--color-charcoal",
+      "tailwindName": "charcoal",
+      "usage": {
+        "class.bg": 44,
+        "class.text": 385,
+        "inlineStyleVarRefs": 52
+      },
+      "usageTotal": 481,
+      "status": "used",
+      "evidence": [
+        "cit-color-charcoal"
+      ]
+    },
+    "color.black": {
+      "$type": "color",
+      "$value": "rgb(0 0 0)",
+      "rgb": [
+        0,
+        0,
+        0
+      ],
+      "cssVar": "--color-black",
+      "tailwindName": "black",
+      "usage": {
+        "class.text": 4,
+        "class.from": 14,
+        "inlineStyleVarRefs": 4
+      },
+      "usageTotal": 22,
+      "status": "used",
+      "evidence": [
+        "cit-color-black"
+      ]
+    },
+    "color.purple-1": {
+      "$type": "color",
+      "$value": "rgb(211 190 255)",
+      "rgb": [
+        211,
+        190,
+        255
+      ],
+      "cssVar": "--color-purple-1",
+      "tailwindName": "purple-1",
+      "usage": {},
+      "usageTotal": 0,
+      "status": "defined-unused-in-jsx",
+      "evidence": [
+        "cit-color-purple-1"
+      ]
+    },
+    "color.purple-2": {
+      "$type": "color",
+      "$value": "rgb(164 122 255)",
+      "rgb": [
+        164,
+        122,
+        255
+      ],
+      "cssVar": "--color-purple-2",
+      "tailwindName": "purple-2",
+      "usage": {},
+      "usageTotal": 0,
+      "status": "defined-unused-in-jsx",
+      "evidence": [
+        "cit-color-purple-2"
+      ]
+    },
+    "color.purple-3": {
+      "$type": "color",
+      "$value": "rgb(103 31 255)",
+      "rgb": [
+        103,
+        31,
+        255
+      ],
+      "cssVar": "--color-purple-3",
+      "tailwindName": "purple-3",
+      "usage": {
+        "inlineStyleVarRefs": 18
+      },
+      "usageTotal": 18,
+      "status": "used",
+      "evidence": [
+        "cit-color-purple-3"
+      ]
+    },
+    "color.purple-4": {
+      "$type": "color",
+      "$value": "rgb(45 0 120)",
+      "rgb": [
+        45,
+        0,
+        120
+      ],
+      "cssVar": "--color-purple-4",
+      "tailwindName": "purple-4",
+      "usage": {},
+      "usageTotal": 0,
+      "status": "defined-unused-in-jsx",
+      "evidence": [
+        "cit-color-purple-4"
+      ]
+    },
+    "color.blue-1": {
+      "$type": "color",
+      "$value": "rgb(176 244 255)",
+      "rgb": [
+        176,
+        244,
+        255
+      ],
+      "cssVar": "--color-blue-1",
+      "tailwindName": "blue-1",
+      "usage": {
+        "inlineStyleVarRefs": 20
+      },
+      "usageTotal": 20,
+      "status": "used",
+      "evidence": [
+        "cit-color-blue-1"
+      ]
+    },
+    "color.blue-2": {
+      "$type": "color",
+      "$value": "rgb(78 170 255)",
+      "rgb": [
+        78,
+        170,
+        255
+      ],
+      "cssVar": "--color-blue-2",
+      "tailwindName": "blue-2",
+      "usage": {},
+      "usageTotal": 0,
+      "status": "defined-unused-in-jsx",
+      "evidence": [
+        "cit-color-blue-2"
+      ]
+    },
+    "color.blue-3": {
+      "$type": "color",
+      "$value": "rgb(0 46 255)",
+      "rgb": [
+        0,
+        46,
+        255
+      ],
+      "cssVar": "--color-blue-3",
+      "tailwindName": "blue-3",
+      "usage": {
+        "inlineStyleVarRefs": 84
+      },
+      "usageTotal": 84,
+      "status": "used",
+      "evidence": [
+        "cit-color-blue-3"
+      ]
+    },
+    "color.blue-4": {
+      "$type": "color",
+      "$value": "rgb(4 22 104)",
+      "rgb": [
+        4,
+        22,
+        104
+      ],
+      "cssVar": "--color-blue-4",
+      "tailwindName": "blue-4",
+      "usage": {},
+      "usageTotal": 0,
+      "status": "defined-unused-in-jsx",
+      "evidence": [
+        "cit-color-blue-4"
+      ]
+    },
+    "color.green-1": {
+      "$type": "color",
+      "$value": "rgb(170 253 192)",
+      "rgb": [
+        170,
+        253,
+        192
+      ],
+      "cssVar": "--color-green-1",
+      "tailwindName": "green-1",
+      "usage": {
+        "inlineStyleVarRefs": 4
+      },
+      "usageTotal": 4,
+      "status": "used",
+      "evidence": [
+        "cit-color-green-1"
+      ]
+    },
+    "color.green-2": {
+      "$type": "color",
+      "$value": "rgb(27 201 122)",
+      "rgb": [
+        27,
+        201,
+        122
+      ],
+      "cssVar": "--color-green-2",
+      "tailwindName": "green-2",
+      "usage": {},
+      "usageTotal": 0,
+      "status": "defined-unused-in-jsx",
+      "evidence": [
+        "cit-color-green-2"
+      ]
+    },
+    "color.green-3": {
+      "$type": "color",
+      "$value": "rgb(0 124 68)",
+      "rgb": [
+        0,
+        124,
+        68
+      ],
+      "cssVar": "--color-green-3",
+      "tailwindName": "green-3",
+      "usage": {
+        "inlineStyleVarRefs": 54
+      },
+      "usageTotal": 54,
+      "status": "used",
+      "evidence": [
+        "cit-color-green-3"
+      ]
+    },
+    "color.green-4": {
+      "$type": "color",
+      "$value": "rgb(0 61 33)",
+      "rgb": [
+        0,
+        61,
+        33
+      ],
+      "cssVar": "--color-green-4",
+      "tailwindName": "green-4",
+      "usage": {},
+      "usageTotal": 0,
+      "status": "defined-unused-in-jsx",
+      "evidence": [
+        "cit-color-green-4"
+      ]
+    },
+    "color.pink-1": {
+      "$type": "color",
+      "$value": "rgb(255 192 230)",
+      "rgb": [
+        255,
+        192,
+        230
+      ],
+      "cssVar": "--color-pink-1",
+      "tailwindName": "pink-1",
+      "usage": {
+        "inlineStyleVarRefs": 8
+      },
+      "usageTotal": 8,
+      "status": "used",
+      "evidence": [
+        "cit-color-pink-1"
+      ]
+    },
+    "color.pink-2": {
+      "$type": "color",
+      "$value": "rgb(254 119 199)",
+      "rgb": [
+        254,
+        119,
+        199
+      ],
+      "cssVar": "--color-pink-2",
+      "tailwindName": "pink-2",
+      "usage": {},
+      "usageTotal": 0,
+      "status": "defined-unused-in-jsx",
+      "evidence": [
+        "cit-color-pink-2"
+      ]
+    },
+    "color.pink-3": {
+      "$type": "color",
+      "$value": "rgb(214 44 146)",
+      "rgb": [
+        214,
+        44,
+        146
+      ],
+      "cssVar": "--color-pink-3",
+      "tailwindName": "pink-3",
+      "usage": {
+        "inlineStyleVarRefs": 48
+      },
+      "usageTotal": 48,
+      "status": "used",
+      "evidence": [
+        "cit-color-pink-3"
+      ]
+    },
+    "color.pink-4": {
+      "$type": "color",
+      "$value": "rgb(63 9 41)",
+      "rgb": [
+        63,
+        9,
+        41
+      ],
+      "cssVar": "--color-pink-4",
+      "tailwindName": "pink-4",
+      "usage": {},
+      "usageTotal": 0,
+      "status": "defined-unused-in-jsx",
+      "evidence": [
+        "cit-color-pink-4"
+      ]
+    },
+    "color.yellow-1": {
+      "$type": "color",
+      "$value": "rgb(255 242 147)",
+      "rgb": [
+        255,
+        242,
+        147
+      ],
+      "cssVar": "--color-yellow-1",
+      "tailwindName": "yellow-1",
+      "usage": {},
+      "usageTotal": 0,
+      "status": "defined-unused-in-jsx",
+      "evidence": [
+        "cit-color-yellow-1"
+      ]
+    },
+    "color.yellow-2": {
+      "$type": "color",
+      "$value": "rgb(246 223 90)",
+      "rgb": [
+        246,
+        223,
+        90
+      ],
+      "cssVar": "--color-yellow-2",
+      "tailwindName": "yellow-2",
+      "usage": {},
+      "usageTotal": 0,
+      "status": "defined-unused-in-jsx",
+      "evidence": [
+        "cit-color-yellow-2"
+      ]
+    },
+    "color.yellow-3": {
+      "$type": "color",
+      "$value": "rgb(239 206 10)",
+      "rgb": [
+        239,
+        206,
+        10
+      ],
+      "cssVar": "--color-yellow-3",
+      "tailwindName": "yellow-3",
+      "usage": {
+        "inlineStyleVarRefs": 22
+      },
+      "usageTotal": 22,
+      "status": "used",
+      "evidence": [
+        "cit-color-yellow-3"
+      ]
+    },
+    "color.yellow-4": {
+      "$type": "color",
+      "$value": "rgb(148 94 12)",
+      "rgb": [
+        148,
+        94,
+        12
+      ],
+      "cssVar": "--color-yellow-4",
+      "tailwindName": "yellow-4",
+      "usage": {
+        "inlineStyleVarRefs": 8
+      },
+      "usageTotal": 8,
+      "status": "used",
+      "evidence": [
+        "cit-color-yellow-4"
+      ]
+    },
+    "color.orange-1": {
+      "$type": "color",
+      "$value": "rgb(255 188 173)",
+      "rgb": [
+        255,
+        188,
+        173
+      ],
+      "cssVar": "--color-orange-1",
+      "tailwindName": "orange-1",
+      "usage": {
+        "inlineStyleVarRefs": 4
+      },
+      "usageTotal": 4,
+      "status": "used",
+      "evidence": [
+        "cit-color-orange-1"
+      ]
+    },
+    "color.orange-2": {
+      "$type": "color",
+      "$value": "rgb(246 128 104)",
+      "rgb": [
+        246,
+        128,
+        104
+      ],
+      "cssVar": "--color-orange-2",
+      "tailwindName": "orange-2",
+      "usage": {},
+      "usageTotal": 0,
+      "status": "defined-unused-in-jsx",
+      "evidence": [
+        "cit-color-orange-2"
+      ]
+    },
+    "color.orange-3": {
+      "$type": "color",
+      "$value": "rgb(237 69 33)",
+      "rgb": [
+        237,
+        69,
+        33
+      ],
+      "cssVar": "--color-orange-3",
+      "tailwindName": "orange-3",
+      "usage": {
+        "inlineStyleVarRefs": 20
+      },
+      "usageTotal": 20,
+      "status": "used",
+      "evidence": [
+        "cit-color-orange-3"
+      ]
+    },
+    "color.orange-4": {
+      "$type": "color",
+      "$value": "rgb(114 27 8)",
+      "rgb": [
+        114,
+        27,
+        8
+      ],
+      "cssVar": "--color-orange-4",
+      "tailwindName": "orange-4",
+      "usage": {},
+      "usageTotal": 0,
+      "status": "defined-unused-in-jsx",
+      "evidence": [
+        "cit-color-orange-4"
+      ]
+    },
+    "color.grey-0": {
+      "$type": "color",
+      "$value": "rgb(237 238 225)",
+      "rgb": [
+        237,
+        238,
+        225
+      ],
+      "cssVar": "--color-grey-0",
+      "tailwindName": "grey-0",
+      "usage": {
+        "class.bg": 140,
+        "class.text": 10,
+        "class.border": 13,
+        "inlineStyleVarRefs": 10
+      },
+      "usageTotal": 173,
+      "status": "used",
+      "evidence": [
+        "cit-color-grey-0"
+      ]
+    },
+    "color.grey-1": {
+      "$type": "color",
+      "$value": "rgb(192 194 169)",
+      "rgb": [
+        192,
+        194,
+        169
+      ],
+      "cssVar": "--color-grey-1",
+      "tailwindName": "grey-1",
+      "usage": {
+        "class.bg": 42,
+        "class.text": 39,
+        "class.border": 8
+      },
+      "usageTotal": 89,
+      "status": "used",
+      "evidence": [
+        "cit-color-grey-1"
+      ]
+    },
+    "color.grey-2": {
+      "$type": "color",
+      "$value": "rgb(90 90 79)",
+      "rgb": [
+        90,
+        90,
+        79
+      ],
+      "cssVar": "--color-grey-2",
+      "tailwindName": "grey-2",
+      "usage": {
+        "class.text": 528,
+        "class.border": 2,
+        "inlineStyleVarRefs": 14
+      },
+      "usageTotal": 544,
+      "status": "used",
+      "evidence": [
+        "cit-color-grey-2"
+      ]
+    },
+    "color.grey-mid": {
+      "$type": "color",
+      "$value": "rgb(124 125 118)",
+      "rgb": [
+        124,
+        125,
+        118
+      ],
+      "cssVar": "--color-grey-mid",
+      "tailwindName": "grey-mid",
+      "usage": {
+        "class.bg": 1
+      },
+      "usageTotal": 1,
+      "status": "used",
+      "evidence": [
+        "cit-color-grey-mid"
+      ]
+    },
+    "color.grey-light": {
+      "$type": "color",
+      "$value": "rgb(243 243 243)",
+      "rgb": [
+        243,
+        243,
+        243
+      ],
+      "cssVar": "--color-grey-light",
+      "tailwindName": "grey-light",
+      "usage": {},
+      "usageTotal": 0,
+      "status": "defined-unused-in-jsx",
+      "evidence": [
+        "cit-color-grey-light"
+      ]
+    },
+    "color.divider-e2e2e2": {
+      "$type": "color",
+      "$value": "#e2e2e2",
+      "rgb": [
+        226,
+        226,
+        226
+      ],
+      "cssVar": null,
+      "tailwindName": null,
+      "source": "arbitrary-utility-literal",
+      "usage": {
+        "class.border-b-[#e2e2e2]": 91
+      },
+      "usageTotal": 91,
+      "status": "used",
+      "evidence": [
+        "cit-color-literal-e2e2e2-jsx",
+        "cit-color-literal-e2e2e2-css"
+      ],
+      "note": "Not one of the 34 --color-* variables. It is a literal that appears verbatim in the JSX class list and as a generated utility in the stylesheet."
+    }
+  }
+}

@@ -1,0 +1,412 @@
+{
+  "$comment": "Transcribed from the JSX of the local coda.co clone and the section/template data in design-repo/. Only these 15 routes exist in the clone; every other coda.co link is an inert '#'. Repeated callout.feature nodes are listed once at their position in the run; run lengths are 4 (codapay, webstore, distribution, consumer-platforms, giftcloud), 2 (coda-links), 3-5 (solution-standard: dating 3, digital-entertainment 3, esim 4, lms 4, merchant-of-record 5) and 4-5 (solution-impact: creator-economy 4, online-gaming 5).",
+  "meta": {
+    "title": "Coda clone – information architecture",
+    "source": "Local clone of coda.co (Vite + React) covering 15 of the site's routes",
+    "status": "measured-from-source",
+    "productionApproved": false,
+    "totalRoutes": 15,
+    "totalTemplates": 10,
+    "notes": "Copy evidence differs by route: homepage exact from a saved page; five inner pages real text from saved copies; nine pages original AI-written copy. See design-repo/README.md."
+  },
+  "categories": {
+    "SHELL": "Site-wide chrome: fixed header with its dropdown menus, the footer, and the layout spacer that seats the closing band.",
+    "HERO": "The opening block of a route: headline, one supporting line, calls to action.",
+    "PRODUCT": "Product and capability explanation: cards, callouts, toolkit grids, integration options.",
+    "PROOF": "Evidence and credibility: headline figures, big-number cards, awards, press logos.",
+    "CONTENT": "Interactive or list-style content the visitor works with: FAQ, tables, cross-links, article carousels.",
+    "COMMERCE": "Pricing and conversion: price cards, product cross-sell, and the closing call-to-action."
+  },
+  "sections": {
+    "shell.navbar": {
+      "category": "SHELL",
+      "description": "Fixed header: wordmark, four hover-dropdown categories (Products, Solutions, Resources, Company), a Pricing link, language, login and get-started buttons; a full-screen menu below the mobile breakpoint. Hides while scrolling down.",
+      "scope": "Present on all 15 routes.",
+      "implementedBy": "src/components/Header.jsx + src/lib/header/navController.js"
+    },
+    "shell.footer": {
+      "category": "SHELL",
+      "description": "Site footer: wordmark and social row, four link columns, legal links and copyright.",
+      "scope": "Present on all 15 routes.",
+      "implementedBy": "src/components/Footer.jsx"
+    },
+    "spacer.footer-gap": {
+      "category": "SHELL",
+      "description": "Zero-height layout spacer that sits between the last content section and the closing band so they overlap correctly.",
+      "scope": "Sits before the closing band on the routes that end with an FAQ; 13 routes.",
+      "implementedBy": "markup inline in src/pages/*Page.jsx"
+    },
+    "hero.main": {
+      "category": "HERO",
+      "description": "Opening block: optional product icon row, h1, one supporting paragraph, up to two buttons, and on some routes a publisher-logo marquee or a hero video/image.",
+      "scope": "Opens every route.",
+      "implementedBy": "src/components/Hero.jsx (home); markup inline in src/pages/*Page.jsx"
+    },
+    "products.highlight": {
+      "category": "COMMERCE",
+      "description": "Product cards on a dark tile grid. The homepage shows the full product set with hover image swaps; inner product pages show a single cross-sell card.",
+      "scope": "The homepage plus the four product pages that cross-sell.",
+      "implementedBy": "src/components/ProductsHighlight.jsx (home); markup inline in src/pages/*Page.jsx"
+    },
+    "benefits.stack": {
+      "category": "PRODUCT",
+      "description": "Grey-card benefits grid: a section heading over a row of icon cards.",
+      "scope": "Every route except the pricing page (14 routes); some routes carry it twice.",
+      "implementedBy": "src/components/BenefitsStack.jsx (home); markup inline in src/pages/*Page.jsx"
+    },
+    "features.stack": {
+      "category": "PRODUCT",
+      "description": "Feature cells separated by hairlines, optionally with a heading, a wide media band and a closing button.",
+      "scope": "Three of the product pages.",
+      "implementedBy": "markup inline in src/pages/*Page.jsx"
+    },
+    "features.grid": {
+      "category": "PRODUCT",
+      "description": "Toolkit grid of feature cards under a heading, wrapped in a full-width rounded panel.",
+      "scope": "Two of the product pages.",
+      "implementedBy": "markup inline in src/pages/*Page.jsx"
+    },
+    "callout.feature": {
+      "category": "PRODUCT",
+      "description": "Two-column callout: text block (icon, heading, paragraph, optional link) beside one product mockup; the media side alternates down a run of callouts. A dual-panel variant is used on the consumer-platforms page.",
+      "scope": "One run per route on every route that has feature callouts (13 routes); run length varies by template.",
+      "implementedBy": "markup inline in src/pages/*Page.jsx"
+    },
+    "callout.isolated": {
+      "category": "PRODUCT",
+      "description": "Single dark rounded panel with a heading, one-line body, docs button and a wide screenshot.",
+      "scope": "The payment-links product page only.",
+      "implementedBy": "markup inline in src/pages/*Page.jsx"
+    },
+    "highlight.mega": {
+      "category": "PRODUCT",
+      "description": "Large dark rounded panel: heading, a wide media band, then a set of feature cards or a table.",
+      "scope": "Webstore and distribution product pages and all industry and use-case pages (9 routes).",
+      "implementedBy": "markup inline in src/pages/*Page.jsx"
+    },
+    "bridge.section": {
+      "category": "PRODUCT",
+      "description": "Standalone heading with optional short description that introduces a run of callouts.",
+      "scope": "Routes that open a callout run with its own heading (9 routes).",
+      "implementedBy": "markup inline in src/pages/*Page.jsx"
+    },
+    "tiles.page": {
+      "category": "PRODUCT",
+      "description": "Two illustrated navigation tiles under a heading; their destinations lie outside the cloned routes, so they are inert links.",
+      "scope": "The Codapay product page only.",
+      "implementedBy": "markup inline in src/pages/*Page.jsx"
+    },
+    "comparison.integration": {
+      "category": "PRODUCT",
+      "description": "Three integration options as image cards with a closing docs button.",
+      "scope": "The Codapay product page only.",
+      "implementedBy": "markup inline in src/pages/*Page.jsx"
+    },
+    "impact.figures": {
+      "category": "PROOF",
+      "description": "Big-number proof block: coloured rounded panel with a heading and a few figure cards.",
+      "scope": "Six product pages and two industry pages (8 routes).",
+      "implementedBy": "markup inline in src/pages/*Page.jsx"
+    },
+    "metrics.band": {
+      "category": "PROOF",
+      "description": "Charcoal band of four headline company figures with a heading.",
+      "scope": "Homepage and the use-case and industry pages that carry it (8 routes).",
+      "implementedBy": "src/components/Metrics.jsx (home); markup inline in src/pages/*Page.jsx"
+    },
+    "awards.recognition": {
+      "category": "PROOF",
+      "description": "Row of award badges with title, source and a learn-more link.",
+      "scope": "Homepage only.",
+      "implementedBy": "src/components/Awards.jsx"
+    },
+    "carousel.press": {
+      "category": "PROOF",
+      "description": "Auto-scrolling strip of press-outlet logos under a heading.",
+      "scope": "Homepage only.",
+      "implementedBy": "src/components/PressCarousel.jsx + src/lib/marquee/Marquee.jsx"
+    },
+    "carousel.cards": {
+      "category": "CONTENT",
+      "description": "Draggable 'Explore more' carousel of three cards on a grey rounded panel, with previous/next arrows.",
+      "scope": "Every route except the pricing page (14 routes).",
+      "implementedBy": "src/components/CardCarousel.jsx + src/lib/carousel/useCarousel.js (home); src/lib/enhance/carousel.js (inner pages)"
+    },
+    "faq.accordion": {
+      "category": "CONTENT",
+      "description": "Frequently-asked-questions accordion on a soft grey rounded panel; every item starts collapsed.",
+      "scope": "Routes that end with an FAQ (13 routes).",
+      "implementedBy": "src/lib/enhance/faq.js (behaviour) on markup inline in src/pages/*Page.jsx"
+    },
+    "table.payment-method": {
+      "category": "CONTENT",
+      "description": "Interactive payment-method table with a Type tab (rows of logos) and a Country tab (searchable list of countries).",
+      "scope": "The pricing page only.",
+      "implementedBy": "src/lib/pricing/PaymentMethodTable.jsx"
+    },
+    "pricing.price-stack": {
+      "category": "COMMERCE",
+      "description": "Two pricing cards: standard (rate columns) and custom (contact sales).",
+      "scope": "The pricing page and the four product pages that end with pricing.",
+      "implementedBy": "markup inline in src/pages/*Page.jsx"
+    },
+    "cta.pre-footer": {
+      "category": "COMMERCE",
+      "description": "Closing dark call-to-action band directly above the footer.",
+      "scope": "Closes every route.",
+      "implementedBy": "src/components/PreFooter.jsx (home); markup inline in src/pages/*Page.jsx"
+    }
+  },
+  "templates": [
+    {
+      "id": "template.home",
+      "name": "Homepage",
+      "routeCount": 1,
+      "routes": [
+        "/"
+      ],
+      "routePattern": null,
+      "chrome": "full",
+      "sections": [
+        "shell.navbar",
+        "hero.main",
+        "products.highlight",
+        "benefits.stack",
+        "metrics.band",
+        "awards.recognition",
+        "carousel.cards",
+        "carousel.press",
+        "cta.pre-footer",
+        "shell.footer"
+      ]
+    },
+    {
+      "id": "template.pricing",
+      "name": "Pricing",
+      "routeCount": 1,
+      "routes": [
+        "/pricing/"
+      ],
+      "routePattern": null,
+      "chrome": "full",
+      "sections": [
+        "shell.navbar",
+        "hero.main",
+        "pricing.price-stack",
+        "table.payment-method",
+        "faq.accordion",
+        "spacer.footer-gap",
+        "cta.pre-footer",
+        "shell.footer"
+      ]
+    },
+    {
+      "id": "template.product-codapay",
+      "name": "Product – Codapay",
+      "routeCount": 1,
+      "routes": [
+        "/product/codapay/"
+      ],
+      "routePattern": null,
+      "chrome": "full",
+      "sections": [
+        "shell.navbar",
+        "hero.main",
+        "benefits.stack",
+        "features.stack",
+        "impact.figures",
+        "benefits.stack",
+        "callout.feature",
+        "tiles.page",
+        "comparison.integration",
+        "carousel.cards",
+        "pricing.price-stack",
+        "products.highlight",
+        "faq.accordion",
+        "spacer.footer-gap",
+        "cta.pre-footer",
+        "shell.footer"
+      ]
+    },
+    {
+      "id": "template.product-links",
+      "name": "Product – Coda Links",
+      "routeCount": 1,
+      "routes": [
+        "/product/coda-links/"
+      ],
+      "routePattern": null,
+      "chrome": "full",
+      "sections": [
+        "shell.navbar",
+        "hero.main",
+        "benefits.stack",
+        "impact.figures",
+        "benefits.stack",
+        "bridge.section",
+        "callout.feature",
+        "callout.isolated",
+        "carousel.cards",
+        "pricing.price-stack",
+        "products.highlight",
+        "faq.accordion",
+        "spacer.footer-gap",
+        "cta.pre-footer",
+        "shell.footer"
+      ]
+    },
+    {
+      "id": "template.product-webstore",
+      "name": "Product – Coda Webstore",
+      "routeCount": 1,
+      "routes": [
+        "/product/coda-webstore/"
+      ],
+      "routePattern": null,
+      "chrome": "full",
+      "sections": [
+        "shell.navbar",
+        "hero.main",
+        "benefits.stack",
+        "impact.figures",
+        "features.grid",
+        "callout.feature",
+        "highlight.mega",
+        "carousel.cards",
+        "pricing.price-stack",
+        "products.highlight",
+        "faq.accordion",
+        "spacer.footer-gap",
+        "cta.pre-footer",
+        "shell.footer"
+      ]
+    },
+    {
+      "id": "template.product-distribution",
+      "name": "Product – Distribution",
+      "routeCount": 1,
+      "routes": [
+        "/product/distribution/"
+      ],
+      "routePattern": null,
+      "chrome": "full",
+      "sections": [
+        "shell.navbar",
+        "hero.main",
+        "benefits.stack",
+        "impact.figures",
+        "features.stack",
+        "bridge.section",
+        "callout.feature",
+        "highlight.mega",
+        "carousel.cards",
+        "pricing.price-stack",
+        "products.highlight",
+        "faq.accordion",
+        "spacer.footer-gap",
+        "cta.pre-footer",
+        "shell.footer"
+      ]
+    },
+    {
+      "id": "template.product-consumer-platforms",
+      "name": "Product – Consumer Platforms",
+      "routeCount": 1,
+      "routes": [
+        "/product/coda-consumer-platforms/"
+      ],
+      "routePattern": null,
+      "chrome": "full",
+      "sections": [
+        "shell.navbar",
+        "hero.main",
+        "benefits.stack",
+        "impact.figures",
+        "features.grid",
+        "callout.feature",
+        "carousel.cards",
+        "faq.accordion",
+        "spacer.footer-gap",
+        "cta.pre-footer",
+        "shell.footer"
+      ]
+    },
+    {
+      "id": "template.product-giftcloud",
+      "name": "Product – Giftcloud",
+      "routeCount": 1,
+      "routes": [
+        "/product/coda-giftcloud/"
+      ],
+      "routePattern": null,
+      "chrome": "full",
+      "sections": [
+        "shell.navbar",
+        "hero.main",
+        "benefits.stack",
+        "impact.figures",
+        "features.stack",
+        "callout.feature",
+        "carousel.cards",
+        "cta.pre-footer",
+        "shell.footer"
+      ]
+    },
+    {
+      "id": "template.solution-standard",
+      "name": "Industry / use-case (standard)",
+      "routeCount": 5,
+      "routes": [
+        "/industries/dating-app-payments/",
+        "/industries/digital-entertainment/",
+        "/industries/esim-digital-utility-payments/",
+        "/industries/learning-management-system-payments/",
+        "/use-case/merchant-of-record/"
+      ],
+      "routePattern": null,
+      "chrome": "full",
+      "sections": [
+        "shell.navbar",
+        "hero.main",
+        "benefits.stack",
+        "highlight.mega",
+        "benefits.stack",
+        "metrics.band",
+        "bridge.section",
+        "callout.feature",
+        "carousel.cards",
+        "faq.accordion",
+        "spacer.footer-gap",
+        "cta.pre-footer",
+        "shell.footer"
+      ]
+    },
+    {
+      "id": "template.solution-impact",
+      "name": "Industry (with impact figures)",
+      "routeCount": 2,
+      "routes": [
+        "/industries/creator-economy-payments/",
+        "/industries/online-gaming-payments/"
+      ],
+      "routePattern": null,
+      "chrome": "full",
+      "sections": [
+        "shell.navbar",
+        "hero.main",
+        "benefits.stack",
+        "highlight.mega",
+        "benefits.stack",
+        "impact.figures",
+        "bridge.section",
+        "callout.feature",
+        "metrics.band",
+        "carousel.cards",
+        "faq.accordion",
+        "spacer.footer-gap",
+        "cta.pre-footer",
+        "shell.footer"
+      ]
+    }
+  ]
+}

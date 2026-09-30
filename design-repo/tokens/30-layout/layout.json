@@ -1,0 +1,258 @@
+{
+  "$description": "Layout tokens: content widths, block padding, grid variables, nav bar height, section rhythm and gaps. Values that come from --spacing-* are $ref-ed to spacing tokens.",
+  "tokens": {
+    "layout.content.max-width": {
+      "$type": "dimension",
+      "$value": "min(100%, 1580px)",
+      "utility": "w-maxContentW",
+      "usage": 94,
+      "evidence": [
+        "cit-layout-maxcontent",
+        "cit-layout-hero-media"
+      ]
+    },
+    "layout.content.column-max-width": {
+      "$type": "dimension",
+      "$value": "1000px base; fluid",
+      "cssVar": "--size-blogPostVideoW",
+      "utility": "max-w-blogPostVideoW",
+      "resolvedPx": {
+        "390": 1000,
+        "800": 756.0,
+        "1200": 1008.0,
+        "1440": 1128.96,
+        "1600": 1209.6,
+        "2000": 1209.6
+      },
+      "usage": 280,
+      "note": "The main section column (feature-callout, section-bridge). Below 800 the width is set by block-padding instead.",
+      "evidence": [
+        "cit-layout-maxw-video",
+        "cit-size-blogPostVideoW",
+        "cit-layout-callout-grid"
+      ]
+    },
+    "layout.content.media-max-width": {
+      "$type": "dimension",
+      "$value": "319px base; fluid",
+      "cssVar": "--size-blogPostFeaturedW",
+      "utility": "max-w-blogPostFeaturedW",
+      "resolvedPx": {
+        "390": 319,
+        "800": 534.0,
+        "1200": 712.0,
+        "1440": 797.44,
+        "1600": 854.4,
+        "2000": 854.4
+      },
+      "usage": 13,
+      "evidence": [
+        "cit-size-blogPostFeaturedW",
+        "cit-layout-blogfeat-usage"
+      ]
+    },
+    "layout.block-padding.mobile": {
+      "$type": "dimension",
+      "$value": {
+        "$ref": "spacing.6"
+      },
+      "appliesBelowPx": 800,
+      "usage": 181,
+      "evidence": [
+        "cit-layout-blockpad"
+      ]
+    },
+    "layout.block-padding.desktop": {
+      "$type": "dimension",
+      "$value": {
+        "$ref": "spacing.0"
+      },
+      "appliesFromPx": 800,
+      "evidence": [
+        "cit-layout-blockpad"
+      ]
+    },
+    "layout.grid.columns": {
+      "$type": "number",
+      "$value": 12,
+      "evidence": [
+        "cit-layout-grid"
+      ]
+    },
+    "layout.grid.gutter": {
+      "$type": "dimension",
+      "$value": "16px",
+      "perBreakpoint": {
+        "0": "16px",
+        "800": "24px",
+        "1200": "2vw",
+        "2000": "32px"
+      },
+      "cssVar": "--tw-grid-gutter",
+      "evidence": [
+        "cit-layout-grid",
+        "cit-layout-grid-2vw",
+        "cit-layout-grid-2000"
+      ]
+    },
+    "layout.grid.margin": {
+      "$type": "dimension",
+      "$value": "16px",
+      "perBreakpoint": {
+        "0": "16px",
+        "800": "24px",
+        "1200": "2vw",
+        "2000": "32px"
+      },
+      "cssVar": "--tw-grid-margin",
+      "evidence": [
+        "cit-layout-grid",
+        "cit-layout-grid-2vw",
+        "cit-layout-grid-2000"
+      ]
+    },
+    "layout.grid.container": {
+      "$type": "dimension",
+      "$value": "100vw",
+      "perBreakpoint": {
+        "0": "100vw",
+        "2000": "2000px"
+      },
+      "cssVar": "--tw-grid-container",
+      "evidence": [
+        "cit-layout-grid",
+        "cit-layout-grid-2000"
+      ]
+    },
+    "layout.nav.bar-height": {
+      "$type": "dimension",
+      "$value": {
+        "$ref": "spacing.navBarHeightBase"
+      },
+      "resolvedPx": {
+        "390": 52,
+        "800": 48.0,
+        "1200": 64.0,
+        "1440": 71.68,
+        "1600": 76.8,
+        "2000": 76.8
+      },
+      "measuredHeaderWrapperAt1440Px": 107.48,
+      "note": "Base var is the bar only; the measured fixed wrapper (bar + inner top offset) is 107.48px at 1440.",
+      "usage": 6,
+      "evidence": [
+        "cit-layout-navbar-height",
+        "cit-layout-navbar-css",
+        "cit-layout-navbar-measured"
+      ]
+    },
+    "layout.nav.inner-top": {
+      "$type": "dimension",
+      "$value": {
+        "$ref": "spacing.navBarInnerTopBase"
+      },
+      "resolvedPx": {
+        "390": 108,
+        "800": 63.0,
+        "1200": 84.0,
+        "1440": 94.08,
+        "1600": 100.8,
+        "2000": 100.8
+      },
+      "usage": 20,
+      "evidence": [
+        "cit-spacing-navBarInnerTopBase"
+      ]
+    },
+    "layout.section.margin-y": {
+      "$type": "dimension",
+      "$value": {
+        "$ref": "spacing.9"
+      },
+      "utility": "my-9",
+      "note": "Vertical margin around hero, feature-callout and section-bridge blocks.",
+      "evidence": [
+        "cit-layout-hero-block",
+        "cit-layout-callout-grid",
+        "cit-layout-bridge",
+        "cit-spacing-utility-p5"
+      ]
+    },
+    "layout.section.stack-gap": {
+      "$type": "dimension",
+      "$value": {
+        "$ref": "spacing.8"
+      },
+      "utility": "gap-8",
+      "note": "Hero and pre-footer flex gap.",
+      "evidence": [
+        "cit-layout-hero-block",
+        "cit-layout-prefooter"
+      ]
+    },
+    "layout.grid-gap.callout": {
+      "$type": "dimension",
+      "$value": {
+        "$ref": "spacing.5"
+      },
+      "mdValue": {
+        "$ref": "spacing.10"
+      },
+      "utility": "gap-5 md:gap-10",
+      "note": "feature-callout two-column grid gap.",
+      "evidence": [
+        "cit-layout-callout-grid"
+      ]
+    },
+    "layout.grid-gap.bridge": {
+      "$type": "dimension",
+      "$value": {
+        "$ref": "spacing.3"
+      },
+      "mdValue": {
+        "$ref": "spacing.8"
+      },
+      "utility": "gap-3 md:gap-8",
+      "evidence": [
+        "cit-layout-bridge"
+      ]
+    },
+    "layout.grid-gap.card": {
+      "$type": "dimension",
+      "$value": {
+        "$ref": "spacing.4"
+      },
+      "utility": "gap-4",
+      "note": "Most common gap (584 gap-4 uses): card internals, inline-buttons.",
+      "evidence": [
+        "cit-layout-benefit-grid"
+      ]
+    },
+    "layout.grid.card-columns": {
+      "$type": "number",
+      "$value": 1,
+      "mdValues": [
+        2,
+        3
+      ],
+      "note": "grid-cols-1 (112) / 2 (74) / 3 (28); 8-column variant once-off (5).",
+      "evidence": [
+        "cit-layout-benefit-grid"
+      ]
+    },
+    "layout.carousel.item-width": {
+      "$type": "dimension",
+      "$value": "100%",
+      "mdValue": {
+        "$ref": "layout.content.column-max-width"
+      },
+      "aspectRatio": {
+        "0": "328/362",
+        "800": "1008/400"
+      },
+      "evidence": [
+        "cit-layout-carousel-item"
+      ]
+    }
+  }
+}

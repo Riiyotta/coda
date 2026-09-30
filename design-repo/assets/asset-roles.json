@@ -1,0 +1,433 @@
+{
+  "$description": "CLOSED assetRole vocabulary derived from real usage sites (grep of src/**/*.jsx, src/lib/**, index.html and public/ directories). A generated PageSpec may only use these ids; an unlisted role is invalid.",
+  "assetRoleEnum": [
+    "hero-video",
+    "promo-video",
+    "partner-logo",
+    "press-logo",
+    "award-image",
+    "payment-method-logo",
+    "country-flag",
+    "world-map-illustration",
+    "hero-product-mockup",
+    "section-product-mockup",
+    "product-card-mockup",
+    "carousel-thumbnail",
+    "ui-icon-image",
+    "inline-svg-glyph",
+    "inline-svg-wordmark",
+    "coda-wordmark",
+    "favicon",
+    "brand-typeface-file"
+  ],
+  "closed": true,
+  "generationPolicyEnum": [
+    "may-generate-new",
+    "must-reuse-exact",
+    "must-not-fabricate",
+    "must-not-redistribute"
+  ],
+  "generationPolicyMeaning": {
+    "may-generate-new": "A generator may create a NEW original asset for this role (generic UI glyphs, abstract background/illustration in the site's style). It must not copy an existing file and must not claim to be Coda's or a third party's original.",
+    "must-reuse-exact": "The asset is Coda's own brand or product asset (logo, favicon, own promo video, flags). A generator may only reference the existing local file by exact path; it must not recreate, redraw, recolour, crop or \"improve\" it.",
+    "must-not-fabricate": "The asset depicts real third parties, real people, real payment brands or a real product UI. A generator must never create, redraw, approximate, restyle or AI-render it. Only an exact reference to a file that already exists in public/ is allowed; if the slot needs a different real asset, leave it as a placeholder for a human to supply, with rights confirmed.",
+    "must-not-redistribute": "The asset is commercially licensed (ABC Monument Grotesk). It may be referenced where it already lives, but must not be regenerated, converted, subset, re-hosted or copied into a new package or generated output."
+  },
+  "policyNote": "Exactly 4 policies. The brief suggested must-not-reuse-live-endpoint as a 4th; no live endpoint exists in this site (cit-asset-no-remote: no fetch, no forms, no remote URLs), so the evidence-based 4th value is must-not-redistribute (the commercial typeface).",
+  "pinnedPolicyMechanism": "Every role with complianceCritical=true carries pinnedPolicy equal to its generationPolicy. extraction/verify_all.py check [j] checks generationPolicy == pinnedPolicy for exactly these roles (membership in the 4-value enum is NOT sufficient: may-generate-new is a valid value that would be wrong for every pinned role). It is proven by mutations to a different-but-valid policy in schema/tests/adversarial_test.py and extraction/prove_drift.py.",
+  "pinnedRoles": [
+    "hero-video",
+    "partner-logo",
+    "press-logo",
+    "award-image",
+    "payment-method-logo",
+    "hero-product-mockup",
+    "section-product-mockup",
+    "product-card-mockup",
+    "carousel-thumbnail",
+    "inline-svg-wordmark",
+    "brand-typeface-file"
+  ],
+  "unpinnedRoles": [
+    "promo-video",
+    "country-flag",
+    "world-map-illustration",
+    "ui-icon-image",
+    "inline-svg-glyph",
+    "coda-wordmark",
+    "favicon"
+  ],
+  "globalRules": {
+    "noExternalRequests": "All images, fonts and video are local (public/images, public/images/2026-07, public/fonts, public/video, favicon). Generated output must not reference remote URLs. Evidence: cit-asset-no-remote.",
+    "inertExternalLinks": "Links to coda.co pages outside the 15 routes are inert href=\"#\". Evidence: cit-asset-linkguard.",
+    "realCompany": "Real third-party logos, real people's photos or video, real payment-brand marks, real product UI screenshots and the commercial ABC Monument Grotesk typeface must never be reproduced, redrawn, approximated or fabricated by a generator. This design-repo documents where they are used; it does not grant rights to them.",
+    "noWorldMapOrCountryIllustrationBeyondListed": "The brief mentioned world-map/illustration images: only the page-tile map tiles (world-map-illustration) exist."
+  },
+  "publicInventory": {
+    "public/images": "507 top-level files, many are WordPress -WxH srcset size variants of the same original",
+    "public/images/2026-07": "128 files (payment logos, flags)",
+    "public/video": 2,
+    "public/fonts": 19,
+    "public/svg/inline": "empty directory (inline SVGs live in JSX)"
+  },
+  "roles": [
+    {
+      "id": "hero-video",
+      "description": "The autoplaying, looping, muted homepage hero video shown inside InlineVideo. It shows a real person using a phone and a real mobile game UI (frame sampled at 3s when the roles were derived).",
+      "realCompanyAssets": true,
+      "generationPolicy": "must-not-fabricate",
+      "complianceCritical": true,
+      "pinnedPolicy": "must-not-fabricate",
+      "usageCitations": [
+        "src/components/Hero.jsx:15-15",
+        "src/lib/hero/InlineVideo.jsx:36-36"
+      ],
+      "observedDistinctFiles": 1,
+      "licensing": "Real people and a real third-party game UI appear in this footage. It must never be regenerated, re-shot with synthetic people, or described as a stock/generic asset. Real third-party logos, real people's photos or video, real payment-brand marks, real product UI screenshots and the commercial ABC Monument Grotesk typeface must never be reproduced, redrawn, approximated or fabricated by a generator. This design-repo documents where they are used; it does not grant rights to them.",
+      "exampleLocalPaths": [
+        "/video/Coda-Website-Hero-Video-260826.mp4"
+      ]
+    },
+    {
+      "id": "promo-video",
+      "description": "Coda's own product/brand promo video used in the webstore page feature block (kinetic-type motion graphics; one frame sampled at 5s shows headline text on a solid green field).",
+      "realCompanyAssets": true,
+      "generationPolicy": "must-reuse-exact",
+      "complianceCritical": false,
+      "usageCitations": [
+        "src/pages/ProductCodaWebstorePage.jsx:9-9"
+      ],
+      "observedDistinctFiles": 1,
+      "licensing": "The asset is Coda's own brand or product asset (logo, favicon, own promo video, flags). A generator may only reference the existing local file by exact path; it must not recreate, redraw, recolour, crop or \"improve\" it.",
+      "notes": "Only two frames of the two videos were sampled; whether later frames of this file contain real product UI or people was not verified. Treat as must-reuse-exact and do not edit.",
+      "exampleLocalPaths": [
+        "/video/B2B_CODA-WEBSTORE_FINAL_50MB.mp4"
+      ]
+    },
+    {
+      "id": "partner-logo",
+      "description": "Third-party company/publisher/customer logos: the six hero logo slots (Hero.jsx logo-slot1..6), the industry-page publisher marquee (EA, Riot, HoYoverse, Moonton, NetEase) and the Tinder reverse-logo used in the carousel. These are real trademarks.",
+      "realCompanyAssets": true,
+      "generationPolicy": "must-not-fabricate",
+      "complianceCritical": true,
+      "pinnedPolicy": "must-not-fabricate",
+      "usageCitations": [
+        "src/components/Hero.jsx:15-15",
+        "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9",
+        "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9",
+        "src/lib/enhance/marquee.js:3-3",
+        "src/components/CardCarousel.jsx:11-11"
+      ],
+      "observedDistinctFiles": 12,
+      "observedFilesNote": "logo-slot1-6 + ea, riot, hoyoverse, moonton, netease, tinder-reverse (WordPress size variants excluded)",
+      "licensing": "Real third-party trademarks. Never redraw, re-create, recolour or invent logos of real or fictional companies; only the existing local files may be referenced, unchanged. Real third-party logos, real people's photos or video, real payment-brand marks, real product UI screenshots and the commercial ABC Monument Grotesk typeface must never be reproduced, redrawn, approximated or fabricated by a generator. This design-repo documents where they are used; it does not grant rights to them.",
+      "thirdPartyRightsHolders": [
+        "Electronic Arts",
+        "Riot Games",
+        "HoYoverse",
+        "Moonton",
+        "NetEase",
+        "Tinder (Match Group)",
+        "other publishers behind logo-slot1-6 (not individually identified)"
+      ],
+      "exampleLocalPaths": [
+        "/images/logo-slot1.avif",
+        "/images/ea.avif",
+        "/images/riot.avif",
+        "/images/tinder-reverse.avif"
+      ]
+    },
+    {
+      "id": "press-logo",
+      "description": "Logos of press/media outlets in the homepage press carousel (press-logos1..5 plus IGN, GamesBeat, Tech in Asia, DealStreetAsia).",
+      "realCompanyAssets": true,
+      "generationPolicy": "must-not-fabricate",
+      "complianceCritical": true,
+      "pinnedPolicy": "must-not-fabricate",
+      "usageCitations": [
+        "src/components/PressCarousel.jsx:7-7",
+        "src/components/PressCarousel.jsx:7-7"
+      ],
+      "observedDistinctFiles": 9,
+      "observedFilesNote": "5 press-logosN avif + 4 named webp logos",
+      "licensing": "The asset depicts real third parties, real people, real payment brands or a real product UI. A generator must never create, redraw, approximate, restyle or AI-render it. Only an exact reference to a file that already exists in public/ is allowed; if the slot needs a different real asset, leave it as a placeholder for a human to supply, with rights confirmed.",
+      "thirdPartyRightsHolders": [
+        "IGN",
+        "GamesBeat",
+        "Tech in Asia",
+        "DealStreetAsia",
+        "other outlets in press-logos1-5"
+      ],
+      "exampleLocalPaths": [
+        "/images/press-logos1.avif",
+        "/images/IGN-logo-494x160-1.webp"
+      ]
+    },
+    {
+      "id": "award-image",
+      "description": "Award/recognition badge images (Awards section: 4 images 1..4.avif, e.g. a \"NextGen Tech 30\" badge). Real third-party award marks.",
+      "realCompanyAssets": true,
+      "generationPolicy": "must-not-fabricate",
+      "complianceCritical": true,
+      "pinnedPolicy": "must-not-fabricate",
+      "usageCitations": [
+        "src/components/Awards.jsx:4-4"
+      ],
+      "observedDistinctFiles": 4,
+      "licensing": "Awards are claims made by third parties about a real company. Never invent an award, ranking or badge; only reference the existing files. Real third-party logos, real people's photos or video, real payment-brand marks, real product UI screenshots and the commercial ABC Monument Grotesk typeface must never be reproduced, redrawn, approximated or fabricated by a generator. This design-repo documents where they are used; it does not grant rights to them.",
+      "thirdPartyRightsHolders": [
+        "the awarding organisations depicted in 1-4.avif"
+      ],
+      "exampleLocalPaths": [
+        "/images/1.avif",
+        "/images/4.avif"
+      ]
+    },
+    {
+      "id": "payment-method-logo",
+      "description": "Payment-method and card-network brand marks: ~79 logos inside paymentGuideCountries.json rendered by the pricing PaymentMethodTable, 49 img elements in the static PricingPage grid, and the logo-card-01 composite on the codapay page. Includes Visa, Mastercard, Amex, Apple Pay, Google Pay, PayPal, Alipay, GCash, Pix etc.",
+      "realCompanyAssets": true,
+      "generationPolicy": "must-not-fabricate",
+      "complianceCritical": true,
+      "pinnedPolicy": "must-not-fabricate",
+      "usageCitations": [
+        "src/lib/pricing/paymentGuideCountries.json:6-6",
+        "src/lib/pricing/PaymentMethodTable.jsx:176-176",
+        "src/pages/PricingPage.jsx:6-6",
+        "src/pages/ProductCodapayPage.jsx:9-9"
+      ],
+      "observedDistinctFiles": 79,
+      "observedFilesNote": "79 distinct logo files referenced from paymentGuideCountries.json; 49 distinct files in PricingPage.jsx",
+      "licensing": "Payment brand marks are registered trademarks with brand-usage rules. Never redraw, approximate or invent a payment mark, and never imply Coda supports a method that is not in paymentGuideCountries.json. Real third-party logos, real people's photos or video, real payment-brand marks, real product UI screenshots and the commercial ABC Monument Grotesk typeface must never be reproduced, redrawn, approximated or fabricated by a generator. This design-repo documents where they are used; it does not grant rights to them.",
+      "thirdPartyRightsHolders": [
+        "Visa",
+        "Mastercard",
+        "American Express",
+        "Apple",
+        "Google",
+        "PayPal",
+        "Alipay",
+        "and every other scheme/wallet/bank in the table"
+      ],
+      "exampleLocalPaths": [
+        "/images/2026-07/visa.webp",
+        "/images/2026-07/mastercard.webp",
+        "/images/visa.webp"
+      ]
+    },
+    {
+      "id": "country-flag",
+      "description": "Country flag SVGs (Flag-1..Flag-50 minus 47 = 49 files) shown beside each country in the pricing table, and the country-card-02-1.webp composite (flag chips with country names) on the codapay page.",
+      "realCompanyAssets": false,
+      "generationPolicy": "must-reuse-exact",
+      "complianceCritical": false,
+      "usageCitations": [
+        "src/lib/pricing/paymentGuideCountries.json:5-5",
+        "src/lib/pricing/PaymentMethodTable.jsx:137-137",
+        "src/pages/ProductCodapayPage.jsx:9-9"
+      ],
+      "observedDistinctFiles": 49,
+      "licensing": "The asset is Coda's own brand or product asset (logo, favicon, own promo video, flags). A generator may only reference the existing local file by exact path; it must not recreate, redraw, recolour, crop or \"improve\" it. Flags are national symbols, not company assets, but redrawing them risks inaccurate flags.",
+      "exampleLocalPaths": [
+        "/images/2026-07/Flag-7.svg",
+        "/images/country-card-02-1.webp"
+      ]
+    },
+    {
+      "id": "world-map-illustration",
+      "description": "Decorative page-tile backgrounds: a tinted world-map illustration (page-tile-01.webp / page-tile-02.webp) used in the codapay page tiles. Coda's own artwork; no real third-party marks.",
+      "realCompanyAssets": true,
+      "generationPolicy": "may-generate-new",
+      "complianceCritical": false,
+      "usageCitations": [
+        "src/pages/ProductCodapayPage.jsx:9-9"
+      ],
+      "observedDistinctFiles": 2,
+      "licensing": "A generator may create a NEW original asset for this role (generic UI glyphs, abstract background/illustration in the site's style). It must not copy an existing file and must not claim to be Coda's or a third party's original.",
+      "notes": "Only role in this repo where a generator may create new pixels. New art must be original, use the grey/green palette tokens and must not be presented as an existing Coda asset.",
+      "exampleLocalPaths": [
+        "/images/page-tile-01.webp"
+      ]
+    },
+    {
+      "id": "hero-product-mockup",
+      "description": "Product UI mockups placed in the page hero .inline-media slot of each product/industry page (e.g. codapay-header-image-..., codalinks-header-image-..., coda-creator-economy-asset-header-homepage). They depict Coda's real product UI and sometimes real partner content.",
+      "realCompanyAssets": true,
+      "generationPolicy": "must-not-fabricate",
+      "complianceCritical": true,
+      "pinnedPolicy": "must-not-fabricate",
+      "usageCitations": [
+        "src/pages/ProductCodapayPage.jsx:9-9",
+        "src/pages/ProductCodaLinksPage.jsx:9-9",
+        "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9"
+      ],
+      "observedFilesNote": "one per page (15 routes) plus mobile variants; exact count not enumerated",
+      "licensing": "Real product UI. Never fabricate a screenshot of the product or invent product screens/features. Real third-party logos, real people's photos or video, real payment-brand marks, real product UI screenshots and the commercial ABC Monument Grotesk typeface must never be reproduced, redrawn, approximated or fabricated by a generator. This design-repo documents where they are used; it does not grant rights to them.",
+      "exampleLocalPaths": [
+        "/images/codapay-header-image-asset-image-1-2-scaled.webp"
+      ]
+    },
+    {
+      "id": "section-product-mockup",
+      "description": "Product UI mockups inside feature-callout/toolkit/highlighted sections (webstore-asset-toolkit-*, giftcloud-asset-toolkit-*, distribution/consumer-platforms toolkit images, *-highlighted-section, hero-asset-slot-*).",
+      "realCompanyAssets": true,
+      "generationPolicy": "must-not-fabricate",
+      "complianceCritical": true,
+      "pinnedPolicy": "must-not-fabricate",
+      "usageCitations": [
+        "src/pages/ProductCodaWebstorePage.jsx:9-9",
+        "src/pages/ProductDistributionPage.jsx:9-9",
+        "src/pages/ProductCodaGiftcloudPage.jsx:9-9",
+        "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9"
+      ],
+      "observedFilesNote": "dozens; exact count not enumerated",
+      "licensing": "The asset depicts real third parties, real people, real payment brands or a real product UI. A generator must never create, redraw, approximate, restyle or AI-render it. Only an exact reference to a file that already exists in public/ is allowed; if the slot needs a different real asset, leave it as a placeholder for a human to supply, with rights confirmed.",
+      "exampleLocalPaths": [
+        "/images/webstore-asset-toolkit-asset-image-1.webp"
+      ]
+    },
+    {
+      "id": "product-card-mockup",
+      "description": "Homepage product-highlight card art with a base and a hover image (asset_base/asset_hover, homepage-*-2560x1802-1) and the mobile hover variants.",
+      "realCompanyAssets": true,
+      "generationPolicy": "must-not-fabricate",
+      "complianceCritical": true,
+      "pinnedPolicy": "must-not-fabricate",
+      "usageCitations": [
+        "src/components/ProductsHighlight.jsx:10-10",
+        "src/components/ProductsHighlight.jsx:10-10"
+      ],
+      "observedFilesNote": "about 13 base/hover/homepage images",
+      "licensing": "The asset depicts real third parties, real people, real payment brands or a real product UI. A generator must never create, redraw, approximate, restyle or AI-render it. Only an exact reference to a file that already exists in public/ is allowed; if the slot needs a different real asset, leave it as a placeholder for a human to supply, with rights confirmed.",
+      "exampleLocalPaths": [
+        "/images/asset_base.avif",
+        "/images/asset_hover.avif"
+      ]
+    },
+    {
+      "id": "carousel-thumbnail",
+      "description": "Article/news/case-study thumbnails in the card carousel: white-paper banner, Coda x Unity partnership press image, Tinder case-study image. Real articles featuring real third-party brands.",
+      "realCompanyAssets": true,
+      "generationPolicy": "must-not-fabricate",
+      "complianceCritical": true,
+      "pinnedPolicy": "must-not-fabricate",
+      "usageCitations": [
+        "src/components/CardCarousel.jsx:11-11",
+        "src/components/CardCarousel.jsx:11-11",
+        "src/components/CardCarousel.jsx:11-11"
+      ],
+      "observedDistinctFiles": 3,
+      "licensing": "Do not invent case studies, partnerships or customer stories, or generate fake editorial thumbnails for them. Real third-party logos, real people's photos or video, real payment-brand marks, real product UI screenshots and the commercial ABC Monument Grotesk typeface must never be reproduced, redrawn, approximated or fabricated by a generator. This design-repo documents where they are used; it does not grant rights to them.",
+      "thirdPartyRightsHolders": [
+        "Unity Technologies",
+        "Tinder (Match Group)"
+      ],
+      "exampleLocalPaths": [
+        "/images/coda-white-paper-banner-featured-post.webp"
+      ]
+    },
+    {
+      "id": "ui-icon-image",
+      "description": "Small raster/SVG UI marks referenced by <img>: check-circle-green/grey and x-circle in the webstore comparison list.",
+      "realCompanyAssets": false,
+      "generationPolicy": "may-generate-new",
+      "complianceCritical": false,
+      "usageCitations": [
+        "src/pages/ProductCodaWebstorePage.jsx:9-9"
+      ],
+      "observedDistinctFiles": 3,
+      "licensing": "A generator may create a NEW original asset for this role (generic UI glyphs, abstract background/illustration in the site's style). It must not copy an existing file and must not claim to be Coda's or a third party's original.",
+      "exampleLocalPaths": [
+        "/images/check-circle-green.svg"
+      ]
+    },
+    {
+      "id": "inline-svg-glyph",
+      "description": "Generic inline <svg> UI glyphs written straight into JSX: nav/menu/chevron/arrow icons, footer/header ornaments and the 25x28/26x28 feature glyphs in benefit lists (currentColor).",
+      "realCompanyAssets": false,
+      "generationPolicy": "may-generate-new",
+      "complianceCritical": false,
+      "usageCitations": [
+        "src/components/BenefitsStack.jsx:4-4",
+        "src/lib/carousel/ArrowButton.jsx:8-8"
+      ],
+      "observedFilesNote": "156 (25x28) + 69 (26x28) feature-glyph instances; Header.jsx has 37 and Footer.jsx 38 <svg> tags",
+      "licensing": "A generator may create a NEW original asset for this role (generic UI glyphs, abstract background/illustration in the site's style). It must not copy an existing file and must not claim to be Coda's or a third party's original.",
+      "notes": "New glyphs must be plain shapes that inherit currentColor; do not draw trademarks or recognisable brand glyphs."
+    },
+    {
+      "id": "inline-svg-wordmark",
+      "description": "Inline <svg> wordmarks placed in .inline-icons rows: wide viewBoxes (127x16, 145x28, 319x16, 311x48, 1086x80...). Several carry non-#1F2226 brand fills (#0066FF, #FFBA00, #34CAA3, #07F288...), which indicates third-party brand marks; others are Coda product-name lockups. Which is which was not individually identified.",
+      "realCompanyAssets": true,
+      "generationPolicy": "must-not-fabricate",
+      "complianceCritical": true,
+      "pinnedPolicy": "must-not-fabricate",
+      "usageCitations": [
+        "src/pages/ProductCodaGiftcloudPage.jsx:9-9",
+        "src/pages/ProductCodaConsumerPlatformsPage.jsx:9-9",
+        "src/components/ProductsHighlight.jsx:10-10"
+      ],
+      "observedFilesNote": "viewBox histogram over .inline-icon-inner svgs: 319x16 x20, 311x48 x15, 1086x80 x13, 125x17 x9, 1197x106 x9, 127x16 x3, single instances of 361x49, 107x28, 131x16, 126x16, 158x16, 145x28, 58x28",
+      "licensing": "Treat every wide inline wordmark as a possible real trademark. Never redraw or invent one. Real third-party logos, real people's photos or video, real payment-brand marks, real product UI screenshots and the commercial ABC Monument Grotesk typeface must never be reproduced, redrawn, approximated or fabricated by a generator. This design-repo documents where they are used; it does not grant rights to them.",
+      "thirdPartyRightsHolders": [
+        "brand owners of any third-party wordmarks (unidentified)"
+      ]
+    },
+    {
+      "id": "coda-wordmark",
+      "description": "The Coda logo as inline SVG in the header and footer (viewBox 0 0 89 24) - the company's own brand mark.",
+      "realCompanyAssets": true,
+      "generationPolicy": "must-reuse-exact",
+      "complianceCritical": false,
+      "usageCitations": [
+        "src/components/Header.jsx:10-10",
+        "src/components/Footer.jsx:4-4"
+      ],
+      "observedDistinctFiles": 1,
+      "licensing": "The asset is Coda's own brand or product asset (logo, favicon, own promo video, flags). A generator may only reference the existing local file by exact path; it must not recreate, redraw, recolour, crop or \"improve\" it.",
+      "notes": "Copy the existing markup unchanged; never redraw the mark.",
+      "exampleLocalPaths": [
+        "(inline SVG in Header.jsx and Footer.jsx)"
+      ]
+    },
+    {
+      "id": "favicon",
+      "description": "Site icon files: /favicon.svg (charcoal circle mark) and the Coda MasterIcon webp used for the 32x32/192x192 icon links.",
+      "realCompanyAssets": true,
+      "generationPolicy": "must-reuse-exact",
+      "complianceCritical": false,
+      "usageCitations": [
+        "index.html:8-8",
+        "index.html:10-10"
+      ],
+      "observedDistinctFiles": 3,
+      "licensing": "The asset is Coda's own brand or product asset (logo, favicon, own promo video, flags). A generator may only reference the existing local file by exact path; it must not recreate, redraw, recolour, crop or \"improve\" it.",
+      "exampleLocalPaths": [
+        "/favicon.svg",
+        "/images/Coda-cropped-MasterIcon-1-300x300.webp"
+      ]
+    },
+    {
+      "id": "brand-typeface-file",
+      "description": "Font binaries for ABC Monument Grotesk (woff2/woff/otf; Regular, Medium, Heavy + italics) and JetBrains Mono Regular, loaded through @font-face from /fonts. ABC Monument Grotesk is a commercial licensed typeface copied from the live site; it is not redistributable.",
+      "realCompanyAssets": true,
+      "generationPolicy": "must-not-redistribute",
+      "complianceCritical": true,
+      "pinnedPolicy": "must-not-redistribute",
+      "usageCitations": [
+        "index.html:11-11",
+        "public/styles/coda-main.css:1-1"
+      ],
+      "observedDistinctFiles": 19,
+      "observedFilesNote": "18 ABC Monument Grotesk files + 1 JetBrains Mono file in public/fonts",
+      "licensing": "ABC Monument Grotesk is licensed commercial software. Do not reproduce, convert, subset, embed in new packages, or suggest it can be reused; generated pages inherit the already-loaded local files and never ship their own copy. Real third-party logos, real people's photos or video, real payment-brand marks, real product UI screenshots and the commercial ABC Monument Grotesk typeface must never be reproduced, redrawn, approximated or fabricated by a generator. This design-repo documents where they are used; it does not grant rights to them.",
+      "thirdPartyRightsHolders": [
+        "ABC Monument Grotesk: Dinamo (commercial license)",
+        "JetBrains Mono: JetBrains (OFL)"
+      ],
+      "exampleLocalPaths": [
+        "/fonts/ABCMonumentGrotesk-Regular-CCsuHl-t.woff2"
+      ]
+    }
+  ]
+}

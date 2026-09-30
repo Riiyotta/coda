@@ -1,0 +1,99 @@
+{
+  "id": "component.faq-item",
+  "kind": "component",
+  "purpose": "Accordion row: question button with a plus/minus icon, answer panel that animates height and opacity.",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "question",
+      "answer"
+    ],
+    "properties": {
+      "question": {
+        "type": "string",
+        "maxWords": 22,
+        "note": "Measured 5-21 words."
+      },
+      "answer": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 4,
+        "items": {
+          "type": "string",
+          "maxWords": 30
+        },
+        "note": "BODY COPY: answer paragraphs; measured total per item 9-91 words, up to 4 paragraphs (b on pricing/links/distribution/consumer-platforms; c on the other 9). Budget total 95 words."
+      }
+    }
+  },
+  "states": {
+    "collapsed": "default for every item (height 0, opacity 0, overflow-hidden)",
+    "expanded": "height auto, opacity 1, icon minus",
+    "transition": "300ms cubic-bezier(.25,.1,.35,1) on height and opacity (height starts one frame after opacity)"
+  },
+  "tokens": [
+    "component.faq.divider",
+    "component.faq.padding-y",
+    "component.faq.title",
+    "component.faq.duration",
+    "component.faq.easing",
+    "border.divider",
+    "title.faq",
+    "motion.faq.duration",
+    "motion.faq.easing",
+    "spacing.5",
+    "spacing.4"
+  ],
+  "motion": {
+    "pattern": "accordion",
+    "duration": "motion.faq.duration",
+    "easing": "motion.faq.easing",
+    "reducedMotionFallback": "Design rule (the site has no prefers-reduced-motion handling): toggle height/opacity instantly (0ms) instead of tweening."
+  },
+  "responsive": {
+    "icon": "w-8 h-8 below 800px, md:w-6 md:h-6",
+    "answer": "md:pr-8 right padding only from 800px"
+  },
+  "assetRoles": [
+    "inline-svg-glyph"
+  ],
+  "usedBy": [
+    "section.faq"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract",
+    "copy": "b on 4 pages, c on 9; no FAQ on / or /product/coda-giftcloud/"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-faq-item",
+      "source": "src/pages/PricingPage.jsx:6-6",
+      "quote": "faq-item w-full text-pretty"
+    },
+    {
+      "id": "cit-p2-faq-btn",
+      "source": "src/pages/PricingPage.jsx:6-6",
+      "quote": "border-b text-left gap-4 cursor-pointer py-5 type-header-s border-b-[#e2e2e2]"
+    },
+    {
+      "id": "cit-p2-faq-dur",
+      "source": "src/lib/enhance/faq.js:8-8",
+      "quote": "const DURATION = 300"
+    },
+    {
+      "id": "cit-p2-faq-ease",
+      "source": "src/lib/enhance/faq.js:9-9",
+      "quote": "const EASING = 'cubic-bezier(0.25, 0.1, 0.35, 1)'"
+    },
+    {
+      "id": "cit-p2-faq-collapsed",
+      "source": "src/lib/enhance/faq.js:1-1",
+      "quote": "Every item starts collapsed"
+    },
+    {
+      "id": "cit-p2-faq-answer",
+      "source": "src/pages/PricingPage.jsx:6-6",
+      "quote": "pt-4 pb-0 [&_p]:!mb-4 md:pr-8"
+    }
+  ]
+}

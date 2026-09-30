@@ -1,0 +1,110 @@
+{
+  "id": "component.card-feature",
+  "kind": "component",
+  "purpose": "Unfilled feature cell with hairline dividers: icon, h5 title, short body. Used by features-stack, feature-grid and inside highlighted-mega.",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "icon",
+      "title",
+      "body"
+    ],
+    "properties": {
+      "icon": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "assetRole"
+        ],
+        "properties": {
+          "assetRole": {
+            "type": "string",
+            "enum": [
+              "inline-svg-glyph"
+            ]
+          },
+          "tint": {
+            "type": "string",
+            "enum": [
+              "blue",
+              "green",
+              "pink",
+              "yellow",
+              "purple",
+              "orange",
+              "black"
+            ]
+          }
+        }
+      },
+      "title": {
+        "type": "string",
+        "maxWords": 6,
+        "note": "Measured 1-5 words (giftcloud/codapay/distribution/consumer-platforms pages are real copy: b for 3 of them)."
+      },
+      "body": {
+        "type": "string",
+        "maxWords": 20,
+        "note": "BODY COPY, budget from measured 7-20 word slots."
+      }
+    }
+  },
+  "variants": {
+    "in-3col-grid": "features-stack / feature-grid (3 cols, 3 or 6 cards)",
+    "in-2col-grid": "highlighted-mega (2 cols, 4 cards)"
+  },
+  "tokens": [
+    "border.divider",
+    "border.default",
+    "type.header-s",
+    "body.card",
+    "spacing.5",
+    "layout.grid-gap.card"
+  ],
+  "motion": {
+    "pattern": "reveal-stagger",
+    "duration": "motion.reveal.duration",
+    "easing": "motion.reveal.easing",
+    "delayStep": "motion.reveal.stagger-step",
+    "delayRule": "card i (1-based) has inline transitionDelay (i)*50ms, measured 50ms..300ms on cards",
+    "reducedMotionFallback": "Design rule (site has no prefers-reduced-motion handling): show cards at final opacity/position with no stagger delay."
+  },
+  "responsive": {
+    "grid": "1 col below 800px, 3 (or 2) from 800px",
+    "dividers": "first-two cells get border-b below 800px; from 800px border-b removed and border-r added (CSS .first-two)",
+    "padding": "md:px-5 py-5"
+  },
+  "assetRoles": [
+    "inline-svg-glyph"
+  ],
+  "usedBy": [
+    "section.features-stack",
+    "section.feature-grid",
+    "section.highlighted-mega"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract",
+    "copy": "b on giftcloud/distribution/consumer-platforms, c on codapay & industries"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-card-feature",
+      "source": "src/pages/ProductCodapayPage.jsx:9-9",
+      "quote": "features-stack-inner-card w-full md:px-5 py-5 h-full text-pretty"
+    },
+    {
+      "id": "cit-p2-card-feature-borders",
+      "source": "src/pages/ProductCodapayPage.jsx:9-9",
+      "quote": "first-two"
+    },
+    {
+      "id": "cit-p2-card-feature-css",
+      "source": "public/styles/coda-main.css:1-1",
+      "quote": ".\\[\\&_\\.first-two\\]\\:md\\:border-r .first-two{border-right-width:1px}",
+      "charRange": [
+        202919,
+        202987
+      ]
+    }
+  ]
+}

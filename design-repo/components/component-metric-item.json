@@ -1,0 +1,67 @@
+{
+  "id": "component.metric-item",
+  "kind": "component",
+  "purpose": "Stat pair: short figure over a short label, centred, on a charcoal band.",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "figure",
+      "label"
+    ],
+    "properties": {
+      "figure": {
+        "type": "string",
+        "maxWords": 1,
+        "note": "Measured 1 word (2B+, 300+, 600+, 55m+)."
+      },
+      "label": {
+        "type": "string",
+        "maxWords": 4,
+        "note": "Measured 2-4 words."
+      }
+    }
+  },
+  "tokens": [
+    "color.grey-1",
+    "type.body-s",
+    "type.header-l",
+    "spacing.2"
+  ],
+  "motion": {
+    "pattern": "reveal-stagger",
+    "duration": "motion.reveal.duration",
+    "easing": "motion.reveal.easing",
+    "delayStep": "motion.reveal.stagger-step",
+    "reducedMotionFallback": "Design rule (site has no prefers-reduced-motion handling): show at final opacity/position with no stagger delay.",
+    "delay": "items i*50ms"
+  },
+  "responsive": {
+    "below800": "w-1/2 (2 per row, gap-y-5)",
+    "from800": "w-full inside flex-nowrap row, justify-between"
+  },
+  "assetRoles": [],
+  "usedBy": [
+    "section.metrics"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract",
+    "copy": "a on /, c on 5 industry/MoR pages"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-metric",
+      "source": "src/components/Metrics.jsx:4-4",
+      "quote": "metrics-item w-1/2 md:w-full flex flex-col gap-2"
+    },
+    {
+      "id": "cit-p2-metric-h3",
+      "source": "src/components/Metrics.jsx:4-4",
+      "quote": "<h3 className=\"wp-block-heading\">{\"2B+\"}</h3>"
+    },
+    {
+      "id": "cit-p2-metric-delay",
+      "source": "src/components/Metrics.jsx:4-4",
+      "quote": "\"transitionDelay\": \"200ms\""
+    }
+  ]
+}

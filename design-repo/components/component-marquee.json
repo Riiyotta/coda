@@ -1,0 +1,105 @@
+{
+  "id": "component.marquee",
+  "kind": "component",
+  "purpose": "Endless horizontal left-scrolling strip (port of react-fast-marquee). Three uses: publisher logos (hero), phone screenshots (products-highlight, consumer-platforms hero), press logos.",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "items",
+      "itemRole"
+    ],
+    "properties": {
+      "itemRole": {
+        "type": "string",
+        "enum": [
+          "partner-logo",
+          "press-logo",
+          "product-card-mockup",
+          "hero-product-mockup"
+        ]
+      },
+      "items": {
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 9,
+        "items": {
+          "type": "string",
+          "note": "Existing local asset paths; measured counts: hero logos 5-6, press 9, product-card shots 3, consumer-hero shots 4.",
+          "format": "local-asset-path"
+        }
+      },
+      "autoFill": {
+        "type": "boolean"
+      },
+      "gradient": {
+        "type": "boolean"
+      }
+    }
+  },
+  "variants": {
+    "logo-strip": "gradient on md+, autoFill+play always when logos>4 or width<800",
+    "media-strip": "no gradient; two wrappers for mobile and desktop",
+    "press-strip": "fixed-width tiles (w-pressLogoW)"
+  },
+  "tokens": [
+    "motion.marquee.speed",
+    "component.marquee.speed",
+    "component.press-logo.width",
+    "icon-size.product-card-marquee-h",
+    "breakpoint.md"
+  ],
+  "motion": {
+    "pattern": "continuous-scroll",
+    "speed": "motion.marquee.speed",
+    "direction": "left",
+    "pauseOnHover": false,
+    "reducedMotionFallback": "Design rule (the site has no prefers-reduced-motion handling): freeze the strip (--play paused) and show the first row statically."
+  },
+  "responsive": {
+    "below800": "always plays (autoFill); no gradient overlay",
+    "from800": "plays when items>4; gradient overlay 200px wide"
+  },
+  "assetRoles": [
+    "partner-logo",
+    "press-logo",
+    "product-card-mockup",
+    "hero-product-mockup"
+  ],
+  "generationPolicy": "All four roles are must-not-fabricate: real third-party marks / product UI.",
+  "usedBy": [
+    "section.hero",
+    "section.products-hightlight",
+    "section.press-carousel"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract; speed from bundle port",
+    "copy": "none"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-marquee-speed",
+      "source": "src/lib/marquee/Marquee.jsx:12-12",
+      "quote": "speed = 50,"
+    },
+    {
+      "id": "cit-p2-marquee-dur",
+      "source": "src/lib/marquee/Marquee.jsx:46-46",
+      "quote": "if (autoFill) return (marqueeWidth * multiplier) / speed"
+    },
+    {
+      "id": "cit-p2-marquee-hero",
+      "source": "src/components/Hero.jsx:12-12",
+      "quote": "const logosPlay = isMobile || LOGO_COUNT > 4"
+    },
+    {
+      "id": "cit-p2-marquee-grad",
+      "source": "src/components/Hero.jsx:15-15",
+      "quote": "gradient={!isMobile && logosPlay} gradientColor=\"#fcfcfc\""
+    },
+    {
+      "id": "cit-p2-marquee-enh",
+      "source": "src/lib/enhance/marquee.js:5-5",
+      "quote": "content/marquee (marquee-aVY9p8pW.js): two wrappers (\"hidden md:block\" and \"md:hidden\")"
+    }
+  ]
+}

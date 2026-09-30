@@ -1,0 +1,192 @@
+{
+  "$description": "Rhythm and position rules JSON Schema cannot express. Every rule has severity error|warn and named exceptions. Each rule id is implemented by a function of the same id in schema/semantic_validate.py (RULES dict); ids must stay in parity both ways. All rules were checked against the real node sequences in templates/templates.json (expanded at min and max repeat counts) when written; a template listed under exceptions genuinely violates the blanket rule. Rules take the PageSpec node order (shell.navbar first, shell.footer last).",
+  "version": "1.0.0",
+  "notEvidenced": {
+    "motionBudget": "No real evidence of a per-page motion budget (the site has no cap on concurrent reveals/marquees), so no MOTION_BUDGET rule is defined. Per-node motion is checked by the schema (pattern const-locked per section, reducedMotionFallback required) and by the semantic validator instead.",
+    "scrollStages": "The site has no scroll-stage/pinned sections, so no NO_CONSECUTIVE_SCROLL_STAGES rule is defined."
+  },
+  "rules": [
+    {
+      "id": "TEMPLATE_SERVES_ROUTE",
+      "severity": "error",
+      "description": "The PageSpec route must be one of the routes the declared template serves (templates.json routes).",
+      "exceptions": []
+    },
+    {
+      "id": "TEMPLATE_NODE_MATCH",
+      "severity": "error",
+      "description": "The node list must match the declared template's real node list: same order, every required node present, no extra nodes; a node may appear more than once only when the template marks it repeatable, within its evidenced count {min,max}; repeated nodes of one (section, variant) key must be contiguous; a template node that fixes a variant fixes the PageSpec node's variant too.",
+      "exceptions": []
+    },
+    {
+      "id": "ONE_HERO_PER_PAGE",
+      "severity": "error",
+      "description": "Exactly one hero.main per page.",
+      "exceptions": []
+    },
+    {
+      "id": "NAVBAR_FIRST_FOOTER_LAST",
+      "severity": "error",
+      "description": "shell.navbar is the first node and shell.footer the last node, each exactly once.",
+      "exceptions": []
+    },
+    {
+      "id": "HERO_FOLLOWS_NAVBAR",
+      "severity": "error",
+      "description": "hero.main immediately follows shell.navbar (contract mustFollowNav/mustBeFirst).",
+      "exceptions": []
+    },
+    {
+      "id": "PRE_FOOTER_LAST_BEFORE_FOOTER",
+      "severity": "error",
+      "description": "cta.pre-footer is present once and is the node immediately before shell.footer (it is the last page section on all 15 routes).",
+      "exceptions": []
+    },
+    {
+      "id": "NO_ADJACENT_SAME_SECTION",
+      "severity": "error",
+      "description": "The same section id must not appear in two adjacent positions.",
+      "exceptions": [
+        {
+          "section": "callout.feature",
+          "reason": "Every real page with callouts renders a contiguous run of 2-5 feature-callouts (src/pages/*.jsx)."
+        }
+      ]
+    },
+    {
+      "id": "FAQ_FOLLOWED_BY_SPACER",
+      "severity": "error",
+      "description": "When faq.accordion is present, spacer.footer-gap is the very next node (13 of 13 real pages with a faq; on distribution the JSX order is products.highlight, faq, spacer, pre-footer).",
+      "exceptions": []
+    },
+    {
+      "id": "SPACER_BEFORE_PRE_FOOTER",
+      "severity": "error",
+      "description": "When spacer.footer-gap is present it sits immediately before cta.pre-footer and immediately after faq.accordion.",
+      "exceptions": []
+    },
+    {
+      "id": "FAQ_PRESENT_ON_CONTENT_PAGES",
+      "severity": "warn",
+      "description": "Pages are expected to carry faq.accordion + spacer.footer-gap; a page without them is flagged (non-fatal).",
+      "exceptions": [
+        {
+          "template": "home",
+          "reason": "Homepage has no faq or spacer (src/components/Main.jsx)."
+        },
+        {
+          "template": "product-giftcloud",
+          "reason": "giftcloud goes carousel -> pre-footer with no faq/spacer."
+        }
+      ]
+    },
+    {
+      "id": "PRICE_STACK_BEFORE_PRODUCTS_HIGHLIGHT",
+      "severity": "error",
+      "description": "Where pricing.price-stack and products.highlight both occur, products.highlight (cross-sell variant) immediately follows the price stack (codapay, coda-links, webstore, distribution).",
+      "exceptions": [
+        {
+          "template": "home",
+          "reason": "Homepage has no price stack; its catalog products.highlight is the second section, right after the hero."
+        }
+      ]
+    },
+    {
+      "id": "PRICE_STACK_AFTER_CAROUSEL",
+      "severity": "warn",
+      "description": "On product pages pricing.price-stack follows carousel.cards directly (4 of 4 real product pages that have one).",
+      "exceptions": [
+        {
+          "template": "pricing",
+          "reason": "On /pricing/ the price stack is the second section, straight after the hero."
+        }
+      ]
+    },
+    {
+      "id": "BRIDGE_BEFORE_CALLOUT_RUN",
+      "severity": "error",
+      "description": "A bridge.section, when present, sits immediately before the first callout.feature of the run (all 8 real occurrences).",
+      "exceptions": []
+    },
+    {
+      "id": "CALLOUTS_CONTIGUOUS",
+      "severity": "error",
+      "description": "All callout.feature nodes of a page form one contiguous run (never interleaved).",
+      "exceptions": []
+    },
+    {
+      "id": "CALLOUT_COUNT_PER_ROUTE",
+      "severity": "error",
+      "description": "On routes that share a callout-run template the callout.feature count is fixed per route, as counted from each page's JSX (count of top-level feature-callout blocks): creator-economy 4, online-gaming 5, dating 3, digital-entertainment 3, esim 4, lms 4, merchant-of-record 5. Closes the looseness of the shared templates' 3-5 / 4-5 ranges.",
+      "perRoute": {
+        "/industries/creator-economy-payments/": 4,
+        "/industries/online-gaming-payments/": 5,
+        "/industries/dating-app-payments/": 3,
+        "/industries/digital-entertainment/": 3,
+        "/industries/esim-digital-utility-payments/": 4,
+        "/industries/learning-management-system-payments/": 4,
+        "/use-case/merchant-of-record/": 5
+      },
+      "evidence": [
+        "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx",
+        "src/pages/IndustriesOnlineGamingPaymentsPage.jsx",
+        "src/pages/IndustriesDatingAppPaymentsPage.jsx",
+        "src/pages/IndustriesDigitalEntertainmentPage.jsx",
+        "src/pages/IndustriesEsimDigitalUtilityPaymentsPage.jsx",
+        "src/pages/IndustriesLearningManagementSystemPaymentsPage.jsx",
+        "src/pages/UseCaseMerchantOfRecordPage.jsx"
+      ],
+      "exceptions": []
+    },
+    {
+      "id": "CALLOUT_RUN_SINGLE_VARIANT",
+      "severity": "error",
+      "description": "(section, variant)-keyed: every callout.feature of a page carries the same variant (industry-icons-link, titled or dual-panel are per page).",
+      "exceptions": []
+    },
+    {
+      "id": "ISOLATED_CALLOUT_AFTER_CALLOUT_RUN",
+      "severity": "error",
+      "description": "callout.isolated, when present, immediately follows the last callout.feature (coda-links only).",
+      "exceptions": []
+    },
+    {
+      "id": "ROUTE_RESTRICTED_SECTIONS",
+      "severity": "error",
+      "description": "Route-restricted sections appear only on their routes: awards.recognition and carousel.press on / only; tiles.page and comparison.integration on /product/codapay/ only; callout.isolated on /product/coda-links/ only; table.payment-method on /pricing/ only. Every other section must also be listed in its contract usedOn for the page route.",
+      "restrictions": {
+        "awards.recognition": [
+          "/"
+        ],
+        "carousel.press": [
+          "/"
+        ],
+        "tiles.page": [
+          "/product/codapay/"
+        ],
+        "comparison.integration": [
+          "/product/codapay/"
+        ],
+        "callout.isolated": [
+          "/product/coda-links/"
+        ],
+        "table.payment-method": [
+          "/pricing/"
+        ]
+      },
+      "exceptions": []
+    },
+    {
+      "id": "SECTION_CONTRACT_CONSTRAINTS",
+      "severity": "error",
+      "description": "Section-contract constraints read from sections/*.json: onePerPage, maxPerPage, mustBeFirst, mustBeLast, noConsecutive, mustFollowNav, mustPrecedeFooter.",
+      "exceptions": []
+    },
+    {
+      "id": "VARIANT_MATCHES_ROUTE",
+      "severity": "warn",
+      "description": "When a section contract's variant table names routes for the node's variant, the page route should be one of them; also the variant must be a key of the contract's variants.",
+      "exceptions": []
+    }
+  ]
+}

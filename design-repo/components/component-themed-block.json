@@ -1,0 +1,98 @@
+{
+  "id": "component.themed-block",
+  "kind": "component",
+  "purpose": "A full-width rounded panel whose background/text colour pair is set inline (--theme-bg/--theme-color); children inherit the text colour. Wraps highlighted-mega, impact-figures, isolated-callout, price-stack cards and the FAQ (fixed #f3f3f3).",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "theme"
+    ],
+    "properties": {
+      "theme": {
+        "type": "string",
+        "enum": [
+          "dark",
+          "grey",
+          "white",
+          "light",
+          "blue",
+          "yellow-deep",
+          "pink",
+          "orange",
+          "green"
+        ],
+        "note": "Maps to component.themed-block.<theme>. Use the accent themes only for impact-figures (one accent per page: the page product colour)."
+      }
+    }
+  },
+  "variants": {
+    "dark": "highlighted-mega, isolated-callout, price-stack \"Custom pricing\"",
+    "grey": "impact-figures on the six industry pages",
+    "blue": "impact-figures on codapay/coda-links",
+    "orange": "impact-figures consumer-platforms",
+    "green": "impact-figures webstore",
+    "pink": "impact-figures distribution",
+    "yellow-deep": "impact-figures giftcloud"
+  },
+  "tokens": [
+    "component.themed-block.dark",
+    "component.themed-block.grey",
+    "component.themed-block.white",
+    "component.themed-block.light",
+    "component.themed-block.blue",
+    "component.themed-block.yellow-deep",
+    "component.themed-block.pink",
+    "component.themed-block.orange",
+    "component.themed-block.green",
+    "radius.lg",
+    "radius.md"
+  ],
+  "motion": {
+    "pattern": "none (the panel itself does not animate; children use reveal)",
+    "reducedMotionFallback": "Design rule: not applicable."
+  },
+  "responsive": {
+    "radius": "rounded-lg for highlighted-mega/isolated-callout/faq panels, rounded-md for impact-figures panel",
+    "padding": "panel: py-7 (impact) / pt-9 pb-6 (mega) ; outer wrapper adds md:px-6 gutters"
+  },
+  "assetRoles": [],
+  "usedBy": [
+    "section.highlighted-mega",
+    "section.impact-figures",
+    "section.isolated-callout",
+    "section.price-stack",
+    "section.metrics",
+    "section.pre-footer"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract",
+    "copy": "none"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-theme-dark",
+      "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9",
+      "quote": "\"--theme-color\": \"var(--color-offWhite)\", \"--theme-bg\": \"var(--color-charcoal)\", \"color\": \"rgb(var(--color-offWhite))\", \"backgroundColor\": \"rgb(var(--color-charcoal))\""
+    },
+    {
+      "id": "cit-p2-theme-impact-grey",
+      "source": "src/pages/IndustriesOnlineGamingPaymentsPage.jsx:9-9",
+      "quote": "\"--theme-bg\": \"var(--color-grey-2)\""
+    },
+    {
+      "id": "cit-p2-theme-impact-orange",
+      "source": "src/pages/ProductCodaConsumerPlatformsPage.jsx:9-9",
+      "quote": "\"--theme-bg\": \"var(--color-orange-3)\""
+    },
+    {
+      "id": "cit-p2-theme-impact-yellow",
+      "source": "src/pages/ProductCodaGiftcloudPage.jsx:9-9",
+      "quote": "\"--theme-bg\": \"var(--color-yellow-4)\""
+    },
+    {
+      "id": "cit-p2-theme-impact-pink",
+      "source": "src/pages/ProductDistributionPage.jsx:9-9",
+      "quote": "\"--theme-bg\": \"var(--color-pink-3)\""
+    }
+  ]
+}

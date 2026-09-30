@@ -1,0 +1,287 @@
+{
+  "$description": "Semantic colour roles. Every role $refs a foundation colour and is grounded in counted class usage. There is NO page-canvas/background role: the stylesheet declares no body background (cit-sem-no-page-bg).",
+  "idConvention": "Token ids are dotted, lower-case-first, tier-prefix-free: foundation ids are <category>.<name> (color.charcoal, spacing.7, type.header-s, radius.md, breakpoint.md, elevation.z-50, icon-size.nav-icon, motion.reveal.duration). Semantic ids are <role>.<variant> (text.primary, surface.card, border.divider, accent.blue). Component ids start with component.<name>.<slot>, layout ids with layout.<name>. A \"$ref\" is always another token id.",
+  "tokens": {
+    "text.primary": {
+      "$type": "color",
+      "$ref": "color.charcoal",
+      "rationale": "Headings and strong emphasis; charcoal is the top explicit text colour after body grey.",
+      "usage": 385,
+      "evidence": [
+        "cit-sem-text-primary",
+        "cit-color-charcoal"
+      ]
+    },
+    "text.body": {
+      "$type": "color",
+      "$ref": "color.grey-2",
+      "rationale": "Paragraph/list copy; the single most used text colour.",
+      "usage": 528,
+      "evidence": [
+        "cit-sem-text-body",
+        "cit-color-grey-2"
+      ]
+    },
+    "text.subtle": {
+      "$type": "color",
+      "$ref": "color.grey-1",
+      "rationale": "Captions and secondary meta on light surfaces.",
+      "usage": 39,
+      "evidence": [
+        "cit-sem-text-subtle",
+        "cit-color-grey-1"
+      ]
+    },
+    "text.inverse": {
+      "$type": "color",
+      "$ref": "color.offWhite",
+      "rationale": "Text on charcoal/black or on saturated accent surfaces.",
+      "usage": 43,
+      "evidence": [
+        "cit-sem-text-inverse",
+        "cit-color-offWhite"
+      ]
+    },
+    "text.inverse-strong": {
+      "$type": "color",
+      "$ref": "color.white",
+      "rationale": "Pure white text on dark media.",
+      "usage": 39,
+      "evidence": [
+        "cit-sem-text-inverse",
+        "cit-color-white"
+      ]
+    },
+    "text.disabled": {
+      "$type": "color",
+      "$ref": "color.grey-2",
+      "rationale": "Disabled carousel arrows: grey-2 at 50% alpha.",
+      "usage": 26,
+      "evidence": [
+        "cit-sem-text-disabled",
+        "cit-sem-text-disabled-css"
+      ],
+      "alpha": 0.5
+    },
+    "surface.card": {
+      "$type": "color",
+      "$ref": "color.grey-0",
+      "rationale": "Default content card background (benefit cards, tiles); the most used background.",
+      "usage": 140,
+      "evidence": [
+        "cit-sem-surface-card",
+        "cit-color-grey-0"
+      ]
+    },
+    "surface.raised": {
+      "$type": "color",
+      "$ref": "color.white",
+      "rationale": "Card on a grey plate, e.g. carousel items.",
+      "usage": 56,
+      "evidence": [
+        "cit-sem-surface-raised",
+        "cit-color-white"
+      ]
+    },
+    "surface.soft": {
+      "$type": "color",
+      "$ref": "color.offWhite",
+      "rationale": "Impact-figure cards and pills.",
+      "usage": 23,
+      "evidence": [
+        "cit-sem-surface-soft",
+        "cit-color-offWhite"
+      ]
+    },
+    "surface.inverse": {
+      "$type": "color",
+      "$ref": "color.charcoal",
+      "rationale": "Dark panel: footer, dark themed blocks.",
+      "usage": 44,
+      "evidence": [
+        "cit-sem-surface-inverse",
+        "cit-color-charcoal"
+      ]
+    },
+    "surface.muted": {
+      "$type": "color",
+      "$ref": "color.grey-1",
+      "rationale": "Media plate behind card thumbnails.",
+      "usage": 42,
+      "evidence": [
+        "cit-sem-surface-muted",
+        "cit-color-grey-1"
+      ]
+    },
+    "surface.light": {
+      "$type": "color",
+      "$ref": "color.grey-light",
+      "rationale": "bg-[#f3f3f3] arbitrary background on industry pages.",
+      "usage": 13,
+      "evidence": [
+        "cit-sem-surface-light",
+        "cit-color-grey-light"
+      ]
+    },
+    "border.default": {
+      "$type": "color",
+      "$ref": "color.grey-0",
+      "rationale": "Most-used explicit border colour.",
+      "usage": 13,
+      "evidence": [
+        "cit-sem-border",
+        "cit-color-grey-0"
+      ]
+    },
+    "border.strong": {
+      "$type": "color",
+      "$ref": "color.grey-1",
+      "rationale": "Second explicit border colour.",
+      "usage": 8,
+      "evidence": [
+        "cit-sem-border",
+        "cit-color-grey-1"
+      ]
+    },
+    "border.deep": {
+      "$type": "color",
+      "$ref": "color.grey-2",
+      "rationale": "Rare dark border (2 uses).",
+      "usage": 2,
+      "evidence": [
+        "cit-sem-border",
+        "cit-color-grey-2"
+      ]
+    },
+    "border.divider": {
+      "$type": "color",
+      "$ref": "color.divider-e2e2e2",
+      "rationale": "FAQ row divider; literal #e2e2e2, one per FAQ item (91).",
+      "usage": 91,
+      "evidence": [
+        "cit-color-literal-e2e2e2-jsx",
+        "cit-color-literal-e2e2e2-css"
+      ]
+    },
+    "accent.blue": {
+      "$type": "color",
+      "$ref": "color.blue-3",
+      "rationale": "Per-page/per-block accent (blue); set via --theme-color and used for inline icon colour.",
+      "usage": 84,
+      "evidence": [
+        "cit-sem-accent-theme",
+        "cit-color-blue-3"
+      ]
+    },
+    "accent.green": {
+      "$type": "color",
+      "$ref": "color.green-3",
+      "rationale": "Per-page/per-block accent (green); set via --theme-color and used for inline icon colour.",
+      "usage": 54,
+      "evidence": [
+        "cit-sem-accent-theme",
+        "cit-color-green-3"
+      ]
+    },
+    "accent.pink": {
+      "$type": "color",
+      "$ref": "color.pink-3",
+      "rationale": "Per-page/per-block accent (pink); set via --theme-color and used for inline icon colour.",
+      "usage": 48,
+      "evidence": [
+        "cit-sem-accent-theme",
+        "cit-color-pink-3"
+      ]
+    },
+    "accent.yellow": {
+      "$type": "color",
+      "$ref": "color.yellow-3",
+      "rationale": "Per-page/per-block accent (yellow); set via --theme-color and used for inline icon colour.",
+      "usage": 22,
+      "evidence": [
+        "cit-sem-accent-theme",
+        "cit-color-yellow-3"
+      ]
+    },
+    "accent.purple": {
+      "$type": "color",
+      "$ref": "color.purple-3",
+      "rationale": "Per-page/per-block accent (purple); set via --theme-color and used for inline icon colour.",
+      "usage": 18,
+      "evidence": [
+        "cit-sem-accent-theme",
+        "cit-color-purple-3"
+      ]
+    },
+    "accent.orange": {
+      "$type": "color",
+      "$ref": "color.orange-3",
+      "rationale": "Per-page/per-block accent (orange); set via --theme-color and used for inline icon colour.",
+      "usage": 20,
+      "evidence": [
+        "cit-sem-accent-theme",
+        "cit-color-orange-3"
+      ]
+    },
+    "accent.blue-soft": {
+      "$type": "color",
+      "$ref": "color.blue-1",
+      "rationale": "Soft blue accent block (ramp step 1).",
+      "usage": 20,
+      "evidence": [
+        "cit-sem-accent-soft",
+        "cit-color-blue-1"
+      ]
+    },
+    "accent.pink-soft": {
+      "$type": "color",
+      "$ref": "color.pink-1",
+      "rationale": "Soft pink accent block (ramp step 1).",
+      "usage": 8,
+      "evidence": [
+        "cit-sem-accent-soft",
+        "cit-color-pink-1"
+      ]
+    },
+    "accent.orange-soft": {
+      "$type": "color",
+      "$ref": "color.orange-1",
+      "rationale": "Soft orange accent block (ramp step 1).",
+      "usage": 4,
+      "evidence": [
+        "cit-sem-accent-soft",
+        "cit-color-orange-1"
+      ]
+    },
+    "accent.green-soft": {
+      "$type": "color",
+      "$ref": "color.green-1",
+      "rationale": "Soft green accent block (ramp step 1).",
+      "usage": 4,
+      "evidence": [
+        "cit-sem-accent-soft",
+        "cit-color-green-1"
+      ]
+    },
+    "accent.yellow-deep": {
+      "$type": "color",
+      "$ref": "color.yellow-4",
+      "rationale": "Dark yellow used as accent text/background on giftcloud.",
+      "usage": 8,
+      "evidence": [
+        "cit-sem-accent-deep",
+        "cit-color-yellow-4"
+      ]
+    },
+    "text.on-black-button": {
+      "$type": "color",
+      "$ref": "color.offWhite",
+      "rationale": "Label colour on the black button style.",
+      "usage": 21,
+      "evidence": [
+        "cit-color-offWhite"
+      ],
+      "note": "From .is-style-black rule; usage is the is-style-black count."
+    }
+  }
+}

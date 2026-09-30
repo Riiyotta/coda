@@ -1,0 +1,82 @@
+{
+  "id": "component.card-impact",
+  "kind": "component",
+  "purpose": "Big-number card: large figure (h2), short label, optional descriptive line, with a mono index badge in the top-right corner.",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "figure",
+      "label"
+    ],
+    "properties": {
+      "figure": {
+        "type": "string",
+        "maxWords": 1,
+        "note": "Measured numeric tokens such as \"10PP\" (1 word); a few giftcloud/codapay cards use a 4-6 word heading instead."
+      },
+      "label": {
+        "type": "string",
+        "maxWords": 6,
+        "note": "Measured 2-6 words (heading/label line)."
+      },
+      "description": {
+        "type": "string",
+        "maxWords": 28,
+        "note": "BODY COPY, budget from measured 11-28 words."
+      },
+      "index": {
+        "type": "string",
+        "maxWords": 1,
+        "note": "\"01\", \"02\", \"03\" - derived from position."
+      }
+    }
+  },
+  "variants": {
+    "figure+label+description": "industry / codapay / distribution",
+    "figure+heading+description": "giftcloud, coda-links (5-6 word heading)"
+  },
+  "tokens": [
+    "component.card.impact.bg",
+    "surface.soft",
+    "color.offWhite",
+    "color.charcoal",
+    "radius.card",
+    "space.card-padding",
+    "type.header-2-xl",
+    "label.mono",
+    "font.mono"
+  ],
+  "motion": {
+    "pattern": "reveal-stagger",
+    "duration": "motion.reveal.duration",
+    "easing": "motion.reveal.easing",
+    "delayStep": "motion.reveal.stagger-step",
+    "delayRule": "card i (1-based) has inline transitionDelay (i)*50ms, measured 50ms..300ms on cards",
+    "reducedMotionFallback": "Design rule (site has no prefers-reduced-motion handling): show cards at final opacity/position with no stagger delay."
+  },
+  "responsive": {
+    "grid": "1 col below 800px, md:grid-cols-2 (2 cards) or md:grid-cols-3 (3 cards)"
+  },
+  "assetRoles": [
+    "inline-svg-glyph"
+  ],
+  "usedBy": [
+    "section.impact-figures"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract",
+    "copy": "b on coda-links/giftcloud/distribution/consumer-platforms, c on 6 others"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-card-impact",
+      "source": "src/pages/IndustriesOnlineGamingPaymentsPage.jsx:9-9",
+      "quote": "impact-figures-inner-card relative w-full rounded-md bg-offWhite text-charcoal p-5 h-full"
+    },
+    {
+      "id": "cit-p2-card-impact-index",
+      "source": "src/pages/IndustriesOnlineGamingPaymentsPage.jsx:9-9",
+      "quote": "font-mono font-bold text-[0.8em]"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "id": "primitive.logo-tile",
+  "kind": "primitive",
+  "purpose": "A fixed-ratio <figure class=\"wp-block-image\"> that holds a third-party mark (partner, press, award) exactly as supplied. The tile shape is the primitive; the artwork is never generated.",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "assetRole",
+      "assetRef"
+    ],
+    "properties": {
+      "assetRole": {
+        "type": "string",
+        "enum": [
+          "partner-logo",
+          "press-logo",
+          "award-image"
+        ]
+      },
+      "assetRef": {
+        "type": "string",
+        "note": "Exact local path of an existing file under public/images (e.g. /images/logo-slot1.avif). No remote URL, no new file.",
+        "format": "local-asset-path"
+      },
+      "alt": {
+        "type": "string",
+        "maxWords": 4
+      }
+    }
+  },
+  "variants": {
+    "partner": {
+      "assetRole": "partner-logo",
+      "size": "width 360x96 source, rendered 8.57em wide, aspect 120/32"
+    },
+    "press": {
+      "assetRole": "press-logo",
+      "size": "width token w-pressLogoW (icon-size.press-logo-w)"
+    },
+    "award": {
+      "assetRole": "award-image",
+      "size": "560x176 source, lifts on hover"
+    }
+  },
+  "tokens": [
+    "icon-size.press-logo-w",
+    "component.press-logo.width",
+    "motion.transition.duration-300"
+  ],
+  "motion": {
+    "pattern": "hover-lift (award only)",
+    "duration": "motion.transition.duration-300",
+    "reducedMotionFallback": "Design rule: disable the award hover translate."
+  },
+  "responsive": {
+    "partner": "rendered in a marquee (auto-play always below 800px; gradient edge only from 800px)",
+    "press": "fixed width tile, marquee"
+  },
+  "assetRoles": [
+    "partner-logo",
+    "press-logo",
+    "award-image"
+  ],
+  "generationPolicy": "All three roles are complianceCritical must-not-fabricate (assets/asset-roles.json): reference existing files only; never redraw, recolour or invent marks.",
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract",
+    "copy": "none"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-logo-hero",
+      "source": "src/components/Hero.jsx:15-15",
+      "quote": "[&_.wp-block-image]:w-[8.57em] [&_.wp-block-image]:aspect-[120/32] [&_.wp-block-image]:shrink-0"
+    },
+    {
+      "id": "cit-p2-logo-press",
+      "source": "src/components/PressCarousel.jsx:7-7",
+      "quote": "press-carousel-item w-pressLogoW flex flex-col gap-2 shrink-0"
+    },
+    {
+      "id": "cit-p2-logo-award",
+      "source": "src/components/Awards.jsx:4-4",
+      "quote": "width=\"560\" height=\"176\" src=\"/images/1.avif\""
+    },
+    {
+      "id": "cit-p2-logo-awardhover",
+      "source": "src/components/Awards.jsx:4-4",
+      "quote": "[&:hover_.wp-block-image]:-translate-y-1 [&_.wp-block-image]:transition-transform [&_.wp-block-image]:duration-300"
+    }
+  ]
+}

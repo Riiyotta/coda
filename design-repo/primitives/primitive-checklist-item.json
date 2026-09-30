@@ -1,0 +1,61 @@
+{
+  "id": "primitive.checklist-item",
+  "kind": "primitive",
+  "purpose": "One row of a feature checklist: round check glyph then a short text line. Used inside price-stack columns.",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "text"
+    ],
+    "properties": {
+      "text": {
+        "type": "string",
+        "maxWords": 8,
+        "note": "Measured real items in price-stack are short phrases (5 words for the sampled row); budget 8."
+      }
+    }
+  },
+  "variants": {
+    "default": "check fill #007C44",
+    "on-dark-card": "price-stack overrides [&_.checklist-item-check_path]:fill-current so the check follows the card text colour"
+  },
+  "tokens": [
+    "type.body-s",
+    "spacing.3",
+    "spacing.2",
+    "color.charcoal"
+  ],
+  "motion": {
+    "pattern": "reveal",
+    "delay": "none",
+    "reducedMotionFallback": "Design rule: show immediately."
+  },
+  "responsive": {
+    "gap": "gap-3 below 800px, gap-2 from 800px",
+    "icon": "16px mobile / 12px md+"
+  },
+  "assetRoles": [
+    "inline-svg-glyph"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract",
+    "copy": "b-real-saved-copy on /pricing/ (real text, not reproduced here); level c elsewhere"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-check-item",
+      "source": "src/pages/PricingPage.jsx:6-6",
+      "quote": "checklist-item w-full flex gap-3 md:gap-2 items-start type-body-s"
+    },
+    {
+      "id": "cit-p2-check-icon",
+      "source": "src/pages/PricingPage.jsx:6-6",
+      "quote": "w-4 h-4 md:w-3 md:h-3 shrink-0 checklist-item-check"
+    },
+    {
+      "id": "cit-p2-check-fill",
+      "source": "src/pages/PricingPage.jsx:6-6",
+      "quote": "fill=\"#007C44\""
+    }
+  ]
+}

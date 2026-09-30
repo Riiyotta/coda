@@ -1,0 +1,254 @@
+{
+  "id": "benefits.stack",
+  "kind": "section",
+  "category": "benefits",
+  "content": {
+    "type": "object",
+    "required": [
+      "heading",
+      "cards"
+    ],
+    "properties": {
+      "heading": {
+        "type": "string",
+        "maxWords": 10,
+        "note": "section-bridge heading"
+      },
+      "description": {
+        "type": "string",
+        "maxWords": 13,
+        "bodyCopy": true,
+        "note": "section-bridge description; optional"
+      },
+      "cards": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 6,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "icon": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "assetRole": {
+                  "type": "string",
+                  "enum": [
+                    "inline-svg-glyph"
+                  ]
+                },
+                "tint": {
+                  "type": "string",
+                  "enum": [
+                    "blue",
+                    "green",
+                    "pink",
+                    "yellow",
+                    "purple",
+                    "orange",
+                    "black"
+                  ]
+                }
+              },
+              "required": [
+                "assetRole"
+              ]
+            },
+            "title": {
+              "type": "string",
+              "maxWords": 7,
+              "note": "Measured 2-7"
+            },
+            "body": {
+              "type": "string",
+              "maxWords": 25,
+              "bodyCopy": true,
+              "note": "Measured 7-25; absent in title-only variant"
+            }
+          },
+          "required": [
+            "icon",
+            "title"
+          ]
+        },
+        "note": "Measured card counts: 2 (consumer-platforms), 3, 4, 6."
+      }
+    },
+    "additionalProperties": false,
+    "maxWordsTotal": 215
+  },
+  "usedOn": [
+    "/",
+    "/product/codapay/",
+    "/product/coda-links/",
+    "/product/coda-webstore/",
+    "/product/distribution/",
+    "/product/coda-consumer-platforms/",
+    "/product/coda-giftcloud/",
+    "/industries/creator-economy-payments/",
+    "/industries/dating-app-payments/",
+    "/industries/digital-entertainment/",
+    "/industries/esim-digital-utility-payments/",
+    "/industries/learning-management-system-payments/",
+    "/industries/online-gaming-payments/",
+    "/use-case/merchant-of-record/"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); copy evidence per route below",
+    "copy": {
+      "a-exact": [
+        "/"
+      ],
+      "b-real-saved-copy": [
+        "/product/coda-links/",
+        "/product/coda-giftcloud/",
+        "/product/distribution/",
+        "/product/coda-consumer-platforms/"
+      ],
+      "c-original-slot-sized": [
+        "/product/codapay/",
+        "/product/coda-webstore/",
+        "/industries/creator-economy-payments/",
+        "/industries/dating-app-payments/",
+        "/industries/digital-entertainment/",
+        "/industries/esim-digital-utility-payments/",
+        "/industries/learning-management-system-payments/",
+        "/industries/online-gaming-payments/",
+        "/use-case/merchant-of-record/"
+      ]
+    }
+  },
+  "purpose": "Grey-card benefits grid: bridge heading (optional description) over 2-6 icon cards.",
+  "bodyCopyFields": [
+    "description",
+    "cards[].body"
+  ],
+  "variants": {
+    "title-only-3": {
+      "routes": [
+        "/industries/creator-economy-payments/",
+        "/industries/dating-app-payments/",
+        "/industries/digital-entertainment/",
+        "/industries/esim-digital-utility-payments/",
+        "/industries/learning-management-system-payments/",
+        "/industries/online-gaming-payments/",
+        "/use-case/merchant-of-record/"
+      ],
+      "note": "first stack on the six industries + MoR: 3 cards, no body, bridge with description; 3 cols"
+    },
+    "cards-4-2col": {
+      "routes": [
+        "/industries/creator-economy-payments/",
+        "/industries/dating-app-payments/",
+        "/industries/digital-entertainment/",
+        "/industries/esim-digital-utility-payments/",
+        "/industries/learning-management-system-payments/",
+        "/industries/online-gaming-payments/",
+        "/product/coda-links/"
+      ],
+      "note": "second stack (4 cards with body, md:grid-cols-2); MoR second stack has 6 cards (see cards-6)"
+    },
+    "cards-3": {
+      "routes": [
+        "/product/coda-giftcloud/",
+        "/product/coda-links/",
+        "/product/codapay/",
+        "/product/distribution/"
+      ],
+      "note": "3 cards, 3 cols"
+    },
+    "cards-6": {
+      "routes": [
+        "/",
+        "/product/coda-webstore/",
+        "/product/codapay/",
+        "/use-case/merchant-of-record/"
+      ],
+      "note": "6 cards, 3 cols"
+    },
+    "cards-2": {
+      "routes": [
+        "/product/coda-consumer-platforms/"
+      ],
+      "note": "2 cards, md:grid-cols-2"
+    }
+  },
+  "constraints": {
+    "maxPerPage": 2,
+    "noConsecutive": true,
+    "verification": "Checked on all 15 sequences: 2 instances on the six industries, MoR, coda-links, codapay; 1 elsewhere; 0 on /pricing/. Never two adjacent (separated by highlighted-mega, features-stack, impact-figures or feature-callout)."
+  },
+  "media": {
+    "card-icon": {
+      "assetRole": [
+        "inline-svg-glyph"
+      ],
+      "count": "one per card"
+    }
+  },
+  "motion": {
+    "pattern": "reveal-stagger",
+    "reveals": [
+      {
+        "element": "section",
+        "slide": false
+      },
+      {
+        "element": "cards",
+        "delayMs": "(i+1)*50 measured 50..300"
+      }
+    ],
+    "reducedMotionFallback": "Show cards at final state with no stagger.",
+    "reducedMotionFallbackKind": "design-rule (the site ships no prefers-reduced-motion handling, so this is prescribed, not mirrored)"
+  },
+  "responsive": {
+    "breakpoint": "800px",
+    "grid": "1 col below 800px -> md:grid-cols-3 (3 or 6 cards) or md:grid-cols-2 (2 or 4 cards)",
+    "bridge": "column -> row (50/50) from 800px",
+    "padding": "block-padding sides below 800px"
+  },
+  "tokens": [
+    "component.card.benefit.bg",
+    "surface.card",
+    "radius.card",
+    "space.card-padding",
+    "space.card-gap",
+    "type.header-l",
+    "type.header-s",
+    "layout.grid-gap.card",
+    "layout.content.max-width",
+    "motion.reveal.stagger-step"
+  ],
+  "composes": [
+    "component.section-bridge",
+    "component.card-benefit"
+  ],
+  "measuredFrom": [
+    {
+      "id": "cit-p2-bs-root",
+      "source": "src/components/BenefitsStack.jsx:4-4",
+      "quote": "benefits-stack w-full my-9 max-w-blogPostVideoW block-padding mx-auto"
+    },
+    {
+      "id": "cit-p2-bs-grid",
+      "source": "src/components/BenefitsStack.jsx:4-4",
+      "quote": "benefits-stack-inner w-full max-w-blogPostVideoW mx-auto grid grid-cols-1 gap-4 md:grid-cols-3"
+    },
+    {
+      "id": "cit-p2-bs-grid2",
+      "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9",
+      "quote": "benefits-stack-inner w-full max-w-blogPostVideoW mx-auto grid grid-cols-1 gap-4 md:grid-cols-2"
+    },
+    {
+      "id": "cit-p2-bs-titleonly",
+      "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9",
+      "quote": "{\"Support how fans actually pay\"}"
+    },
+    {
+      "id": "cit-p2-bs-home",
+      "source": "src/components/Main.jsx:15-15",
+      "quote": "<BenefitsStack />"
+    }
+  ]
+}

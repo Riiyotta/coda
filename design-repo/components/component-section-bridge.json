@@ -1,0 +1,86 @@
+{
+  "id": "component.section-bridge",
+  "kind": "component",
+  "purpose": "Heading + optional short description that opens most sections (the \"section-bridge\" block). Used standalone as a section and nested inside benefits-stack, features-stack, highlighted-mega, impact-figures, page-tiles, integration-comparison, products-hightlight, payment-method-table and feature-grid.",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "heading"
+    ],
+    "properties": {
+      "heading": {
+        "type": "string",
+        "maxWords": 10,
+        "note": "Measured real headings: 2-9 words across the 15 routes (homepage 2-4). Level-c pages 3-8."
+      },
+      "description": {
+        "type": "string",
+        "maxWords": 24,
+        "note": "BODY COPY, budget from level-c slot lengths: measured 5-24 words; some bridges have none."
+      }
+    }
+  },
+  "variants": {
+    "heading-only": "heading spans full width (w-full)",
+    "heading+description": "two md:w-1/2 columns",
+    "heading+cta-bar": "payment-method-table puts a cta-bar in the description slot"
+  },
+  "tokens": [
+    "type.header-l",
+    "text.subtle",
+    "layout.grid-gap.bridge",
+    "spacing.3",
+    "spacing.8",
+    "layout.content.max-width",
+    "layout.block-padding.mobile",
+    "layout.block-padding.desktop"
+  ],
+  "motion": {
+    "pattern": "reveal",
+    "delay": "none",
+    "reducedMotionFallback": "Design rule: render immediately, no fade."
+  },
+  "responsive": {
+    "below800": "flex-col, gap-3 (12px step), block-padding 24px sides when a direct child of the page root",
+    "from800": "flex-row, gap-8, heading and description each md:w-1/2, block-padding drops to 0"
+  },
+  "assetRoles": [],
+  "usedBy": [
+    "section.section-bridge",
+    "section.benefits-stack",
+    "section.features-stack",
+    "section.highlighted-mega",
+    "section.impact-figures",
+    "section.page-tiles",
+    "section.integration-comparison",
+    "section.products-hightlight",
+    "section.payment-method-table",
+    "section.feature-grid"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract",
+    "copy": "a-exact on / (2-4 word headings), b on 4 inner pages, c on 9 (short original headings)"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-bridge",
+      "source": "src/components/ProductsHighlight.jsx:10-10",
+      "quote": "section-bridge flex flex-col md:flex-row w-full gap-3 md:gap-8 my-9 max-w-blogPostVideoW mx-auto"
+    },
+    {
+      "id": "cit-p2-bridge-desc",
+      "source": "src/components/ProductsHighlight.jsx:10-10",
+      "quote": "section-bridge-description [&_p]:type-body-m w-full md:w-1/2 text-grey-2"
+    },
+    {
+      "id": "cit-p2-bridge-pad",
+      "source": "src/components/Main.jsx:12-12",
+      "quote": "[&amp;_&gt;_.section-bridge]:block-padding"
+    },
+    {
+      "id": "cit-p2-bridge-h2",
+      "source": "src/components/BenefitsStack.jsx:4-4",
+      "quote": "<h2 className=\"type-header-l w-full\">"
+    }
+  ]
+}

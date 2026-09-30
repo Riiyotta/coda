@@ -1,0 +1,183 @@
+{
+  "id": "impact.figures",
+  "kind": "section",
+  "category": "impact",
+  "content": {
+    "type": "object",
+    "required": [
+      "heading",
+      "cards",
+      "theme"
+    ],
+    "properties": {
+      "heading": {
+        "type": "string",
+        "maxWords": 6,
+        "note": "Measured 6 words on all 8 pages"
+      },
+      "theme": {
+        "type": "string",
+        "enum": [
+          "grey",
+          "blue",
+          "green",
+          "pink",
+          "orange",
+          "yellow-deep"
+        ],
+        "note": "component.themed-block.<theme>; industries=grey, codapay+links=blue, webstore=green, distribution=pink, consumer=orange, giftcloud=yellow-deep"
+      },
+      "cards": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 3,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "figure": {
+              "type": "string",
+              "maxWords": 1,
+              "note": "e.g. \"10PP\""
+            },
+            "label": {
+              "type": "string",
+              "maxWords": 6,
+              "note": "heading/label line 2-6 words"
+            },
+            "description": {
+              "type": "string",
+              "maxWords": 28,
+              "bodyCopy": true,
+              "note": "measured 11-28 words"
+            }
+          },
+          "required": [
+            "figure",
+            "label"
+          ]
+        },
+        "note": "2 cards on creator-economy and coda-links; 3 elsewhere."
+      }
+    },
+    "additionalProperties": false,
+    "maxWordsTotal": 111
+  },
+  "usedOn": [
+    "/product/codapay/",
+    "/product/coda-links/",
+    "/product/coda-webstore/",
+    "/product/distribution/",
+    "/product/coda-consumer-platforms/",
+    "/product/coda-giftcloud/",
+    "/industries/creator-economy-payments/",
+    "/industries/online-gaming-payments/"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); copy evidence per route below",
+    "copy": {
+      "b-real-saved-copy": [
+        "/product/coda-links/",
+        "/product/coda-giftcloud/",
+        "/product/distribution/",
+        "/product/coda-consumer-platforms/"
+      ],
+      "c-original-slot-sized": [
+        "/product/codapay/",
+        "/product/coda-webstore/",
+        "/industries/creator-economy-payments/",
+        "/industries/online-gaming-payments/"
+      ]
+    }
+  },
+  "purpose": "Big-number proof block: coloured rounded panel containing a bridge heading and 2-3 offWhite figure cards with mono index badges.",
+  "bodyCopyFields": [
+    "cards[].description"
+  ],
+  "variants": {
+    "2-cards": {
+      "routes": [
+        "/industries/creator-economy-payments/",
+        "/product/coda-links/"
+      ]
+    },
+    "3-cards": {
+      "routes": [
+        "/product/codapay/",
+        "/product/coda-webstore/",
+        "/product/distribution/",
+        "/product/coda-consumer-platforms/",
+        "/product/coda-giftcloud/",
+        "/industries/online-gaming-payments/"
+      ]
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "maxPerPage": 1,
+    "verification": "Checked: 8 routes have exactly one; absent from /, /pricing/, dating, digital-entertainment, esim, lms, MoR."
+  },
+  "media": {},
+  "motion": {
+    "pattern": "reveal-slide-stagger",
+    "reveals": [
+      {
+        "element": "section root",
+        "slide": true,
+        "offset": "motion.reveal.slide-offset"
+      },
+      {
+        "element": "cards",
+        "delayMs": "(i+1)*50 measured 50..150"
+      }
+    ],
+    "reducedMotionFallback": "Show at final position without slide or stagger.",
+    "reducedMotionFallbackKind": "design-rule (the site ships no prefers-reduced-motion handling, so this is prescribed, not mirrored)"
+  },
+  "responsive": {
+    "breakpoint": "800px",
+    "grid": "1 col -> md:grid-cols-3 (or 2)",
+    "panel": "md:px-6 outer gutter; block-padding inside on mobile"
+  },
+  "tokens": [
+    "component.themed-block.grey",
+    "component.themed-block.blue",
+    "component.themed-block.green",
+    "component.themed-block.pink",
+    "component.themed-block.orange",
+    "component.themed-block.yellow-deep",
+    "component.card.impact.bg",
+    "surface.soft",
+    "radius.md",
+    "type.header-l",
+    "type.header-2-xl",
+    "motion.reveal.slide-offset"
+  ],
+  "composes": [
+    "component.themed-block",
+    "component.section-bridge",
+    "component.card-impact"
+  ],
+  "measuredFrom": [
+    {
+      "id": "cit-p2-if-root",
+      "source": "src/pages/IndustriesOnlineGamingPaymentsPage.jsx:9-9",
+      "quote": "translate-y-7 impact-figures w-full my-9 md:px-6"
+    },
+    {
+      "id": "cit-p2-if-grid",
+      "source": "src/pages/IndustriesOnlineGamingPaymentsPage.jsx:9-9",
+      "quote": "impact-figures-inner w-full max-w-blogPostVideoW mx-auto grid grid-cols-1 gap-4 md:grid-cols-3"
+    },
+    {
+      "id": "cit-p2-if-panel",
+      "source": "src/pages/IndustriesOnlineGamingPaymentsPage.jsx:9-9",
+      "quote": "py-7 rounded-md"
+    },
+    {
+      "id": "cit-p2-if-mob",
+      "source": "src/components/Main.jsx:12-12",
+      "quote": "[&amp;_&gt;_.figures-stack]:block-padding"
+    }
+  ]
+}

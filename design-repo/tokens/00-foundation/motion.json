@@ -1,0 +1,251 @@
+{
+  "$description": "Motion values. Every value is quoted from a ported implementation or from the measured CLONE_SPEC. The motion vocabulary is closed to these ids.",
+  "reducedMotion": {
+    "status": "not-implemented-in-source",
+    "evidence": [
+      "cit-motion-reduced-none"
+    ],
+    "guidance": "The source honours no prefers-reduced-motion. A reducedMotionFallback in a section contract is therefore a design-repo rule: render the final revealed state (opacity 100, no translate) with no marquee scroll and instant FAQ toggle."
+  },
+  "tokens": {
+    "motion.reveal.duration": {
+      "$type": "duration",
+      "$value": 500,
+      "unit": "ms",
+      "evidence": [
+        "cit-motion-reveal-duration",
+        "cit-motion-reveal-jsx-500"
+      ]
+    },
+    "motion.reveal.easing": {
+      "$type": "cubicBezier",
+      "$value": [
+        0.4,
+        0,
+        0.2,
+        1
+      ],
+      "unit": "bezier",
+      "evidence": [
+        "cit-motion-reveal-easing",
+        "cit-motion-css-ease"
+      ]
+    },
+    "motion.reveal.threshold": {
+      "$type": "number",
+      "$value": 0.1,
+      "unit": "ratio",
+      "evidence": [
+        "cit-motion-reveal-threshold"
+      ],
+      "note": "IntersectionObserver threshold; once=true (no un-reveal)."
+    },
+    "motion.reveal.slide-offset": {
+      "$type": "dimension",
+      "$value": {
+        "$ref": "spacing.7"
+      },
+      "evidence": [
+        "cit-motion-translate-y-7",
+        "cit-motion-reveal-classes"
+      ],
+      "note": "translate-y-7; 44.8px at 1440."
+    },
+    "motion.reveal.stagger-step": {
+      "$type": "duration",
+      "$value": 50,
+      "unit": "ms",
+      "evidence": [
+        "cit-motion-stagger",
+        "cit-motion-stagger-spec"
+      ],
+      "note": "Inline transitionDelay in 50ms steps 50..550ms, baked into JSX (not computed by reveal.js)."
+    },
+    "motion.transition.duration-100": {
+      "$type": "duration",
+      "$value": 100,
+      "unit": "ms",
+      "evidence": [
+        "cit-motion-css-durations"
+      ],
+      "usage": 0
+    },
+    "motion.transition.duration-150": {
+      "$type": "duration",
+      "$value": 150,
+      "unit": "ms",
+      "evidence": [
+        "cit-motion-css-durations"
+      ],
+      "note": "Tailwind default of .transition utilities.",
+      "usage": 0
+    },
+    "motion.transition.duration-200": {
+      "$type": "duration",
+      "$value": 200,
+      "unit": "ms",
+      "evidence": [
+        "cit-motion-css-durations"
+      ],
+      "usage": 50
+    },
+    "motion.transition.duration-300": {
+      "$type": "duration",
+      "$value": 300,
+      "unit": "ms",
+      "evidence": [
+        "cit-motion-css-durations"
+      ],
+      "usage": 282
+    },
+    "motion.transition.duration-500": {
+      "$type": "duration",
+      "$value": 500,
+      "unit": "ms",
+      "evidence": [
+        "cit-motion-css-durations",
+        "cit-motion-card-hover"
+      ],
+      "usage": 42
+    },
+    "motion.transition.duration-700": {
+      "$type": "duration",
+      "$value": 700,
+      "unit": "ms",
+      "evidence": [
+        "cit-motion-css-durations",
+        "cit-motion-dim-700"
+      ],
+      "usage": 1
+    },
+    "motion.easing.in-out": {
+      "$type": "cubicBezier",
+      "$value": [
+        0.4,
+        0,
+        0.2,
+        1
+      ],
+      "unit": "bezier",
+      "evidence": [
+        "cit-motion-css-ease"
+      ]
+    },
+    "motion.easing.out": {
+      "$type": "cubicBezier",
+      "$value": [
+        0,
+        0,
+        0.2,
+        1
+      ],
+      "unit": "bezier",
+      "evidence": [
+        "cit-motion-css-ease"
+      ]
+    },
+    "motion.faq.duration": {
+      "$type": "duration",
+      "$value": 300,
+      "unit": "ms",
+      "evidence": [
+        "cit-motion-faq"
+      ]
+    },
+    "motion.faq.easing": {
+      "$type": "cubicBezier",
+      "$value": [
+        0.25,
+        0.1,
+        0.35,
+        1
+      ],
+      "unit": "bezier",
+      "evidence": [
+        "cit-motion-faq-ease"
+      ]
+    },
+    "motion.marquee.speed": {
+      "$type": "number",
+      "$value": 50,
+      "unit": "px/s",
+      "evidence": [
+        "cit-motion-marquee",
+        "cit-motion-marquee-react"
+      ]
+    },
+    "motion.carousel.lerp": {
+      "$type": "number",
+      "$value": 0.125,
+      "unit": "ratio",
+      "evidence": [
+        "cit-motion-carousel-lerp"
+      ]
+    },
+    "motion.carousel.drag-lerp": {
+      "$type": "number",
+      "$value": 0.2,
+      "unit": "ratio",
+      "evidence": [
+        "cit-motion-carousel-drag"
+      ]
+    },
+    "motion.carousel.drag-commit-ratio": {
+      "$type": "number",
+      "$value": 0.15,
+      "unit": "ratio",
+      "evidence": [
+        "cit-motion-carousel-threshold"
+      ]
+    },
+    "motion.header.hide-threshold-vh": {
+      "$type": "number",
+      "$value": 0.2,
+      "unit": "ratio",
+      "evidence": [
+        "cit-motion-header-threshold"
+      ],
+      "note": "Fraction of viewport height."
+    },
+    "motion.header.slide-duration": {
+      "$type": "duration",
+      "$value": 300,
+      "unit": "ms",
+      "evidence": [
+        "cit-motion-header-hide-300"
+      ]
+    },
+    "motion.header.dim-duration": {
+      "$type": "duration",
+      "$value": 700,
+      "unit": "ms",
+      "evidence": [
+        "cit-motion-dim-700"
+      ]
+    },
+    "motion.nav.open-duration": {
+      "$type": "duration",
+      "$value": 500,
+      "unit": "ms",
+      "evidence": [
+        "cit-motion-gsap-open"
+      ],
+      "note": "GSAP power2.out / power2.inOut; item duration 0.35s."
+    },
+    "motion.nav.item-stagger": {
+      "$type": "duration",
+      "$value": 30,
+      "unit": "ms",
+      "evidence": [
+        "cit-motion-gsap-item-stagger"
+      ]
+    },
+    "motion.hover.card-scale": {
+      "$type": "number",
+      "$value": 1.05,
+      "evidence": [
+        "cit-motion-card-hover"
+      ]
+    }
+  }
+}

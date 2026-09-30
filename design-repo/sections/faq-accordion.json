@@ -1,0 +1,175 @@
+{
+  "id": "faq.accordion",
+  "kind": "section",
+  "category": "faq",
+  "content": {
+    "type": "object",
+    "required": [
+      "heading",
+      "items"
+    ],
+    "properties": {
+      "heading": {
+        "type": "string",
+        "maxWords": 4,
+        "note": "Measured 3 words (\"Frequently Asked Questions\") on every page that has the section."
+      },
+      "items": {
+        "type": "array",
+        "minItems": 5,
+        "maxItems": 11,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "question": {
+              "type": "string",
+              "maxWords": 22,
+              "note": "Measured 5-21 words"
+            },
+            "answer": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 4,
+              "items": {
+                "type": "string",
+                "maxWords": 30
+              },
+              "bodyCopy": true,
+              "note": "BODY COPY paragraphs; measured total per answer 9-91 words (real b copy on 4 pages, c elsewhere); budget from level-c slot lengths."
+            }
+          },
+          "required": [
+            "question",
+            "answer"
+          ]
+        },
+        "note": "Measured item counts per page: pricing 5, creator 5, dating 8, digital 8, esim 7, lms 8, gaming 6, consumer 5, links 8, webstore 11, codapay 8, distribution 7, MoR 5."
+      }
+    },
+    "additionalProperties": false,
+    "maxWordsTotal": 1566
+  },
+  "usedOn": [
+    "/product/codapay/",
+    "/product/coda-links/",
+    "/product/coda-webstore/",
+    "/product/distribution/",
+    "/product/coda-consumer-platforms/",
+    "/industries/creator-economy-payments/",
+    "/industries/dating-app-payments/",
+    "/industries/digital-entertainment/",
+    "/industries/esim-digital-utility-payments/",
+    "/industries/learning-management-system-payments/",
+    "/industries/online-gaming-payments/",
+    "/use-case/merchant-of-record/",
+    "/pricing/"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); copy evidence per route below",
+    "copy": {
+      "b-real-saved-copy": [
+        "/product/coda-links/",
+        "/product/distribution/",
+        "/product/coda-consumer-platforms/",
+        "/pricing/"
+      ],
+      "c-original-slot-sized": [
+        "/product/codapay/",
+        "/product/coda-webstore/",
+        "/industries/creator-economy-payments/",
+        "/industries/dating-app-payments/",
+        "/industries/digital-entertainment/",
+        "/industries/esim-digital-utility-payments/",
+        "/industries/learning-management-system-payments/",
+        "/industries/online-gaming-payments/",
+        "/use-case/merchant-of-record/"
+      ]
+    }
+  },
+  "purpose": "Frequently-asked-questions accordion on a soft grey rounded panel; every item collapsed initially.",
+  "bodyCopyFields": [
+    "items[].answer"
+  ],
+  "variants": {
+    "default": "single variant; 5-11 items"
+  },
+  "constraints": {
+    "onePerPage": true,
+    "maxPerPage": 1,
+    "verification": "Checked: appears exactly once on 13 routes, never on / or /product/coda-coda-giftcloud/; on all 13 it is immediately before spacer; on distribution the JSX order is products-hightlight -> faq -> spacer -> pre-footer (the brief had faq last; the JSX wins)."
+  },
+  "media": {},
+  "motion": {
+    "pattern": "accordion",
+    "reveals": [
+      {
+        "element": "faq root and each faq-item",
+        "slide": false,
+        "delayMs": "(i+1)*50 per item, measured 50ms..550ms and beyond"
+      }
+    ],
+    "interaction": {
+      "toggle": {
+        "durationMs": 300,
+        "easing": "cubic-bezier(0.25, 0.1, 0.35, 1)",
+        "properties": [
+          "height",
+          "opacity"
+        ],
+        "tokens": [
+          "motion.faq.duration",
+          "motion.faq.easing"
+        ],
+        "initialState": "collapsed",
+        "iconSwap": "plus <-> minus, instant"
+      }
+    },
+    "reducedMotionFallback": "Toggle instantly (0ms) with no height/opacity tween; still start collapsed.",
+    "reducedMotionFallbackKind": "design-rule (the site ships no prefers-reduced-motion handling, so this is prescribed, not mirrored)"
+  },
+  "responsive": {
+    "breakpoint": "800px",
+    "panel": "md:px-6 outer gutter; inner block-padding on mobile only",
+    "icon": "w-8 h-8 below 800px -> w-6 h-6",
+    "answer": "md:pr-8 padding only from 800px"
+  },
+  "tokens": [
+    "component.faq.divider",
+    "component.faq.padding-y",
+    "component.faq.title",
+    "component.faq.duration",
+    "component.faq.easing",
+    "type.header-l",
+    "radius.lg",
+    "color.divider-e2e2e2",
+    "surface.light",
+    "motion.faq.duration",
+    "motion.faq.easing"
+  ],
+  "composes": [
+    "component.faq-item"
+  ],
+  "measuredFrom": [
+    {
+      "id": "cit-p2-faq-root",
+      "source": "src/pages/PricingPage.jsx:6-6",
+      "quote": "faq w-full my-9 md:px-6"
+    },
+    {
+      "id": "cit-p2-faq-panel",
+      "source": "src/pages/PricingPage.jsx:6-6",
+      "quote": "w-full bg-[#f3f3f3] pt-10 pb-8 rounded-lg"
+    },
+    {
+      "id": "cit-p2-faq-h2",
+      "source": "src/pages/PricingPage.jsx:6-6",
+      "quote": "<h2 className=\"type-header-l text-charcoal\">{\"Frequently Asked Questions\"}</h2>"
+    },
+    {
+      "id": "cit-p2-faq-enh",
+      "source": "src/lib/enhance/faq.js:15-15",
+      "quote": "export const selector = '.faq-item'"
+    }
+  ]
+}

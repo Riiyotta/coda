@@ -1,0 +1,165 @@
+{
+  "id": "primitive.button",
+  "kind": "primitive",
+  "purpose": "Coda's WordPress-style CTA button: <div class=\"wp-block-button is-style-*\"><a class=\"wp-block-button__link wp-element-button\">. Content-free apart from a short label.",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "label",
+      "style"
+    ],
+    "properties": {
+      "label": {
+        "type": "string",
+        "maxWords": 4,
+        "note": "Measured real labels: 2 words (Get started, Read docs, Contact sales, Learn more), 4 words max (Build your Webstore now)."
+      },
+      "style": {
+        "type": "string",
+        "enum": [
+          "grey",
+          "black",
+          "glass-white",
+          "default"
+        ],
+        "note": "default = wp-block-button with no is-style-* (Awards item link). glass-black exists in CSS but is unused in JSX and must not be generated."
+      },
+      "href": {
+        "type": "string",
+        "enum": [
+          "#",
+          "/product/codapay/",
+          "/product/coda-links/",
+          "/product/coda-webstore/",
+          "/product/distribution/",
+          "/product/coda-consumer-platforms/",
+          "/product/coda-giftcloud/",
+          "/use-case/merchant-of-record/",
+          "/pricing/"
+        ],
+        "note": "External coda.co pages are inert \"#\" (src/lib/linkGuard.js). Only the 15 routes are real internal links."
+      }
+    }
+  },
+  "variants": {
+    "grey": {
+      "usage": 34,
+      "tokens": [
+        "component.button.grey.bg",
+        "component.button.grey.text"
+      ],
+      "onSurface": "white/light/grey sections and on charcoal (pre-footer secondary)"
+    },
+    "black": {
+      "usage": 21,
+      "tokens": [
+        "component.button.black.bg",
+        "component.button.black.text"
+      ]
+    },
+    "glass-white": {
+      "usage": 8,
+      "tokens": [
+        "component.button.glass-white.bg",
+        "component.button.glass-white.text",
+        "component.button.glass-white.blur"
+      ],
+      "onSurface": "charcoal pre-footer only"
+    },
+    "default": {
+      "usage": 4,
+      "note": "Awards items only (four \"Learn more\" links)."
+    }
+  },
+  "states": {
+    "hover": "radius steps from radius.button to radius.button-hover; a \"→\" glyph slides in from width 0 to 1.2em (cit-p2-button-css-arrow)",
+    "focus": "not specified in the site CSS (no :focus rule measured) - do not invent"
+  },
+  "tokens": [
+    "component.button.grey.bg",
+    "component.button.grey.text",
+    "component.button.black.bg",
+    "component.button.black.text",
+    "component.button.glass-white.bg",
+    "component.button.glass-white.text",
+    "component.button.glass-white.blur",
+    "component.button.radius",
+    "component.button.label",
+    "radius.button",
+    "radius.button-hover",
+    "icon-size.button-lg"
+  ],
+  "motion": {
+    "pattern": "hover-radius-and-arrow",
+    "duration": "motion.transition.duration-300",
+    "easing": "motion.easing.in-out",
+    "reducedMotionFallback": "Design rule (the site has no prefers-reduced-motion handling): under prefers-reduced-motion:reduce, keep the hover state change but apply it instantly (no radius/width transition)."
+  },
+  "responsive": {
+    "fontSize": "fluid: 14px below 800px, calc(12px + (100vw-800px)*.01) from 800px, 19.2px at >=1600px (CSS .wp-element-button media queries)",
+    "placement": "inline-buttons rows stay flex-nowrap and centred at every width in heroes; pre-footer buttons wrap (flex-wrap)"
+  },
+  "assetRoles": [],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract",
+    "copy": "not applicable (label copy belongs to the section that hosts the button)"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-button-black-jsx",
+      "source": "src/components/Hero.jsx:15-15",
+      "quote": "wp-block-button is-style-black"
+    },
+    {
+      "id": "cit-p2-button-grey-jsx",
+      "source": "src/components/Hero.jsx:15-15",
+      "quote": "wp-block-button is-style-grey"
+    },
+    {
+      "id": "cit-p2-button-glass-jsx",
+      "source": "src/components/PreFooter.jsx:4-4",
+      "quote": "wp-block-button is-style-glass-white"
+    },
+    {
+      "id": "cit-p2-button-plain-jsx",
+      "source": "src/components/Awards.jsx:4-4",
+      "quote": "<div className=\"wp-block-button\"><a className=\"wp-block-button__link wp-element-button\""
+    },
+    {
+      "id": "cit-p2-button-css-variants",
+      "source": "public/styles/coda-main.css:1-1",
+      "quote": "&.is-style-grey,&.is-style-black,&.is-style-glass-white,&.is-style-glass-black",
+      "charRange": [
+        98924,
+        99002
+      ]
+    },
+    {
+      "id": "cit-p2-button-css-hover",
+      "source": "public/styles/coda-main.css:1-1",
+      "quote": ".wp-element-button:hover{border-radius:var(--border-radius-lg)}",
+      "charRange": [
+        102470,
+        102533
+      ]
+    },
+    {
+      "id": "cit-p2-button-css-arrow",
+      "source": "public/styles/coda-main.css:1-1",
+      "quote": "--tw-content: \"→\";content:var(--tw-content)}.wp-element-button:hover",
+      "charRange": [
+        102426,
+        102494
+      ]
+    },
+    {
+      "id": "cit-p2-button-css-height",
+      "source": "public/styles/coda-main.css:1-1",
+      "quote": ".wp-element-button{height:var(--size-buttonLg)}",
+      "charRange": [
+        100332,
+        100379
+      ]
+    }
+  ]
+}

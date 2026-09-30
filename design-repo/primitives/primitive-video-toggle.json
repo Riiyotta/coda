@@ -1,0 +1,69 @@
+{
+  "id": "primitive.video-toggle",
+  "kind": "primitive",
+  "purpose": "Muted looping inline video in a 16:9 rounded frame with a small pause/play button in the lower-right corner.",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "assetRole",
+      "assetRef"
+    ],
+    "properties": {
+      "assetRole": {
+        "type": "string",
+        "enum": [
+          "hero-video",
+          "promo-video"
+        ]
+      },
+      "assetRef": {
+        "type": "string",
+        "note": "Exact existing /video/*.mp4 path.",
+        "format": "local-asset-path"
+      }
+    }
+  },
+  "states": {
+    "playing": "default (autoplay muted loop) - pause icon",
+    "paused": "play icon; toggled by the button"
+  },
+  "tokens": [
+    "radius.md",
+    "color.offWhite",
+    "color.charcoal",
+    "icon-size.button"
+  ],
+  "motion": {
+    "pattern": "none (icon swap is instant)",
+    "reducedMotionFallback": "Design rule (the site autoplays regardless): under prefers-reduced-motion:reduce, start paused (poster frame) and let the button start playback."
+  },
+  "responsive": {
+    "note": "w-full aspect-video at every width; button offset right-4 bottom-4 always."
+  },
+  "assetRoles": [
+    "hero-video",
+    "promo-video"
+  ],
+  "generationPolicy": "hero-video is must-not-fabricate (real people); promo-video is must-reuse-exact.",
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract",
+    "copy": "none"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-video-btn",
+      "source": "src/lib/hero/InlineVideo.jsx:41-41",
+      "quote": "className=\"p-3 rounded-md text-sm whitespace-nowrap bg-charcoal/20 text-offWhite absolute right-4 bottom-4\""
+    },
+    {
+      "id": "cit-p2-video-attrs",
+      "source": "src/lib/hero/InlineVideo.jsx:36-36",
+      "quote": "autoPlay={playing} loop muted playsInline"
+    },
+    {
+      "id": "cit-p2-video-toggle",
+      "source": "src/lib/hero/InlineVideo.jsx:42-42",
+      "quote": "onClick={() => setPlaying((p) => !p)}"
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "id": "component.carousel-card",
+  "kind": "component",
+  "purpose": "Article-style card in the \"Explore more\" carousel: full-bleed thumbnail (optional overlaid partner logo on a bottom gradient), title, and a \"Read more\" affordance.",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "thumbnail",
+      "title"
+    ],
+    "properties": {
+      "thumbnail": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "assetRole",
+          "assetRef"
+        ],
+        "properties": {
+          "assetRole": {
+            "type": "string",
+            "enum": [
+              "carousel-thumbnail"
+            ]
+          },
+          "assetRef": {
+            "type": "string",
+            "format": "local-asset-path"
+          }
+        }
+      },
+      "overlayLogo": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "assetRole",
+          "assetRef"
+        ],
+        "properties": {
+          "assetRole": {
+            "type": "string",
+            "enum": [
+              "partner-logo"
+            ]
+          },
+          "assetRef": {
+            "type": "string",
+            "format": "local-asset-path"
+          }
+        }
+      },
+      "title": {
+        "type": "string",
+        "maxWords": 19,
+        "note": "Measured 10-19 words. The titles on the 15 routes are headlines of Coda blog/case-study pieces (links inert \"#\"); generated titles must be original."
+      },
+      "ctaLabel": {
+        "type": "string",
+        "maxWords": 2,
+        "note": "\"Read more\" (2 words)."
+      }
+    }
+  },
+  "states": {
+    "hover": "desktop: thumb scale 1.05, title colour grey-2 -> charcoal, arrow icon slides in (opacity + translate-x), 300ms"
+  },
+  "tokens": [
+    "component.card.carousel.bg",
+    "component.card.carousel.media-plate",
+    "component.card.carousel.aspect",
+    "surface.raised",
+    "surface.muted",
+    "radius.card",
+    "type.header-s",
+    "layout.carousel.item-width",
+    "motion.hover.card-scale"
+  ],
+  "motion": {
+    "pattern": "hover-scale",
+    "duration": "motion.transition.duration-300",
+    "reducedMotionFallback": "Design rule: disable the thumbnail scale and arrow slide."
+  },
+  "responsive": {
+    "below800": "card 85% of viewport track width (carousel w-[85%]), aspect 328/362, mobile image item; arrows in a footer row",
+    "from800": "card width md:w-blogPostVideoW, aspect 1008/400; text row switches to md:flex-row; desktop image item with hover scale"
+  },
+  "assetRoles": [
+    "carousel-thumbnail",
+    "partner-logo"
+  ],
+  "generationPolicy": "carousel-thumbnail and partner-logo are complianceCritical must-not-fabricate.",
+  "usedBy": [
+    "section.card-carousel"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract",
+    "copy": "a on /; titles are the same 3 across the b-pages; c on 9"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-cc-item",
+      "source": "src/components/CardCarousel.jsx:11-11",
+      "quote": "card-carousel-item carousel-snap w-full md:w-blogPostVideoW bg-white rounded-md flex flex-col aspect-[328/362] md:aspect-[1008/400]"
+    },
+    {
+      "id": "cit-p2-cc-thumb",
+      "source": "src/components/CardCarousel.jsx:11-11",
+      "quote": "w-full aspect-[328/202] md:aspect-[1008/308] relative bg-grey-1 shrink-0 overflow-hidden"
+    },
+    {
+      "id": "cit-p2-cc-title",
+      "source": "src/components/CardCarousel.jsx:11-11",
+      "quote": "type-header-s text-balance mt-5 md:mt-0 md:text-grey-2 md:group-hover:text-charcoal transition-colors duration-300 line-clamp-4"
+    },
+    {
+      "id": "cit-p2-cc-scale",
+      "source": "src/components/CardCarousel.jsx:11-11",
+      "quote": "md:group-hover:scale-[1.05]"
+    },
+    {
+      "id": "cit-p2-cc-logo",
+      "source": "src/components/CardCarousel.jsx:11-11",
+      "quote": "src=\"/images/tinder-reverse.avif\""
+    }
+  ]
+}

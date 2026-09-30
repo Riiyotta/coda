@@ -1,0 +1,97 @@
+{
+  "$description": "Token usage policy for generators. rawValueRestrictions keys are exactly the category keys of token-catalog.json.",
+  "policyVersion": "1.0.0",
+  "enforcementLegend": {
+    "enforced": "A script fails the run if violated (named in enforcedBy). Every entry below is implemented in extraction/verify_all.py check [k] (colour provenance runs only while the source tree sits beside the package, otherwise it prints a WARN) and is exercised by schema/tests/adversarial_test.py.",
+    "convention": "Documented rule that no script checks. Do not describe convention rules as validated."
+  },
+  "enforced": [
+    {
+      "check": "catalog/policy category parity",
+      "rule": "rawValueRestrictions keys == token-catalog.json categories keys",
+      "enforcedBy": "extraction/verify_all.py [k]"
+    },
+    {
+      "check": "token id resolution",
+      "rule": "every $ref in semantic/component/layout resolves to an existing token",
+      "enforcedBy": "extraction/verify_all.py [k]"
+    },
+    {
+      "check": "theme completeness",
+      "rule": "tokens/themes/light.json resolves every semantic id",
+      "enforcedBy": "extraction/verify_all.py [k]"
+    },
+    {
+      "check": "colour provenance",
+      "rule": "every foundation colour rgb triplet exists in public/styles/coda-main.css (skipped with a warning when the source tree is not beside the package)",
+      "enforcedBy": "extraction/verify_all.py [k]"
+    }
+  ],
+  "convention": [
+    "Generators reference semantic ids, not foundation ids",
+    "No raw hex/px/ms in generated output",
+    "No dark theme",
+    "No shadow tokens"
+  ],
+  "rawValueRestrictions": {
+    "color": {
+      "rule": "Never write a raw colour (hex/rgb/hsl) or a foundation colour id in generated markup; reference a semantic id (text.*, surface.*, border.*, accent.*) or a component.themed-block.* pair.",
+      "enforcement": "convention",
+      "convention": "Sole exception: color.divider-e2e2e2 (used through border.divider)."
+    },
+    "typography": {
+      "rule": "Only type-* classes named in the catalog (24 steps). No raw font-size/line-height/letter-spacing/font-family.",
+      "enforcement": "convention"
+    },
+    "spacing": {
+      "rule": "Only the --spacing-N steps (spacing.0..12, 3half); no raw px margins/paddings/gaps.",
+      "enforcement": "convention"
+    },
+    "radius": {
+      "rule": "Only radius.* tokens (rounded-md dominates). No raw border-radius values.",
+      "enforcement": "convention"
+    },
+    "breakpoint": {
+      "rule": "Only md (800px) switches layout. Do not invent sm/lg/xl utility prefixes; lg: exists for exactly one utility.",
+      "enforcement": "convention"
+    },
+    "elevation": {
+      "rule": "No box-shadow at all. Only z-index layers z-50 / header 55 / loading bar 1000 and the three documented blur values.",
+      "enforcement": "convention"
+    },
+    "iconSize": {
+      "rule": "Icons/logos sized by icon-size.* tokens or spacing-step heights, never raw px.",
+      "enforcement": "convention"
+    },
+    "motion": {
+      "rule": "Only the motion.* vocabulary (closed). Every section needs a reducedMotionFallback in its contract.",
+      "enforcement": "convention"
+    },
+    "semantic": {
+      "rule": "Semantic ids are the API for generators; each must resolve to a foundation token in tokens/themes/light.json.",
+      "enforcement": "enforced",
+      "enforcedBy": "extraction/verify_all.py [k]: every semantic id resolves through tokens/themes/light.json"
+    },
+    "component": {
+      "rule": "Component tokens are owned by component/section contracts; a PageSpec never sets them.",
+      "enforcement": "convention"
+    },
+    "layout": {
+      "rule": "Content widths, block padding, grid gaps come from layout.* only.",
+      "enforcement": "convention"
+    }
+  },
+  "overrides": {
+    "perInstanceOverrideField": "none",
+    "statement": "PageSpecs carry NO per-instance style or token-override field. Styling is owned entirely by the section and component contracts, so there is nothing in a PageSpec that could reference or override a token. No such field is invented here, and no PageSpec-level token validation or adversarial mutation exists for it (MASTER-GUIDE 3.21). Token-layer safety is checked at the catalog/policy layer instead (parity, ref resolution, colour provenance)."
+  },
+  "themeModel": {
+    "themes": [
+      "light"
+    ],
+    "dark": "absent",
+    "evidence": [
+      "cit-theme-single"
+    ]
+  }
+}

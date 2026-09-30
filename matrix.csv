@@ -1,0 +1,25 @@
+section,category,templates,routes,Homepage,Pricing,Product – Codapay,Product – Coda Links,Product – Coda Webstore,Product – Distribution,Product – Consumer Platforms,Product – Giftcloud,Industry / use-case (standard),Industry (with impact figures)
+shell.navbar,SHELL,10,15,x,x,x,x,x,x,x,x,x,x
+shell.footer,SHELL,10,15,x,x,x,x,x,x,x,x,x,x
+hero.main,HERO,10,15,x,x,x,x,x,x,x,x,x,x
+cta.pre-footer,COMMERCE,10,15,x,x,x,x,x,x,x,x,x,x
+benefits.stack,PRODUCT,9,14,x,,x,x,x,x,x,x,x,x
+carousel.cards,CONTENT,9,14,x,,x,x,x,x,x,x,x,x
+spacer.footer-gap,SHELL,8,13,,x,x,x,x,x,x,,x,x
+callout.feature,PRODUCT,8,13,,,x,x,x,x,x,x,x,x
+faq.accordion,CONTENT,8,13,,x,x,x,x,x,x,,x,x
+highlight.mega,PRODUCT,4,9,,,,,x,x,,,x,x
+bridge.section,PRODUCT,4,9,,,,x,,x,,,x,x
+impact.figures,PROOF,7,8,,,x,x,x,x,x,x,,x
+metrics.band,PROOF,3,8,x,,,,,,,,x,x
+products.highlight,COMMERCE,5,5,x,,x,x,x,x,,,,
+pricing.price-stack,COMMERCE,5,5,,x,x,x,x,x,,,,
+features.stack,PRODUCT,3,3,,,x,,,x,,x,,
+features.grid,PRODUCT,2,2,,,,,x,,x,,,
+callout.isolated,PRODUCT,1,1,,,,x,,,,,,
+tiles.page,PRODUCT,1,1,,,x,,,,,,,
+comparison.integration,PRODUCT,1,1,,,x,,,,,,,
+awards.recognition,PROOF,1,1,x,,,,,,,,,
+carousel.press,PROOF,1,1,x,,,,,,,,,
+table.payment-method,CONTENT,1,1,,x,,,,,,,,
+ROUTE COUNT,,,15,1,1,1,1,1,1,1,1,5,2

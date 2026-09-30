@@ -1,0 +1,83 @@
+{
+  "$description": "Layering and blur only. The site does not use box-shadow anywhere in its JSX: there is intentionally NO shadow token (the two Tailwind default shadow utilities exist in the stylesheet but are never referenced).",
+  "shadowTokens": "none (evidence: cit-shadow-defined)",
+  "tokens": {
+    "elevation.z-20": {
+      "$type": "number",
+      "$value": 20,
+      "usage": 0,
+      "status": "defined-unused-in-jsx",
+      "evidence": [
+        "cit-z-utilities"
+      ]
+    },
+    "elevation.z-40": {
+      "$type": "number",
+      "$value": 40,
+      "usage": 0,
+      "status": "defined-unused-in-jsx",
+      "evidence": [
+        "cit-z-utilities"
+      ]
+    },
+    "elevation.z-50": {
+      "$type": "number",
+      "$value": 50,
+      "usage": 15,
+      "status": "used",
+      "evidence": [
+        "cit-z-utilities",
+        "cit-z-55-header"
+      ]
+    },
+    "elevation.z-header": {
+      "$type": "number",
+      "$value": 55,
+      "usage": 1,
+      "status": "used",
+      "note": "Arbitrary z-[55] on the fixed header wrapper.",
+      "evidence": [
+        "cit-z-55-header"
+      ]
+    },
+    "elevation.z-loading-bar": {
+      "$type": "number",
+      "$value": 1000,
+      "usage": 1,
+      "status": "used",
+      "note": "Arbitrary z-[1000]; invisible on this static clone.",
+      "evidence": [
+        "cit-z-1000-bar"
+      ]
+    },
+    "elevation.blur-dim": {
+      "$type": "dimension",
+      "$value": "20px",
+      "usage": 1,
+      "status": "used",
+      "note": "backdrop-blur-[20px] on the header dim layer.",
+      "evidence": [
+        "cit-blur-20"
+      ]
+    },
+    "elevation.blur-footer": {
+      "$type": "dimension",
+      "$value": "32px",
+      "usage": 1,
+      "status": "used",
+      "evidence": [
+        "cit-blur-32"
+      ]
+    },
+    "elevation.blur-glass": {
+      "$type": "dimension",
+      "$value": "4px",
+      "usage": 1,
+      "status": "used",
+      "note": "is-style-glass-white / glass-black buttons.",
+      "evidence": [
+        "cit-blur-4-glass"
+      ]
+    }
+  }
+}

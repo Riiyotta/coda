@@ -1,0 +1,79 @@
+{
+  "id": "component.cta-bar",
+  "kind": "component",
+  "purpose": "Compact inline call-to-action: one short line of text and a button in an offWhite rounded row. Sits in the description slot of the payment-method-table bridge.",
+  "props": {
+    "additionalProperties": false,
+    "required": [
+      "text",
+      "button"
+    ],
+    "properties": {
+      "text": {
+        "type": "string",
+        "maxWords": 8,
+        "note": "Measured 6 words (b copy on /pricing/)."
+      },
+      "button": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "label",
+          "style"
+        ],
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxWords": 2
+          },
+          "style": {
+            "type": "string",
+            "enum": [
+              "black"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "tokens": [
+    "color.offWhite",
+    "color.charcoal",
+    "radius.md",
+    "radius.lg",
+    "type.body-s",
+    "spacing.4",
+    "spacing.3"
+  ],
+  "motion": {
+    "pattern": "reveal-stagger",
+    "duration": "motion.reveal.duration",
+    "easing": "motion.reveal.easing",
+    "delayStep": "motion.reveal.stagger-step",
+    "reducedMotionFallback": "Design rule: render immediately."
+  },
+  "responsive": {
+    "radius": "rounded-md below 800px, rounded-lg from 800px",
+    "layout": "section-bridge-description becomes flex justify-end items-center from 800px"
+  },
+  "assetRoles": [],
+  "usedBy": [
+    "section.payment-method-table"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); no copy in this contract",
+    "copy": "b (only /pricing/)"
+  },
+  "measuredFrom": [
+    {
+      "id": "cit-p2-cta-bar",
+      "source": "src/pages/PricingPage.jsx:6-6",
+      "quote": "button-cta-inner flex gap-4 rounded-md md:rounded-lg pl-4 pr-3 py-3 items-center justify-center bg-offWhite text-charcoal"
+    },
+    {
+      "id": "cit-p2-cta-text",
+      "source": "src/pages/PricingPage.jsx:6-6",
+      "quote": "!type-body-s\">{\"See the complete list in Coda Portal\"}"
+    }
+  ]
+}

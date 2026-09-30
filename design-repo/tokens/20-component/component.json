@@ -1,0 +1,349 @@
+{
+  "$description": "Component-scoped tokens. Each resolves to a semantic or foundation token; nothing here introduces a value. A themed-block is a {bg, text} pair set through inline --theme-bg/--theme-color (the site colours whole sections this way).",
+  "tokens": {
+    "component.button.grey.bg": {
+      "$ref": "color.grey-0",
+      "usage": 34,
+      "evidence": [
+        "cit-cmp-button-grey",
+        "cit-cmp-button-usage"
+      ]
+    },
+    "component.button.grey.text": {
+      "$ref": "color.black",
+      "usage": 34,
+      "evidence": [
+        "cit-cmp-button-grey"
+      ]
+    },
+    "component.button.black.bg": {
+      "$ref": "color.black",
+      "usage": 21,
+      "evidence": [
+        "cit-cmp-button-black",
+        "cit-cmp-button-usage"
+      ]
+    },
+    "component.button.black.text": {
+      "$ref": "color.offWhite",
+      "usage": 21,
+      "evidence": [
+        "cit-cmp-button-black"
+      ]
+    },
+    "component.button.glass-white.bg": {
+      "$ref": "color.offWhite",
+      "alpha": 0.2,
+      "usage": 8,
+      "evidence": [
+        "cit-cmp-button-glass-white",
+        "cit-cmp-button-usage"
+      ]
+    },
+    "component.button.glass-white.text": {
+      "$ref": "color.offWhite",
+      "usage": 8,
+      "evidence": [
+        "cit-cmp-button-glass-white"
+      ]
+    },
+    "component.button.glass-white.blur": {
+      "$ref": "elevation.blur-glass",
+      "usage": 8,
+      "evidence": [
+        "cit-blur-4-glass"
+      ]
+    },
+    "component.button.glass-black.bg": {
+      "$ref": "color.black",
+      "alpha": 0.2,
+      "usage": 0,
+      "status": "defined-unused-in-jsx",
+      "evidence": [
+        "cit-cmp-button-glass-black"
+      ]
+    },
+    "component.button.radius": {
+      "$ref": "radius.button",
+      "hoverRef": "radius.button-hover",
+      "evidence": [
+        "cit-sem-radius-button-rest",
+        "cit-sem-radius-button-hover"
+      ]
+    },
+    "component.button.label": {
+      "$ref": "type.ui-button-s",
+      "evidence": [
+        "cit-sem-type-button"
+      ]
+    },
+    "component.themed-block.dark": {
+      "bg": {
+        "$ref": "color.charcoal"
+      },
+      "text": {
+        "$ref": "color.offWhite"
+      },
+      "usage": 15,
+      "evidence": [
+        "cit-cmp-themed-dark"
+      ]
+    },
+    "component.themed-block.grey": {
+      "bg": {
+        "$ref": "color.grey-2"
+      },
+      "text": {
+        "$ref": "color.offWhite"
+      },
+      "usage": 7,
+      "evidence": [
+        "cit-cmp-themed-grey2"
+      ]
+    },
+    "component.themed-block.white": {
+      "bg": {
+        "$ref": "color.white"
+      },
+      "text": {
+        "$ref": "color.charcoal"
+      },
+      "usage": 6,
+      "evidence": [
+        "cit-cmp-themed-white"
+      ]
+    },
+    "component.themed-block.light": {
+      "bg": {
+        "$ref": "color.grey-0"
+      },
+      "text": {
+        "$ref": "color.charcoal"
+      },
+      "usage": 5,
+      "evidence": [
+        "cit-cmp-themed-grey0"
+      ]
+    },
+    "component.themed-block.blue": {
+      "bg": {
+        "$ref": "color.blue-3"
+      },
+      "text": {
+        "$ref": "color.offWhite"
+      },
+      "usage": 2,
+      "evidence": [
+        "cit-cmp-themed-accent"
+      ]
+    },
+    "component.themed-block.yellow-deep": {
+      "bg": {
+        "$ref": "color.yellow-4"
+      },
+      "text": {
+        "$ref": "color.offWhite"
+      },
+      "usage": 1,
+      "evidence": [
+        "cit-cmp-themed-accent"
+      ]
+    },
+    "component.themed-block.pink": {
+      "bg": {
+        "$ref": "color.pink-3"
+      },
+      "text": {
+        "$ref": "color.offWhite"
+      },
+      "usage": 1,
+      "evidence": [
+        "cit-cmp-themed-accent"
+      ]
+    },
+    "component.themed-block.orange": {
+      "bg": {
+        "$ref": "color.orange-3"
+      },
+      "text": {
+        "$ref": "color.offWhite"
+      },
+      "usage": 1,
+      "evidence": [
+        "cit-cmp-themed-accent"
+      ]
+    },
+    "component.themed-block.green": {
+      "bg": {
+        "$ref": "color.green-3"
+      },
+      "text": {
+        "$ref": "color.offWhite"
+      },
+      "usage": 1,
+      "evidence": [
+        "cit-cmp-themed-accent"
+      ],
+      "note": "One --theme-bg usage of green-3 (measured in histogram)."
+    },
+    "component.card.benefit.bg": {
+      "$ref": "surface.card",
+      "usage": 93,
+      "evidence": [
+        "cit-sem-surface-card"
+      ]
+    },
+    "component.card.benefit.radius": {
+      "$ref": "radius.card",
+      "evidence": [
+        "cit-sem-radius-card"
+      ]
+    },
+    "component.card.benefit.padding": {
+      "$ref": "space.card-padding",
+      "evidence": [
+        "cit-sem-space-card"
+      ]
+    },
+    "component.card.benefit.gap": {
+      "$ref": "space.card-gap",
+      "evidence": [
+        "cit-sem-space-stack"
+      ]
+    },
+    "component.card.impact.bg": {
+      "$ref": "surface.soft",
+      "evidence": [
+        "cit-sem-surface-soft"
+      ]
+    },
+    "component.card.carousel.bg": {
+      "$ref": "surface.raised",
+      "usage": 42,
+      "evidence": [
+        "cit-sem-surface-raised"
+      ]
+    },
+    "component.card.carousel.media-plate": {
+      "$ref": "surface.muted",
+      "usage": 42,
+      "evidence": [
+        "cit-cmp-card-thumb"
+      ]
+    },
+    "component.card.carousel.aspect": {
+      "$value": {
+        "0": "328/362",
+        "800": "1008/400"
+      },
+      "thumbAspect": {
+        "0": "328/202",
+        "800": "1008/308"
+      },
+      "evidence": [
+        "cit-layout-carousel-item",
+        "cit-cmp-card-thumb"
+      ]
+    },
+    "component.media.radius": {
+      "$ref": "radius.card",
+      "usage": 70,
+      "evidence": [
+        "cit-cmp-media-item"
+      ]
+    },
+    "component.faq.divider": {
+      "$ref": "border.divider",
+      "usage": 91,
+      "evidence": [
+        "cit-cmp-faq"
+      ]
+    },
+    "component.faq.padding-y": {
+      "$ref": "spacing.5",
+      "usage": 91,
+      "evidence": [
+        "cit-cmp-faq"
+      ]
+    },
+    "component.faq.title": {
+      "$ref": "title.faq",
+      "evidence": [
+        "cit-cmp-faq"
+      ]
+    },
+    "component.faq.duration": {
+      "$ref": "motion.faq.duration",
+      "evidence": [
+        "cit-motion-faq"
+      ]
+    },
+    "component.faq.easing": {
+      "$ref": "motion.faq.easing",
+      "evidence": [
+        "cit-motion-faq-ease"
+      ]
+    },
+    "component.arrow.size": {
+      "$ref": "icon-size.control-toggle",
+      "note": "FAQ toggle is w-8 h-8 md:w-6 md:h-6; carousel arrows are w-8 h-8 md:w-7 md:h-7. control-toggle records the FAQ pair; the arrow md step is spacing.7.",
+      "arrowMdRef": "spacing.7",
+      "usage": 52,
+      "evidence": [
+        "cit-cmp-arrow",
+        "cit-icon-inline-h"
+      ]
+    },
+    "component.arrow.color": {
+      "$ref": "text.primary",
+      "disabled": "text.disabled",
+      "evidence": [
+        "cit-cmp-arrow"
+      ]
+    },
+    "component.header.logo-width": {
+      "$ref": "icon-size.header-logo",
+      "usage": 4,
+      "evidence": [
+        "cit-cmp-header-logo"
+      ]
+    },
+    "component.header.height": {
+      "$ref": "layout.nav.bar-height",
+      "evidence": [
+        "cit-layout-navbar-height"
+      ]
+    },
+    "component.header.layer": {
+      "$ref": "elevation.z-header",
+      "evidence": [
+        "cit-z-55-header"
+      ]
+    },
+    "component.header.slide-duration": {
+      "$ref": "motion.header.slide-duration",
+      "evidence": [
+        "cit-motion-header-hide-300"
+      ]
+    },
+    "component.marquee.speed": {
+      "$ref": "motion.marquee.speed",
+      "evidence": [
+        "cit-motion-marquee"
+      ]
+    },
+    "component.press-logo.width": {
+      "$ref": "icon-size.press-logo-w",
+      "usage": 9,
+      "evidence": [
+        "cit-cmp-marquee-logo"
+      ]
+    },
+    "component.reveal.duration": {
+      "$ref": "motion.reveal.duration",
+      "evidence": [
+        "cit-motion-reveal-duration"
+      ]
+    }
+  }
+}

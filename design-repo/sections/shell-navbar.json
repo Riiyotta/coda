@@ -1,0 +1,322 @@
+{
+  "id": "shell.navbar",
+  "kind": "section",
+  "category": "shell",
+  "content": {
+    "type": "object",
+    "required": [
+      "categories",
+      "pricingLabel",
+      "loginLabel",
+      "ctaLabel",
+      "languageLabel"
+    ],
+    "properties": {
+      "categories": {
+        "type": "array",
+        "minItems": 4,
+        "maxItems": 4,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "label": {
+              "type": "string",
+              "maxWords": 1,
+              "note": "Products / Solutions / Resources / Company"
+            },
+            "links": {
+              "type": "array",
+              "minItems": 4,
+              "maxItems": 8,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "maxWords": 4
+                  },
+                  "href": {
+                    "type": "string",
+                    "note": "one of the 15 routes or \"#\" (inert)",
+                    "format": "route-or-inert-hash"
+                  },
+                  "description": {
+                    "type": "string",
+                    "maxWords": 7
+                  }
+                },
+                "required": [
+                  "label",
+                  "href"
+                ]
+              },
+              "note": "Measured link counts: Products 6 (label + description), Solutions 8 (label only), Resources 6, Company 5"
+            },
+            "featured": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "maxWords": 2
+                },
+                "subtitle": {
+                  "type": "string",
+                  "maxWords": 4
+                }
+              },
+              "required": [
+                "title"
+              ],
+              "note": "Resources (\"Case Studies\" tile) and Company (\"Contact Us\" tile) only"
+            }
+          },
+          "required": [
+            "label",
+            "links"
+          ]
+        },
+        "note": "Exactly four dropdowns, in this order."
+      },
+      "pricingLabel": {
+        "type": "string",
+        "maxWords": 1,
+        "note": "Direct link to /pricing/"
+      },
+      "loginLabel": {
+        "type": "string",
+        "maxWords": 1
+      },
+      "ctaLabel": {
+        "type": "string",
+        "maxWords": 2,
+        "note": "\"Get started\""
+      },
+      "languageLabel": {
+        "type": "string",
+        "maxWords": 1,
+        "note": "\"EN\" - not functional in the clone (spec section 1c)"
+      },
+      "logo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "assetRole": {
+            "type": "string",
+            "enum": [
+              "coda-wordmark"
+            ]
+          }
+        },
+        "required": [
+          "assetRole"
+        ],
+        "note": "fixed Coda wordmark svg; must-reuse-exact"
+      }
+    },
+    "additionalProperties": false,
+    "maxWordsTotal": 385
+  },
+  "usedOn": [
+    "/",
+    "/product/codapay/",
+    "/product/coda-links/",
+    "/product/coda-webstore/",
+    "/product/distribution/",
+    "/product/coda-consumer-platforms/",
+    "/product/coda-giftcloud/",
+    "/industries/creator-economy-payments/",
+    "/industries/dating-app-payments/",
+    "/industries/digital-entertainment/",
+    "/industries/esim-digital-utility-payments/",
+    "/industries/learning-management-system-payments/",
+    "/industries/online-gaming-payments/",
+    "/use-case/merchant-of-record/",
+    "/pricing/"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); copy evidence per route below",
+    "copy": {
+      "a-exact": [
+        "/"
+      ],
+      "b-real-saved-copy": [
+        "/product/coda-links/",
+        "/product/coda-giftcloud/",
+        "/product/distribution/",
+        "/product/coda-consumer-platforms/",
+        "/pricing/"
+      ],
+      "c-original-slot-sized": [
+        "/product/codapay/",
+        "/product/coda-webstore/",
+        "/industries/creator-economy-payments/",
+        "/industries/dating-app-payments/",
+        "/industries/digital-entertainment/",
+        "/industries/esim-digital-utility-payments/",
+        "/industries/learning-management-system-payments/",
+        "/industries/online-gaming-payments/",
+        "/use-case/merchant-of-record/"
+      ]
+    }
+  },
+  "purpose": "Fixed site header: wordmark, four hover-dropdown categories (Products, Solutions, Resources, Company), Pricing link, EN button, Login and Get started; collapses to a hamburger menu below 800px. Shared chrome, rendered outside the page root on every route.",
+  "bodyCopyFields": [],
+  "variants": {
+    "desktop": {
+      "from": "800px",
+      "traits": "hover dropdowns, right-side actions (EN, Login, Get started), fixed height navBarHeightBase"
+    },
+    "mobile": {
+      "below": "800px",
+      "traits": "hamburger toggle; Get started visible in the bar; full-height panel with stacked categories; Login/Get started repeated in the panel"
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "maxPerPage": 1,
+    "mustBeFirst": true,
+    "verification": "Rendered once by the app shell before every route (src/App.jsx wraps all 15 routes in Header + Footer); it is not part of any page JSX, so PageSpec nodes list it first."
+  },
+  "media": {
+    "wordmark": {
+      "assetRole": [
+        "coda-wordmark"
+      ],
+      "policy": "must-reuse-exact"
+    }
+  },
+  "motion": {
+    "pattern": "scroll-hide + gsap-dropdown",
+    "interaction": {
+      "scrollHide": {
+        "threshold": "motion.header.hide-threshold-vh",
+        "slide": "motion.header.slide-duration",
+        "rule": "hide when y > 0.2*viewport and scrolling down; show on scroll up"
+      },
+      "dropdownOpen": {
+        "panel": "0.5s power2.inOut",
+        "items": "0.35s power2.out, stagger 30ms (motion.nav.item-stagger), delay 0.2s",
+        "featured": "0.35s, delay 0.4s"
+      },
+      "dropdownClose": "panel 0.5s, items 0.35s after 0.35s delay",
+      "hoverCloseDelay": "300ms",
+      "backdrop": "motion.header.dim-duration (700ms)",
+      "burger": "three lines rotate/translate to a cross",
+      "navigate": "menu closes and header reappears on route change"
+    },
+    "reducedMotionFallback": "Show the header permanently (no hide-on-scroll) and open/close dropdowns instantly with no GSAP tweens; keep the backdrop static.",
+    "reducedMotionFallbackKind": "design-rule (the site ships no prefers-reduced-motion handling, so this is prescribed, not mirrored)"
+  },
+  "responsive": {
+    "breakpoint": "800px (MOBILE_BP)",
+    "desktop": "hover-opened dropdown panels; actions on the right; header inset px-5 py-4",
+    "mobile": "p-3 inset, wordmark left, EN + Get started + hamburger on the right; tapped categories open a full-height panel (h-[100dvh]); dropdown items stack in one column",
+    "resize": "crossing 800px clears hover state"
+  },
+  "tokens": [
+    "component.header.logo-width",
+    "component.header.height",
+    "component.header.layer",
+    "component.header.slide-duration",
+    "layout.nav.bar-height",
+    "layout.nav.inner-top",
+    "elevation.z-header",
+    "elevation.blur-dim",
+    "icon-size.header-logo",
+    "icon-size.nav-toggle-w",
+    "icon-size.nav-toggle-h",
+    "icon-size.nav-toggle-line-h",
+    "type.ui-nav-l",
+    "nav.link",
+    "motion.header.hide-threshold-vh",
+    "motion.header.slide-duration",
+    "motion.header.dim-duration",
+    "motion.nav.open-duration",
+    "motion.nav.item-stagger",
+    "radius.lg",
+    "radius.mdu"
+  ],
+  "composes": [
+    "primitive.button"
+  ],
+  "measuredFrom": [
+    {
+      "id": "cit-p2-nav-fixed",
+      "source": "src/components/Header.jsx:10-10",
+      "quote": "fixed top-0 left-0 w-full z-[55] pointer-events-none transition-transform duration-300"
+    },
+    {
+      "id": "cit-p2-nav-shell",
+      "source": "src/components/Header.jsx:10-10",
+      "quote": "min-h-navBarHeightBase h-[100dvh] md:h-navBarHeightBase"
+    },
+    {
+      "id": "cit-p2-nav-cat",
+      "source": "src/components/Header.jsx:10-10",
+      "quote": "nav-header-category nav-header-category-Products"
+    },
+    {
+      "id": "cit-p2-nav-pricing",
+      "source": "src/components/Header.jsx:10-10",
+      "quote": "href=\"/pricing/\""
+    },
+    {
+      "id": "cit-p2-nav-featured",
+      "source": "src/components/Header.jsx:10-10",
+      "quote": "primary-category-featured"
+    },
+    {
+      "id": "cit-p2-nav-mobile-bp",
+      "source": "src/lib/header/navController.js:7-7",
+      "quote": "const MOBILE_BP = 800"
+    },
+    {
+      "id": "cit-p2-nav-hide",
+      "source": "src/lib/header/navController.js:211-211",
+      "quote": "const hidden = y > threshold && y > lastY"
+    },
+    {
+      "id": "cit-p2-nav-threshold",
+      "source": "src/lib/header/navController.js:12-12",
+      "quote": "const SCROLL_THRESHOLD_VH = 0.2"
+    },
+    {
+      "id": "cit-p2-nav-gsap-open",
+      "source": "src/lib/header/navController.js:57-57",
+      "quote": "gsap.fromTo(q('.primary-category-bg-inner'), { y: '-100%' }, { y: 0, duration: 0.5, ease: 'power2.inOut' })"
+    },
+    {
+      "id": "cit-p2-nav-gsap-items",
+      "source": "src/lib/header/navController.js:58-58",
+      "quote": "stagger: 0.03, delay: 0.2"
+    },
+    {
+      "id": "cit-p2-nav-hover",
+      "source": "src/lib/header/navController.js:8-8",
+      "quote": "const HOVER_CLOSE_MS = 300"
+    },
+    {
+      "id": "cit-p2-nav-reset",
+      "source": "src/lib/header/navController.js:194-194",
+      "quote": "on(window, 'coda:navigate', reset)"
+    },
+    {
+      "id": "cit-p2-nav-burger",
+      "source": "src/components/Header.jsx:10-10",
+      "quote": "group-[.open]:rotate-45"
+    },
+    {
+      "id": "cit-p2-nav-app",
+      "source": "src/App.jsx:32-32",
+      "quote": "<Header />"
+    },
+    {
+      "id": "cit-p2-nav-dim",
+      "source": "src/components/Header.jsx:10-10",
+      "quote": "backdrop-blur-[20px] opacity-0 transition-opacity duration-700"
+    }
+  ]
+}

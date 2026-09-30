@@ -1,0 +1,229 @@
+{
+  "id": "carousel.cards",
+  "kind": "section",
+  "category": "carousel",
+  "content": {
+    "type": "object",
+    "required": [
+      "heading",
+      "cards"
+    ],
+    "properties": {
+      "heading": {
+        "type": "string",
+        "maxWords": 5,
+        "note": "Measured 4 words on all 14 routes."
+      },
+      "cards": {
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 3,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "thumbnail": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "assetRole": {
+                  "type": "string",
+                  "enum": [
+                    "carousel-thumbnail"
+                  ]
+                },
+                "assetRef": {
+                  "type": "string",
+                  "format": "local-asset-path"
+                }
+              },
+              "required": [
+                "assetRole",
+                "assetRef"
+              ]
+            },
+            "overlayLogo": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "assetRole": {
+                  "type": "string",
+                  "enum": [
+                    "partner-logo"
+                  ]
+                },
+                "assetRef": {
+                  "type": "string",
+                  "format": "local-asset-path"
+                }
+              },
+              "required": [
+                "assetRole",
+                "assetRef"
+              ]
+            },
+            "title": {
+              "type": "string",
+              "maxWords": 19,
+              "note": "Measured 10-19 words; titles mimic article headlines."
+            },
+            "ctaLabel": {
+              "type": "string",
+              "maxWords": 2
+            }
+          },
+          "required": [
+            "thumbnail",
+            "title"
+          ]
+        },
+        "note": "Exactly 3 cards on every route (measured 14/14)."
+      }
+    },
+    "additionalProperties": false,
+    "maxWordsTotal": 68
+  },
+  "usedOn": [
+    "/",
+    "/product/codapay/",
+    "/product/coda-links/",
+    "/product/coda-webstore/",
+    "/product/distribution/",
+    "/product/coda-consumer-platforms/",
+    "/product/coda-giftcloud/",
+    "/industries/creator-economy-payments/",
+    "/industries/dating-app-payments/",
+    "/industries/digital-entertainment/",
+    "/industries/esim-digital-utility-payments/",
+    "/industries/learning-management-system-payments/",
+    "/industries/online-gaming-payments/",
+    "/use-case/merchant-of-record/"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); copy evidence per route below",
+    "copy": {
+      "a-exact": [
+        "/"
+      ],
+      "b-real-saved-copy": [
+        "/product/coda-links/",
+        "/product/coda-giftcloud/",
+        "/product/distribution/",
+        "/product/coda-consumer-platforms/"
+      ],
+      "c-original-slot-sized": [
+        "/product/codapay/",
+        "/product/coda-webstore/",
+        "/industries/creator-economy-payments/",
+        "/industries/dating-app-payments/",
+        "/industries/digital-entertainment/",
+        "/industries/esim-digital-utility-payments/",
+        "/industries/learning-management-system-payments/",
+        "/industries/online-gaming-payments/",
+        "/use-case/merchant-of-record/"
+      ]
+    }
+  },
+  "purpose": "Draggable \"Explore more\" card carousel of three article/case-study cards on a grey rounded panel, with previous/next arrows.",
+  "bodyCopyFields": [],
+  "variants": {
+    "default": "3 cards; first card carries an overlaid partner logo in the measured routes (1 logo per page)"
+  },
+  "constraints": {
+    "onePerPage": true,
+    "maxPerPage": 1,
+    "verification": "Present once on 14 routes (all but /pricing/). Sits directly before faq on 8 routes (six industries, MoR, consumer-platforms), before pre-footer on giftcloud, before press-carousel on /, before price-stack on codapay/links/webstore/distribution."
+  },
+  "media": {
+    "card-thumbnail": {
+      "assetRole": [
+        "carousel-thumbnail"
+      ],
+      "count": 3
+    },
+    "overlay-logo": {
+      "assetRole": [
+        "partner-logo"
+      ],
+      "count": "0-1"
+    }
+  },
+  "motion": {
+    "pattern": "lerp-carousel",
+    "reveals": [
+      {
+        "element": "card-carousel root",
+        "slide": false
+      }
+    ],
+    "interaction": {
+      "lerp": "motion.carousel.lerp",
+      "dragLerp": "motion.carousel.drag-lerp",
+      "dragCommitRatio": "motion.carousel.drag-commit-ratio",
+      "arrowStep": "one card per click, disabled at both ends",
+      "swipe": "pointer drag >10px marks a drag and suppresses link click"
+    },
+    "reducedMotionFallback": "Snap to the target card with no lerp/easing (instant translate); keep arrows and swipe.",
+    "reducedMotionFallbackKind": "design-rule (the site ships no prefers-reduced-motion handling, so this is prescribed, not mirrored)"
+  },
+  "responsive": {
+    "breakpoint": "800px",
+    "track": "85% width, card 328/362 below 800px (arrows in a footer row); full width, card 1008/400 from 800px (arrows in the header row)",
+    "stepSize": "one item per arrow click at every width; item width = 100% below 800px, blogPostVideoW from 800px",
+    "card": "thumbnail 328/202 -> 1008/308; text row column -> row"
+  },
+  "tokens": [
+    "component.card.carousel.bg",
+    "component.card.carousel.aspect",
+    "surface.muted",
+    "surface.light",
+    "radius.md",
+    "type.header-l",
+    "layout.carousel.item-width",
+    "motion.carousel.lerp",
+    "motion.carousel.drag-lerp",
+    "motion.carousel.drag-commit-ratio",
+    "motion.hover.card-scale"
+  ],
+  "composes": [
+    "component.carousel-card",
+    "primitive.arrow-button"
+  ],
+  "measuredFrom": [
+    {
+      "id": "cit-p2-cc-root",
+      "source": "src/components/CardCarousel.jsx:11-11",
+      "quote": "card-carousel flex flex-col w-full gap-6 my-9 md:px-6"
+    },
+    {
+      "id": "cit-p2-cc-panel",
+      "source": "src/components/CardCarousel.jsx:11-11",
+      "quote": "w-full bg-grey-0 rounded-md py-6 overflow-hidden"
+    },
+    {
+      "id": "cit-p2-cc-track",
+      "source": "src/components/CardCarousel.jsx:11-11",
+      "quote": "carousel w-[85%] md:w-full relative aspect-[328/362] md:aspect-[1008/400] flex flex-nowrap items-start"
+    },
+    {
+      "id": "cit-p2-cc-lerp",
+      "source": "src/lib/enhance/carousel.js:99-99",
+      "quote": "s.xLerp += (s.x - target + drag.current.xLerp - s.xLerp) * 0.125"
+    },
+    {
+      "id": "cit-p2-cc-drag",
+      "source": "src/lib/enhance/carousel.js:127-127",
+      "quote": "if (Math.abs(drag.delta.x) > (items[0]?.offsetWidth || window.innerWidth) * 0.15) {"
+    },
+    {
+      "id": "cit-p2-cc-disabled",
+      "source": "src/lib/enhance/carousel.js:38-38",
+      "quote": "const disabled = reverse ? current === 0 : current === count - 1"
+    },
+    {
+      "id": "cit-p2-cc-h2",
+      "source": "src/components/CardCarousel.jsx:11-11",
+      "quote": "<h2 className=\"type-header-l\">{\"Explore more from Coda\"}</h2>"
+    }
+  ]
+}

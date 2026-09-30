@@ -1,0 +1,380 @@
+{
+  "id": "highlight.mega",
+  "kind": "section",
+  "category": "highlight",
+  "content": {
+    "type": "object",
+    "required": [
+      "heading",
+      "media"
+    ],
+    "properties": {
+      "heading": {
+        "type": "string",
+        "maxWords": 15,
+        "note": "Bridge heading, measured 4-15 words (industries 10-15 words, webstore 4, distribution 5, MoR 8)."
+      },
+      "description": {
+        "type": "string",
+        "maxWords": 24,
+        "bodyCopy": true,
+        "note": "measured 17-24 words; absent on distribution"
+      },
+      "media": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "assetRole": {
+            "type": "string",
+            "enum": [
+              "section-product-mockup"
+            ]
+          },
+          "assetRef": {
+            "type": "string",
+            "format": "local-asset-path"
+          },
+          "mobileAssetRef": {
+            "type": "string",
+            "format": "local-asset-path"
+          }
+        },
+        "required": [
+          "assetRole",
+          "assetRef"
+        ]
+      },
+      "featureCards": {
+        "type": "array",
+        "minItems": 0,
+        "maxItems": 4,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "icon": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "assetRole": {
+                  "type": "string",
+                  "enum": [
+                    "inline-svg-glyph"
+                  ]
+                },
+                "tint": {
+                  "type": "string",
+                  "enum": [
+                    "blue",
+                    "green",
+                    "pink",
+                    "yellow",
+                    "purple",
+                    "orange",
+                    "black"
+                  ]
+                }
+              },
+              "required": [
+                "assetRole"
+              ]
+            },
+            "title": {
+              "type": "string",
+              "maxWords": 5
+            },
+            "body": {
+              "type": "string",
+              "maxWords": 20,
+              "bodyCopy": true
+            }
+          },
+          "required": [
+            "icon",
+            "title",
+            "body"
+          ]
+        },
+        "note": "0 on webstore; 2 on distribution; 4 on industries + MoR (measured)."
+      },
+      "benefitCards": {
+        "type": "array",
+        "minItems": 0,
+        "maxItems": 6,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "icon": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "assetRole": {
+                  "type": "string",
+                  "enum": [
+                    "inline-svg-glyph"
+                  ]
+                },
+                "tint": {
+                  "type": "string",
+                  "enum": [
+                    "blue",
+                    "green",
+                    "pink",
+                    "yellow",
+                    "purple",
+                    "orange",
+                    "black"
+                  ]
+                }
+              },
+              "required": [
+                "assetRole"
+              ]
+            },
+            "title": {
+              "type": "string",
+              "maxWords": 4
+            },
+            "body": {
+              "type": "string",
+              "maxWords": 20,
+              "bodyCopy": true
+            }
+          },
+          "required": [
+            "icon",
+            "title",
+            "body"
+          ]
+        },
+        "note": "distribution only (6)"
+      },
+      "comparisonTable": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "string",
+            "maxWords": 4
+          },
+          "columns": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "string",
+              "maxWords": 2
+            }
+          },
+          "rows": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 12,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "feature": {
+                  "type": "string",
+                  "maxWords": 3
+                },
+                "values": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "check-green",
+                      "check-grey",
+                      "x-circle"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "feature",
+                "values"
+              ]
+            }
+          }
+        },
+        "required": [
+          "title",
+          "columns",
+          "rows"
+        ],
+        "note": "webstore only"
+      },
+      "button": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "label": {
+            "type": "string",
+            "maxWords": 3
+          },
+          "style": {
+            "type": "string",
+            "enum": [
+              "grey"
+            ]
+          },
+          "href": {
+            "type": "string",
+            "format": "route-or-inert-hash"
+          }
+        },
+        "required": [
+          "label",
+          "style"
+        ]
+      }
+    },
+    "additionalProperties": false,
+    "maxWordsTotal": 330
+  },
+  "usedOn": [
+    "/product/coda-webstore/",
+    "/product/distribution/",
+    "/industries/creator-economy-payments/",
+    "/industries/dating-app-payments/",
+    "/industries/digital-entertainment/",
+    "/industries/esim-digital-utility-payments/",
+    "/industries/learning-management-system-payments/",
+    "/industries/online-gaming-payments/",
+    "/use-case/merchant-of-record/"
+  ],
+  "evidence": {
+    "structure": "structure measured against live coda.co (~1px, CLONE_SPEC.md); copy evidence per route below",
+    "copy": {
+      "b-real-saved-copy": [
+        "/product/distribution/"
+      ],
+      "c-original-slot-sized": [
+        "/product/coda-webstore/",
+        "/industries/creator-economy-payments/",
+        "/industries/dating-app-payments/",
+        "/industries/digital-entertainment/",
+        "/industries/esim-digital-utility-payments/",
+        "/industries/learning-management-system-payments/",
+        "/industries/online-gaming-payments/",
+        "/use-case/merchant-of-record/"
+      ]
+    }
+  },
+  "purpose": "Large dark rounded panel: bridge heading, one wide media band, then either a 2-column set of four feature cards (industries/MoR), a feature comparison table (webstore) or feature + benefit cards (distribution).",
+  "bodyCopyFields": [
+    "description",
+    "featureCards[].body",
+    "benefitCards[].body"
+  ],
+  "variants": {
+    "industry-cards": {
+      "routes": [
+        "/industries/creator-economy-payments/",
+        "/industries/dating-app-payments/",
+        "/industries/digital-entertainment/",
+        "/industries/esim-digital-utility-payments/",
+        "/industries/learning-management-system-payments/",
+        "/industries/online-gaming-payments/",
+        "/use-case/merchant-of-record/"
+      ],
+      "note": "MoR additionally has a closing grey button (measured 1 wp-block-button)"
+    },
+    "comparison-table": {
+      "routes": [
+        "/product/coda-webstore/"
+      ],
+      "note": "mobile 0.976 / desktop 2.52 media pair, table, grey button"
+    },
+    "feature+benefit": {
+      "routes": [
+        "/product/distribution/"
+      ],
+      "note": "2 feature cards + 6 benefit cards + grey button to consumer-platforms"
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "maxPerPage": 1,
+    "verification": "Checked: exactly one on 9 routes; the industry/MoR one sits directly after the first benefits-stack; never adjacent to another highlighted-mega."
+  },
+  "media": {
+    "panel-media": {
+      "assetRole": [
+        "section-product-mockup"
+      ],
+      "aspectRatio": 2.5197
+    }
+  },
+  "motion": {
+    "pattern": "reveal-stagger",
+    "reveals": [
+      {
+        "element": "section"
+      },
+      {
+        "element": "media",
+        "slide": true
+      },
+      {
+        "element": "cards",
+        "delayMs": "(i+1)*50"
+      }
+    ],
+    "reducedMotionFallback": "Final state, no slide or stagger.",
+    "reducedMotionFallbackKind": "design-rule (the site ships no prefers-reduced-motion handling, so this is prescribed, not mirrored)"
+  },
+  "responsive": {
+    "breakpoint": "800px",
+    "panel": "w-maxContentW with md:px-6 gutters; block-padding inside on mobile",
+    "grid": "1 col -> 2 cols (feature) / 3 cols (benefit)",
+    "media": "mobile/desktop item pair on webstore"
+  },
+  "tokens": [
+    "component.themed-block.dark",
+    "radius.lg",
+    "type.header-l",
+    "type.header-s",
+    "layout.content.max-width",
+    "layout.grid-gap.card"
+  ],
+  "composes": [
+    "component.themed-block",
+    "component.section-bridge",
+    "component.media",
+    "component.card-feature",
+    "component.card-benefit",
+    "component.comparison-table",
+    "primitive.button"
+  ],
+  "measuredFrom": [
+    {
+      "id": "cit-p2-hm-root",
+      "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9",
+      "quote": "highlighted-mega w-maxContentW mx-auto my-9 md:px-6"
+    },
+    {
+      "id": "cit-p2-hm-panel",
+      "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9",
+      "quote": "w-full pt-9 pb-6 rounded-lg"
+    },
+    {
+      "id": "cit-p2-hm-grid",
+      "source": "src/pages/IndustriesCreatorEconomyPaymentsPage.jsx:9-9",
+      "quote": "features-stack-inner w-full max-w-blogPostVideoW mx-auto grid grid-cols-1 gap-4 md:grid-cols-2"
+    },
+    {
+      "id": "cit-p2-hm-distr",
+      "source": "src/pages/ProductDistributionPage.jsx:9-9",
+      "quote": "benefits-stack-inner w-full max-w-blogPostVideoW mx-auto grid grid-cols-1 gap-4 md:grid-cols-3 mt-4"
+    },
+    {
+      "id": "cit-p2-hm-table",
+      "source": "src/pages/ProductCodaWebstorePage.jsx:9-9",
+      "quote": "wp-block-table is-style-regular"
+    }
+  ]
+}
